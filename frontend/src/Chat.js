@@ -80,7 +80,7 @@ export default function Chat() {
         <div className="chat-shell" style={s.shell}>
 
           {/* Sidebar */}
-          <div className="sidebar" style={{ ...s.sidebar, width: sidebarOpen ? "200px" : "0px", minWidth: sidebarOpen ? "200px" : "0px", overflow:"hidden", transition:"all 0.3s ease" }}>
+          <div className="sidebar" style={{ ...s.sidebar, position:"absolute", top:0, left:0, bottom:0, width: sidebarOpen ? "220px" : "0px", overflow:"hidden", transition:"width 0.3s ease", zIndex:200 }}>
             <div style={{ padding:"20px 14px", display:"flex", flexDirection:"column", gap:"10px", minWidth:"200px" }}>
               <div style={{ display:"flex", alignItems:"center", gap:"10px", marginBottom:"8px" }}>
                 <img src="/logo.png" alt="ACity" style={{ width:"36px", height:"36px", objectFit:"contain", background:"#fff", borderRadius:"8px", padding:"3px" }} onError={e=>{e.target.style.display="none"}} />
@@ -168,10 +168,10 @@ export default function Chat() {
 const s = {
   page:{ height:"100dvh", background:"#c0002a", display:"flex", fontFamily:"'Segoe UI',Arial,sans-serif", margin:"0", padding:"0", overflow:"hidden" },
   pageWrap:{ width:"100%", padding:"0", margin:"0" },
-  shell:{ display:"flex", width:"100%", height:"100%", background:"#fff", overflow:"hidden" },
+  shell:{ display:"flex", width:"100%", height:"100%", background:"#fff", overflow:"hidden", position:"relative" },
   sidebar:{ background:RED, display:"flex", flexDirection:"column" },
   topicBtn:{ display:"block", width:"100%", background:"transparent", border:"none", color:"rgba(255,255,255,0.8)", padding:"8px 10px", borderRadius:"8px", cursor:"pointer", textAlign:"left", fontSize:"12px", fontWeight:"500", marginBottom:"2px", transition:"background 0.2s" },
-  main:{ flex:1, display:"flex", flexDirection:"column", overflow:"hidden", minWidth:0 },
+  main:{ flex:1, display:"flex", flexDirection:"column", overflow:"hidden", minWidth:0, width:"100%" },
   header:{ background:RED, color:"#fff", padding:"14px 18px", display:"flex", alignItems:"center", gap:"12px", position:"sticky", top:0, zIndex:100, flexShrink:0 },
   toggleBtn:{ background:"transparent", border:"none", cursor:"pointer", padding:"4px", display:"flex", alignItems:"center", justifyContent:"center", flexShrink:0, borderRadius:"6px" },
   logoImg:{ width:"38px", height:"38px", objectFit:"contain", borderRadius:"8px", background:"#fff", padding:"3px", flexShrink:0 },
