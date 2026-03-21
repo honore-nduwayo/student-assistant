@@ -47,6 +47,18 @@ export default function Chat() {
   const [loading, setLoading] = useState(false);
   const [sidebarOpen, setSidebarOpen] = useState(window.innerWidth > 768);
   const bottomRef = useRef(null);
+  const [ratings, setRatings] = useState({});
+
+  const sendFeedback = async (messageId, rating, question, answer) => {
+    setRatings(prev => ({ ...prev, [messageId]: rating }));
+    try {
+      await fetch(`${process.env.REACT_APP_API_URL}/feedback`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ message_id: messageId, rating, question, answer })
+      });
+    } catch {}
+  };
   const isMobile = window.innerWidth <= 768;
 
   useEffect(() => { bottomRef.current?.scrollIntoView({ behavior:"smooth" }); }, [messages]);
@@ -140,8 +152,25 @@ export default function Chat() {
                   <img src="/logochat.png" alt="AC" style={{ width:"100%", height:"100%", objectFit:"cover" }} onError={e=>{e.target.style.display="none"}} />
                 </div>
               )}
-              <div style={msg.role==="user" ? s.userBubble : s.botBubble}>
-                {renderText(msg.text)}
+              <div style={{ display:"flex", flexDirection:"column", gap:"6px", maxWidth:"82%" }}>
+                <div style={msg.role==="user" ? s.userBubble : s.botBubble}>
+                  {renderText(msg.text)}
+                </div>
+                {msg.role === "bot" && i > 0 && (
+                  <div style={{ display:"flex", gap:"6px", paddingLeft:"4px" }}>
+                    <button
+                      onClick={() => sendFeedback(`msg_${i}`, "up", messages[i-1]?.text || "", msg.text)}
+                      style={{ ...s.feedbackBtn, background: ratings[`msg_${i}`] === "up" ? "#4ade80" : "#f0f0f0", color: ratings[`msg_${i}`] === "up" ? "#fff" : "#888" }}
+                      title="Helpful"
+                    >👍</button>
+                    <button
+                      onClick={() => sendFeedback(`msg_${i}`, "down", messages[i-1]?.text || "", msg.text)}
+                      style={{ ...s.feedbackBtn, background: ratings[`msg_${i}`] === "down" ? "#ef4444" : "#f0f0f0", color: ratings[`msg_${i}`] === "down" ? "#fff" : "#888" }}
+                      title="Not helpful"
+                    >👎</button>
+                    {ratings[`msg_${i}`] && <span style={{ fontSize:"11px", color:"#aaa", alignSelf:"center" }}>Thanks for your feedback!</span>}
+                  </div>
+                )}
               </div>
             </div>
           ))}
@@ -208,4 +237,5 @@ const s = {
   input:{ flex:1, border:"1.5px solid #e0e0e0", borderRadius:"12px", padding:"10px 14px", fontSize:"14px", resize:"none", outline:"none", fontFamily:"inherit", color:"#1a1a1a", lineHeight:"1.5" },
   sendBtn:{ background:RED, color:"#fff", border:"none", borderRadius:"12px", width:"44px", height:"44px", display:"flex", alignItems:"center", justifyContent:"center", cursor:"pointer", flexShrink:0 },
   footer:{ textAlign:"center", fontSize:"11px", color:"#aaa", padding:"6px", background:"#fff", flexShrink:0 },
+  feedbackBtn:{ border:"none", borderRadius:"20px", padding:"4px 10px", fontSize:"13px", cursor:"pointer", transition:"all 0.2s" },
 };

@@ -240,6 +240,22 @@ export default function Admin() {
               {loading ? <p>Loading...</p> : (
                 <div>
                   <div style={s.statBox}><div style={s.statNum}>{stats.total_questions || 0}</div><div style={s.statLabel}>Total Questions Asked</div></div>
+                  {stats.feedback && (
+                    <div style={{ display:"flex", gap:"12px", marginBottom:"16px", flexWrap:"wrap" }}>
+                      <div style={{ ...s.statBox, flex:1, minWidth:"120px", background:"#4ade80" }}>
+                        <div style={{ fontSize:"32px", fontWeight:"900", color:"#fff" }}>👍 {stats.feedback.thumbs_up}</div>
+                        <div style={{ fontSize:"13px", color:"#fff", opacity:0.85 }}>Helpful</div>
+                      </div>
+                      <div style={{ ...s.statBox, flex:1, minWidth:"120px", background:"#ef4444" }}>
+                        <div style={{ fontSize:"32px", fontWeight:"900", color:"#fff" }}>👎 {stats.feedback.thumbs_down}</div>
+                        <div style={{ fontSize:"13px", color:"#fff", opacity:0.85 }}>Not Helpful</div>
+                      </div>
+                      <div style={{ ...s.statBox, flex:1, minWidth:"120px", background:"#c0002a" }}>
+                        <div style={{ fontSize:"32px", fontWeight:"900", color:"#fff" }}>{stats.feedback.satisfaction_rate}%</div>
+                        <div style={{ fontSize:"13px", color:"#fff", opacity:0.85 }}>Satisfaction Rate</div>
+                      </div>
+                    </div>
+                  )}
                   <h3 style={{color:"#1e293b",marginTop:"24px"}}>Questions by Topic</h3>
                   {Object.entries(stats.by_topic || {}).map(([topic, count]) => (
                     <div key={topic} style={s.statRow}>

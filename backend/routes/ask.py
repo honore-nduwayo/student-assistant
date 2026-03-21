@@ -50,3 +50,25 @@ def detect_topic(question):
     if any(w in q for w in ["hostel", "accommodation", "room", "housing"]):
         return "hostel"
     return "general"
+
+
+@ask_bp.route("/feedback", methods=["POST"])
+def save_feedback():
+    try:
+        data = request.get_json()
+        message_id = data.get("message_id")
+        rating = data.get("rating")
+        question = data.get("question", "")
+        answer = data.get("answer", "")
+        if not message_id or rating not in ["up", "down"]:
+            return jsonify({"error": "Invalid feedback"}), 400
+        from services.database import db
+        db.collection("feedback").document(message_id).set({
+            "rating": rating,
+            "question": question,
+            "answer": answer[:200],
+            "timestamp": __import__("datetime").datetime.utcnow()
+        })
+        return jsonify({"status": "saved"}), 200
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500

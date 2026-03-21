@@ -121,9 +121,19 @@ def stats():
     try:
         topic_stats = get_topic_stats()
         total = sum(topic_stats.values())
+        from services.database import db
+        feedback_docs = list(db.collection("feedback").stream())
+        thumbs_up = sum(1 for d in feedback_docs if d.to_dict().get("rating") == "up")
+        thumbs_down = sum(1 for d in feedback_docs if d.to_dict().get("rating") == "down")
         return jsonify({
             "total_questions": total,
-            "by_topic": topic_stats
+            "by_topic": topic_stats,
+            "feedback": {
+                "total": len(feedback_docs),
+                "thumbs_up": thumbs_up,
+                "thumbs_down": thumbs_down,
+                "satisfaction_rate": round((thumbs_up / len(feedback_docs)) * 100) if feedback_docs else 0
+            }
         }), 200
     except Exception as e:
         return jsonify({"error": str(e)}), 500
