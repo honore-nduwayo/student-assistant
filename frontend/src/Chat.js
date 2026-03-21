@@ -167,8 +167,8 @@ export default function Chat() {
 
 const s = {
   page:{ minHeight:"100vh", background:"#c0002a", display:"flex", alignItems:"center", justifyContent:"center", fontFamily:"'Segoe UI',Arial,sans-serif" },
-  pageWrap:{ width:"100%", maxWidth:"1000px", padding:"20px" },
-  shell:{ display:"flex", height:"88vh", background:"#fff", borderRadius:"20px", overflow:"hidden", boxShadow:"0 20px 60px rgba(0,0,0,0.3)" },
+  pageWrap:{ width:"100%", padding:"0" },
+  shell:{ display:"flex", height:"100vh", height:"100dvh", background:"#fff", borderRadius:"0", overflow:"hidden" },
   sidebar:{ background:RED, display:"flex", flexDirection:"column" },
   topicBtn:{ display:"block", width:"100%", background:"transparent", border:"none", color:"rgba(255,255,255,0.8)", padding:"8px 10px", borderRadius:"8px", cursor:"pointer", textAlign:"left", fontSize:"12px", fontWeight:"500", marginBottom:"2px", transition:"background 0.2s" },
   main:{ flex:1, display:"flex", flexDirection:"column", overflow:"hidden" },
