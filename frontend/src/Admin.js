@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 const RED = "#c0002a";
 const DARK_RED = "#6b0015";
 const API = process.env.REACT_APP_API_URL;
-const SECRET = "acitystudentassistant2025";
+const getSecret = () => localStorage.getItem("admin_password") || "acitystudentassistant2025";
 
 const css = `
   @keyframes fadeUp { from{opacity:0;transform:translateY(10px)} to{opacity:1;transform:translateY(0)} }
@@ -62,7 +62,44 @@ const TABS = [
   { key:"logs", label:"Chat Logs", sub:"Recent conversations" },
   { key:"stats", label:"Analytics", sub:"Usage & satisfaction" },
   { key:"upload", label:"Upload File", sub:"PDF, TXT, DOCX" },
+  { key:"settings", label:"Settings", sub:"Password & config" },
 ];
+
+function SettingsTab() {
+  const [current, setCurrent] = useState("");
+  const [newPass, setNewPass] = useState("");
+  const [confirm, setConfirm] = useState("");
+  const [msg, setMsg] = useState("");
+  const [err, setErr] = useState("");
+
+  const save = () => {
+    setMsg(""); setErr("");
+    const stored = localStorage.getItem("admin_password") || "acitystudentassistant2025";
+    if (current !== stored) { setErr("Current password is incorrect."); return; }
+    if (newPass.length < 6) { setErr("New password must be at least 6 characters."); return; }
+    if (newPass !== confirm) { setErr("Passwords do not match."); return; }
+    localStorage.setItem("admin_password", newPass);
+    setMsg("Password updated successfully! Use it next time you log in.");
+    setCurrent(""); setNewPass(""); setConfirm("");
+  };
+
+  return (
+    <div className="anim">
+      <div style={dash.sectionHeader}>
+        <div><div style={dash.sectionTitle}>Settings</div><div style={dash.sectionSub}>Change your admin password</div></div>
+      </div>
+      <div style={dash.card}>
+        <p style={{ color:"#777", fontSize:"14px", marginTop:0, lineHeight:"1.7" }}>Update your admin panel password. You will need the new password next time you log in.</p>
+        <input style={dash.input} type="password" placeholder="Current password" value={current} onChange={e=>setCurrent(e.target.value)} />
+        <input style={dash.input} type="password" placeholder="New password" value={newPass} onChange={e=>setNewPass(e.target.value)} />
+        <input style={dash.input} type="password" placeholder="Confirm new password" value={confirm} onChange={e=>setConfirm(e.target.value)} />
+        {err && <div style={{ color:"#ef4444", fontSize:"13px", marginBottom:"12px" }}>{err}</div>}
+        {msg && <div style={{ color:"#065f46", fontSize:"13px", marginBottom:"12px", background:"#d1fae5", padding:"10px 14px", borderRadius:"10px" }}>{msg}</div>}
+        <button className="pill-btn glow-btn" onClick={save} style={dash.primaryBtn}>Update Password</button>
+      </div>
+    </div>
+  );
+}
 
 function UploadTab({ api, secret, onSave }) {
   const [file, setFile] = useState(null);
@@ -226,7 +263,7 @@ export default function Admin() {
   const isMobile = window.innerWidth <= 768;
 
   const login = () => {
-    if (password === SECRET) { setLoggedIn(true); setError(""); }
+    if (password === getSecret()) { setLoggedIn(true); setError(""); }
     else setError("Incorrect password. Try again.");
   };
 
@@ -438,7 +475,7 @@ export default function Admin() {
             </div>
           )}
 
-          {tab==="upload" && <UploadTab api={API} secret={SECRET} onSave={loadEntries} />}
+          {tab==="upload" && <UploadTab api={API} secret={getSecret()} onSave={loadEntries} />}
         </div>
       </div>
     </div>
