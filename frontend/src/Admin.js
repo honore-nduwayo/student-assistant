@@ -83,7 +83,7 @@ export default function Admin() {
   if (!loggedIn) return (
     <div style={s.page}>
       <div style={s.loginBox}>
-        <div style={s.logoBox}><div style={s.logoText}>A</div></div>
+        <div style={s.logoBox}><img src="/admin.png" alt="Admin" style={{ width:"100%", height:"100%", objectFit:"contain", borderRadius:"8px" }} onError={e=>{e.target.style.display="none"}} /></div>
         <h2 style={s.loginTitle}>ACity Admin Panel</h2>
         <p style={s.loginSub}>Enter your admin password to continue</p>
         <input style={s.input} type="password" placeholder="Admin password"
@@ -100,7 +100,7 @@ export default function Admin() {
       <div style={s.shell}>
         <div style={s.sidebar}>
           <div style={s.sideHeader}>
-            <div style={s.logoBox}><div style={s.logoText}>A</div></div>
+            <div style={s.logoBox}><img src="/admin.png" alt="Admin" style={{ width:"100%", height:"100%", objectFit:"contain", borderRadius:"8px" }} onError={e=>{e.target.style.display="none"}} /></div>
             <div>
               <div style={s.sideTitle}>Admin Panel</div>
               <div style={s.sideSub}>ACity Student Assistant</div>
