@@ -61,7 +61,7 @@ const TABS = [
   { key:"add", label:"Add Entry", sub:"Create new Q&A pair" },
   { key:"logs", label:"Chat Logs", sub:"Recent conversations" },
   { key:"stats", label:"Analytics", sub:"Usage & satisfaction" },
-  { key:"upload", label:"Upload File", sub:"PDF, TXT, DOCX" },
+  { key:"upload", label:"Upload File", sub:"JSON Q&A files" },
   { key:"settings", label:"Settings", sub:"Password & config" },
 ];
 
@@ -148,11 +148,12 @@ function UploadTab({ api, secret, onSave }) {
   return (
     <div className="anim">
       <div style={dash.sectionHeader}>
-        <div><div style={dash.sectionTitle}>Upload File</div><div style={dash.sectionSub}>PDF, TXT, or DOCX — AI extracts Q&A automatically</div></div>
+        <div><div style={dash.sectionTitle}>Upload JSON</div><div style={dash.sectionSub}>Direct Q&A upload — instant, no AI needed</div></div>
       </div>
       <div style={dash.card}>
-        <p style={{ color:"#777", fontSize:"14px", marginTop:0, lineHeight:"1.7" }}>Upload an official ACity document. Gemini will generate Q&A pairs for your review before saving.</p>
-        <input type="file" accept=".pdf,.txt,.docx" onChange={e=>setFile(e.target.files[0])} style={{ marginBottom:"14px", fontSize:"14px", color:"#555" }} />
+        <p style={{ color:"#777", fontSize:"14px", marginTop:0, lineHeight:"1.7" }}>Upload a JSON file containing Q&A pairs. Entries are shown for review before saving to the database.</p>
+        <p style={{ color:"#aaa", fontSize:"12px", marginTop:0, lineHeight:"1.7" }}>Format: <strong>[{"{"}"topic":"fees","question":"...","answer":"...","keywords":"..."{"}"}]</strong></p>
+        <input type="file" accept=".json" onChange={e=>setFile(e.target.files[0])} style={{ marginBottom:"14px", fontSize:"14px", color:"#555" }} />
         <br />
         <button className="pill-btn glow-btn" onClick={extract} style={dash.primaryBtn}>Extract Q&A</button>
         {status && <p style={{ color:"#777", fontSize:"13px", marginTop:"12px" }}>{status}</p>}

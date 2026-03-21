@@ -142,7 +142,7 @@ def stats():
 # ── File Upload & AI Extraction ───────────────────────────────
 @admin_bp.route("/admin/upload", methods=["POST"])
 def upload_file():
-    """Upload a PDF or TXT file and extract Q&A pairs using Gemini."""
+    """Upload a JSON file of Q&A pairs directly into the knowledge base."""
     data = request.get_json(silent=True) or {}
     key = data.get("admin_key") or request.headers.get("X-Admin-Key") or request.args.get("admin_key")
     import os
@@ -154,65 +154,38 @@ def upload_file():
 
     file = request.files["file"]
     filename = file.filename.lower()
-    text = ""
+
+    if not filename.endswith(".json"):
+        return jsonify({"error": "Only JSON files are supported. Format: [{topic, question, answer, keywords}]"}), 400
 
     try:
-        if filename.endswith(".txt"):
-            text = file.read().decode("utf-8", errors="ignore")
-        elif filename.endswith(".docx"):
-            from docx import Document
-            import io
-            doc = Document(io.BytesIO(file.read()))
-            text = "\n".join([p.text for p in doc.paragraphs])
-        elif filename.endswith(".pdf"):
-            import PyPDF2, io
-            reader = PyPDF2.PdfReader(io.BytesIO(file.read()))
-            for page in reader.pages:
-                text += page.extract_text() or ""
-        else:
-            return jsonify({"error": "Only PDF, TXT and DOCX files are supported"}), 400
-
-        if not text.strip():
-            return jsonify({"error": "Could not extract text from file"}), 400
-
-        from google import genai
-        client = genai.Client(api_key=os.getenv("GEMINI_API_KEY"))
-        prompt = f"""You are a knowledge base builder for a university student assistant chatbot.
-
-Read the following document and extract 5 to 15 useful Q&A pairs that students would ask.
-
-Return ONLY a valid JSON array. No explanation. No markdown. Just the array.
-
-Format:
-[
-  {{
-    "topic": "one of: fees, registration, exams, hostel, enrollment, general",
-    "question": "question a student would ask",
-    "answer": "clear direct answer from the document",
-    "keywords": "comma separated keywords"
-  }}
-]
-
-Document:
-{text[:8000]}"""
-
-        response = client.models.generate_content(
-            model="gemini-2.5-flash",
-            contents=prompt
-        )
-        raw = response.text.strip()
-        raw = raw.replace("```json", "").replace("```", "").strip()
-
         import json
+        raw = file.read().decode("utf-8", errors="ignore")
         entries = json.loads(raw)
-        return jsonify({"entries": entries, "count": len(entries)}), 200
 
+        if not isinstance(entries, list):
+            return jsonify({"error": "JSON must be an array of entries."}), 400
+
+        valid = []
+        for e in entries:
+            if e.get("question") and e.get("answer") and e.get("topic"):
+                valid.append({
+                    "topic": e.get("topic", "general"),
+                    "question": e["question"],
+                    "answer": e["answer"],
+                    "keywords": e.get("keywords", "")
+                })
+
+        if not valid:
+            return jsonify({"error": "No valid entries found. Each entry needs topic, question and answer."}), 400
+
+        return jsonify({"entries": valid, "count": len(valid)}), 200
+
+    except json.JSONDecodeError:
+        return jsonify({"error": "Invalid JSON file. Please check the file format."}), 400
     except Exception as e:
         return jsonify({"error": str(e)}), 500
 
-
-
-# ── Password Management ───────────────────────────────────────
 @admin_bp.route("/admin/password", methods=["GET"])
 def get_password():
     import os
