@@ -5,7 +5,8 @@ from services.database import (
     update_entry,
     delete_entry,
     get_chat_logs,
-    get_topic_stats
+    get_topic_stats,
+    db
 )
 
 admin_bp = Blueprint("admin", __name__)
@@ -209,3 +210,41 @@ Document:
     except Exception as e:
         return jsonify({"error": str(e)}), 500
 
+
+
+# ── Password Management ───────────────────────────────────────
+@admin_bp.route("/admin/password", methods=["GET"])
+def get_password():
+    import os
+    try:
+        doc = db.collection("settings").document("admin").get()
+        if doc.exists:
+            return jsonify({"password": doc.to_dict().get("password", os.getenv("SECRET_KEY"))}), 200
+        return jsonify({"password": os.getenv("SECRET_KEY")}), 200
+    except Exception:
+        import os as _os
+        return jsonify({"password": _os.getenv("SECRET_KEY")}), 200
+
+@admin_bp.route("/admin/password", methods=["POST"])
+def update_password():
+    import os
+    data = request.get_json(silent=True) or {}
+    current_key = data.get("admin_key", "").strip()
+    new_password = data.get("new_password", "").strip()
+    master = os.getenv("SECRET_KEY")
+    stored = master
+    try:
+        doc = db.collection("settings").document("admin").get()
+        if doc.exists:
+            stored = doc.to_dict().get("password", master)
+    except Exception:
+        pass
+    if current_key != stored and current_key != master:
+        return jsonify({"error": "Incorrect current password."}), 401
+    if len(new_password) < 6:
+        return jsonify({"error": "Password must be at least 6 characters."}), 400
+    try:
+        db.collection("settings").document("admin").set({"password": new_password})
+        return jsonify({"success": True}), 200
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
