@@ -115,9 +115,9 @@ export default function Chat() {
       <div style={{
         ...s.sidebar,
         transform: sidebarOpen ? "translateX(0)" : "translateX(-100%)",
-        position: isMobile ? "fixed" : "relative",
-        zIndex: isMobile ? 300 : 1,
-        height: isMobile ? "100dvh" : "100%",
+        position: isMobile ? "fixed" : "absolute",
+        zIndex: isMobile ? 300 : 200,
+        height: "100%",
         flexShrink: 0,
       }}>
         <div style={s.sidebarInner}>
@@ -244,7 +244,7 @@ export default function Chat() {
 }
 
 const s = {
-  page:{ display:"flex", width:"100vw", height:"100dvh", background:"#fafafa", fontFamily:"-apple-system,'Segoe UI',sans-serif", overflow:"hidden", position:"relative" },
+  page:{ display:"flex", width:"100vw", height:"100dvh", background:"#fafafa", fontFamily:"-apple-system,'Segoe UI',sans-serif", overflow:"hidden", position:"relative", overscrollBehavior:"none" },
   overlay:{ position:"fixed", inset:0, background:"rgba(0,0,0,0.55)", zIndex:299, backdropFilter:"blur(2px)" },
   sidebar:{ width:"220px", background:`linear-gradient(180deg,${RED} 0%,${DARK_RED} 100%)`, transition:"transform 0.3s cubic-bezier(0.4,0,0.2,1)", top:0, left:0 },
   sidebarInner:{ width:"220px", height:"100%", display:"flex", flexDirection:"column", padding:"20px 12px", boxSizing:"border-box" },
