@@ -263,7 +263,7 @@ function Sidebar({ tab, setTab, setMsg, setEditId, setForm, sidebarOpen, setSide
 export default function Admin() {
   const [loggedIn, setLoggedIn] = useState(false);
   const [adminSecret, setAdminSecret] = useState("");
-  useEffect(() => {
+  useEffect(() => { // eslint-disable-line react-hooks/exhaustive-deps
     fetch(`${API}/admin/password`)
       .then(r=>r.json())
       .then(d=>setAdminSecret(d.password||"acitystudentassistant2025"))
