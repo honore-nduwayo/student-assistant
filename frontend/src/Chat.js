@@ -1,7 +1,7 @@
 import { useState, useRef, useEffect } from "react";
 
 const RED = "#c0002a";
-const DARK_RED = "#8b0020";
+
 
 function renderInlineLinks(text) {
   const urlRegex = /(https?:\/\/[^\s]+)/g;
