@@ -4,10 +4,10 @@ const API = process.env.REACT_APP_API_URL;
 const SECRET = "acitystudentassistant2025";
 
 function UploadTab({ api, secret, onSave }) {
-  const [file, setFile] = React.useState(null);
-  const [status, setStatus] = React.useState("");
-  const [proposed, setProposed] = React.useState([]);
-  const [saving, setSaving] = React.useState(false);
+  const [file, setFile] = useState(null);
+  const [status, setStatus] = useState("");
+  const [proposed, setProposed] = useState([]);
+  const [saving, setSaving] = useState(false);
 
   const extract = async () => {
     if (!file) { setStatus("Please select a file first."); return; }
