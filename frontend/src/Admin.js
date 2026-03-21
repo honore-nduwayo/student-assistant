@@ -259,7 +259,7 @@ export default function Admin() {
 }
 
 const s = {
-  page: { minHeight:"100vh", background:"linear-gradient(135deg,#c0002a,#8b0020)", display:"flex", alignItems:"center", justifyContent:"center", fontFamily:"'Segoe UI',Arial,sans-serif", padding:"16px" },
+  page: { height:"100dvh", background:"#c0002a", display:"flex", fontFamily:"'Segoe UI',Arial,sans-serif", margin:0, padding:0, overflow:"hidden" },
   loginBox: { background:"#fff", borderRadius:"20px", padding:"40px", width:"100%", maxWidth:"400px", textAlign:"center", boxShadow:"0 20px 60px rgba(0,0,0,0.3)" },
   logoBox: { width:"56px", height:"56px", background:"#f5a623", borderRadius:"14px", display:"flex", alignItems:"center", justifyContent:"center", margin:"0 auto 16px" },
   logoText: { fontWeight:"900", fontSize:"28px", color:"#c0002a" },
@@ -269,7 +269,7 @@ const s = {
   error: { color:"#ef4444", marginBottom:"12px", fontSize:"14px" },
   success: { background:"#d1fae5", color:"#065f46", padding:"12px 16px", borderRadius:"10px", marginBottom:"16px", fontSize:"14px" },
   btn: { background:"#c0002a", color:"#fff", border:"none", borderRadius:"10px", padding:"12px 24px", fontSize:"15px", cursor:"pointer", width:"100%" },
-  shell: { width:"100%", maxWidth:"1100px", height:"92vh", display:"flex", borderRadius:"20px", overflow:"hidden", boxShadow:"0 20px 60px rgba(0,0,0,0.3)" },
+  shell: { width:"100%", height:"100%", display:"flex", overflow:"hidden" },
   sidebar: { width:"220px", background:"#c0002a", display:"flex", flexDirection:"column", padding:"24px 16px", gap:"4px", flexShrink:0 },
   sideHeader: { display:"flex", alignItems:"center", gap:"12px", marginBottom:"24px" },
   sideTitle: { color:"#fff", fontWeight:"700", fontSize:"14px" },
