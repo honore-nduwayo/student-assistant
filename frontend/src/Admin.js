@@ -20,7 +20,7 @@ function UploadTab({ api, secret, onSave }) {
       const data = await res.json();
       if (data.entries) { setProposed(data.entries); setStatus(`Found ${data.entries.length} Q&A pairs. Review and save below.`); }
       else setStatus(data.error || "Extraction failed.");
-    } catch { setStatus("Could not reach backend."); }
+    } catch(err) { setStatus("Error: " + err.message); }
   };
 
   const saveAll = async () => {
