@@ -70,7 +70,7 @@ export default function Chat() {
     <div style={s.page}>
       <style>{`
         @media (max-width: 600px) {
-          .sidebar { display: none !important; }
+          .sidebar { min-width: 160px !important; width: 160px !important; }
           .chat-shell { border-radius: 0 !important; height: 100vh !important; height: 100dvh !important; }
           .page-wrap { padding: 0 !important; background: #fff !important; }
         }
