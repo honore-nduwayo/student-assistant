@@ -288,11 +288,11 @@ export default function Admin() {
   };
 
   const headers = { "Content-Type":"application/json" };
-  const body = (extra) => JSON.stringify({ admin_key:getSecret(), ...extra });
+  const body = (extra) => JSON.stringify({ admin_key:adminSecret, ...extra });
 
   const loadEntries = async () => {
     setLoading(true);
-    const r = await fetch(`${API}/admin/entries?admin_key=${getSecret()}`, { headers:{"X-Admin-Key":getSecret()} });
+    const r = await fetch(`${API}/admin/entries?admin_key=${adminSecret}`, { headers:{"X-Admin-Key":adminSecret} });
     const d = await r.json();
     setEntries(d.entries || []);
     setLoading(false);
@@ -300,7 +300,7 @@ export default function Admin() {
 
   const loadLogs = async () => {
     setLoading(true);
-    const r = await fetch(`${API}/admin/logs?admin_key=${getSecret()}`, { headers:{"X-Admin-Key":getSecret()} });
+    const r = await fetch(`${API}/admin/logs?admin_key=${adminSecret}`, { headers:{"X-Admin-Key":adminSecret} });
     const d = await r.json();
     setLogs(d.logs || []);
     setLoading(false);
@@ -308,7 +308,7 @@ export default function Admin() {
 
   const loadStats = async () => {
     setLoading(true);
-    const r = await fetch(`${API}/admin/stats?admin_key=${getSecret()}`, { headers:{"X-Admin-Key":getSecret()} });
+    const r = await fetch(`${API}/admin/stats?admin_key=${adminSecret}`, { headers:{"X-Admin-Key":adminSecret} });
     const d = await r.json();
     setStats(d);
     setLoading(false);
