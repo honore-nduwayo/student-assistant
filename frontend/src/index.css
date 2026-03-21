@@ -10,14 +10,3 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-
-html, body {
-  overscroll-behavior: none;
-  overscroll-behavior-y: none;
-  -webkit-overflow-scrolling: auto;
-}
-
-#root {
-  overscroll-behavior: none;
-  overscroll-behavior-y: none;
-}
