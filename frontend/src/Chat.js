@@ -66,7 +66,8 @@ export default function Chat() {
   const [sidebarOpen, setSidebarOpen] = useState(window.innerWidth > 768);
   const [ratings, setRatings] = useState({});
   const bottomRef = useRef(null);
-  const isMobile = window.innerWidth <= 768;
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
+  useEffect(() => { const h = () => setIsMobile(window.innerWidth <= 768); window.addEventListener("resize", h); return () => window.removeEventListener("resize", h); }, []);
 
   useEffect(() => { bottomRef.current?.scrollIntoView({ behavior:"smooth" }); }, [messages]);
 
@@ -112,13 +113,19 @@ export default function Chat() {
       )}
 
       {/* Sidebar */}
-      <div style={{
-        ...s.sidebar,
+      <div style={isMobile ? {
+        position: "fixed",
+        top: 0, left: 0,
+        width: "220px",
+        height: "100dvh",
+        zIndex: 300,
         transform: sidebarOpen ? "translateX(0)" : "translateX(-100%)",
-        position: isMobile ? "fixed" : "absolute",
-        zIndex: isMobile ? 300 : 200,
-        height: "100%",
+        transition: "transform 0.3s cubic-bezier(0.4,0,0.2,1)",
+      } : {
+        width: sidebarOpen ? "220px" : "0px",
         flexShrink: 0,
+        overflow: "hidden",
+        transition: "width 0.35s cubic-bezier(0.4,0,0.2,1)",
       }}>
         <div style={s.sidebarInner}>
           <div style={s.sidebarHeader}>
@@ -244,7 +251,7 @@ export default function Chat() {
 }
 
 const s = {
-  page:{ display:"flex", width:"100vw", height:"100dvh", background:"#fafafa", fontFamily:"-apple-system,'Segoe UI',sans-serif", overflow:"hidden", position:"relative", overscrollBehavior:"none" },
+  page:{ display:"flex", width:"100vw", height:"100dvh", background:"#fafafa", fontFamily:"-apple-system,'Segoe UI',sans-serif", overflow:"hidden", position:"relative", overscrollBehavior:"none", overscrollBehaviorY:"none", touchAction:"pan-x pan-y" },
   overlay:{ position:"fixed", inset:0, background:"rgba(0,0,0,0.55)", zIndex:299, backdropFilter:"blur(2px)" },
   sidebar:{ width:"220px", background:`linear-gradient(180deg,${RED} 0%,${DARK_RED} 100%)`, transition:"transform 0.3s cubic-bezier(0.4,0,0.2,1)", top:0, left:0 },
   sidebarInner:{ width:"220px", height:"100%", display:"flex", flexDirection:"column", padding:"20px 12px", boxSizing:"border-box" },
