@@ -16,3 +16,8 @@ code {
 @media (max-width: 600px) {
   body { background: #c0002a; margin: 0; }
 }
+
+@media (max-width: 600px) {
+  html { height: -webkit-fill-available; }
+  body { min-height: -webkit-fill-available; overflow: hidden; }
+}

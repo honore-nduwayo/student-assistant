@@ -171,7 +171,7 @@ const s = {
   sidebar:{ background:RED, display:"flex", flexDirection:"column" },
   topicBtn:{ display:"block", width:"100%", background:"transparent", border:"none", color:"rgba(255,255,255,0.8)", padding:"8px 10px", borderRadius:"8px", cursor:"pointer", textAlign:"left", fontSize:"12px", fontWeight:"500", marginBottom:"2px", transition:"background 0.2s" },
   main:{ flex:1, display:"flex", flexDirection:"column", overflow:"hidden" },
-  header:{ background:RED, color:"#fff", padding:"14px 18px", display:"flex", alignItems:"center", gap:"12px" },
+  header:{ background:RED, color:"#fff", padding:"14px 18px", display:"flex", alignItems:"center", gap:"12px", position:"sticky", top:0, zIndex:100, flexShrink:0 },
   toggleBtn:{ background:"transparent", border:"none", cursor:"pointer", padding:"4px", display:"flex", alignItems:"center", justifyContent:"center", flexShrink:0, borderRadius:"6px" },
   logoImg:{ width:"38px", height:"38px", objectFit:"contain", borderRadius:"8px", background:"#fff", padding:"3px", flexShrink:0 },
   headerInfo:{ flex:1 },
