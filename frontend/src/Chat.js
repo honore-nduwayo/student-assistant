@@ -70,8 +70,9 @@ export default function Chat() {
     <div style={s.page}>
       <style>{`
         @media (max-width: 600px) {
-          html, body { overflow: hidden; }
-          .chat-shell { height: 100vh !important; height: 100dvh !important; }
+          html, body { overflow: hidden; height: 100%; }
+          .chat-shell { height: 100% !important; position: fixed; top: 0; left: 0; right: 0; bottom: 0; }
+          .page-wrap { height: 100%; }
         }
       `}</style>
 
@@ -165,12 +166,12 @@ export default function Chat() {
 }
 
 const s = {
-  page:{ minHeight:"100vh", background:"#c0002a", display:"flex", fontFamily:"'Segoe UI',Arial,sans-serif", margin:"0", padding:"0" },
+  page:{ height:"100vh", height:"100dvh", background:"#c0002a", display:"flex", fontFamily:"'Segoe UI',Arial,sans-serif", margin:"0", padding:"0", overflow:"hidden" },
   pageWrap:{ width:"100%", padding:"0", margin:"0" },
-  shell:{ display:"flex", width:"100vw", height:"100vh", background:"#fff", overflow:"hidden" },
+  shell:{ display:"flex", width:"100%", height:"100%", background:"#fff", overflow:"hidden" },
   sidebar:{ background:RED, display:"flex", flexDirection:"column" },
   topicBtn:{ display:"block", width:"100%", background:"transparent", border:"none", color:"rgba(255,255,255,0.8)", padding:"8px 10px", borderRadius:"8px", cursor:"pointer", textAlign:"left", fontSize:"12px", fontWeight:"500", marginBottom:"2px", transition:"background 0.2s" },
-  main:{ flex:1, display:"flex", flexDirection:"column", overflow:"hidden" },
+  main:{ flex:1, display:"flex", flexDirection:"column", overflow:"hidden", minWidth:0 },
   header:{ background:RED, color:"#fff", padding:"14px 18px", display:"flex", alignItems:"center", gap:"12px", position:"sticky", top:0, zIndex:100, flexShrink:0 },
   toggleBtn:{ background:"transparent", border:"none", cursor:"pointer", padding:"4px", display:"flex", alignItems:"center", justifyContent:"center", flexShrink:0, borderRadius:"6px" },
   logoImg:{ width:"38px", height:"38px", objectFit:"contain", borderRadius:"8px", background:"#fff", padding:"3px", flexShrink:0 },
