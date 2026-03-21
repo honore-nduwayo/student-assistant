@@ -127,3 +127,69 @@ def stats():
         }), 200
     except Exception as e:
         return jsonify({"error": str(e)}), 500
+
+# ── File Upload & AI Extraction ───────────────────────────────
+@admin_bp.route("/admin/upload", methods=["POST"])
+def upload_file():
+    """Upload a PDF or TXT file and extract Q&A pairs using Gemini."""
+    data = request.get_json(silent=True) or {}
+    key = data.get("admin_key") or request.headers.get("X-Admin-Key") or request.args.get("admin_key")
+    import os
+    if key != os.getenv("SECRET_KEY"):
+        return jsonify({"error": "Unauthorized"}), 401
+
+    if "file" not in request.files:
+        return jsonify({"error": "No file provided"}), 400
+
+    file = request.files["file"]
+    filename = file.filename.lower()
+    text = ""
+
+    try:
+        if filename.endswith(".txt"):
+            text = file.read().decode("utf-8", errors="ignore")
+        elif filename.endswith(".pdf"):
+            import PyPDF2, io
+            reader = PyPDF2.PdfReader(io.BytesIO(file.read()))
+            for page in reader.pages:
+                text += page.extract_text() or ""
+        else:
+            return jsonify({"error": "Only PDF and TXT files are supported"}), 400
+
+        if not text.strip():
+            return jsonify({"error": "Could not extract text from file"}), 400
+
+        from google import genai
+        client = genai.Client(api_key=os.getenv("GEMINI_API_KEY"))
+        prompt = f"""You are a knowledge base builder for a university student assistant chatbot.
+
+Read the following document and extract 5 to 15 useful Q&A pairs that students would ask.
+
+Return ONLY a valid JSON array. No explanation. No markdown. Just the array.
+
+Format:
+[
+  {{
+    "topic": "one of: fees, registration, exams, hostel, enrollment, general",
+    "question": "question a student would ask",
+    "answer": "clear direct answer from the document",
+    "keywords": "comma separated keywords"
+  }}
+]
+
+Document:
+{text[:8000]}"""
+
+        response = client.models.generate_content(
+            model="gemini-2.5-flash",
+            contents=prompt
+        )
+        raw = response.text.strip()
+        raw = raw.replace("```json", "").replace("```", "").strip()
+
+        import json
+        entries = json.loads(raw)
+        return jsonify({"entries": entries, "count": len(entries)}), 200
+
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500

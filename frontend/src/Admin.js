@@ -3,6 +3,68 @@ import { useState, useEffect } from "react";
 const API = process.env.REACT_APP_API_URL;
 const SECRET = "acitystudentassistant2025";
 
+function UploadTab({ api, secret, onSave }) {
+  const [file, setFile] = React.useState(null);
+  const [status, setStatus] = React.useState("");
+  const [proposed, setProposed] = React.useState([]);
+  const [saving, setSaving] = React.useState(false);
+
+  const extract = async () => {
+    if (!file) { setStatus("Please select a file first."); return; }
+    setStatus("Extracting Q&A from file...");
+    setProposed([]);
+    const formData = new FormData();
+    formData.append("file", file);
+    try {
+      const res = await fetch(`${api}/admin/upload?admin_key=${secret}`, { method: "POST", headers: { "X-Admin-Key": secret }, body: formData });
+      const data = await res.json();
+      if (data.entries) { setProposed(data.entries); setStatus(`Found ${data.entries.length} Q&A pairs. Review and save below.`); }
+      else setStatus(data.error || "Extraction failed.");
+    } catch { setStatus("Could not reach backend."); }
+  };
+
+  const saveAll = async () => {
+    setSaving(true);
+    let saved = 0;
+    for (const entry of proposed) {
+      await fetch(`${api}/admin/entries`, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ admin_key: secret, ...entry }) });
+      saved++;
+    }
+    setStatus(`Saved ${saved} entries to knowledge base!`);
+    setProposed([]);
+    setSaving(false);
+    onSave();
+  };
+
+  return (
+    <div>
+      <h2 style={{ color:"#c0002a", marginTop:0 }}>Upload File</h2>
+      <div style={{ background:"#fff", borderRadius:"12px", padding:"24px", maxWidth:"600px", boxShadow:"0 2px 8px rgba(0,0,0,0.06)" }}>
+        <p style={{ color:"#64748b", fontSize:"14px", marginTop:0 }}>Upload a PDF or TXT file. Gemini will extract Q&A pairs for your review before saving.</p>
+        <input type="file" accept=".pdf,.txt" onChange={e => setFile(e.target.files[0])} style={{ marginBottom:"12px", fontSize:"14px" }} />
+        <br />
+        <button style={{ background:"#c0002a", color:"#fff", border:"none", borderRadius:"10px", padding:"10px 24px", cursor:"pointer", fontSize:"14px" }} onClick={extract}>Extract Q&A</button>
+        {status && <p style={{ color:"#64748b", fontSize:"13px", marginTop:"12px" }}>{status}</p>}
+      </div>
+      {proposed.length > 0 && (
+        <div style={{ marginTop:"20px" }}>
+          <div style={{ display:"flex", justifyContent:"space-between", alignItems:"center", marginBottom:"12px" }}>
+            <h3 style={{ color:"#1e293b", margin:0 }}>Proposed Entries ({proposed.length})</h3>
+            <button style={{ background:"#c0002a", color:"#fff", border:"none", borderRadius:"10px", padding:"10px 24px", cursor:"pointer", fontSize:"14px" }} onClick={saveAll} disabled={saving}>{saving ? "Saving..." : "Save All to Knowledge Base"}</button>
+          </div>
+          {proposed.map((e,i) => (
+            <div key={i} style={{ background:"#fff", borderRadius:"12px", padding:"16px", marginBottom:"10px", boxShadow:"0 2px 6px rgba(0,0,0,0.06)" }}>
+              <span style={{ background:"#fee2e2", color:"#c0002a", fontSize:"11px", fontWeight:"700", padding:"2px 10px", borderRadius:"20px", textTransform:"uppercase" }}>{e.topic}</span>
+              <div style={{ fontWeight:"600", color:"#1e293b", fontSize:"14px", marginTop:"8px" }}>{e.question}</div>
+              <div style={{ color:"#64748b", fontSize:"13px", marginTop:"4px", lineHeight:"1.6" }}>{e.answer}</div>
+            </div>
+          ))}
+        </div>
+      )}
+    </div>
+  );
+}
+
 export default function Admin() {
   const [loggedIn, setLoggedIn] = useState(false);
   const [password, setPassword] = useState("");
@@ -106,12 +168,13 @@ export default function Admin() {
               <div style={s.sideSub}>ACity Student Assistant</div>
             </div>
           </div>
-          {["entries","add","logs","stats"].map(t => (
+          {["entries","add","logs","stats","upload"].map(t => (
             <button key={t} style={{...s.navBtn, ...(tab===t?s.navActive:{})}} onClick={() => { setTab(t); setMsg(""); setEditId(null); setForm({ topic:"",question:"",answer:"",keywords:"" }); }}>
               {t === "entries" && "📋 Knowledge Base"}
               {t === "add" && "➕ Add Entry"}
               {t === "logs" && "💬 Chat Logs"}
-              {t === "stats" && "📊 Analytics"}
+              {t === "stats" && "📊 Analytics"}{t === "upload" && "📎 Upload File"}
+              {t === "upload" && "📎 Upload File"}
             </button>
           ))}
           <button style={s.logoutBtn} onClick={() => setLoggedIn(false)}>🚪 Logout</button>
@@ -168,6 +231,8 @@ export default function Admin() {
               ))}
             </div>
           )}
+
+          {tab === "upload" && <UploadTab api={API} secret={SECRET} onSave={loadEntries} />}
 
           {tab === "stats" && (
             <div>
