@@ -148,13 +148,18 @@ def upload_file():
     try:
         if filename.endswith(".txt"):
             text = file.read().decode("utf-8", errors="ignore")
+        elif filename.endswith(".docx"):
+            from docx import Document
+            import io
+            doc = Document(io.BytesIO(file.read()))
+            text = "\n".join([p.text for p in doc.paragraphs])
         elif filename.endswith(".pdf"):
             import PyPDF2, io
             reader = PyPDF2.PdfReader(io.BytesIO(file.read()))
             for page in reader.pages:
                 text += page.extract_text() or ""
         else:
-            return jsonify({"error": "Only PDF and TXT files are supported"}), 400
+            return jsonify({"error": "Only PDF, TXT and DOCX files are supported"}), 400
 
         if not text.strip():
             return jsonify({"error": "Could not extract text from file"}), 400
