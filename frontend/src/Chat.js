@@ -62,7 +62,7 @@ export default function Chat() {
 
         <div style={s.header}>
           <img
-            src="https://acity.edu.gh/wp-content/uploads/2021/03/ACity-Logo.png"
+            src="/logo.png"
             alt="ACity Logo"
             style={s.logoImg}
             onError={e => { e.target.style.display="none"; e.target.nextSibling.style.display="flex"; }}
