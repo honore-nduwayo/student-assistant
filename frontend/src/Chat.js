@@ -254,7 +254,7 @@ const s = {
   page:{ display:"flex", width:"100vw", height:"100dvh", background:"#fafafa", fontFamily:"-apple-system,'Segoe UI',sans-serif", overflow:"hidden", position:"relative", overscrollBehavior:"none", overscrollBehaviorY:"none", touchAction:"pan-x pan-y" },
   overlay:{ position:"fixed", inset:0, background:"rgba(0,0,0,0.55)", zIndex:299, backdropFilter:"blur(2px)" },
   sidebar:{ width:"220px", background:`linear-gradient(180deg,${RED} 0%,${DARK_RED} 100%)`, transition:"transform 0.3s cubic-bezier(0.4,0,0.2,1)", top:0, left:0 },
-  sidebarInner:{ width:"220px", height:"100%", display:"flex", flexDirection:"column", padding:"20px 12px", boxSizing:"border-box" },
+  sidebarInner:{ width:"220px", height:"100%", display:"flex", flexDirection:"column", padding:"20px 12px", boxSizing:"border-box", background:`linear-gradient(180deg,${RED} 0%,${DARK_RED} 100%)` },
   sidebarHeader:{ display:"flex", alignItems:"center", gap:"10px", marginBottom:"18px" },
   sidebarLogo:{ width:"38px", height:"38px", objectFit:"contain", background:"#fff", borderRadius:"10px", padding:"4px", flexShrink:0, boxShadow:"0 3px 10px rgba(0,0,0,0.2)" },
   closeBtn:{ background:"transparent", border:"none", color:"rgba(255,255,255,0.6)", fontSize:"16px", cursor:"pointer", marginLeft:"auto", padding:"4px", borderRadius:"6px" },
