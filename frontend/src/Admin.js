@@ -130,7 +130,7 @@ function UploadTab({ api, secret, onSave }) {
 }
 
 function Sidebar({ tab, setTab, setMsg, setEditId, setForm, sidebarOpen, setSidebarOpen, setLoggedIn, isMobile, entries }) {
-  const emptyForm = { topic:"", question:"", answer:"", keywords:"" };
+  
 
   return (
     <div style={{
