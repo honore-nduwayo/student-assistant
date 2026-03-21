@@ -16,12 +16,21 @@ admin_bp = Blueprint("admin", __name__)
 def check_admin_key():
     """
     Simple admin authentication.
-    Frontend must send: { "admin_key": "your-secret-key" }
+    Checks against master SECRET_KEY or Firebase stored password.
     """
     data = request.get_json(silent=True) or {}
     key = data.get("admin_key") or request.headers.get("X-Admin-Key") or request.args.get("admin_key")
     import os
-    return key == os.getenv("SECRET_KEY")
+    master = os.getenv("SECRET_KEY")
+    if key == master:
+        return True
+    try:
+        stored = db.collection("settings").document("admin").get()
+        if stored.exists:
+            return key == stored.to_dict().get("password", master)
+    except Exception:
+        pass
+    return False
 
 
 # ── Knowledge Base Management ─────────────────────────────────
@@ -144,9 +153,7 @@ def stats():
 def upload_file():
     """Upload a JSON file of Q&A pairs directly into the knowledge base."""
     data = request.get_json(silent=True) or {}
-    key = data.get("admin_key") or request.headers.get("X-Admin-Key") or request.args.get("admin_key")
-    import os
-    if key != os.getenv("SECRET_KEY"):
+    if not check_admin_key():
         return jsonify({"error": "Unauthorized"}), 401
 
     if "file" not in request.files:
