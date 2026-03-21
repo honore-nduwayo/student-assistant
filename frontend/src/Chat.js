@@ -78,7 +78,7 @@ export default function Chat() {
           {messages.map((msg, i) => (
             <div key={i} style={msg.role==="user" ? s.userRow : s.botRow}>
               {msg.role==="bot" && (
-                <div style={s.avatar}>AC</div>
+                <div style={s.avatar}><img src="/logochat.png" alt="AC" style={{ width:"100%", height:"100%", objectFit:"cover" }} onError={e=>{e.target.style.display="none"}} /></div>
               )}
               <div style={msg.role==="user" ? s.userBubble : s.botBubble}>
                 {renderText(msg.text)}
@@ -87,7 +87,7 @@ export default function Chat() {
           ))}
           {loading && (
             <div style={s.botRow}>
-              <div style={s.avatar}>AC</div>
+              <div style={s.avatar}><img src="/logochat.png" alt="AC" style={{ width:"100%", height:"100%", objectFit:"cover" }} onError={e=>{e.target.style.display="none"}} /></div>
               <div style={{...s.botBubble, color:"#aaa", fontStyle:"italic"}}>Thinking...</div>
             </div>
           )}
@@ -135,7 +135,7 @@ const s = {
   messages:{ flex:1, overflowY:"auto", padding:"20px 16px", display:"flex", flexDirection:"column", gap:"16px", background:"#fafafa" },
   botRow:{ display:"flex", alignItems:"flex-start", gap:"10px" },
   userRow:{ display:"flex", justifyContent:"flex-end" },
-  avatar:{ width:"34px", height:"34px", background:RED, borderRadius:"50%", display:"flex", alignItems:"center", justifyContent:"center", fontSize:"12px", fontWeight:"700", color:"#fff", flexShrink:0 },
+  avatar:{ width:"34px", height:"34px", background:RED, borderRadius:"50%", display:"flex", alignItems:"center", justifyContent:"center", fontSize:"12px", fontWeight:"700", color:"#fff", flexShrink:0, overflow:"hidden" },
   botBubble:{ background:"#fff", borderRadius:"4px 16px 16px 16px", padding:"12px 16px", maxWidth:"82%", fontSize:"14px", lineHeight:"1.7", border:"1px solid #ececec", color:"#1a1a1a" },
   userBubble:{ background:RED, color:"#fff", borderRadius:"16px 4px 16px 16px", padding:"12px 16px", maxWidth:"78%", fontSize:"14px", lineHeight:"1.7" },
   suggestions:{ padding:"8px 16px 12px", display:"flex", flexWrap:"wrap", gap:"8px", background:"#fafafa", borderTop:"1px solid #ececec" },
