@@ -166,7 +166,7 @@ export default function Chat() {
 }
 
 const s = {
-  page:{ height:"100vh", height:"100dvh", background:"#c0002a", display:"flex", fontFamily:"'Segoe UI',Arial,sans-serif", margin:"0", padding:"0", overflow:"hidden" },
+  page:{ height:"100dvh", background:"#c0002a", display:"flex", fontFamily:"'Segoe UI',Arial,sans-serif", margin:"0", padding:"0", overflow:"hidden" },
   pageWrap:{ width:"100%", padding:"0", margin:"0" },
   shell:{ display:"flex", width:"100%", height:"100%", background:"#fff", overflow:"hidden" },
   sidebar:{ background:RED, display:"flex", flexDirection:"column" },
