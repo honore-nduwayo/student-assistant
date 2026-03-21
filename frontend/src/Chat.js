@@ -71,16 +71,6 @@ export default function Chat() {
 
   useEffect(() => { bottomRef.current?.scrollIntoView({ behavior:"smooth" }); }, [messages]);
 
-  // Wake up Render backend on load + keep alive every 14 mins
-  useEffect(() => {
-    const wake = () => fetch(`${process.env.REACT_APP_API_URL}/ask`, {
-      method:"POST", headers:{"Content-Type":"application/json"},
-      body:JSON.stringify({ question:"ping", history:[] })
-    }).catch(()=>{});
-    wake();
-    const interval = setInterval(wake, 14 * 60 * 1000);
-    return () => clearInterval(interval);
-  }, []);
 
   const sendFeedback = async (messageId, rating, question, answer) => {
     setRatings(prev => ({ ...prev, [messageId]: rating }));
