@@ -17,8 +17,8 @@ def check_admin_key():
     Simple admin authentication.
     Frontend must send: { "admin_key": "your-secret-key" }
     """
-    data = request.get_json() or {}
-    key = data.get("admin_key") or request.headers.get("X-Admin-Key")
+    data = request.get_json(silent=True) or {}
+    key = data.get("admin_key") or request.headers.get("X-Admin-Key") or request.args.get("admin_key")
     import os
     return key == os.getenv("SECRET_KEY")
 
