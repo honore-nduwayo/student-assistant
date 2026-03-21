@@ -44,7 +44,7 @@ export default function Chat() {
   const [messages, setMessages] = useState([{ role:"bot", text:"👋 Welcome! I'm the **ACity Student Assistant**.\n\nI can help you with:\n* Registration & academic calendar\n* Fees & payment methods\n* Course enrollment\n* Exams & results\n* Hostel & accommodation\n\nWhat would you like to know?" }]);
   const [input, setInput] = useState("");
   const [loading, setLoading] = useState(false);
-  const [sidebarOpen, setSidebarOpen] = useState(true);
+  const [sidebarOpen, setSidebarOpen] = useState(window.innerWidth > 600);
   const bottomRef = useRef(null);
 
   useEffect(() => { bottomRef.current?.scrollIntoView({ behavior:"smooth" }); }, [messages]);
@@ -70,9 +70,8 @@ export default function Chat() {
     <div style={s.page}>
       <style>{`
         @media (max-width: 600px) {
-          .sidebar { min-width: 160px !important; width: 160px !important; }
-          .chat-shell { border-radius: 0 !important; height: 100vh !important; height: 100dvh !important; }
-          .page-wrap { padding: 0 !important; background: #fff !important; }
+          html, body { overflow: hidden; }
+          .chat-shell { height: 100vh !important; height: 100dvh !important; }
         }
       `}</style>
 
