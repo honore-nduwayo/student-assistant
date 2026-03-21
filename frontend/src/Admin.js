@@ -476,6 +476,7 @@ export default function Admin() {
           )}
 
           {tab==="upload" && <UploadTab api={API} secret={getSecret()} onSave={loadEntries} />}
+          {tab==="settings" && <SettingsTab />}
         </div>
       </div>
     </div>
