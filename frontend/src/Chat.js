@@ -123,8 +123,8 @@ export default function Chat() {
 }
 
 const s = {
-  page:{ minHeight:"100vh", background:"#f1f1f1", display:"flex", alignItems:"center", justifyContent:"center", fontFamily:"'Segoe UI',Arial,sans-serif", padding:"16px" },
-  container:{ width:"100%", maxWidth:"720px", height:"92vh", background:"#fff", borderRadius:"20px", boxShadow:"0 8px 40px rgba(0,0,0,0.12)", display:"flex", flexDirection:"column", overflow:"hidden", border:"1px solid #e5e5e5" },
+  page:{ minHeight:"100vh", background:"#c0002a", display:"flex", alignItems:"center", justifyContent:"center", fontFamily:"'Segoe UI',Arial,sans-serif", padding:"0px" },
+  container:{ width:"100%", maxWidth:"720px", height:"100vh", background:"#fff", borderRadius:"0px",  display:"flex", flexDirection:"column", overflow:"hidden", border:"1px solid #e5e5e5" },
   header:{ background:RED, color:"#fff", padding:"16px 20px", display:"flex", alignItems:"center", gap:"14px" },
   logoImg:{ width:"42px", height:"42px", objectFit:"contain", borderRadius:"8px", background:"#fff", padding:"4px" },
   logoFallback:{ width:"42px", height:"42px", background:"#fff", borderRadius:"10px", display:"none", alignItems:"center", justifyContent:"center", fontWeight:"900", fontSize:"16px", color:RED, flexShrink:0 },
@@ -139,7 +139,7 @@ const s = {
   botBubble:{ background:"#fff", borderRadius:"4px 16px 16px 16px", padding:"12px 16px", maxWidth:"82%", fontSize:"14px", lineHeight:"1.7", border:"1px solid #ececec", color:"#1a1a1a" },
   userBubble:{ background:RED, color:"#fff", borderRadius:"16px 4px 16px 16px", padding:"12px 16px", maxWidth:"78%", fontSize:"14px", lineHeight:"1.7" },
   suggestions:{ padding:"8px 16px 12px", display:"flex", flexWrap:"wrap", gap:"8px", background:"#fafafa", borderTop:"1px solid #ececec" },
-  chip:{ background:"#fff", border:`1px solid #e0e0e0`, borderRadius:"20px", padding:"6px 14px", fontSize:"12px", color:RED, cursor:"pointer", fontWeight:"500" },
+  chip:{ background:"#fff", border:`1px solid #e0e0e0`, borderRadius:"0px", padding:"6px 14px", fontSize:"12px", color:RED, cursor:"pointer", fontWeight:"500" },
   inputArea:{ display:"flex", padding:"12px 16px", borderTop:"1px solid #ececec", gap:"10px", background:"#fff", alignItems:"flex-end" },
   input:{ flex:1, border:"1.5px solid #e0e0e0", borderRadius:"12px", padding:"10px 14px", fontSize:"14px", resize:"none", outline:"none", fontFamily:"inherit", color:"#1a1a1a", lineHeight:"1.5" },
   sendBtn:{ background:RED, color:"#fff", border:"none", borderRadius:"12px", width:"44px", height:"44px", display:"flex", alignItems:"center", justifyContent:"center", cursor:"pointer", flexShrink:0 },
