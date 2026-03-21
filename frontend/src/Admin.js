@@ -320,7 +320,7 @@ export default function Admin() {
     if (tab === "entries") loadEntries();
     if (tab === "logs") loadLogs();
     if (tab === "stats") loadStats();
-  }, [loggedIn, tab]); // eslint-disable-line react-hooks/exhaustive-deps
+  }, [loggedIn, tab]); // eslint-disable-line react-hooks/exhaustive-deps // eslint-disable-line react-hooks/exhaustive-deps
 
   const saveEntry = async () => {
     if (!form.topic || !form.question || !form.answer) { setMsg("Fill in topic, question and answer."); return; }
