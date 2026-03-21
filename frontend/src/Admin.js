@@ -53,6 +53,7 @@ export default function Admin() {
     if (tab === "entries") loadEntries();
     if (tab === "logs") loadLogs();
     if (tab === "stats") loadStats();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [loggedIn, tab]);
 
   const saveEntry = async () => {
