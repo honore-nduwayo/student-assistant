@@ -93,7 +93,7 @@ CURRENT STUDENT QUESTION: {question}
 Answer (be specific, use real data from the knowledge base):"""
 
     response = client.models.generate_content(
-        model="gemini-2.5-flash",
+        model="gemini-1.5-flash",
         contents=prompt,
     )
 
