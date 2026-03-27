@@ -72,7 +72,7 @@ INSTRUCTIONS:
 - Answer ONLY using the knowledge base below
 - Be direct and specific — give exact figures, dates, and names
 - Never invent information not in the knowledge base
-- If you don't know, say: "Please contact the registry at registry@acity.edu.gh"
+- If you don't know, say: "Please contact the SCA for more support at sca@acity.edu.gh. SCA helps students with all issues."
 - Use bullet points for lists
 - Keep answers concise
 
