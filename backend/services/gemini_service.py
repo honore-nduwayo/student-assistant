@@ -1,9 +1,11 @@
 import os
-import pytz
+import time
 import requests
 from datetime import datetime
+from zoneinfo import ZoneInfo
 from bs4 import BeautifulSoup
 from google import genai
+from google.genai import types
 
 
 # ── API Key Rotation ──────────────────────────────────────────
@@ -39,7 +41,7 @@ def detect_topic(question):
     return "general"
 
 
-# ── Live Website Scraping ─────────────────────────────────────
+# ── Live Website Scraping with 30-min Cache ───────────────────
 TOPIC_URLS = {
     "fees": "https://acity.edu.gh/fees-scholarships/",
     "registration": "https://acity.edu.gh/admissions/",
@@ -49,14 +51,28 @@ TOPIC_URLS = {
     "general": "https://acity.edu.gh/",
 }
 
+_page_cache = {}
+CACHE_TTL = 1800  # 30 minutes in seconds
+
 def fetch_page_content(url):
+    now = time.time()
+
+    # Return cached version if still fresh
+    if url in _page_cache:
+        content, cached_at = _page_cache[url]
+        if now - cached_at < CACHE_TTL:
+            return content
+
+    # Otherwise fetch and cache
     try:
         r = requests.get(url, timeout=5)
         soup = BeautifulSoup(r.text, "html.parser")
         for tag in soup(["script", "style", "nav", "footer", "header"]):
             tag.decompose()
         text = soup.get_text(separator=" ", strip=True)
-        return " ".join(text.split())[:3000]
+        content = " ".join(text.split())[:3000]
+        _page_cache[url] = (content, now)
+        return content
     except Exception:
         return ""
 
@@ -65,11 +81,10 @@ def fetch_page_content(url):
 def get_dynamic_context():
     """
     Computes live context on every request — no database needed.
-    Update ACADEMIC_CALENDAR once per academic year; everything
-    else (office status, current date/time) is fully automatic.
+    Only update ACADEMIC_CALENDAR once per academic year.
+    Everything else is fully automatic.
     """
-    accra_tz = pytz.timezone("Africa/Accra")
-    now = datetime.now(accra_tz)
+    now = datetime.now(ZoneInfo("Africa/Accra"))
 
     day_name = now.strftime("%A")           # e.g. "Saturday"
     time_str = now.strftime("%I:%M %p")     # e.g. "10:30 AM"
@@ -77,7 +92,6 @@ def get_dynamic_context():
     hour = now.hour
     weekday = now.weekday()                 # 0=Monday … 6=Sunday
 
-    # Office hours: Mon–Fri 8 AM – 5 PM GMT
     is_weekend = weekday >= 5
     is_office_hours = not is_weekend and (8 <= hour < 17)
     office_status = (
@@ -86,18 +100,16 @@ def get_dynamic_context():
         else "CLOSED right now"
     )
 
-    # ── Update these dates once per academic year ─────────────
+    # ── Only update this block once per academic year ─────────
     ACADEMIC_CALENDAR = {
-        "2025-2026": {
-            "semester_1": {"start": "2025-09-01", "end": "2025-12-20"},
-            "semester_2": {"start": "2026-01-12", "end": "2026-05-10"},
-            "exam_1":     {"start": "2025-12-08", "end": "2025-12-20"},
-            "exam_2":     {"start": "2026-04-27", "end": "2026-05-10"},
-            "break":      {"start": "2025-12-21", "end": "2026-01-11"},
-        }
+        "semester_1": {"start": "2025-09-01", "end": "2025-12-20"},
+        "semester_2": {"start": "2026-01-12", "end": "2026-05-10"},
+        "exam_1":     {"start": "2025-12-08", "end": "2025-12-20"},
+        "exam_2":     {"start": "2026-04-27", "end": "2026-05-10"},
+        "break":      {"start": "2025-12-21", "end": "2026-01-11"},
     }
 
-    current_period = _detect_current_period(now, ACADEMIC_CALENDAR["2025-2026"])
+    current_period = _detect_current_period(now, ACADEMIC_CALENDAR)
 
     return f"""
 REAL-TIME CONTEXT (auto-injected — never ask the student for this info):
@@ -111,11 +123,11 @@ REAL-TIME CONTEXT (auto-injected — never ask the student for this info):
 def _detect_current_period(now, cal):
     today = now.date()
 
-    def in_range(s, e):
+    def in_range(start, end):
         return (
-            datetime.strptime(s, "%Y-%m-%d").date()
+            datetime.strptime(start, "%Y-%m-%d").date()
             <= today <=
-            datetime.strptime(e, "%Y-%m-%d").date()
+            datetime.strptime(end, "%Y-%m-%d").date()
         )
 
     if in_range(**cal["exam_1"]):
@@ -137,13 +149,16 @@ def get_ai_response(question, knowledge_base, history):
     live_content = fetch_page_content(TOPIC_URLS.get(topic, TOPIC_URLS["general"]))
     dynamic_context = get_dynamic_context()
 
-    # Build knowledge base text
+    # Build knowledge base — filtered by topic to keep prompt small
     kb_text = ""
     for entry in knowledge_base:
         if entry.get("active", True):
-            kb_text += f"Q: {entry.get('question', '')}\nA: {entry.get('answer', '')}\n\n"
+            entry_topic = entry.get("topic", "general")
+            if entry_topic == topic or entry_topic == "general":
+                kb_text += f"Q: {entry.get('question', '')}\nA: {entry.get('answer', '')}\n\n"
+    kb_text = kb_text[:3000]  # hard cap to control token usage
 
-    # Build conversation history text (last 10 messages for context)
+    # Build conversation history (last 10 messages for context)
     history_text = ""
     for msg in history[-10:]:
         role = "Student" if msg.get("role") == "user" else "Assistant"
@@ -153,12 +168,12 @@ def get_ai_response(question, knowledge_base, history):
 
 YOUR CORE BEHAVIOUR:
 - You can answer ANY question a student asks — whether it is about ACity, general academic topics, study tips, career advice, or everyday knowledge.
-- For ACity-specific questions (fees, registration, exams, hostel, courses), prioritise the KNOWLEDGE BASE and LIVE WEBSITE CONTENT provided below.
+- For ACity-specific questions (fees, registration, exams, hostel, courses), always prioritise the KNOWLEDGE BASE and LIVE WEBSITE CONTENT provided below.
 - For questions outside the knowledge base, use your general knowledge to give a helpful, accurate answer.
-- ALWAYS end EVERY response — no exceptions — with this exact reminder on a new line:
+- ALWAYS end EVERY response — no exceptions — with this reminder on a new line:
   "💬 Is there anything else I can help you with regarding ACity? I'm here for questions on fees, registration, courses, exams, hostels, and more!"
 - Be warm, concise, and encouraging. Use bullet points for lists.
-- If the student asks something you genuinely cannot answer at all, say so honestly and point them to sca@acity.edu.gh for further support.
+- If the student asks something you genuinely cannot answer at all, say so honestly and direct them to sca@acity.edu.gh for further support.
 
 {dynamic_context}
 
@@ -181,7 +196,12 @@ Answer:"""
             client = genai.Client(api_key=key)
             response = client.models.generate_content(
                 model="gemini-2.5-flash",
-                contents=prompt
+                contents=prompt,
+                config=types.GenerateContentConfig(
+                    thinking_config=types.ThinkingConfig(
+                        thinking_budget=0  # Thinking fully OFF for speed
+                    )
+                )
             )
             return response.text
         except Exception as e:
