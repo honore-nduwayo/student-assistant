@@ -75,6 +75,10 @@ def fetch_page_content(url):
 
 # ── Dynamic Real-Time Context ─────────────────────────────────
 def get_dynamic_context():
+    """
+    Computes live context on every request — no database needed.
+    Only update ACADEMIC_CALENDAR once per academic year.
+    """
     now = datetime.now(ZoneInfo("Africa/Accra"))
 
     day_name = now.strftime("%A")
@@ -142,29 +146,44 @@ def get_ai_response(question, knowledge_base, history):
     live_content = fetch_page_content(TOPIC_URLS.get(topic, TOPIC_URLS["general"]))
     dynamic_context = get_dynamic_context()
 
-    # ── Send the FULL knowledge base — no topic filter, no cap ─
-    # Filtering and capping were hiding answers from Gemini.
-    # Gemini 2.5 Flash handles large context windows efficiently.
+    # Full knowledge base — no filtering, no cap
     kb_text = ""
     for entry in knowledge_base:
         if entry.get("active", True):
             kb_text += f"Q: {entry.get('question', '')}\nA: {entry.get('answer', '')}\n\n"
 
-    # Build conversation history (last 10 messages)
+    # Last 10 messages of conversation history
     history_text = ""
     for msg in history[-10:]:
         role = "Student" if msg.get("role") == "user" else "Assistant"
         history_text += f"{role}: {msg.get('text', '')}\n"
 
-    prompt = f"""You are ACity Bot — a friendly AI assistant for Academic City University College (ACity) in Accra, Ghana.
+    prompt = f"""You are ACity Bot — the official AI assistant for Academic City University College (ACity) in Accra, Ghana.
 
-PRIORITY RULES — follow in this exact order:
-1. ALWAYS check the ACITY KNOWLEDGE BASE below first. If the answer is there, use it directly and accurately. Do not summarise or rephrase it into vague advice — give the actual answer.
-2. If the answer is NOT in the knowledge base, check the REAL-TIME CONTEXT for date/time/semester facts and answer from that.
-3. If the answer is in neither, use your general knowledge to give a helpful response.
-4. NEVER tell a student to "check the website" or "contact the registry" for something that is already answered in the knowledge base below.
-5. ALWAYS end every single response — no exceptions — with this line:
-   "💬 Is there anything else I can help you with regarding ACity? I'm here for questions on fees, registration, courses, exams, hostels, and more!"
+STRICT ANSWER RULES — follow in this exact order every time:
+
+STEP 1 — KNOWLEDGE BASE FIRST (mandatory):
+Search the ACITY KNOWLEDGE BASE below carefully for the answer.
+If you find it, respond with that exact information directly and accurately.
+Do NOT paraphrase vaguely. Do NOT say "check the website". Give the actual answer.
+
+STEP 2 — REAL-TIME CONTEXT (if not in KB):
+If the question is about today's date, current semester, office hours, or exam period,
+use the REAL-TIME CONTEXT block. That data is always accurate.
+
+STEP 3 — GENERAL KNOWLEDGE (last resort only):
+Only if the answer is genuinely absent from both the KB and REAL-TIME CONTEXT,
+use your general knowledge to give a helpful response.
+Make it clear it is general information, not ACity-specific.
+
+ALWAYS — end every single response with this line, no exceptions:
+"💬 Is there anything else I can help you with regarding ACity? I'm here for questions on fees, registration, courses, exams, hostels, and more!"
+
+OTHER RULES:
+- Be warm, friendly, and concise
+- Use bullet points for lists
+- Never invent ACity-specific data that is not in the knowledge base
+- If truly unable to help, refer the student to sca@acity.edu.gh
 
 {dynamic_context}
 
@@ -186,11 +205,11 @@ Answer:"""
         try:
             client = genai.Client(api_key=key)
             response = client.models.generate_content(
-                model="gemini-2.5-flash",
+                model="gemini-3.1-flash-lite-preview",
                 contents=prompt,
                 config=types.GenerateContentConfig(
                     thinking_config=types.ThinkingConfig(
-                        thinking_budget=0  # Thinking OFF for speed
+                        thinking_level="minimal"  # fastest — Gemini 3 uses thinking_level not thinking_budget
                     )
                 )
             )
