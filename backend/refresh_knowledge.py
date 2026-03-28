@@ -1,27 +1,24 @@
 """
 refresh_knowledge.py
 =====================
-Scrapes all official ACity URLs, uses Gemini to extract Q&A pairs
-from each page, and saves them into Firestore intelligently:
+Scrapes ALL official ACity URLs (including auto-discovered sublinks),
+uses Gemini to extract Q&A pairs, and saves them to Firestore.
 
-  source = "auto_refresh"          → replaced every run (live info)
+ENTRY PROTECTION:
   source = "admin" / "initial_upload" → never touched
-  permanent = True (any source)    → never touched, ever
+  source = "auto_refresh", permanent=True  → never touched
+  source = "auto_refresh", permanent=False → replaced each run
 
 HOW TO RUN:
     cd backend
     python refresh_knowledge.py
-
-WHEN TO RUN:
-    - Start of each semester
-    - When fees or programmes change
-    - Any time the ACity website is updated
 """
 
 import os
 import json
 import time
 import requests
+from urllib.parse import urljoin, urlparse
 from bs4 import BeautifulSoup
 from google import genai
 from google.genai import types
@@ -32,52 +29,92 @@ from dotenv import load_dotenv
 load_dotenv()
 
 
-# ── URLs to scrape ────────────────────────────────────────────
-URLS = [
-    # Core university info
+# ── All URLs you provided ─────────────────────────────────────
+# Format: (topic, url)
+# Topic controls which Firestore category the Q&A pair is saved under
+SEED_URLS = [
+    # ── Main site ─────────────────────────────────────────────
     ("general",      "https://acity.edu.gh/"),
     ("general",      "https://acity.edu.gh/about/"),
+    ("general",      "https://acity.edu.gh/about/#accreditation"),
+    ("general",      "https://acity.edu.gh/about/#global_partners"),
+    ("general",      "https://acity.edu.gh/about/#our-history"),
+    ("general",      "https://acity.edu.gh/about/#university-leadership"),
+    ("general",      "https://acity.edu.gh/about/#vision_and_mission"),
     ("general",      "https://acity.edu.gh/about/executive-team/"),
     ("general",      "https://acity.edu.gh/about/governing-council/"),
-    ("general",      "https://acity.edu.gh/the-acity-advantage/"),
-    ("general",      "https://acity.edu.gh/contact-connect/"),
-    ("general",      "https://acity.edu.gh/visit/"),
     ("general",      "https://acity.edu.gh/academic-city-staff-directory/"),
-    ("general",      "https://acity.edu.gh/media-relations/"),
+    ("general",      "https://acity.edu.gh/academic-city-supports-digital-learning-with-donation-to-ga-east-schools/"),
+    ("general",      "https://acity.edu.gh/academic-citys-tech-expo-showcases-innovative-technologies-to-tackle-galamsey/"),
+    ("exams",        "https://acity.edu.gh/academic-resources/"),
+    ("general",      "https://acity.edu.gh/author/blogeditor/"),
+    ("general",      "https://acity.edu.gh/blog/"),
     ("general",      "https://acity.edu.gh/careers-at-acity/"),
-    ("general",      "https://acity.edu.gh/virtual-tour/"),
-
-    # Programmes
-    ("enrollment",   "https://acity.edu.gh/undergraduate-programmes/"),
-    ("enrollment",   "https://acity.edu.gh/graduate-programmes/"),
-    ("enrollment",   "https://acity.edu.gh/professional-certificate-programmes/"),
-
-    # Admissions & registration
+    ("general",      "https://acity.edu.gh/category/acity-collaborates/"),
+    ("general",      "https://acity.edu.gh/category/acity-community-engagement/"),
+    ("general",      "https://acity.edu.gh/category/acity-innovates/"),
+    ("general",      "https://acity.edu.gh/category/acity-shine/"),
+    ("general",      "https://acity.edu.gh/contact-connect/"),
     ("registration", "https://acity.edu.gh/entry-requirements/"),
-    ("registration", "https://acity.edu.gh/start-your-application/"),
-    ("registration", "https://acity.edu.gh/registry/"),
-    ("registration", "https://admissions.acity.edu.gh/undergraduate"),
-
-    # Fees
     ("fees",         "https://acity.edu.gh/fees-scholarships/"),
     ("fees",         "https://acity.edu.gh/finance-billing/"),
-
-    # Student life
-    ("hostel",       "https://acity.edu.gh/student-life/"),
-    ("hostel",       "https://acity.edu.gh/student-life/dining-meal-plans/"),
-    ("general",      "https://acity.edu.gh/student-life/career-services/"),
-    ("general",      "https://acity.edu.gh/student-corner/"),
-    ("general",      "https://acity.edu.gh/student-app/"),
-
-    # Academics & exams
-    ("exams",        "https://acity.edu.gh/academic-resources/"),
+    ("enrollment",   "https://acity.edu.gh/graduate-programmes/"),
+    ("enrollment",   "https://acity.edu.gh/graduate-programmes/#graduate-programmes"),
     ("general",      "https://acity.edu.gh/library/"),
+    ("general",      "https://acity.edu.gh/media-relations/"),
+    ("general",      "https://acity.edu.gh/privacy-policy/"),
+    ("general",      "https://acity.edu.gh/prof-mcbagonluri-named-among-africas-top-education-leaders/"),
+    ("enrollment",   "https://acity.edu.gh/professional-certificate-programmes/"),
+    ("registration", "https://acity.edu.gh/registry/"),
+    ("general",      "https://acity.edu.gh/staff-corner/"),
+    ("registration", "https://acity.edu.gh/start-your-application/"),
+    ("general",      "https://acity.edu.gh/strengthening-global-ties-academic-city-engages-ambassadors-of-japan-korea-and-mozambique/"),
+    ("general",      "https://acity.edu.gh/student-app/"),
+    ("general",      "https://acity.edu.gh/student-corner/"),
+    ("hostel",       "https://acity.edu.gh/student-life/"),
+    ("hostel",       "https://acity.edu.gh/student-life/#academic_city_student_council"),
+    ("hostel",       "https://acity.edu.gh/student-life/#aclife"),
+    ("hostel",       "https://acity.edu.gh/student-life/#clubs_at_acity"),
+    ("hostel",       "https://acity.edu.gh/student-life/#health_&_wellness"),
+    ("hostel",       "https://acity.edu.gh/student-life/#sports_and_recreation"),
+    ("hostel",       "https://acity.edu.gh/student-life/#student_commitment"),
+    ("general",      "https://acity.edu.gh/student-life/career-services/"),
+    ("hostel",       "https://acity.edu.gh/student-life/dining-meal-plans/"),
+    ("general",      "https://acity.edu.gh/the-acity-advantage/"),
+    ("general",      "https://acity.edu.gh/the-exponent-acity-newsletter/"),
+    ("enrollment",   "https://acity.edu.gh/undergraduate-programmes/"),
+    ("enrollment",   "https://acity.edu.gh/undergraduate-programmes/#business"),
+    ("enrollment",   "https://acity.edu.gh/undergraduate-programmes/#communication-arts"),
+    ("enrollment",   "https://acity.edu.gh/undergraduate-programmes/#faculty-of-engineering"),
+    ("enrollment",   "https://acity.edu.gh/undergraduate-programmes/#informatics"),
+    ("general",      "https://acity.edu.gh/virtual-tour/"),
+    ("general",      "https://acity.edu.gh/visit/"),
 
-    # Foundation
+    # ── Sub-sites ─────────────────────────────────────────────
     ("general",      "https://acityfoundation.org/"),
+    ("registration", "https://admissions.acity.edu.gh/undergraduate"),
+]
+
+# Domains we are allowed to follow sublinks into
+ALLOWED_DOMAINS = {
+    "acity.edu.gh",
+    "acityfoundation.org",
+    "admissions.acity.edu.gh",
+    "acityplus.acity.edu.gh",
+}
+
+# URL patterns to always skip (login walls, social media, docs)
+SKIP_PATTERNS = [
+    "twitter.com", "facebook.com", "instagram.com",
+    "linkedin.com", "youtube.com", "x.com",
+    "login", "logout", "signin", "signup",
+    "wp-admin", "wp-json", "feed", "xmlrpc",
+    ".pdf", ".docx", ".xlsx", ".zip",
 ]
 
 QA_PER_PAGE = 8
+MAX_SUBLINKS_PER_PAGE = 5   # how many new sublinks to follow per page
+MAX_TOTAL_URLS = 120        # safety cap so the script doesn't run forever
 
 
 # ── Firebase setup ────────────────────────────────────────────
@@ -92,26 +129,61 @@ def init_firebase():
     return firestore.client()
 
 
-# ── Scrape a single URL ───────────────────────────────────────
+# ── URL helpers ───────────────────────────────────────────────
+def should_skip(url):
+    return any(p in url.lower() for p in SKIP_PATTERNS)
+
+def is_allowed_domain(url):
+    try:
+        domain = urlparse(url).netloc
+        return any(domain == d or domain.endswith("." + d) for d in ALLOWED_DOMAINS)
+    except Exception:
+        return False
+
+def normalize_url(url):
+    """Strip fragments (#section) for deduplication — fragments don't load new pages."""
+    parsed = urlparse(url)
+    return parsed._replace(fragment="").geturl()
+
+
+# ── Scrape a page and return (text, discovered_sublinks) ──────
 def scrape_url(url):
     try:
         headers = {"User-Agent": "Mozilla/5.0 (ACity Bot Knowledge Refresher)"}
         r = requests.get(url, timeout=10, headers=headers)
         if r.status_code != 200:
-            print(f"  ⚠️  HTTP {r.status_code} — skipping {url}")
-            return ""
+            print(f"  ⚠️  HTTP {r.status_code} — skipping")
+            return "", []
+
         soup = BeautifulSoup(r.text, "html.parser")
+
+        # Discover internal sublinks before stripping the DOM
+        sublinks = []
+        for a_tag in soup.find_all("a", href=True):
+            href = a_tag["href"].strip()
+            full = urljoin(url, href)
+            norm = normalize_url(full)
+            if (
+                is_allowed_domain(norm)
+                and not should_skip(norm)
+                and norm.startswith("http")
+            ):
+                sublinks.append(norm)
+
+        # Clean and extract readable text
         for tag in soup(["script", "style", "nav", "footer", "header", "form", "iframe"]):
             tag.decompose()
         text = soup.get_text(separator=" ", strip=True)
-        clean = " ".join(text.split())
-        return clean[:6000]
+        clean = " ".join(text.split())[:6000]
+
+        return clean, list(dict.fromkeys(sublinks))  # deduplicated sublinks
+
     except Exception as e:
-        print(f"  ❌ Failed to fetch {url}: {e}")
-        return ""
+        print(f"  ❌ Fetch error: {e}")
+        return "", []
 
 
-# ── Ask Gemini to extract Q&A pairs from page content ─────────
+# ── Ask Gemini to extract Q&A pairs ───────────────────────────
 def extract_qa_pairs(content, url, topic, client):
     if not content or len(content) < 100:
         return []
@@ -154,75 +226,46 @@ PAGE CONTENT:
         pairs = json.loads(raw)
         return pairs if isinstance(pairs, list) else []
     except json.JSONDecodeError as e:
-        print(f"  ⚠️  JSON parse error for {url}: {e}")
+        print(f"  ⚠️  JSON parse error: {e}")
         return []
     except Exception as e:
         if "429" in str(e) or "RESOURCE_EXHAUSTED" in str(e):
             print(f"  ⏳ Rate limited — waiting 30 seconds...")
             time.sleep(30)
             return []
-        print(f"  ❌ Gemini error for {url}: {e}")
+        print(f"  ❌ Gemini error: {e}")
         return []
 
 
-# ── Smart entry management ────────────────────────────────────
+# ── Smart Firestore management ────────────────────────────────
 def clear_auto_refresh_entries(db):
     """
-    Only removes entries where:
-      - source == "auto_refresh"   AND
-      - permanent != True
-
-    This means:
-      ✅ admin / initial_upload entries → always safe
-      ✅ permanent=True entries        → always safe, regardless of source
-      ♻️  auto_refresh non-permanent   → cleared and replaced
+    Removes auto_refresh entries where permanent != True.
+    Manual (admin/initial_upload) entries and permanent=True are always safe.
     """
     print("🧹 Clearing replaceable auto-refresh entries...")
-    docs = (
-        db.collection("knowledge_base")
-          .where("source", "==", "auto_refresh")
-          .stream()
-    )
-    removed = 0
-    kept = 0
+    docs = db.collection("knowledge_base").where("source", "==", "auto_refresh").stream()
+    removed = kept = 0
     for doc in docs:
-        data = doc.to_dict()
-        if data.get("permanent") is True:
-            kept += 1  # marked permanent — never delete
+        if doc.to_dict().get("permanent") is True:
+            kept += 1
         else:
             doc.reference.delete()
             removed += 1
-
-    print(f"   Removed : {removed} old auto-refresh entries")
-    print(f"   Kept    : {kept} permanent auto-refresh entries\n")
+    print(f"   Removed : {removed}   |   Kept (permanent) : {kept}\n")
 
 
-def save_to_firestore(db, topic, pairs, url):
-    """
-    Saves new Q&A pairs to Firestore.
-    Skips near-duplicate questions already in the KB
-    (compares lowercased first 60 chars of question).
-    """
-    # Load existing questions for duplicate check (once per call)
-    existing_qs = set()
-    existing_docs = db.collection("knowledge_base").where("active", "==", True).stream()
-    for doc in existing_docs:
-        q = doc.to_dict().get("question", "")
-        existing_qs.add(q.lower()[:60])
-
-    saved = 0
-    skipped = 0
+def save_to_firestore(db, topic, pairs, url, existing_qs):
+    saved = skipped = 0
     for pair in pairs:
         q = pair.get("question", "").strip()
         a = pair.get("answer", "").strip()
         if not q or not a or len(q) < 10 or len(a) < 10:
             continue
-
-        # Skip if a very similar question already exists
-        if q.lower()[:60] in existing_qs:
+        fingerprint = q.lower()[:60]
+        if fingerprint in existing_qs:
             skipped += 1
             continue
-
         try:
             db.collection("knowledge_base").add({
                 "topic":        topic,
@@ -231,18 +274,61 @@ def save_to_firestore(db, topic, pairs, url):
                 "keywords":     "",
                 "active":       True,
                 "source":       "auto_refresh",
-                "permanent":    False,   # set to True in Admin Panel to protect an entry
+                "permanent":    False,
                 "url":          url,
                 "refreshed_at": firestore.SERVER_TIMESTAMP
             })
-            existing_qs.add(q.lower()[:60])  # prevent duplicates within same run
+            existing_qs.add(fingerprint)
             saved += 1
         except Exception as e:
             print(f"  ❌ Firestore save error: {e}")
-
     if skipped:
-        print(f"   ⏭️  Skipped {skipped} duplicate questions")
+        print(f"   ⏭️  Skipped {skipped} duplicates")
     return saved
+
+
+# ── Build full URL queue (seeds + discovered sublinks) ────────
+def build_url_queue(seed_urls):
+    """
+    Starts with seed URLs, then for each one discovers new
+    sublinks on that page and appends them to the queue
+    (up to MAX_SUBLINKS_PER_PAGE per page, MAX_TOTAL_URLS total).
+
+    Fragment URLs (#section) share the same page content as their
+    base URL, so they are deduplicated at the page level.
+    """
+    # Normalize seeds and remove fragment duplicates
+    seen_pages = set()   # normalized (no-fragment) URLs already queued
+    queue = []           # final list of (topic, url, is_seed)
+
+    for topic, url in seed_urls:
+        norm = normalize_url(url)
+        if norm not in seen_pages and not should_skip(url):
+            seen_pages.add(norm)
+            queue.append((topic, url, True))
+
+    print(f"   Seed URLs loaded     : {len(queue)}")
+    print(f"   Now discovering sublinks on each seed page...\n")
+
+    discovered = []
+    for topic, url, _ in queue[:]:   # iterate over seeds only
+        if len(queue) + len(discovered) >= MAX_TOTAL_URLS:
+            break
+        _, sublinks = scrape_url(url)   # scrape just for links here
+        added = 0
+        for sub in sublinks:
+            norm_sub = normalize_url(sub)
+            if norm_sub not in seen_pages and len(discovered) + len(queue) < MAX_TOTAL_URLS:
+                seen_pages.add(norm_sub)
+                discovered.append((topic, sub, False))  # inherit parent topic
+                added += 1
+                if added >= MAX_SUBLINKS_PER_PAGE:
+                    break
+
+    queue.extend(discovered)
+    print(f"   Sublinks discovered  : {len(discovered)}")
+    print(f"   Total URLs to scrape : {len(queue)}\n")
+    return queue
 
 
 # ── Main ──────────────────────────────────────────────────────
@@ -250,11 +336,12 @@ def main():
     print("=" * 60)
     print("  ACity Knowledge Base — Auto Refresh Tool")
     print("=" * 60)
-    print(f"  URLs to process : {len(URLS)}")
-    print(f"  Q&A per page    : {QA_PER_PAGE}")
-    print(f"  Max new entries : ~{len(URLS) * QA_PER_PAGE}")
+    print(f"  Seed URLs           : {len(SEED_URLS)}")
+    print(f"  Max sublinks/page   : {MAX_SUBLINKS_PER_PAGE}")
+    print(f"  Hard URL cap        : {MAX_TOTAL_URLS}")
+    print(f"  Q&A per page        : {QA_PER_PAGE}")
     print()
-    print("  ENTRY PROTECTION RULES:")
+    print("  PROTECTION RULES:")
     print("  ✅ source=admin / initial_upload → never touched")
     print("  ✅ permanent=True (any source)   → never touched")
     print("  ♻️  source=auto_refresh          → replaced")
@@ -270,30 +357,46 @@ def main():
     if confirm.lower() != "y":
         print("Cancelled.")
         return
+    print()
 
     db = init_firebase()
     client = genai.Client(api_key=api_key)
 
+    # Build full URL queue with sublink discovery
+    print("🔍 Building URL queue...")
+    url_queue = build_url_queue(SEED_URLS)
+
+    # Load existing questions once for duplicate checking
+    print("📚 Loading existing KB questions for duplicate check...")
+    existing_qs = set()
+    for doc in db.collection("knowledge_base").where("active", "==", True).stream():
+        q = doc.to_dict().get("question", "")
+        existing_qs.add(q.lower()[:60])
+    print(f"   Found {len(existing_qs)} existing questions\n")
+
+    # Clear old auto-refresh entries
     clear_auto_refresh_entries(db)
 
-    total_saved = 0
-    total_failed = 0
+    total_saved = total_failed = 0
 
-    for i, (topic, url) in enumerate(URLS, 1):
-        print(f"[{i}/{len(URLS)}] {url}")
-        content = scrape_url(url)
+    for i, (topic, url, is_seed) in enumerate(url_queue, 1):
+        label = "SEED" if is_seed else "SUB "
+        print(f"[{i}/{len(url_queue)}] [{label}] {url}")
+
+        content, _ = scrape_url(url)
         if not content:
             total_failed += 1
             continue
 
         print(f"   📄 {len(content)} chars — extracting Q&A pairs...")
         pairs = extract_qa_pairs(content, url, topic, client)
+
         if not pairs:
             print(f"   ⚠️  No Q&A pairs extracted.")
             total_failed += 1
             continue
 
-        saved = save_to_firestore(db, topic, pairs, url)
+        saved = save_to_firestore(db, topic, pairs, url, existing_qs)
         total_saved += saved
         print(f"   ✅ Saved {saved} new entries (topic: {topic})")
         time.sleep(2)  # avoid rate limits
@@ -301,14 +404,15 @@ def main():
     print()
     print("=" * 60)
     print(f"  ✅ Refresh complete!")
+    print(f"  URLs processed     : {len(url_queue)}")
     print(f"  New entries saved  : {total_saved}")
-    print(f"  Pages failed       : {total_failed}")
+    print(f"  Pages with no data : {total_failed}")
     print(f"  Protected entries  : untouched")
     print("=" * 60)
     print()
     print("Your bot now uses the updated knowledge base immediately.")
-    print("Tip: In the Admin Panel, set permanent=True on any entry")
-    print("     you never want auto-refresh to remove.")
+    print("Tip: In Firestore, set permanent=True on any auto-refresh")
+    print("     entry you want to keep forever (e.g. historical facts).")
 
 
 if __name__ == "__main__":
