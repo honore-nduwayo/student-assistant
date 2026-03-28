@@ -24,13 +24,13 @@ def get_api_keys():
     return keys
 
 
-# ── Topic Detection ───────────────────────────────────────────
+# ── Topic Detection (used for website scraping only) ──────────
 TOPIC_KEYWORDS = {
     "fees": ["fee","fees","cost","pay","payment","tuition","amount","price","ghs","cedis","scholarship","financial","bursary","receipt"],
     "registration": ["register","registration","admit","admission","apply","application","form","portal","login","password","student id","matric"],
     "exams": ["exam","exams","test","quiz","assessment","result","grade","score","gpa","cgpa","transcript","resit","repeat","academic calendar","semester"],
     "hostel": ["hostel","accommodation","room","bed","dorm","dormitory","residential","housing","live","stay","campus"],
-    "enrollment": ["enroll","enrollment","course","courses","credit","unit","timetable","schedule","hod","department","programme","major","elective","add","drop"],
+    "enrollment": ["enroll","enrollment","course","courses","credit","unit","timetable","schedule","hod","department","programme","major","elective","add","drop","computer science","bsc","bba","ba"],
 }
 
 def detect_topic(question):
@@ -56,14 +56,10 @@ CACHE_TTL = 1800  # 30 minutes in seconds
 
 def fetch_page_content(url):
     now = time.time()
-
-    # Return cached version if still fresh
     if url in _page_cache:
         content, cached_at = _page_cache[url]
         if now - cached_at < CACHE_TTL:
             return content
-
-    # Otherwise fetch and cache
     try:
         r = requests.get(url, timeout=5)
         soup = BeautifulSoup(r.text, "html.parser")
@@ -79,18 +75,13 @@ def fetch_page_content(url):
 
 # ── Dynamic Real-Time Context ─────────────────────────────────
 def get_dynamic_context():
-    """
-    Computes live context on every request — no database needed.
-    Only update ACADEMIC_CALENDAR once per academic year.
-    Everything else is fully automatic.
-    """
     now = datetime.now(ZoneInfo("Africa/Accra"))
 
-    day_name = now.strftime("%A")           # e.g. "Saturday"
-    time_str = now.strftime("%I:%M %p")     # e.g. "10:30 AM"
-    date_str = now.strftime("%B %d, %Y")    # e.g. "March 28, 2026"
+    day_name = now.strftime("%A")
+    time_str = now.strftime("%I:%M %p")
+    date_str = now.strftime("%B %d, %Y")
     hour = now.hour
-    weekday = now.weekday()                 # 0=Monday … 6=Sunday
+    weekday = now.weekday()
 
     is_weekend = weekday >= 5
     is_office_hours = not is_weekend and (8 <= hour < 17)
@@ -100,7 +91,7 @@ def get_dynamic_context():
         else "CLOSED right now"
     )
 
-    # ── Only update this block once per academic year ─────────
+    # ── Update this block once per academic year only ─────────
     ACADEMIC_CALENDAR = {
         "semester_1": {"start": "2025-09-01", "end": "2025-12-20"},
         "semester_2": {"start": "2026-01-12", "end": "2026-05-10"},
@@ -116,6 +107,8 @@ REAL-TIME CONTEXT (auto-injected — never ask the student for this info):
 - Today's date      : {date_str} ({day_name})
 - Current time (GMT): {time_str}
 - Academic period   : {current_period}
+- Semester 2 ends   : May 10, 2026
+- Exam period 2     : April 27 – May 10, 2026
 - University offices: {office_status}
 - Academic year     : 2025–2026
 """
@@ -149,31 +142,29 @@ def get_ai_response(question, knowledge_base, history):
     live_content = fetch_page_content(TOPIC_URLS.get(topic, TOPIC_URLS["general"]))
     dynamic_context = get_dynamic_context()
 
-    # Build knowledge base — filtered by topic to keep prompt small
+    # ── Send the FULL knowledge base — no topic filter, no cap ─
+    # Filtering and capping were hiding answers from Gemini.
+    # Gemini 2.5 Flash handles large context windows efficiently.
     kb_text = ""
     for entry in knowledge_base:
         if entry.get("active", True):
-            entry_topic = entry.get("topic", "general")
-            if entry_topic == topic or entry_topic == "general":
-                kb_text += f"Q: {entry.get('question', '')}\nA: {entry.get('answer', '')}\n\n"
-    kb_text = kb_text[:3000]  # hard cap to control token usage
+            kb_text += f"Q: {entry.get('question', '')}\nA: {entry.get('answer', '')}\n\n"
 
-    # Build conversation history (last 10 messages for context)
+    # Build conversation history (last 10 messages)
     history_text = ""
     for msg in history[-10:]:
         role = "Student" if msg.get("role") == "user" else "Assistant"
         history_text += f"{role}: {msg.get('text', '')}\n"
 
-    prompt = f"""You are ACity Bot — a friendly, knowledgeable AI assistant for Academic City University College (ACity) in Accra, Ghana.
+    prompt = f"""You are ACity Bot — a friendly AI assistant for Academic City University College (ACity) in Accra, Ghana.
 
-YOUR CORE BEHAVIOUR:
-- You can answer ANY question a student asks — whether it is about ACity, general academic topics, study tips, career advice, or everyday knowledge.
-- For ACity-specific questions (fees, registration, exams, hostel, courses), always prioritise the KNOWLEDGE BASE and LIVE WEBSITE CONTENT provided below.
-- For questions outside the knowledge base, use your general knowledge to give a helpful, accurate answer.
-- ALWAYS end EVERY response — no exceptions — with this reminder on a new line:
-  "💬 Is there anything else I can help you with regarding ACity? I'm here for questions on fees, registration, courses, exams, hostels, and more!"
-- Be warm, concise, and encouraging. Use bullet points for lists.
-- If the student asks something you genuinely cannot answer at all, say so honestly and direct them to sca@acity.edu.gh for further support.
+PRIORITY RULES — follow in this exact order:
+1. ALWAYS check the ACITY KNOWLEDGE BASE below first. If the answer is there, use it directly and accurately. Do not summarise or rephrase it into vague advice — give the actual answer.
+2. If the answer is NOT in the knowledge base, check the REAL-TIME CONTEXT for date/time/semester facts and answer from that.
+3. If the answer is in neither, use your general knowledge to give a helpful response.
+4. NEVER tell a student to "check the website" or "contact the registry" for something that is already answered in the knowledge base below.
+5. ALWAYS end every single response — no exceptions — with this line:
+   "💬 Is there anything else I can help you with regarding ACity? I'm here for questions on fees, registration, courses, exams, hostels, and more!"
 
 {dynamic_context}
 
@@ -199,7 +190,7 @@ Answer:"""
                 contents=prompt,
                 config=types.GenerateContentConfig(
                     thinking_config=types.ThinkingConfig(
-                        thinking_budget=0  # Thinking fully OFF for speed
+                        thinking_budget=0  # Thinking OFF for speed
                     )
                 )
             )
