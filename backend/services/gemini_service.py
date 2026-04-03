@@ -112,7 +112,7 @@ REAL-TIME CONTEXT (auto-injected — never ask the student for this info):
 - Current time (GMT): {time_str}
 - Academic period   : {current_period}
 - Semester 2 ends   : May 10, 2026
-- Exam period 2     : April 27 – May 10, 2026
+- Exam period 2     : April 21 – May 30, 2026
 - University offices: {office_status}
 - Academic year     : 2025–2026
 """
