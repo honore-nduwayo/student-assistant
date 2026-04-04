@@ -1,4 +1,5 @@
 import os
+import re
 import time
 import requests
 from datetime import datetime
@@ -140,6 +141,49 @@ def _detect_current_period(now, cal):
     return "Pre-semester / Registration Period"
 
 
+# ── Link Cleaner ──────────────────────────────────────────────
+def clean_links(text):
+    """
+    Fixes malformed markdown links produced by Gemini.
+
+    Handles all known patterns:
+      [__https://url__](https://url)   →  [https://url](https://url)
+      [**text**](url)                  →  [text](url)
+      [__text__](url)                  →  [text](url)
+      [text](url)__.                   →  [text](url).
+      [text](url)__                    →  [text](url)
+    """
+    # Remove bold/italic markers wrapping a bare URL in the link label
+    # e.g. [__https://acityplus.acity.edu.gh](https://acityplus.acity.edu.gh)
+    text = re.sub(
+        r'\[[\*_]+(https?://[^\]]+?)[\*_]*\](\(https?://[^\)]+\))',
+        r'[\1]\2',
+        text
+    )
+    # Remove bold/italic markers wrapping descriptive text in the link label
+    # e.g. [**ACity Portal**](https://acityplus.acity.edu.gh)
+    text = re.sub(
+        r'\[[\*_]{1,2}([^\]]+?)[\*_]{1,2}\](\(https?://[^\)]+\))',
+        r'[\1]\2',
+        text
+    )
+    # Strip bold/italic decoration that leaks after the closing parenthesis
+    # e.g. [text](url)____.__ or [text](url)**
+    text = re.sub(
+        r'(\(https?://[^\)]+\))[_\*]{1,4}\.?',
+        r'\1',
+        text
+    )
+    # Fix escaped underscores inside link labels produced by some Gemini versions
+    # e.g. [\_\_https://url\_\_](https://url)
+    text = re.sub(
+        r'\[\\?_\\?_(.*?)\\?_\\?_\](\(https?://[^\)]+\))',
+        r'[\1]\2',
+        text
+    )
+    return text
+
+
 # ── Main AI Response Function ─────────────────────────────────
 def get_ai_response(question, knowledge_base, history):
     topic = detect_topic(question)
@@ -184,6 +228,10 @@ OTHER RULES:
 - Use bullet points for lists
 - Never invent ACity-specific data that is not in the knowledge base
 - If truly unable to help, refer the student to sca@acity.edu.gh
+- LINK FORMATTING: When including a URL, always use clean markdown: [label](url)
+  Do NOT apply bold or italic formatting (** or __) inside or around links.
+  Correct:   [ACity Student Portal](https://acityplus.acity.edu.gh)
+  Incorrect: [__https://acityplus.acity.edu.gh](https://acityplus.acity.edu.gh)__
 
 {dynamic_context}
 
@@ -209,11 +257,11 @@ Answer:"""
                 contents=prompt,
                 config=types.GenerateContentConfig(
                     thinking_config=types.ThinkingConfig(
-                        thinking_level="minimal"  # fastest — Gemini 3 uses thinking_level not thinking_budget
+                        thinking_level="minimal"
                     )
                 )
             )
-            return response.text
+            return clean_links(response.text)
         except Exception as e:
             if "429" in str(e) or "RESOURCE_EXHAUSTED" in str(e):
                 continue
