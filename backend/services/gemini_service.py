@@ -95,12 +95,10 @@ def get_academic_calendar() -> dict:
         return _calendar_cache
 
     try:
-        # Import here to avoid circular import issues
         from services.database import db
         doc = db.collection("settings").document("academic_calendar").get()
         if doc.exists:
             data = doc.to_dict()
-            # Validate that the required keys are present
             required = [
                 "semester_1_start", "semester_1_end",
                 "semester_2_start", "semester_2_end",
@@ -120,7 +118,6 @@ def get_academic_calendar() -> dict:
     except Exception as e:
         print(f"[Calendar] Firestore error ({e}) — using fallback")
 
-    # Use hardcoded fallback
     _calendar_cache = FALLBACK_CALENDAR
     _calendar_cache_ts = now
     return _calendar_cache
@@ -147,30 +144,6 @@ def _detect_current_period(now: datetime, cal: dict) -> str:
 
 # ─────────────────────────────────────────────────────────────
 # KEYWORD → URL MAP
-#
-# Each entry has:
-#   "keywords" : words/phrases — if ANY appear in the student's
-#                question, this entry scores a hit.
-#   "urls"     : ordered list of pages to scrape for that topic
-#                (most specific / most useful page listed first).
-#   "label"    : short tag used only in debug logs.
-#
-# HOW IT WORKS:
-#   detect_live_urls(question) scores every entry by counting
-#   keyword hits, then returns the top-scoring URLs (up to
-#   MAX_LIVE_URLS). Those pages are scraped and injected into
-#   the Gemini prompt as live context so Gemini always has
-#   fresh, accurate ACity data — even if the Firestore KB is
-#   missing that information.
-#
-# SOCIAL MEDIA NOTE:
-#   Twitter/X, Facebook, Instagram, LinkedIn, and YouTube all
-#   block server-side scrapers (they return login walls or empty
-#   HTML). The ACity-specific paths are listed here so Gemini
-#   knows they exist and can mention them to students, but they
-#   are excluded from live fetching via SKIP_LIVE_FETCH.
-#   The generic roots (twitter.com/, facebook.com/ etc.) contain
-#   no ACity information so they are intentionally omitted.
 # ─────────────────────────────────────────────────────────────
 
 KEYWORD_URL_MAP = [
@@ -810,14 +783,6 @@ KEYWORD_URL_MAP = [
     },
 
     # ── SOCIAL MEDIA (reference only — NOT fetched live) ─────
-    #
-    # These URLs are here so Gemini knows about ACity's social
-    # presence and can mention or link them to students in answers.
-    # They are never actually scraped (see SKIP_LIVE_FETCH below)
-    # because social platforms block server-side requests.
-    #
-    # Generic roots (twitter.com/, facebook.com/, etc.) are
-    # intentionally excluded — they contain no ACity content.
     {
         "label": "social_media",
         "keywords": [
@@ -842,18 +807,10 @@ SKIP_LIVE_FETCH = {
     "instagram.com", "linkedin.com", "youtube.com",
 }
 
-# Max live URLs to fetch per request (keeps response time fast)
 MAX_LIVE_URLS = 2
 
 
-# ── Score question against map and return best URLs ───────────
 def detect_live_urls(question: str) -> list:
-    """
-    Scores every KEYWORD_URL_MAP entry by counting keyword hits
-    in the student question. Returns the top-scoring, non-blocked
-    URLs (up to MAX_LIVE_URLS). Falls back to homepage if nothing
-    matches.
-    """
     q = question.lower()
     scored = []
 
@@ -883,7 +840,7 @@ def detect_live_urls(question: str) -> list:
     return result or ["https://acity.edu.gh/"]
 
 
-# ── Simple topic detection (for KB label in prompt) ───────────
+# ── Simple topic detection ─────────────────────────────────────
 TOPIC_KEYWORDS = {
     "fees": [
         "fee", "fees", "cost", "pay", "payment", "tuition",
@@ -926,7 +883,6 @@ _page_cache: dict = {}
 CACHE_TTL = 1800  # 30 minutes
 
 def fetch_page_content(url: str) -> str:
-    """Fetches, cleans, and caches a single page's text."""
     domain = urlparse(url).netloc.replace("www.", "")
     if domain in SKIP_LIVE_FETCH:
         return ""
@@ -954,10 +910,6 @@ def fetch_page_content(url: str) -> str:
 
 
 def fetch_live_content(question: str) -> str:
-    """
-    Picks the best URLs for this specific question, fetches them,
-    and returns a labelled combined string for the Gemini prompt.
-    """
     urls = detect_live_urls(question)
     parts = []
     for url in urls:
@@ -969,12 +921,6 @@ def fetch_live_content(question: str) -> str:
 
 # ── Dynamic Real-Time Context ─────────────────────────────────
 def get_dynamic_context() -> str:
-    """
-    Builds the real-time context block injected into every prompt.
-    Academic calendar dates come from Firestore (auto-refreshed
-    every 6 hours) with a hardcoded fallback if Firestore is down.
-    Admins update dates in Firestore — no code change needed.
-    """
     now      = datetime.now(ZoneInfo("Africa/Accra"))
     day_name = now.strftime("%A")
     time_str = now.strftime("%I:%M %p")
@@ -987,7 +933,6 @@ def get_dynamic_context() -> str:
         "OPEN (Mon–Fri, 8 AM – 5 PM GMT)" if is_office_hrs else "CLOSED right now"
     )
 
-    # Load calendar dynamically (Firestore → fallback)
     cal = get_academic_calendar()
     current_period = _detect_current_period(now, cal)
 
@@ -1010,13 +955,13 @@ REAL-TIME CONTEXT (auto-injected — never ask the student for this info):
 # ── Main AI Response Function ─────────────────────────────────
 def get_ai_response(question: str, knowledge_base: list, history: list) -> str:
 
-    # 1. Detect topic (for KB label in prompt)
+    # 1. Detect topic
     topic = detect_topic(question)
 
-    # 2. Fetch the best live page(s) for this specific question
+    # 2. Fetch live page content
     live_content = fetch_live_content(question)
 
-    # 3. Real-time date/semester context (dynamic calendar)
+    # 3. Real-time date/semester context
     dynamic_context = get_dynamic_context()
 
     # 4. Full KB text
@@ -1079,13 +1024,28 @@ Student question: {question}
 
 Answer:"""
 
-    # 7. Try each API key in rotation
+    # 7. Try each API key in rotation — ALL errors continue to next key
     keys = get_api_keys()
-    for key in keys:
+    model = os.getenv("GEMINI_MODEL", "gemini-3.1-flash-lite-preview")
+
+    print(f"[API Rotation] {len(keys)} key(s) available — model: {model}")
+
+    if not keys:
+        print("[API Rotation] ERROR: No API keys found in environment")
+        return (
+            "I'm having a configuration issue. Please contact registry@acity.edu.gh.\n\n"
+            "💬 Is there anything else I can help you with regarding ACity? "
+            "I'm here for questions on fees, registration, courses, exams, hostels, and more!"
+        )
+
+    last_error = None
+
+    for i, key in enumerate(keys, 1):
         try:
+            print(f"[API Rotation] Trying key {i}/{len(keys)}...")
             client = genai.Client(api_key=key)
             response = client.models.generate_content(
-                model="gemini-2.0-flash-lite",
+                model=model,
                 contents=prompt,
                 config=types.GenerateContentConfig(
                     thinking_config=types.ThinkingConfig(
@@ -1093,12 +1053,17 @@ Answer:"""
                     )
                 )
             )
+            print(f"[API Rotation] Key {i} succeeded ✅")
             return response.text
-        except Exception as e:
-            if "429" in str(e) or "RESOURCE_EXHAUSTED" in str(e):
-                continue
-            raise e
 
+        except Exception as e:
+            last_error = e
+            err_str = str(e)
+            print(f"[API Rotation] Key {i} failed: {err_str[:200]}")
+            # Always continue to the next key, regardless of error type
+            continue
+
+    print(f"[API Rotation] All {len(keys)} key(s) exhausted. Last error: {last_error}")
     return (
         "I'm currently experiencing high demand. Please try again in a few minutes "
         "or contact registry@acity.edu.gh for urgent queries.\n\n"
