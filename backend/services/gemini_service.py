@@ -228,10 +228,7 @@ OTHER RULES:
 - Use bullet points for lists
 - Never invent ACity-specific data that is not in the knowledge base
 - If truly unable to help, refer the student to sca@acity.edu.gh
-- LINK FORMATTING: When including a URL, always use clean markdown: [label](url)
-  Do NOT apply bold or italic formatting (** or __) inside or around links.
-  Correct:   [ACity Student Portal](https://acityplus.acity.edu.gh)
-  Incorrect: [__https://acityplus.acity.edu.gh](https://acityplus.acity.edu.gh)__
+- LINK FORMATTING: When including a URL, always give it as a clickable link (meaning, it's a text and behind a link)
 
 {dynamic_context}
 
