@@ -30,8 +30,6 @@ load_dotenv()
 
 
 # ── All URLs you provided ─────────────────────────────────────
-# Format: (topic, url)
-# Topic controls which Firestore category the Q&A pair is saved under
 SEED_URLS = [
     # ── Main site ─────────────────────────────────────────────
     ("general",      "https://acity.edu.gh/"),
@@ -95,7 +93,6 @@ SEED_URLS = [
     ("registration", "https://admissions.acity.edu.gh/undergraduate"),
 ]
 
-# Domains we are allowed to follow sublinks into
 ALLOWED_DOMAINS = {
     "acity.edu.gh",
     "acityfoundation.org",
@@ -103,7 +100,6 @@ ALLOWED_DOMAINS = {
     "acityplus.acity.edu.gh",
 }
 
-# URL patterns to always skip (login walls, social media, docs)
 SKIP_PATTERNS = [
     "twitter.com", "facebook.com", "instagram.com",
     "linkedin.com", "youtube.com", "x.com",
@@ -113,8 +109,12 @@ SKIP_PATTERNS = [
 ]
 
 QA_PER_PAGE = 8
-MAX_SUBLINKS_PER_PAGE = 5   # how many new sublinks to follow per page
-MAX_TOTAL_URLS = 120        # safety cap so the script doesn't run forever
+MAX_SUBLINKS_PER_PAGE = 5
+MAX_TOTAL_URLS = 120
+
+# ── Model to use for knowledge extraction ────────────────────
+# gemini-3.1-flash-lite-preview: fastest, cheapest, great for bulk extraction
+GEMINI_MODEL = os.getenv("GEMINI_MODEL", "gemini-3.1-flash-lite-preview")
 
 
 # ── Firebase setup ────────────────────────────────────────────
@@ -141,7 +141,6 @@ def is_allowed_domain(url):
         return False
 
 def normalize_url(url):
-    """Strip fragments (#section) for deduplication — fragments don't load new pages."""
     parsed = urlparse(url)
     return parsed._replace(fragment="").geturl()
 
@@ -157,7 +156,6 @@ def scrape_url(url):
 
         soup = BeautifulSoup(r.text, "html.parser")
 
-        # Discover internal sublinks before stripping the DOM
         sublinks = []
         for a_tag in soup.find_all("a", href=True):
             href = a_tag["href"].strip()
@@ -170,13 +168,12 @@ def scrape_url(url):
             ):
                 sublinks.append(norm)
 
-        # Clean and extract readable text
         for tag in soup(["script", "style", "nav", "footer", "header", "form", "iframe"]):
             tag.decompose()
         text = soup.get_text(separator=" ", strip=True)
         clean = " ".join(text.split())[:6000]
 
-        return clean, list(dict.fromkeys(sublinks))  # deduplicated sublinks
+        return clean, list(dict.fromkeys(sublinks))
 
     except Exception as e:
         print(f"  ❌ Fetch error: {e}")
@@ -211,7 +208,7 @@ PAGE CONTENT:
 
     try:
         response = client.models.generate_content(
-            model="gemini-3.1-flash-lite-preview",
+            model=GEMINI_MODEL,
             contents=prompt,
             config=types.GenerateContentConfig(
                 thinking_config=types.ThinkingConfig(thinking_level="minimal")
@@ -239,10 +236,6 @@ PAGE CONTENT:
 
 # ── Smart Firestore management ────────────────────────────────
 def clear_auto_refresh_entries(db):
-    """
-    Removes auto_refresh entries where permanent != True.
-    Manual (admin/initial_upload) entries and permanent=True are always safe.
-    """
     print("🧹 Clearing replaceable auto-refresh entries...")
     docs = db.collection("knowledge_base").where("source", "==", "auto_refresh").stream()
     removed = kept = 0
@@ -287,19 +280,10 @@ def save_to_firestore(db, topic, pairs, url, existing_qs):
     return saved
 
 
-# ── Build full URL queue (seeds + discovered sublinks) ────────
+# ── Build full URL queue ──────────────────────────────────────
 def build_url_queue(seed_urls):
-    """
-    Starts with seed URLs, then for each one discovers new
-    sublinks on that page and appends them to the queue
-    (up to MAX_SUBLINKS_PER_PAGE per page, MAX_TOTAL_URLS total).
-
-    Fragment URLs (#section) share the same page content as their
-    base URL, so they are deduplicated at the page level.
-    """
-    # Normalize seeds and remove fragment duplicates
-    seen_pages = set()   # normalized (no-fragment) URLs already queued
-    queue = []           # final list of (topic, url, is_seed)
+    seen_pages = set()
+    queue = []
 
     for topic, url in seed_urls:
         norm = normalize_url(url)
@@ -311,16 +295,16 @@ def build_url_queue(seed_urls):
     print(f"   Now discovering sublinks on each seed page...\n")
 
     discovered = []
-    for topic, url, _ in queue[:]:   # iterate over seeds only
+    for topic, url, _ in queue[:]:
         if len(queue) + len(discovered) >= MAX_TOTAL_URLS:
             break
-        _, sublinks = scrape_url(url)   # scrape just for links here
+        _, sublinks = scrape_url(url)
         added = 0
         for sub in sublinks:
             norm_sub = normalize_url(sub)
             if norm_sub not in seen_pages and len(discovered) + len(queue) < MAX_TOTAL_URLS:
                 seen_pages.add(norm_sub)
-                discovered.append((topic, sub, False))  # inherit parent topic
+                discovered.append((topic, sub, False))
                 added += 1
                 if added >= MAX_SUBLINKS_PER_PAGE:
                     break
@@ -340,6 +324,7 @@ def main():
     print(f"  Max sublinks/page   : {MAX_SUBLINKS_PER_PAGE}")
     print(f"  Hard URL cap        : {MAX_TOTAL_URLS}")
     print(f"  Q&A per page        : {QA_PER_PAGE}")
+    print(f"  Gemini model        : {GEMINI_MODEL}")
     print()
     print("  PROTECTION RULES:")
     print("  ✅ source=admin / initial_upload → never touched")
@@ -362,11 +347,9 @@ def main():
     db = init_firebase()
     client = genai.Client(api_key=api_key)
 
-    # Build full URL queue with sublink discovery
     print("🔍 Building URL queue...")
     url_queue = build_url_queue(SEED_URLS)
 
-    # Load existing questions once for duplicate checking
     print("📚 Loading existing KB questions for duplicate check...")
     existing_qs = set()
     for doc in db.collection("knowledge_base").where("active", "==", True).stream():
@@ -374,7 +357,6 @@ def main():
         existing_qs.add(q.lower()[:60])
     print(f"   Found {len(existing_qs)} existing questions\n")
 
-    # Clear old auto-refresh entries
     clear_auto_refresh_entries(db)
 
     total_saved = total_failed = 0
@@ -399,7 +381,7 @@ def main():
         saved = save_to_firestore(db, topic, pairs, url, existing_qs)
         total_saved += saved
         print(f"   ✅ Saved {saved} new entries (topic: {topic})")
-        time.sleep(2)  # avoid rate limits
+        time.sleep(2)
 
     print()
     print("=" * 60)
