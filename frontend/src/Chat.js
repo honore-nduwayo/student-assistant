@@ -164,7 +164,7 @@ export default function Chat() {
     {
       role: "bot",
       text:
-        "👋 Hi there! I'm **Kai**, your ACity student assistant!\n\nI can help you with:\n* 💰 Fees & scholarships\n* 📝 Registration & admissions\n* 📚 Courses & enrollment\n* 📅 Exams & results\n* 🏠 Hostel & campus life\n* 🎓 Graduation procedures\n\nWhat would you like to know today?",
+        "👋 Hi there! I'm **Kai**, your ACity student assistant!\n\nI can help you with:\n*  Fees & scholarships\n*  Registration & admissions\n*  Courses & enrollment\n*  Exams & results\n*  Hostel & campus life\n*  Graduation procedures\n\nWhat would you like to know today?",
     },
   ]);
 
