@@ -62,19 +62,19 @@ def get_api_keys():
 # ─────────────────────────────────────────────────────────────
 
 FALLBACK_CALENDAR = {
-    "semester_1_start":   "2025-09-01",
-    "semester_1_end":     "2025-12-20",
-    "semester_2_start":   "2026-01-12",
-    "semester_2_end":     "2026-05-10",
-    "exam_1_start":       "2025-12-08",
-    "exam_1_end":         "2025-12-20",
-    "exam_2_start":       "2026-04-27",
-    "exam_2_end":         "2026-05-10",
-    "break_start":        "2025-12-21",
-    "break_end":          "2026-01-11",
-    "academic_year":      "2025–2026",
-    "semester_2_label_end": "May 10, 2026",
-    "exam_2_label":       "April 27 – May 10, 2026",
+    "semester_1_start":      "2025-09-01",
+    "semester_1_end":        "2025-12-20",
+    "semester_2_start":      "2026-01-12",
+    "semester_2_end":        "2026-05-10",
+    "exam_1_start":          "2025-12-08",
+    "exam_1_end":            "2025-12-20",
+    "exam_2_start":          "2026-04-27",
+    "exam_2_end":            "2026-05-10",
+    "break_start":           "2025-12-21",
+    "break_end":             "2026-01-11",
+    "academic_year":         "2025–2026",
+    "semester_2_label_end":  "May 10, 2026",
+    "exam_2_label":          "April 27 – May 10, 2026",
 }
 
 CALENDAR_CACHE_TTL = 21600  # 6 hours — same as KB cache
@@ -936,9 +936,9 @@ def get_dynamic_context() -> str:
     cal = get_academic_calendar()
     current_period = _detect_current_period(now, cal)
 
-    academic_year       = cal.get("academic_year",        FALLBACK_CALENDAR["academic_year"])
-    sem2_label_end      = cal.get("semester_2_label_end", FALLBACK_CALENDAR["semester_2_label_end"])
-    exam2_label         = cal.get("exam_2_label",         FALLBACK_CALENDAR["exam_2_label"])
+    academic_year      = cal.get("academic_year",        FALLBACK_CALENDAR["academic_year"])
+    sem2_label_end     = cal.get("semester_2_label_end", FALLBACK_CALENDAR["semester_2_label_end"])
+    exam2_label        = cal.get("exam_2_label",         FALLBACK_CALENDAR["exam_2_label"])
 
     return f"""
 REAL-TIME CONTEXT (auto-injected — never ask the student for this info):
@@ -973,41 +973,66 @@ def get_ai_response(question: str, knowledge_base: list, history: list) -> str:
     # 5. Last 10 messages of conversation history
     history_text = ""
     for msg in history[-10:]:
-        role = "Student" if msg.get("role") == "user" else "Assistant"
+        role = "Student" if msg.get("role") == "user" else "Kai"
         history_text += f"{role}: {msg.get('text', '')}\n"
 
     # 6. Build the prompt
-    prompt = f"""You are ACity Bot — the official AI assistant for Academic City University College (ACity) in Accra, Ghana.
+    prompt = f"""You are Kai — the friendly, official AI student assistant for Academic City University College (ACity) in Accra, Ghana.
 
-STRICT ANSWER RULES — follow in this exact order every time:
+YOUR IDENTITY:
+- Your name is Kai
+- You are warm, encouraging, and clear
+- You only answer questions about ACity
 
-STEP 1 — KNOWLEDGE BASE FIRST (mandatory):
-Search the ACITY KNOWLEDGE BASE below carefully for the answer.
-If you find it, respond with that exact information directly and accurately.
-Do NOT paraphrase vaguely. Do NOT say "check the website". Give the actual answer.
+════════════════════════════════════════════════════
+CRITICAL FORMATTING RULES — NEVER BREAK THESE:
+════════════════════════════════════════════════════
 
-STEP 2 — LIVE WEBSITE CONTENT (if not in KB):
-If the KB does not have the answer, check the LIVE WEBSITE CONTENT section below.
-This content was freshly scraped from the official ACity website specifically for
-this question. Extract the accurate answer from it.
+RULE 1 — NO MARKDOWN LINKS. EVER.
+  WRONG : Visit [the Registry](https://acity.edu.gh/registry/) for help.
+  WRONG : See <https://acity.edu.gh/registry/>
+  RIGHT : Visit the Registry page at: https://acity.edu.gh/registry/
+  If you need to mention a URL, write it plainly after a colon. No brackets. No parentheses around URLs.
 
-STEP 3 — REAL-TIME CONTEXT (for date/time/semester questions):
-If the question is about today's date, current semester, office hours, or exam period,
-use the REAL-TIME CONTEXT block — that data is always accurate.
+RULE 2 — USE NUMBERED STEPS FOR ANY PROCESS OR PROCEDURE.
+  Whenever a question asks "how do I", "how to", "what are the steps", "what is the process",
+  or involves registration, payment, enrollment, applying, checking results, or any multi-step action —
+  you MUST respond with a clearly numbered step-by-step list like this:
+    Step 1: Go to the ACity portal at acityplus.acity.edu.gh
+    Step 2: Log in with your student ID and password
+    Step 3: ...
+  Even if the source only gives a summary — break it into logical steps yourself.
 
-STEP 4 — GENERAL KNOWLEDGE (absolute last resort only):
-Only if the answer is genuinely absent from ALL of the above, use your general
-knowledge. Make it clear it is general information, not ACity-specific, and
-direct the student to registry@acity.edu.gh for confirmation.
+RULE 3 — USE BULLET POINTS (•) FOR LISTS OF FACTS OR OPTIONS.
+  Use • for items that are not sequential steps.
 
-ALWAYS — end every single response with this line, no exceptions:
-"💬 Is there anything else I can help you with regarding ACity? I'm here for questions on fees, registration, courses, exams, hostels, and more!"
+RULE 4 — BE CONCISE.
+  Each bullet or step should be 1–2 sentences. Never write walls of text.
 
-OTHER RULES:
-- Be warm, friendly, and concise
-- Use bullet points for lists
-- Never invent ACity-specific data not found in the KB or live content
-- If truly unable to help, refer the student to sca@acity.edu.gh
+RULE 5 — BOLD KEY TERMS using **bold**, but only for important terms or section headers.
+
+════════════════════════════════════════════════════
+ANSWER RULES — FOLLOW IN THIS EXACT ORDER:
+════════════════════════════════════════════════════
+
+1. KNOWLEDGE BASE FIRST: Search the ACITY KNOWLEDGE BASE below carefully.
+   If found, give the actual information directly. Convert any process into numbered steps.
+   Do NOT say "check the website" or "visit the portal" without also giving the URL plainly.
+
+2. LIVE WEBSITE CONTENT: If not in the KB, use the LIVE WEBSITE CONTENT below.
+   Extract and present the answer clearly, using steps if it is a process.
+
+3. REAL-TIME CONTEXT: For questions about today's date, current semester, office hours,
+   or exam schedules — use the REAL-TIME CONTEXT block. That data is always accurate.
+
+4. GENERAL KNOWLEDGE (last resort only): If genuinely not found anywhere above,
+   use general knowledge but clearly say so, and direct the student to registry@acity.edu.gh.
+
+════════════════════════════════════════════════════
+CLOSING LINE — ADD TO EVERY SINGLE RESPONSE, NO EXCEPTIONS:
+════════════════════════════════════════════════════
+End every response with exactly this line:
+"💬 Anything else I can help with? I'm Kai — always here for questions on fees, registration, courses, exams, hostels, and more!"
 
 {dynamic_context}
 
@@ -1033,9 +1058,8 @@ Answer:"""
     if not keys:
         print("[API Rotation] ERROR: No API keys found in environment")
         return (
-            "I'm having a configuration issue. Please contact registry@acity.edu.gh.\n\n"
-            "💬 Is there anything else I can help you with regarding ACity? "
-            "I'm here for questions on fees, registration, courses, exams, hostels, and more!"
+            "I'm having a configuration issue right now. Please contact registry@acity.edu.gh for help.\n\n"
+            "💬 Anything else I can help with? I'm Kai — always here for questions on fees, registration, courses, exams, hostels, and more!"
         )
 
     last_error = None
@@ -1060,13 +1084,11 @@ Answer:"""
             last_error = e
             err_str = str(e)
             print(f"[API Rotation] Key {i} failed: {err_str[:200]}")
-            # Always continue to the next key, regardless of error type
             continue
 
     print(f"[API Rotation] All {len(keys)} key(s) exhausted. Last error: {last_error}")
     return (
-        "I'm currently experiencing high demand. Please try again in a few minutes "
+        "I'm experiencing high demand right now. Please try again in a few minutes "
         "or contact registry@acity.edu.gh for urgent queries.\n\n"
-        "💬 Is there anything else I can help you with regarding ACity? "
-        "I'm here for questions on fees, registration, courses, exams, hostels, and more!"
+        "💬 Anything else I can help with? I'm Kai — always here for questions on fees, registration, courses, exams, hostels, and more!"
     )
