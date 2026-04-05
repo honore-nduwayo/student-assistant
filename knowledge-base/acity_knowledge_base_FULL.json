@@ -1,0 +1,2394 @@
+[
+  {
+    "id": 1,
+    "topic": "registration",
+    "question": "How do I apply to Academic City University?",
+    "answer": "Applications are submitted online at https://admissions.acity.edu.gh/undergraduate for undergraduate programmes, or https://admissions.acity.edu.gh/postgraduate for graduate programmes. Paper applications are also available on campus. Visit https://acity.edu.gh/start-your-application/ for details.",
+    "keywords": "apply, academic, city, university, registration, acity, applications, paper, visit",
+    "source": "ACity Website — Admissions"
+  },
+  {
+    "id": 2,
+    "topic": "registration",
+    "question": "What are ACity's two intake cohorts and when do they start?",
+    "answer": "ACity admits students in two cohorts: Fall (September) and Spring (January). Both cohorts have access to the same programmes, faculty, facilities, and student life. After Year 1, both cohorts merge into the same academic programme stream and proceed together through Years 2–4.",
+    "keywords": "acity, two, intake, cohorts, start, registration, fall, september, spring, january",
+    "source": "ACity Website — Admissions"
+  },
+  {
+    "id": 3,
+    "topic": "registration",
+    "question": "What is the application fee at ACity?",
+    "answer": "The undergraduate application fee is USD $30 (or GHS 150 for Ghanaian students via some channels). For graduate programmes, the fee is GHC 150 or USD $30. This fee is required before the admissions team reviews your application. The fee can be waived for students meeting need-based criteria — email admissions@acity.edu.gh to request a waiver.",
+    "keywords": "application, fee, acity, registration, the, usd, ghs, ghanaian, for",
+    "source": "ACity Website — Admissions"
+  },
+  {
+    "id": 4,
+    "topic": "registration",
+    "question": "How long does it take to get an admissions decision at ACity?",
+    "answer": "ACity provides decisions within 30 days for Ghanaian applicants and 14 days for Nigerian and other international applicants after receiving a completed application.",
+    "keywords": "admissions, decision, acity, registration, ghanaian, nigerian",
+    "source": "ACity Website — Admissions"
+  },
+  {
+    "id": 5,
+    "topic": "registration",
+    "question": "What documents do I need to apply to ACity?",
+    "answer": "For undergraduate: (1) Prior educational qualifications and transcripts; (2) Equivalency documentation for international qualifications. Optional: certificates of achievement or training. For graduate: (1) Degree certificate and transcripts; (2) GTEC documentation for international candidates; (3) Passport or government-issued ID; (4) CV. Additional certificates strengthen the application.",
+    "keywords": "documents, apply, acity, registration, for, prior, equivalency, optional",
+    "source": "ACity Website — Admissions"
+  },
+  {
+    "id": 6,
+    "topic": "registration",
+    "question": "Does ACity have an entrance exam or interview?",
+    "answer": "ACity does not have a mandatory entrance exam or interview. Admissions are based on academic credentials and overall performance. No quotas are used.",
+    "keywords": "acity, entrance, exam, interview, registration, admissions",
+    "source": "ACity Website — Admissions"
+  },
+  {
+    "id": 7,
+    "topic": "registration",
+    "question": "Can I defer my ACity admission?",
+    "answer": "Yes. You must respond to your offer of admission within 1 month of receiving it. Contact admissions@acity.edu.gh to discuss deferral options.",
+    "keywords": "defer, acity, admission, registration, yes, you, contact",
+    "source": "ACity Website — Admissions"
+  },
+  {
+    "id": 8,
+    "topic": "registration",
+    "question": "Can a rejected ACity applicant reapply?",
+    "answer": "Yes. A rejected applicant can apply again in a later intake. Contact admissions@acity.edu.gh to understand the timeline and any improvements needed.",
+    "keywords": "rejected, acity, applicant, reapply, registration, yes, contact",
+    "source": "ACity Website — Admissions"
+  },
+  {
+    "id": 9,
+    "topic": "general",
+    "question": "Where is the ACity campus located?",
+    "answer": "Property #279-302, Agbogba, Haatso, P.O. Box AD 421, Accra, Ghana. Phone: +233 59 403 0308. Email: admissions@acity.edu.gh. The campus is approximately 9km from Kotoka International Airport in the Haatso/Agbogba area of Greater Accra.",
+    "keywords": "acity, campus, located, general, property, agbogba, haatso, box, accra",
+    "source": "ACity Website"
+  },
+  {
+    "id": 10,
+    "topic": "registration",
+    "question": "Can I visit the ACity campus before applying?",
+    "answer": "Yes. Visit https://acity.edu.gh/visit/ to schedule or learn more about campus visits.",
+    "keywords": "visit, acity, campus, applying, registration, yes",
+    "source": "ACity Website"
+  },
+  {
+    "id": 11,
+    "topic": "registration",
+    "question": "What are the minimum entry requirements at ACity for WASSCE students?",
+    "answer": "Minimum grade of C6 in WASSCE in at least six subjects including English Language and Core Mathematics. Engineering programmes additionally require credits (A1–C6) in Elective/Additional/Further Mathematics and Physics. Three relevant elective subjects are required in addition to the three core subjects.",
+    "keywords": "minimum, entry, requirements, acity, wassce, students, registration, english, language, core",
+    "source": "ACity Website — Entry Requirements"
+  },
+  {
+    "id": 12,
+    "topic": "registration",
+    "question": "Is a C6 in Mathematics enough to get into ACity?",
+    "answer": "C6 is the minimum credit threshold at WASSCE and meets the minimum requirement. However, for engineering programmes you need C6 specifically in Elective Mathematics (not just Core Mathematics). For non-engineering programmes, C6 in Core Mathematics is generally acceptable. Confirm with admissions@acity.edu.gh.",
+    "keywords": "mathematics, enough, acity, enrollment, wassce, however, elective, core",
+    "source": "ACity Website — Entry Requirements"
+  },
+  {
+    "id": 13,
+    "topic": "registration",
+    "question": "Is English Language compulsory for admission to ACity?",
+    "answer": "Yes. English Language is mandatory for admission to all programmes at ACity.",
+    "keywords": "english, language, compulsory, admission, acity, registration, yes",
+    "source": "ACity Website — Entry Requirements"
+  },
+  {
+    "id": 14,
+    "topic": "registration",
+    "question": "Does ACity accept SSSCE, A-Level, or IB qualifications?",
+    "answer": "Yes. ACity accepts: SSSCE (minimum D or pass in 6 subjects including English and Mathematics); IGCSE and A-Levels (credits in 5 O-Level subjects including English and Maths; passes in 3 A-Level subjects, at least 2 at Grade D or better); English IB (IB Diploma is the minimum); French IB (minimum average 50% in all subjects, with Mathematics and English mandatory).",
+    "keywords": "acity, accept, sssce, level, qualifications, registration, yes, english, mathematics",
+    "source": "ACity Website — Entry Requirements"
+  },
+  {
+    "id": 15,
+    "topic": "registration",
+    "question": "Does ACity accept international qualifications?",
+    "answer": "Yes. ACity accepts American High School (minimum GPA 2.0/4.0), Canadian Diploma (minimum 50% overall average), IGCSE/A-Levels, and IB qualifications. International qualifications are subject to GTEC evaluation.",
+    "keywords": "acity, accept, international, qualifications, registration, yes, american, high, school",
+    "source": "ACity Website — Entry Requirements"
+  },
+  {
+    "id": 16,
+    "topic": "general",
+    "question": "What undergraduate programmes does ACity offer?",
+    "answer": "Faculty of Business Administration and Communication Arts: BBA Accounting, BBA Banking and Finance, BBA Entrepreneurship, BBA Human Resource Management, BBA Marketing, BA Advertising and Public Relations, BA Mass Communication and Journalism. Faculty of Computational Sciences and Informatics: BSc Artificial Intelligence, BSc Computer Science, BSc Information Technology. Faculty of Engineering: BSc Computer Engineering, BSc Electrical and Electronics Engineering, BSc Electronics and Computer Engineering, BSc Robotics Engineering, BSc Mechanical Engineering, BSc Industrial and Systems Engineering, BSc Biomedical Engineering.",
+    "keywords": "undergraduate, programmes, acity, offer, general, faculty, business, administration, communication, arts",
+    "source": "ACity Website — Undergraduate Programmes"
+  },
+  {
+    "id": 17,
+    "topic": "general",
+    "question": "What graduate/postgraduate programmes does ACity offer?",
+    "answer": "ACity offers two Master's programmes: MSc in Cyber Security and MSc in Data Science and Analytics, both under the Faculty of Computational Sciences and Informatics. Applications at https://admissions.acity.edu.gh/postgraduate.",
+    "keywords": "graduate, postgraduate, programmes, acity, offer, general, master, msc, cyber, security",
+    "source": "ACity Website — Graduate Programmes"
+  },
+  {
+    "id": 18,
+    "topic": "general",
+    "question": "Does ACity offer AI and Robotics Engineering?",
+    "answer": "Yes. ACity offers BSc in Artificial Intelligence (under Computational Sciences) and BSc in Robotics Engineering (under Engineering). Both are active programmes.",
+    "keywords": "acity, offer, robotics, engineering, general, yes, bsc, artificial, intelligence",
+    "source": "ACity Website — Undergraduate Programmes"
+  },
+  {
+    "id": 19,
+    "topic": "general",
+    "question": "What is the MSc Cyber Security programme?",
+    "answer": "The MSc Cyber Security is a graduate programme under the Faculty of Computational Sciences and Informatics, offered in a blended format (Thursday/Friday virtual sessions plus Saturday on-campus sessions). It focuses on critical decision-making in cybersecurity contexts, covering threat intelligence, forensics, criminological theories, blockchain, and cyber psychology. Details: https://acity.edu.gh/masters/masters-of-science-in-cybersecurity/",
+    "keywords": "msc, cyber, security, programme, general, acity, the, faculty",
+    "source": "ACity Website — Graduate Programmes"
+  },
+  {
+    "id": 20,
+    "topic": "general",
+    "question": "What is the MSc Data Science and Analytics programme?",
+    "answer": "The MSc Data Science and Analytics is a graduate programme under the Faculty of Computational Sciences and Informatics. It is designed for professionals ready to apply data science in real-world contexts, covering big data, machine learning, deep learning, and statistical methods. Details: https://acity.edu.gh/masters/msc-data-science-and-analytics/",
+    "keywords": "msc, data, science, analytics, programme, general, acity, the",
+    "source": "ACity Website — Graduate Programmes"
+  },
+  {
+    "id": 21,
+    "topic": "general",
+    "question": "Are MSc programmes part-time or evening programmes?",
+    "answer": "The MSc programmes operate in a blended format with virtual sessions on Thursdays and Fridays (5:30–8:30 PM) and immersive on-campus learning on Saturdays (9 AM–5 PM), making them accessible to working professionals.",
+    "keywords": "msc, programmes, part, time, evening, general, acity, the, thursdays, fridays, saturdays",
+    "source": "MSc Cybersecurity Programme Handbook — Section 6.0"
+  },
+  {
+    "id": 22,
+    "topic": "general",
+    "question": "How long is an undergraduate degree at ACity?",
+    "answer": "An undergraduate degree at ACity is four years (eight semesters).",
+    "keywords": "undergraduate, degree, acity, general",
+    "source": "ACity Website"
+  },
+  {
+    "id": 23,
+    "topic": "fees",
+    "question": "Can ACity fees be paid via mobile money?",
+    "answer": "Yes. ACity accepts Mobile Money payments: MTN, Airtel, and Vodafone. Pay to 0242538304 (Account Name: Academic City University College). Online payment is also available at https://acityplus.acity.edu.gh.",
+    "keywords": "acity, fees, paid, via, mobile, money, yes, mtn",
+    "source": "Fee Policy 2025–2026 — UG Ghanaian Students; Fee Policy 2025–2026 — Masters"
+  },
+  {
+    "id": 24,
+    "topic": "fees",
+    "question": "Can I pay ACity fees at a bank?",
+    "answer": "Yes. Option 1 — EcoBank Ghana: GHS Account 1441002060875 / USD Account 3441002060876 / SWIFT ECOCGHAC / Address: Ministerial Area, 2 Morocco Lane, Off Independence Avenue, Accra. Option 2 — Access Bank Ghana: GHS Account 0180223309771 / USD Account 0181013309771 / SWIFT ABNGGHAC / Branch: Starlets' 91 Road, Opp. Accra Sports Stadium, Osu. Nigerian payments: Union Bank of Nigeria — Naira: 0148476247 / USD: 0148587062, Account Name: Vista International Limited - Academic City College Ghana.",
+    "keywords": "pay, acity, fees, bank, yes, option, ecobank, ghana, ghs",
+    "source": "Fee Policy 2025–2026 — All PDFs"
+  },
+  {
+    "id": 25,
+    "topic": "fees",
+    "question": "Does ACity offer a three-installment payment plan?",
+    "answer": "Yes. ACity offers a flexible three-installment payment plan that splits tuition into three payments. This plan includes ACity's financing fee, which means the total paid via instalments is higher than the upfront discounted price. Contact admissions@acity.edu.gh or +233 26 269 3870 for details.",
+    "keywords": "acity, offer, three, installment, payment, plan, fees, yes, this, contact",
+    "source": "ACity Website — Finance; Fee Policy 2025–2026 PDFs"
+  },
+  {
+    "id": 26,
+    "topic": "fees",
+    "question": "Does ACity offer scholarships?",
+    "answer": "Yes. ACity's flagship scholarship is the Presidential Scholarship — a full scholarship covering tuition, on-campus housing, and meals (3 meals daily) for the entire four-year programme. It is awarded to exceptional students demonstrating academic excellence, leadership potential, and entrepreneurial mindset. ACity has invested over $1.2 million in Presidential Scholars to date. It is awarded case-by-case and approved by the Office of the President.",
+    "keywords": "acity, offer, scholarships, fees, yes, presidential, scholarship",
+    "source": "ACity Website — Scholarships"
+  },
+  {
+    "id": 27,
+    "topic": "fees",
+    "question": "What does the Presidential Scholarship at ACity cover?",
+    "answer": "The Presidential Scholarship covers: full tuition (100% of all academic fees); on-campus housing; and a meal plan (three meals daily throughout the semester) for the entire four-year programme. A laptop and monthly stipend are not listed as confirmed components — contact admissions@acity.edu.gh to confirm the current full scope of the award.",
+    "keywords": "presidential, scholarship, acity, cover, fees, the",
+    "source": "ACity Website — Scholarships"
+  },
+  {
+    "id": 28,
+    "topic": "fees",
+    "question": "Is the Presidential Scholarship renewable?",
+    "answer": "The Presidential Scholarship covers the entire four-year (eight-semester) programme, contingent on maintaining academic requirements. Contact admissions for renewal conditions.",
+    "keywords": "presidential, scholarship, renewable, fees, acity, the, contact",
+    "source": "ACity Website — Scholarships"
+  },
+  {
+    "id": 29,
+    "topic": "fees",
+    "question": "Is the SLTF student loan available for ACity students?",
+    "answer": "ACity states it can support students to apply for loans. Ghana's Student Loan Trust Fund (SLTF) is available to Ghanaian students at accredited institutions. As an accredited private university, ACity students may be eligible. Verify with SLTF (www.sltf.gov.gh) and ACity's Finance Office. Contact admissions@acity.edu.gh for practical guidance on the SLTF application process.",
+    "keywords": "sltf, student, loan, available, acity, students, fees, ghana, trust",
+    "source": "ACity Website — Financial Aid"
+  },
+  {
+    "id": 30,
+    "topic": "fees",
+    "question": "Is need-based aid available at ACity?",
+    "answer": "Yes. ACity states it provides merit-based scholarships and need-based financial aid and can support students to apply for loans (SLTF). Contact admissions@acity.edu.gh for details on need-based support.",
+    "keywords": "based, aid, available, acity, fees, yes, sltf, contact",
+    "source": "ACity Website — Financial Aid"
+  },
+  {
+    "id": 31,
+    "topic": "hostel",
+    "question": "Does ACity offer on-campus housing?",
+    "answer": "Yes. ACity offers on-campus hostel accommodation for undergraduate students. Housing for graduate students is not currently available. Apply for housing by ticking the housing box on your application form at admissions.acity.edu.gh.",
+    "keywords": "acity, offer, campus, housing, hostel, yes, apply",
+    "source": "ACity Website — Housing"
+  },
+  {
+    "id": 32,
+    "topic": "registration",
+    "question": "Is campus accommodation available for international students at ACity?",
+    "answer": "Yes. International students can apply for on-campus housing. Tick the housing box on the application form at admissions.acity.edu.gh.",
+    "keywords": "campus, accommodation, available, international, students, acity, registration, yes, tick",
+    "source": "ACity Website — Housing"
+  },
+  {
+    "id": 33,
+    "topic": "hostel",
+    "question": "What hostel room types are available at ACity?",
+    "answer": "Double occupancy rooms are the standard. Single occupancy rooms are available in both Hostel A and Hostel B upon request — contact the Admissions Office. Hostel B rooms are all en-suite with air conditioning. Hostel A offers fan and air-conditioned rooms.",
+    "keywords": "hostel, room, types, available, acity, double, single, admissions",
+    "source": "Fee Policy 2025–2026 — UG Ghanaian Students"
+  },
+  {
+    "id": 34,
+    "topic": "hostel",
+    "question": "What is the difference between Hostel A fan and Hostel A A/C rooms?",
+    "answer": "Hostel A fan room: GHS 12,150/semester for Ghanaian students (USD 990 for international). Hostel A A/C room: GHS 16,880/semester (USD 1,375 for international). The A/C upgrade costs approximately GHS 4,730 more per semester. In Ghana's heat, particularly March–May, A/C can significantly improve sleep quality and study concentration.",
+    "keywords": "difference, between, hostel, fan, rooms, fees, acity, ghs, ghanaian, usd",
+    "source": "Fee Policy 2025–2026 — UG Ghanaian Students; UG International Students"
+  },
+  {
+    "id": 35,
+    "topic": "registration",
+    "question": "How do I apply for housing at ACity?",
+    "answer": "Indicate your housing need on your online or paper application form by ticking the housing box. ACity will coordinate from there. Contact admissions@acity.edu.gh for housing-specific enquiries.",
+    "keywords": "apply, housing, acity, registration, indicate, contact",
+    "source": "ACity Website — Housing"
+  },
+  {
+    "id": 36,
+    "topic": "hostel",
+    "question": "Are there gender-specific floors or areas in the ACity hostels?",
+    "answer": "Yes. ACity hostels have gender-specific areas. Bathrooms are restricted to one gender at all times.",
+    "keywords": "gender, specific, floors, areas, acity, hostels, hostel, yes, bathrooms",
+    "source": "Student Handbook 2025 — Section 6.1 Hostel Rules"
+  },
+  {
+    "id": 37,
+    "topic": "general",
+    "question": "Does ACity have a cafeteria or dining hall?",
+    "answer": "Yes. ACity has an on-campus cafeteria called Waffle Mania. There is also Yello Bar for snacks. The dining service is managed by the Office of Student and Community Affairs.",
+    "keywords": "acity, cafeteria, dining, hall, general, yes, waffle, mania, there",
+    "source": "ACity Website — Campus Life"
+  },
+  {
+    "id": 38,
+    "topic": "fees",
+    "question": "How much is the 3-meal plan per semester at ACity for undergrads?",
+    "answer": "GHS 12,150/semester (3 meals per day) for Ghanaian undergrad students. This works out to approximately GHS 57.86 per day or GHS 19.29 per meal on average. For international students: USD 990/semester.",
+    "keywords": "much, meal, plan, per, semester, acity, undergrads, fees, ghs, ghanaian, this",
+    "source": "Fee Policy 2025–2026 — UG Ghanaian Students; UG International Students"
+  },
+  {
+    "id": 39,
+    "topic": "fees",
+    "question": "Does the ACity meal plan include a Snack Account?",
+    "answer": "Yes. Each meal plan includes a Snack Account — preloaded funds to purchase snacks beyond the daily meal allowance. Students pay using their Student ID card at Yello Bar and other snack points.",
+    "keywords": "acity, meal, plan, include, snack, account, fees, yes, each, students",
+    "source": "ACity Website — Dining"
+  },
+  {
+    "id": 40,
+    "topic": "general",
+    "question": "How do I scan my Student ID for a meal at the ACity cafeteria?",
+    "answer": "Each enrolled student's ID card is pre-loaded with their meal plan. Present your Student ID at the cafeteria counter to have a meal scanned. Contact the dining team if your scan fails.",
+    "keywords": "scan, student, meal, acity, cafeteria, exams, each, present, contact",
+    "source": "ACity Website — Dining"
+  },
+  {
+    "id": 41,
+    "topic": "general",
+    "question": "Can I get vegetarian, halal, or allergy-specific food at ACity?",
+    "answer": "ACity commits to \"diverse menu options\" and \"health-focused options.\" The website does not specifically confirm halal or vegan menus. Contact the dining office through Student Affairs: abena.engmann@acity.edu.gh for dietary accommodation requests. The Haatso/Agbogba area also has Muslim-owned food establishments with halal options within walking distance.",
+    "keywords": "vegetarian, halal, allergy, specific, food, acity, general, the, contact, student, affairs",
+    "source": "ACity Website — Dining"
+  },
+  {
+    "id": 42,
+    "topic": "general",
+    "question": "What food is available near the ACity campus?",
+    "answer": "The campus is in Agbogba, Haatso. The nearby Haatso market and Agbogba roadside have abundant street food options (kelewele, waakye, rice, and more) within walking distance. The area also has restaurants and Muslim-owned establishments with halal options.",
+    "keywords": "food, available, near, acity, campus, general, the, agbogba, haatso",
+    "source": "ACity Website; Master QA Bank"
+  },
+  {
+    "id": 43,
+    "topic": "enrollment",
+    "question": "How do I register for courses at ACity?",
+    "answer": "Course registration is done through the ACity+ student portal at https://acityplus.acity.edu.gh. Enrolled students receive login credentials. Contact IT support (godfred.brown@acity.edu.gh) for login issues.",
+    "keywords": "register, courses, acity, enrollment, course, enrolled, contact",
+    "source": "ACity Website; Student Handbook 2025"
+  },
+  {
+    "id": 44,
+    "topic": "general",
+    "question": "Does ACity have an on-campus health centre?",
+    "answer": "Yes. ACity has a Health Center that provides basic primary care services to all students. Staffed 24/7 (subject to change). Phone: 0552827412. Email: clinic@acity.edu.gh.",
+    "keywords": "acity, campus, health, centre, general, yes, center, staffed",
+    "source": "ACity Website — Student Services"
+  },
+  {
+    "id": 45,
+    "topic": "general",
+    "question": "What is the procedure if I fall severely ill at night on the ACity campus?",
+    "answer": "Step 1: Call the Health Center at 0552827412 (24/7). Step 2: If the Health Center cannot treat you, you will be referred to a nearby private clinic for emergencies. Step 3: For life-threatening emergencies, Ghana's national ambulance service: 193. Always carry your Student ID and emergency contacts.",
+    "keywords": "procedure, fall, severely, ill, night, acity, campus, general, step, call, health, center",
+    "source": "ACity Website — Health Services"
+  },
+  {
+    "id": 46,
+    "topic": "general",
+    "question": "What are Ghana's national emergency numbers?",
+    "answer": "Ghana Police: 191. Ghana Fire Service: 192. Ghana Ambulance: 193. General Emergency: 112. ACity Health Center: 0552827412 (24/7).",
+    "keywords": "ghana, national, emergency, numbers, general, acity, police, fire, service",
+    "source": "Student Handbook 2025; ACity Website"
+  },
+  {
+    "id": 47,
+    "topic": "general",
+    "question": "Is there counselling available at ACity?",
+    "answer": "Yes. ACity has a Student Engagement Counselor: Dromo Naa Nettey (dromo.nettey@acity.edu.gh). Book a session at https://calendar.app.google/TA9awBoVHy3zj6G9A. For mental health crises, also contact the Health Center: 0552827412 (24/7).",
+    "keywords": "counselling, available, acity, general, yes, student, engagement, counselor",
+    "source": "ACity Website — Student Services"
+  },
+  {
+    "id": 48,
+    "topic": "general",
+    "question": "Is counselling confidential at ACity?",
+    "answer": "Counselling through the Student Engagement Counselor is available as part of student services. Contact dromo.nettey@acity.edu.gh for confidentiality policies and scheduling.",
+    "keywords": "counselling, confidential, acity, general, student, engagement, counselor, contact",
+    "source": "ACity Website — Student Services"
+  },
+  {
+    "id": 49,
+    "topic": "registration",
+    "question": "Does ACity accept international students from different countries?",
+    "answer": "Yes. ACity has students from multiple nationalities, described as a diverse and inclusive community from across the world. ACity has a Bilingual Admissions Officer (Jemima Banguet, +233 55 426 4486, jemima.banguet@acity.edu.gh) for Francophone students.",
+    "keywords": "acity, accept, international, students, different, countries, registration, yes, bilingual, admissions",
+    "source": "ACity Website — International Students"
+  },
+  {
+    "id": 50,
+    "topic": "registration",
+    "question": "What visa do I need to study in Ghana at ACity?",
+    "answer": "Non-Ghanaian students need a Student Visa (Entry Permit for Study). ACity's Registry handles Resident Permit requests for enrolled students. Contact admissions@acity.edu.gh before arrival.",
+    "keywords": "visa, study, ghana, acity, registration, non, ghanaian, student, entry",
+    "source": "ACity Website — International Students"
+  },
+  {
+    "id": 51,
+    "topic": "general",
+    "question": "Is English the language of instruction at ACity?",
+    "answer": "Yes. English is the primary language of instruction at ACity.",
+    "keywords": "english, language, instruction, acity, general, yes",
+    "source": "ACity Website"
+  },
+  {
+    "id": 52,
+    "topic": "general",
+    "question": "Is there French language support for Francophone students at ACity?",
+    "answer": "Yes. ACity has a dedicated Bilingual Admissions Officer: Jemima Banguet (+233 55 426 4486, jemima.banguet@acity.edu.gh). The Language Centre on campus also provides support.",
+    "keywords": "french, language, support, francophone, students, acity, enrollment, yes, bilingual, admissions, officer",
+    "source": "ACity Website — International Students"
+  },
+  {
+    "id": 53,
+    "topic": "general",
+    "question": "Is there free WiFi on the ACity campus?",
+    "answer": "Yes. WiFi is a confirmed campus and hostel feature at ACity. All areas of campus including hostels are covered. Contact godfred.brown@acity.edu.gh for technical issues.",
+    "keywords": "free, wifi, acity, campus, hostel, yes, all, contact",
+    "source": "ACity Website — Campus Facilities"
+  },
+  {
+    "id": 54,
+    "topic": "general",
+    "question": "Does ACity have a gym?",
+    "answer": "Yes. ACity has a gym operated through the Recreational Centre, enabling students to maintain fitness, build strength, and stay active. It is part of on-campus student facilities.",
+    "keywords": "acity, gym, general, yes, recreational, centre",
+    "source": "ACity Website — Campus Life"
+  },
+  {
+    "id": 55,
+    "topic": "general",
+    "question": "What sports are available at ACity?",
+    "answer": "ACity has active basketball, football (soccer), and volleyball teams. Indoor sports include chess, pool, darts, table tennis, and table-top football. Group fitness includes yoga and aerobics. Gaming consoles (FIFA, Mortal Kombat, Call of Duty) are available in the Recreational Centre.",
+    "keywords": "sports, available, acity, general, indoor, group, gaming, fifa",
+    "source": "ACity Website — Campus Life"
+  },
+  {
+    "id": 56,
+    "topic": "general",
+    "question": "What security measures are in place at ACity?",
+    "answer": "ACity's confirmed security features: 24/7 Security and CCTV throughout campus and hostels; Smart Locks using Student ID cards for hostel room access; gender-specific hostel areas; campus gate with security personnel. Campus emergency: +233 59 403 0308.",
+    "keywords": "security, measures, place, acity, hostel, cctv, smart, locks",
+    "source": "ACity Website — Campus Security; Student Handbook 2025"
+  },
+  {
+    "id": 57,
+    "topic": "general",
+    "question": "What trotro route serves the ACity campus?",
+    "answer": "Trotros to/from Haatso are available from central Accra (Madina, Circle/Kwame Nkrumah Interchange). From Haatso, local trotros and taxis serve the Agbogba area near campus.",
+    "keywords": "trotro, route, serves, acity, campus, general, trotros, haatso, accra, madina, circle",
+    "source": "ACity Website — Getting to Campus"
+  },
+  {
+    "id": 58,
+    "topic": "general",
+    "question": "Does Bolt or Uber operate near the ACity campus?",
+    "answer": "Yes. Bolt and Uber operate in Accra and serve the Haatso/Agbogba area reliably. Bolt is generally slightly cheaper than Uber in Accra. Drivers typically drop off and pick up at or near the campus gate.",
+    "keywords": "bolt, uber, operate, near, acity, campus, general, yes, accra, haatso",
+    "source": "ACity Website; Local knowledge"
+  },
+  {
+    "id": 59,
+    "topic": "general",
+    "question": "Does ACity have a Career Services office?",
+    "answer": "Yes. ACity has a dedicated Career Services Office under Student and Community Affairs. Drop-in hours: Monday–Friday 10:30 AM–12:30 PM (Admin Center). Email: careerservices@acity.edu.gh.",
+    "keywords": "acity, career, services, office, general, yes",
+    "source": "ACity Website — Career Services"
+  },
+  {
+    "id": 60,
+    "topic": "general",
+    "question": "Does ACity host career fairs?",
+    "answer": "Yes. ACity hosts an annual Career Fair that connects students with companies across industries in Africa. Over 62 companies have participated since inception. Companies can post job/internship openings at the ACity Career Services portal. Contact careerservices@acity.edu.gh.",
+    "keywords": "acity, host, career, fairs, enrollment, yes, fair, africa",
+    "source": "ACity Website — Career Services"
+  },
+  {
+    "id": 61,
+    "topic": "general",
+    "question": "What is ACity's graduate employment rate?",
+    "answer": "ACity's website states that \"nearly all graduates secure jobs, internships, or further studies post-graduation.\" Contact careerservices@acity.edu.gh for the most recent graduate employment data.",
+    "keywords": "acity, graduate, employment, rate, enrollment, contact",
+    "source": "ACity Website — Career Services"
+  },
+  {
+    "id": 62,
+    "topic": "general",
+    "question": "Is entrepreneurship a real part of the ACity curriculum?",
+    "answer": "Yes. ACity requires all freshmen to take Fundamentals of Innovation and Entrepreneurship (FIE) — this is a mandatory core strand, not optional, running across the first two years of all programmes. ACity also has a Makelab partnership (https://www.makelab.org.il/) and an on-campus Make Lab supporting student innovation projects.",
+    "keywords": "entrepreneurship, real, part, acity, curriculum, general, yes, fundamentals, innovation",
+    "source": "ACity Website; Academic Catalogue 2025–2026"
+  },
+  {
+    "id": 63,
+    "topic": "general",
+    "question": "Is ACity accredited?",
+    "answer": "Yes. ACity is accredited by the Ghana Tertiary Education Commission (GTEC), Certificate No. GTEC/Ch/00006. It achieved full chartered university status in 2024. The accreditation certificate can be downloaded at https://acity.edu.gh/wp-content/uploads/2025/10/accreditation-certificate-AC-1.pdf.",
+    "keywords": "acity, accredited, general, yes, ghana, tertiary, education",
+    "source": "ACity Website — Accreditation"
+  },
+  {
+    "id": 64,
+    "topic": "general",
+    "question": "Is ACity ranked in Africa?",
+    "answer": "Yes. ACity is ranked 2nd in Ghana and 15th in Sub-Saharan Africa by Times Higher Education (THE) 2023, as stated on the official website.",
+    "keywords": "acity, ranked, africa, general, yes, ghana, sub, saharan",
+    "source": "ACity Website — Rankings"
+  },
+  {
+    "id": 65,
+    "topic": "general",
+    "question": "What is ACity's Student ID used for?",
+    "answer": "The Student ID card serves as: campus access card; hostel room key (Smart Lock system); dining scan card for meal plans; identity verification for examinations; proof of student status for university facilities; and is required to be presented on request by any staff, faculty, or security personnel.",
+    "keywords": "acity, student, exams, the, smart, lock",
+    "source": "Student Handbook 2025 — Section 2.1.2 Identity Cards"
+  },
+  {
+    "id": 66,
+    "topic": "general",
+    "question": "What is ACSC at ACity?",
+    "answer": "ACSC (Academic City Student Council) is ACity's student government body. It organises academic and social events, liaises with faculty and administration, and champions student-led projects. The council has been active since 2021. Contact Student Affairs for leadership structure: abena.engmann@acity.edu.gh.",
+    "keywords": "acsc, acity, general, academic, city, student, council",
+    "source": "ACity Website; Student Handbook 2025 — Section 5.3"
+  },
+  {
+    "id": 67,
+    "topic": "general",
+    "question": "What are ACity's official social media accounts?",
+    "answer": "Instagram: https://www.instagram.com/acitygh/; Facebook: https://www.facebook.com/acitygh/; Twitter/X: https://twitter.com/acitygh/; LinkedIn: https://www.linkedin.com/school/acitygh/; YouTube: https://www.youtube.com/channel/UCjPYPiE6JC0pHMbfrqVJ-qQ.",
+    "keywords": "acity, official, social, media, accounts, general, instagram, facebook, twitter, linkedin, youtube",
+    "source": "ACity Website"
+  },
+  {
+    "id": 68,
+    "topic": "registration",
+    "question": "What is ACity's Admissions Office contact?",
+    "answer": "Email: admissions@acity.edu.gh. Phone: +233 59 403 0308. Admissions Manager: Lorna Quartey (lorna.quartey@acity.edu.gh / +233 26 269 3960). STEM Admissions Specialist: Pradhyumna Thakare (pradhyumna.thakare@acity.edu.gh / +233 54 824 3844). Bilingual Admissions Officer: Jemima Banguet (jemima.banguet@acity.edu.gh / +233 55 426 4486). WhatsApp contacts also available.",
+    "keywords": "acity, admissions, office, contact, registration, email, phone, manager, lorna",
+    "source": "ACity Website — Contact"
+  },
+  {
+    "id": 69,
+    "topic": "registration",
+    "question": "What are the admissions WhatsApp contacts at ACity?",
+    "answer": "Lorna Quartey (Admissions Manager): +233 26 269 3960. Pradhyumna Thakare (STEM Specialist): +233 54 824 3844. Jacqueline Debrah (Admissions Officer): +233 59 399 9410. Jemima Banguet (Bilingual Officer): +233 55 426 4486. Mawuena Yvonne Agbakpe: +233 59 403 0308.",
+    "keywords": "admissions, whatsapp, contacts, acity, registration, lorna, quartey, manager, pradhyumna",
+    "source": "ACity Website — Contact"
+  },
+  {
+    "id": 70,
+    "topic": "registration",
+    "question": "How do I track my ACity application status?",
+    "answer": "Log in to the student portal at https://acityplus.acity.edu.gh or contact admissions@acity.edu.gh. You can also call +233 59 403 0308.",
+    "keywords": "track, acity, application, status, registration, log, you",
+    "source": "ACity Website — Admissions"
+  },
+  {
+    "id": 71,
+    "topic": "general",
+    "question": "What is the ACity student portal URL?",
+    "answer": "https://acityplus.acity.edu.gh",
+    "keywords": "acity, student, portal, url, general",
+    "source": "ACity Website; Student Handbook 2025"
+  },
+  {
+    "id": 72,
+    "topic": "general",
+    "question": "What is the general ACity contact information?",
+    "answer": "General email: info@acity.edu.gh. Phone: +233 59 403 0308. Address: Property #279-302, Agbogba, Haatso, P.O. Box AD 421, Accra, Ghana.",
+    "keywords": "general, acity, contact, information, phone, address, property, agbogba",
+    "source": "ACity Website"
+  },
+  {
+    "id": 73,
+    "topic": "general",
+    "question": "Is there a prayer room on the ACity campus?",
+    "answer": "Yes. ACity has a prayer room on campus. Contact Student Affairs (abena.engmann@acity.edu.gh) for details on prayer facilities and location.",
+    "keywords": "prayer, room, acity, campus, general, yes, contact, student, affairs",
+    "source": "Student Handbook 2025 — referenced in handbook; ACity Website"
+  },
+  {
+    "id": 74,
+    "topic": "general",
+    "question": "Does the ACity library have online database access?",
+    "answer": "Yes. The library's collections include printed and electronic books, DVDs, CDs, periodicals, and online databases and journals. Online databases provide access to articles and other reference materials, much of which is full-text. Computers with internet access are also available in the library.",
+    "keywords": "acity, library, online, database, access, general, yes, the, dvds, cds",
+    "source": "Student Handbook 2025 — Section 2.3.8 Library Policy"
+  },
+  {
+    "id": 75,
+    "topic": "registration",
+    "question": "What is the graduate programme admissions contact at ACity?",
+    "answer": "Email: graduate@acity.edu.gh. Application portal: https://admissions.acity.edu.gh/postgraduate. Graduate intake is once annually in the Fall (September); application deadline for 2026 intake is September 2026.",
+    "keywords": "graduate, programme, admissions, contact, acity, registration, email, application, fall, september",
+    "source": "ACity Website; Academic Catalogue 2025–2026"
+  },
+  {
+    "id": 76,
+    "topic": "general",
+    "question": "Is ACity a full university or a university college?",
+    "answer": "As of 2024, ACity achieved full chartered university status — it is now formally a university, not a university college. This milestone was achieved in just over a decade. The degree is awarded under GTEC accreditation (Certificate No. GTEC/Ch/00006) and says \"Academic City University.\"",
+    "keywords": "acity, full, university, college, general, this, the, gtec, certificate",
+    "source": "ACity Website — About ACity"
+  },
+  {
+    "id": 77,
+    "topic": "hostel",
+    "question": "What is ACity's student laundry service?",
+    "answer": "ACity provides Student Laundry Services, available on campus only. Contact the Hostel Coordinator for the facility location and hours.",
+    "keywords": "acity, student, laundry, service, hostel, services, contact",
+    "source": "ACity Website — Hostel Features; Student Handbook 2025"
+  },
+  {
+    "id": 78,
+    "topic": "general",
+    "question": "Can ACity + (ACity 2.0) be accessed from off-campus?",
+    "answer": "Yes. ACity 2.0 is accessible at https://acityplus.acity.edu.gh from any device with internet. Off-campus access to specific library databases may require VPN or proxy access — contact the Library for remote access credentials.",
+    "keywords": "acity, accessed, off, campus, general, yes, vpn, library",
+    "source": "ACity Website; Student Handbook 2025"
+  },
+  {
+    "id": 79,
+    "topic": "general",
+    "question": "What is the malaria risk for students coming to ACity from outside Ghana?",
+    "answer": "Malaria is endemic in Ghana. Students from non-endemic countries should use antimalarial prophylaxis, insect repellent, and mosquito nets. Consult a travel health clinic before arrival and bring adequate medication.",
+    "keywords": "malaria, risk, students, coming, acity, outside, ghana, general, consult",
+    "source": "ACity Website — International Students Health; Student Handbook 2025"
+  },
+  {
+    "id": 80,
+    "topic": "fees",
+    "question": "What is Ghana's currency and does ACity accept USD?",
+    "answer": "Ghana's currency is the Ghanaian Cedi (GHS). ACity also accepts USD for international student fees. ACity has a USD account at Access Bank Ghana (0181013309771, SWIFT: ABNGGHAC) and at EcoBank Ghana (3441002060876, SWIFT: ECOCGHAC).",
+    "keywords": "ghana, currency, acity, accept, usd, fees, ghanaian, cedi, ghs",
+    "source": "ACity Website; Fee Policy 2025–2026 PDFs"
+  },
+  {
+    "id": 81,
+    "topic": "general",
+    "question": "Where can I find ACity's student newsletter?",
+    "answer": "ACity publishes The Exponent, available at https://acity.edu.gh/the-exponent-acity-newsletter/.",
+    "keywords": "find, acity, student, newsletter, general, the, exponent",
+    "source": "ACity Website"
+  },
+  {
+    "id": 82,
+    "topic": "general",
+    "question": "What is ACity's vision and mission?",
+    "answer": "Vision: To be a world-class centre for learning, innovation, and entrepreneurship that nurtures future leaders. Mission: To educate future-ready leaders who can innovatively solve complex problems within an ethical, entrepreneurial, and collaborative environment.",
+    "keywords": "acity, vision, mission, general",
+    "source": "Student Handbook 2025 — Section 1.2"
+  },
+  {
+    "id": 83,
+    "topic": "general",
+    "question": "What is the Health Center phone number and email at ACity?",
+    "answer": "Phone: 0552827412 (24/7). Email: clinic@acity.edu.gh. Also: nurse@acity.edu.gh.",
+    "keywords": "health, center, phone, number, email, acity, general, also",
+    "source": "Student Handbook 2025; ACity Website"
+  },
+  {
+    "id": 84,
+    "topic": "general",
+    "question": "What is the Dean of Student Affairs contact at ACity?",
+    "answer": "Dr. Abena Engmann. Email: abena.engmann@acity.edu.gh. Role: Dean, Student and Community Affairs — responsible for student wellbeing, disciplinary processes, hostel oversight, and student activities.",
+    "keywords": "dean, student, affairs, contact, acity, hostel, abena, engmann, email, role",
+    "source": "ACity Website; Student Handbook 2025 — Contact Directory"
+  },
+  {
+    "id": 85,
+    "topic": "general",
+    "question": "What is the Student Engagement Counselor contact at ACity?",
+    "answer": "Dromo Naa Nettey. Email: dromo.nettey@acity.edu.gh. Book a counselling session at https://calendar.app.google/TA9awBoVHy3zj6G9A.",
+    "keywords": "student, engagement, counselor, contact, acity, general, dromo, naa, nettey, email, book",
+    "source": "ACity Website; Student Handbook 2025"
+  },
+  {
+    "id": 86,
+    "topic": "enrollment",
+    "question": "What are the graduation requirements minimum credits at ACity?",
+    "answer": "Minimum 120 credits must be accumulated. Students must also pass all compulsory core courses, meet inter-faculty universal course requirements, attain a minimum CGPA of 1.5 or CWA of 50%, and maintain acceptable moral conduct.",
+    "keywords": "graduation, requirements, minimum, credits, acity, exams, students, cgpa, cwa",
+    "source": "Student Handbook 2025 — Section 2.3.7"
+  },
+  {
+    "id": 87,
+    "topic": "general",
+    "question": "Is there a mid-term or mid-semester break at ACity?",
+    "answer": "Yes. Mid-term breaks are scheduled in both semesters. 2025–2026: Semester 1 mid-term break for L100 CH1/L200+ — October 27–31, 2025; Semester 2 — March 9, 2026 (one day). Cohort 2 equivalent breaks follow the Semester 2 and 3 schedule.",
+    "keywords": "mid, term, semester, break, acity, exams, yes, october",
+    "source": "Academic Catalogue 2025–2026 — Section 2.2.1"
+  },
+  {
+    "id": 88,
+    "topic": "general",
+    "question": "What is the ACity Founder's name?",
+    "answer": "ACity was founded by Mr. Dev Varyani.",
+    "keywords": "acity, founder, name, general, dev, varyani",
+    "source": "Student Handbook 2025 — Section 1.3 Governance Structure"
+  },
+  {
+    "id": 89,
+    "topic": "general",
+    "question": "What is the Query Management System (QMS) at ACity?",
+    "answer": "The Query Management System (QMS) is ACity's formal student query portal, accessed through the student management platform called ACity 2.0 (also referred to as ACity+), available at https://acityplus.acity.edu.gh. Registration takes place online via ACity 2.0. For document requests such as transcripts, attestation letters, and introductory letters, students go to the Academics tab and click \"Request Document.\" For prospective student enquiries, the Admissions Office handles queries directly at admissions@acity.edu.gh.",
+    "keywords": "query, management, system, qms, acity, general, the",
+    "source": "Student Handbook 2025 — Registration and Registry sections"
+  },
+  {
+    "id": 90,
+    "topic": "fees",
+    "question": "How much does tuition cost per semester at ACity for Ghanaian students in 2025-2026?",
+    "answer": "Discounted tuition fees per semester for Ghanaian students (2025–2026): Engineering programmes (all 7) — GHS 44,550; BSc Artificial Intelligence — GHS 33,420; BSc Computer Science — GHS 31,190; BSc Information Technology — GHS 31,190; BBA Entrepreneurship — GHS 26,730; BBA Accounting — GHS 22,280; BBA Banking & Finance — GHS 22,280; BBA Human Resource Management — GHS 22,280; BBA Marketing — GHS 22,280; BA Advertising & PR — GHS 22,280; BA Journalism & Mass Communication — GHS 22,280; MSc Data Science & Analytics — GHS 45,000; MSc Cyber Security — GHS 45,000. These are per-semester discounted rates for upfront payment.",
+    "keywords": "much, tuition, cost, per, semester, acity, ghanaian, students, fees, discounted, engineering, ghs",
+    "source": "Fee Policy 2025–2026 — UG Ghanaian Students; Fee Policy 2025–2026 — Masters Programmes"
+  },
+  {
+    "id": 91,
+    "topic": "fees",
+    "question": "How much does tuition cost per semester at ACity for international students in 2025-2026?",
+    "answer": "Discounted tuition fees per semester for international students (USD, 2025–2026): Engineering programmes (all 7) — USD 3,600; BSc Artificial Intelligence — USD 2,700; BSc Computer Science — USD 2,520; BSc Information Technology — USD 2,520; BBA Entrepreneurship — USD 2,160; BBA Accounting / Banking & Finance / HRM / Marketing — USD 1,800; BA Advertising & PR / Journalism — USD 1,800; MSc Data Science & Analytics — USD 2,750; MSc Cyber Security — USD 2,750.",
+    "keywords": "much, tuition, cost, per, semester, acity, international, students, registration, discounted, usd, engineering",
+    "source": "Fee Policy 2025–2026 — UG International Students; Fee Policy 2025–2026 — Masters Programmes"
+  },
+  {
+    "id": 92,
+    "topic": "fees",
+    "question": "Are the listed ACity fees just for tuition, or do they include housing and meals?",
+    "answer": "The fees listed in ACity's fee schedule are for tuition only per semester. The following are charged separately on top of tuition: SRC Dues (GHS 630 / USD 50 per semester for undergrads; GHS 630 / USD 35 for MSc); Health Service Fee (GHS 400 / USD 30 per semester for undergrads; GHS 450 / USD 30 for MSc); Housing (GHS 12,150–18,410 per semester for Ghanaian students, optional); Meal Plans (GHS 4,050–12,150 per semester, optional); Application Fee (GHS 150 / USD 30, new students only, one-time).",
+    "keywords": "listed, acity, fees, just, tuition, include, housing, meals, the, src, dues",
+    "source": "Fee Policy 2025–2026 — UG Ghanaian Students"
+  },
+  {
+    "id": 93,
+    "topic": "fees",
+    "question": "What additional fees are charged on top of ACity tuition every semester?",
+    "answer": "Additional mandatory fees per semester: SRC Dues — GHS 630 (Ghanaian undergrad) / USD 50 (International undergrad) / GHS 630 / USD 35 (MSc); Health Service Fee — GHS 400 (Ghanaian undergrad) / USD 30 (International undergrad) / GHS 450 / USD 30 (MSc). Optional fees: Housing (GHS 12,150–18,410 for Ghanaians) and Meal Plans (GHS 4,050–12,150). Application fee (GHS 150 / USD 30) is one-time for new students only. There is no separate technology fee or library fee.",
+    "keywords": "additional, fees, charged, top, acity, tuition, every, semester, src, dues, ghs, ghanaian",
+    "source": "Fee Policy 2025–2026 — UG Ghanaian Students; Fee Policy 2025–2026 — UG International Students; Fee Policy 2025–2026 — Masters Programmes"
+  },
+  {
+    "id": 94,
+    "topic": "fees",
+    "question": "What is the late payment fee at ACity and how much time do I have?",
+    "answer": "A late fee is charged if payment is not received within 3 days of the due date. Amounts: Ghanaian undergrad — GHS 1,250; International undergrad — USD 100; Masters (GHS) — GHS 1,500; Masters (USD) — USD 100. New students receive a 3-day grace period following registration before fees are considered late. Students who miss the upfront due date are automatically transitioned to the payment plan, which includes ACity's financing fee.",
+    "keywords": "late, payment, fee, acity, much, time, fees, amounts, ghanaian, ghs, international, usd",
+    "source": "Fee Policy 2025–2026 — UG Ghanaian Students; Fee Policy 2025–2026 — UG International Students; Fee Policy 2025–2026 — Masters Programmes"
+  },
+  {
+    "id": 95,
+    "topic": "fees",
+    "question": "What happens if I do not pay my ACity fees on time?",
+    "answer": "If fees are not paid within 3 days of the due date, a late fee of GHS 1,250 (Ghanaian) or USD 100 (International) is charged. Students who chose upfront payment but miss the deadline are automatically moved to the payment plan. Financial holds prevent registration for the next semester, exam access, transcript release, and graduation. Students with outstanding fees should contact finance@acity.edu.gh immediately to establish a payment plan before registration opens.",
+    "keywords": "happens, pay, acity, fees, time, ghs, ghanaian, usd, international, students",
+    "source": "Fee Policy 2025–2026 — UG Ghanaian Students; Student Handbook 2025"
+  },
+  {
+    "id": 96,
+    "topic": "fees",
+    "question": "Will unpaid tuition prevent me from registering for the next semester at ACity?",
+    "answer": "Yes. The Student Handbook explicitly lists financial clearance as a condition of registration: students must have \"met all financial obligations to the University to continue with their studies.\" Registration done after the official date within the penalty period attracts a fee. Failure to register by the end of the penalty period excludes a student from the semester, losing their student status. Contact finance@acity.edu.gh before registration opens.",
+    "keywords": "unpaid, tuition, prevent, registering, next, semester, acity, fees, yes, the, student, handbook",
+    "source": "Student Handbook 2025 — Section 2.1.2 Registration"
+  },
+  {
+    "id": 97,
+    "topic": "fees",
+    "question": "Can I graduate from ACity if I have outstanding fees?",
+    "answer": "No. Students must obtain a signed clearance certificate from the Registry before departure. Failure to obtain clearance means graduation certificates, transcripts, recommendations, and referrals are withheld. The handbook also lists Withholding as a formal sanction for unmet financial obligations. All fees must be settled before graduation clearance is issued.",
+    "keywords": "graduate, acity, outstanding, fees, students, registry, failure, the, withholding",
+    "source": "Student Handbook 2025 — Section 2.1.4 Departure Procedures; Section 8.3 Penalties"
+  },
+  {
+    "id": 98,
+    "topic": "fees",
+    "question": "Can a financial hold stop me from sitting exams at ACity?",
+    "answer": "Yes, indirectly. Students must hold a valid Admit Card (Student ID) to sit examinations. Registration — which requires financial clearance — is necessary for course enrolment and exam access. Outstanding fees block the registration process, which in turn blocks exam eligibility. Resolve financial holds at finance@acity.edu.gh before the exam period.",
+    "keywords": "financial, hold, stop, sitting, exams, acity, fees, yes, students, admit, card, student",
+    "source": "Student Handbook 2025 — Section 2 Definitions; Section 2.1.2 Registration; Section 8.3"
+  },
+  {
+    "id": 99,
+    "topic": "hostel",
+    "question": "How much does ACity campus accommodation cost per semester?",
+    "answer": "Housing fees per semester (2025–2026): For Ghanaian students — Hostel A Double Occupancy + Fan: GHS 12,150; Hostel A Double Occupancy + A/C: GHS 16,880; Hostel B Double Occupancy + A/C (ensuite): GHS 18,410. For international students — Hostel A Fan: USD 990; Hostel A A/C: USD 1,375; Hostel B A/C (ensuite): USD 1,500. Single occupancy rooms available in both hostels upon request — contact Admissions. Housing fees must be paid in full upfront; the payment plan is not available for housing.",
+    "keywords": "much, acity, campus, accommodation, cost, per, semester, fees, housing, for, ghanaian, hostel",
+    "source": "Fee Policy 2025–2026 — UG Ghanaian Students; Fee Policy 2025–2026 — UG International Students"
+  },
+  {
+    "id": 100,
+    "topic": "hostel",
+    "question": "What time must visitors leave the ACity hostel?",
+    "answer": "Visitors including non-students, non-occupants, friends, and relatives are not allowed to be in the hostel after 9 PM. This is non-negotiable per the handbook. Non-residents (including ACity students not living in the hostel) must also leave by 9 PM. Penalty for violating the 9 PM rule: Temporary Hostel Ban (1st offence), Permanent Hostel Ban (repeat).",
+    "keywords": "time, must, visitors, leave, acity, hostel, this, non, penalty",
+    "source": "Student Handbook 2025 — Section 6.1 Hostel Rules, clause C.2; Hostel Offence Penalty Table"
+  },
+  {
+    "id": 101,
+    "topic": "hostel",
+    "question": "Can visitors stay overnight in the ACity hostel?",
+    "answer": "Yes, but with strict conditions. The resident student must request permission in advance from the SCA office via email. The visitor must sign in and out with the Hostel Coordinator and leave behind a form of ID. A visitor may stay overnight a maximum of one (1) night over any two-week period. A student may not have more than one overnight visitor at a time. Non-residents are not allowed to shower in the hostel.",
+    "keywords": "visitors, stay, overnight, acity, hostel, yes, the, sca",
+    "source": "Student Handbook 2025 — Section 6.1 Hostel Rules, clause C.3"
+  },
+  {
+    "id": 102,
+    "topic": "hostel",
+    "question": "What are the guest sign-in procedures at the ACity hostel?",
+    "answer": "The resident student must meet the guest in the hostel lobby. The guest signs in with the Hostel Coordinator, leaving behind a form of ID. For overnight stays, prior written (email) permission from the SCA office is required. The guest signs out when leaving. Visitors who misbehave can be dismissed and the inviting student may face consequences.",
+    "keywords": "guest, sign, procedures, acity, hostel, the, coordinator, for",
+    "source": "Student Handbook 2025 — Section 6.1 Hostel Rules, clauses C.1–C.2"
+  },
+  {
+    "id": 103,
+    "topic": "hostel",
+    "question": "How often are hostel room inspections conducted at ACity?",
+    "answer": "Formal maintenance checks are conducted twice per semester. Spot checks may be conducted at any time without prior notice to students. Hostel Coordinators have the right to check occupied rooms with or without foreknowledge of the room occupants.",
+    "keywords": "often, hostel, room, inspections, conducted, acity, formal, spot, coordinators",
+    "source": "Student Handbook 2025 — Section 6.1 Hostel Rules, clauses B.13 and B.15"
+  },
+  {
+    "id": 104,
+    "topic": "hostel",
+    "question": "What appliances are allowed in ACity hostel rooms?",
+    "answer": "Permitted without special permission: laptops and computers, small radios, lamps, fans, mini-fridges, microwaves, TVs, and irons. Any other appliance requires written request and permission from the SCA department. Prohibited in bedrooms: mini stoves, toasters, personal rice cookers, kettles, and heaters. Also prohibited: candles, incense, lighters, and matches. A rice cooker is provided in the kitchen area for communal use.",
+    "keywords": "appliances, allowed, acity, hostel, rooms, permitted, tvs, any, sca, prohibited",
+    "source": "Student Handbook 2025 — Section 6.1 Hostel Rules, clauses B.2–B.3 and Restrictions"
+  },
+  {
+    "id": 105,
+    "topic": "hostel",
+    "question": "Can I cook in my ACity hostel room?",
+    "answer": "No. Cooking in hostel rooms is explicitly prohibited. Only reheating of food and use of the rice cooker provided in the kitchen area are allowed. Mini stoves, toasters, personal rice cookers, kettles, and heaters are not allowed in bedrooms. Students must use campus dining facilities (Waffle Mania) or purchase food outside campus in Haatso/Agbogba.",
+    "keywords": "cook, acity, hostel, room, cooking, only, mini, students, waffle",
+    "source": "Student Handbook 2025 — Section 6.1 Hostel Rules, clauses B.2–B.3 and Restrictions"
+  },
+  {
+    "id": 106,
+    "topic": "hostel",
+    "question": "What are the noise rules in the ACity hostel?",
+    "answer": "Noise levels must be kept low at all times to allow fellow residents to study or sleep comfortably. There is no published specific quiet hours time, but the general standard is that noise must not disturb other residents at any time.",
+    "keywords": "noise, rules, acity, hostel, there",
+    "source": "Student Handbook 2025 — Section 6.1 Hostel Rules, clause A.2"
+  },
+  {
+    "id": 107,
+    "topic": "hostel",
+    "question": "What happens if I damage hostel property at ACity?",
+    "answer": "Damage must be reported immediately to the Hostel Coordinator. The student is charged double the value of the damaged or lost item, to be paid immediately. Further restrictions may be placed, including possible eviction, depending on the nature of the damage.",
+    "keywords": "happens, damage, hostel, property, acity, coordinator, the, further",
+    "source": "Student Handbook 2025 — Section 6.1 Hostel Rules, clause B.9"
+  },
+  {
+    "id": 108,
+    "topic": "hostel",
+    "question": "When must I vacate the ACity hostel during semester breaks?",
+    "answer": "Students must vacate the hostel during vacations unless they are taking courses during the break or have an extended project/exam deadline. All students are given up to one week after exams to prepare and leave. International students needing to arrive a day early or leave a day after regular campus closure must submit a written request to the SCA Department; considered case by case.",
+    "keywords": "must, vacate, acity, hostel, during, semester, breaks, exams, students, all, international, sca",
+    "source": "Student Handbook 2025 — Section 6.1 Hostel Rules, clauses C.5 and E.3–E.5"
+  },
+  {
+    "id": 109,
+    "topic": "hostel",
+    "question": "Can I organise a party or event in the ACity hostel?",
+    "answer": "Parties of any nature, social or political gatherings in the hostel complex are not permitted without prior written consent of the Resident Hostel Coordinator. An application must be presented at least 5 working days in advance.",
+    "keywords": "organise, party, event, acity, hostel, parties, resident, coordinator",
+    "source": "Student Handbook 2025 — Section 6.1 Hostel Rules, clause C.4"
+  },
+  {
+    "id": 110,
+    "topic": "hostel",
+    "question": "What security features are in the ACity hostels?",
+    "answer": "Confirmed hostel security features: 24/7 Hostel Coordinator on premises; round-the-clock security personnel supported by CCTV cameras; Smart Lock access using Student ID cards for room entry; gender-specific bathroom areas; students required to show Student ID to campus security at the gate and to the Hostel Coordinator when entering. Students are not allowed to tamper with CCTV cameras or access footage.",
+    "keywords": "security, features, acity, hostels, hostel, confirmed, coordinator, cctv, smart",
+    "source": "Student Handbook 2025 — Section 6.1 Hostel Rules, clauses D.1–D.3"
+  },
+  {
+    "id": 111,
+    "topic": "hostel",
+    "question": "What are the hostel payment and contract terms at ACity?",
+    "answer": "Hostel payments must be made in full per semester before moving in. Application form must be signed and endorsed by ACity officials. Room allocation is on a semester basis at the sole discretion of ACity staff. Rooms once allocated cannot be changed. Students must confirm occupancy for the next semester one month in advance. Students may not sublet their rooms. If a student leaves early or is asked to leave, no refund is given. All hostel residents must have valid health insurance before admittance.",
+    "keywords": "hostel, payment, contract, terms, acity, fees, application, room",
+    "source": "Student Handbook 2025 — Section 6.1 Hostel Rules, clause E"
+  },
+  {
+    "id": 112,
+    "topic": "hostel",
+    "question": "What is the penalty for being in the wrong gender bathroom in the ACity hostel?",
+    "answer": "1st offence — Warning from the Dean of Students. 2nd offence — Removal from the hostel.",
+    "keywords": "penalty, being, wrong, gender, bathroom, acity, hostel, warning, dean, students, removal",
+    "source": "Student Handbook 2025 — Hostel Offence Penalty Table"
+  },
+  {
+    "id": 113,
+    "topic": "hostel",
+    "question": "Can ACity hostel residents have pets?",
+    "answer": "No. Pets are not allowed in the hostel.",
+    "keywords": "acity, hostel, residents, pets",
+    "source": "Student Handbook 2025 — Section 6.1 Hostel Rules, clause B.12"
+  },
+  {
+    "id": 114,
+    "topic": "hostel",
+    "question": "Can I put posters or decorate my walls in the ACity hostel?",
+    "answer": "No. Pasting of posters, writings, wall chalking, slogans of any kind, or defacing the hostel in any form is not allowed.",
+    "keywords": "put, posters, decorate, walls, acity, hostel, pasting",
+    "source": "Student Handbook 2025 — Section 6.1 Hostel Rules, clause B.11"
+  },
+  {
+    "id": 115,
+    "topic": "hostel",
+    "question": "What is the laundry and clothes drying policy in the ACity hostel?",
+    "answer": "Clothing should be dried only on the designated drying lines provided — nowhere else in the hostel. ACity provides a Student Laundry Service on campus. Contact your Hostel Coordinator for the facility location and hours.",
+    "keywords": "laundry, clothes, drying, policy, acity, hostel, clothing, student, service",
+    "source": "Student Handbook 2025 — Section 6.1 Hostel Rules, clause B.10"
+  },
+  {
+    "id": 116,
+    "topic": "hostel",
+    "question": "What should I do if my ACity hostel roommate goes missing?",
+    "answer": "If your roommate is missing for more than 24 hours, you must report it to the Hostel Coordinator immediately.",
+    "keywords": "should, acity, hostel, roommate, goes, missing, coordinator",
+    "source": "Student Handbook 2025 — Section 6.1 Hostel Rules, clause A.8"
+  },
+  {
+    "id": 117,
+    "topic": "hostel",
+    "question": "What is the penalty for tampering with CCTV cameras in the ACity hostel?",
+    "answer": "1st offence — Warning from the Dean of Students. Repeat offence — Suspension.",
+    "keywords": "penalty, tampering, cctv, cameras, acity, hostel, warning, dean, students, repeat, suspension",
+    "source": "Student Handbook 2025 — Hostel Offence Penalty Table"
+  },
+  {
+    "id": 118,
+    "topic": "hostel",
+    "question": "Can a non-hostel ACity student enter the hostel?",
+    "answer": "Yes, with restrictions. They must show their Student ID to campus security at the gate and to the Hostel Coordinator upon entering. They must leave by 9 PM. They cannot use hostel shower facilities. For overnight stays, the resident must obtain prior SCA written permission.",
+    "keywords": "non, hostel, acity, student, enter, yes, they, coordinator",
+    "source": "Student Handbook 2025 — Section 6.1 Hostel Rules, clauses A.7 and Restrictions"
+  },
+  {
+    "id": 119,
+    "topic": "hostel",
+    "question": "What can and cannot go down the drains in the ACity hostel?",
+    "answer": "Students should not pour semi-solid content or oils in the drains to ensure effective plumbing at all times.",
+    "keywords": "cannot, down, drains, acity, hostel, students",
+    "source": "Student Handbook 2025 — Section 6.1 Hostel Rules, clause B.4"
+  },
+  {
+    "id": 120,
+    "topic": "hostel",
+    "question": "What are the lost property collection points on ACity campus?",
+    "answer": "Hostel — Hostel Coordinators' desk; Academic facilities, labs, and offices — The Library; Administrative offices — The Reception; General campus — Student and Community Affairs Office.",
+    "keywords": "lost, property, collection, points, acity, campus, hostel, coordinators, academic, the",
+    "source": "Student Handbook 2025 — Section 2.4.1.10"
+  },
+  {
+    "id": 121,
+    "topic": "general",
+    "question": "What are ACity's grooming standards for men?",
+    "answer": "Shirts: dress shirts recommended; T-shirts and Lacoste tops permitted (no profane/obscene images); business casual required for seminars and presentations. Trousers/Shorts: long enough not to reveal skin when seated; shorts no shorter than 2 inches above knee; jeans must not be tattered or reveal underwear. Shoes: leather shoes preferred; boots, tennis shoes, crocs, and canvas allowed. Slippers/slides are NOT allowed. Jewellery: maximum a watch, a necklace, and 2 rings. Absolutely no tongue rings.",
+    "keywords": "acity, grooming, standards, men, general, shirts, lacoste, trousers, shorts, shoes",
+    "source": "Student Handbook 2025 — Section 7.1 Grooming Standards for Men"
+  },
+  {
+    "id": 122,
+    "topic": "general",
+    "question": "What are ACity's grooming standards for women?",
+    "answer": "Skirts and dresses: no shorter than 2 inches above the knee; miniskirts, sun dresses, beach dresses, and spaghetti-strap dresses are not acceptable. Tops: crop tops that reveal the waist are prohibited; cleavage must not be exposed; tops exposing the nipple are prohibited. Jewellery: two rings plus marriage rings; up to two sets of earrings and two necklaces; no tongue rings; waist beads must not be visible above clothing. Shoes: flat shoes, crocs, sandals, or canvas preferred; no bathroom slippers, flip-flops, or slides.",
+    "keywords": "acity, grooming, standards, women, general, skirts, tops, jewellery, shoes",
+    "source": "Student Handbook 2025 — Section 7.2 Grooming Standards for Women"
+  },
+  {
+    "id": 123,
+    "topic": "general",
+    "question": "What general dress code rules apply to all ACity students?",
+    "answer": "Hats, caps, and hair bonnets are not acceptable (religious/cultural head coverings permitted). Torn clothing is unacceptable. Baggy pants revealing underwear are prohibited. Revealing attire exposing the tummy, waistline, chest, or breast is prohibited. Shirts with profanity, nude/semi-nude images, or political slogans are prohibited. Clothing meant for sleeping or lingerie-type clothing is prohibited in academic and administrative areas. Students violating the dress code are asked to leave; refusal results in formal disciplinary action.",
+    "keywords": "general, dress, code, rules, apply, acity, students, registration, hats, torn, baggy, revealing",
+    "source": "Student Handbook 2025 — Sections 7.3, 7.4"
+  },
+  {
+    "id": 124,
+    "topic": "general",
+    "question": "Is there a policy on demonstrations and protests at ACity?",
+    "answer": "Yes. Students must give 48 hours' written notice to the University President before any demonstration or procession. The notice must state the purpose and organiser names. No demonstrations are allowed between 6 PM and 6 AM. Must follow a President-approved route not obstructing traffic. The organiser is personally responsible for any violence or breaches. Penalty for unauthorised demonstrations: suspension (minimum 2 weeks) to expulsion.",
+    "keywords": "policy, demonstrations, protests, acity, general, yes, students, university, president, the",
+    "source": "Student Handbook 2025 — Section 5.3 Authorization of Demonstrations and Processions"
+  },
+  {
+    "id": 125,
+    "topic": "general",
+    "question": "What is the gambling policy at ACity?",
+    "answer": "Gambling, including unlawful games of chance for money on university premises, is prohibited. 1st offence: Suspension and mandatory counselling. Repeat offence: Dismissal.",
+    "keywords": "gambling, policy, acity, exams, suspension, repeat, dismissal",
+    "source": "Student Handbook 2025 — Section 2.4.1.5 Prohibited Conduct; Penalty Table"
+  },
+  {
+    "id": 126,
+    "topic": "general",
+    "question": "What weapons and dangerous items are banned on the ACity campus?",
+    "answer": "Prohibited: any deadly weapon; any firearm (loaded, unloaded, operable, inoperable); any type of gun including toy guns resembling real firearms; any sword or martial arts weapon; any knife except ordinary pocket knife with blade 3 inches or less in closed position (or kitchen cutlery in food prep areas); any explosive chemical or device including fireworks. Penalty: immediate dismissal and report to police for both first and subsequent offences.",
+    "keywords": "weapons, dangerous, items, banned, acity, campus, exams, prohibited, penalty",
+    "source": "Student Handbook 2025 — Section 2.4.1.8 Weapons Policy"
+  },
+  {
+    "id": 127,
+    "topic": "exams",
+    "question": "What is ACity's plagiarism policy and penalty?",
+    "answer": "Plagiarism is the use of academic sources without due reference. Students must paraphrase and cite all sources; direct quotations must be brief, marked, and cited immediately. Penalty for plagiarism on long essay/project work: 1st offence — Cancellation of work, warning letter, and triple repayment of fees to rewrite. Repeat offence — Suspension for one academic year.",
+    "keywords": "acity, plagiarism, policy, penalty, fees, students, cancellation, repeat",
+    "source": "Student Handbook 2025 — Section 6.3.2 Academic Integrity Policy; Section 8.3 Penalty Table"
+  },
+  {
+    "id": 128,
+    "topic": "exams",
+    "question": "What are the examination offence penalties at ACity?",
+    "answer": "Key examination penalties: Causing leakage of exam questions — Dismissal (no re-application, 1st offence). Impersonation — Dismissal and report to police (1st offence). Possession of foreign material/device — Cancellation and triple exam fees (1st offence), Dismissal (2nd). Copying from notes or colleague — Cancellation and triple fees (1st), Dismissal (2nd). Communicating with other candidates — Cancellation and triple fees (1st), Suspension 1 year (2nd). Plagiarism on project — Cancellation and triple fees (1st), Suspension 1 year (2nd). Physical assault on invigilator — Removal and cancellation (1st), Dismissal and police report (2nd).",
+    "keywords": "examination, offence, penalties, acity, fees, key, causing, dismissal, impersonation",
+    "source": "Student Handbook 2025 — Section 8.3 Penalty Table"
+  },
+  {
+    "id": 129,
+    "topic": "general",
+    "question": "What is ACity's alcohol policy?",
+    "answer": "On campus: possession, use, consumption, manufacture, sale, or distribution of alcoholic beverages is prohibited except where explicitly permitted. The same applies to off-campus functions hosted or sponsored by ACity or student organisations. Penalty: Immediate suspension and mandatory counselling (1st offence); Dismissal (repeat).",
+    "keywords": "acity, alcohol, policy, exams, the, penalty, immediate, dismissal",
+    "source": "Student Handbook 2025 — Section 2.4.1.6 Alcohol Policy; Penalty Table"
+  },
+  {
+    "id": 130,
+    "topic": "general",
+    "question": "What is ACity's drug policy and how is drug testing done?",
+    "answer": "ACity maintains a drug-free campus policy. All university buildings including hostels are smoke-free for all substances. Drug testing: random testing conducted periodically throughout the academic year for both undergraduate and graduate students; for-cause testing if there is reasonable suspicion. Urine samples collected by trained medical professionals. First positive test: suspension, mandatory counselling, and community service. Repeat offence: possible expulsion. Refusing to test within 24 hours: automatic disciplinary hearing and additional sanctions.",
+    "keywords": "acity, drug, policy, testing, done, hostel, all, urine, first",
+    "source": "Student Handbook 2025 — Section 2.4.1.7 Drug Policy; Drug Testing subsection"
+  },
+  {
+    "id": 131,
+    "topic": "general",
+    "question": "What is the sexual harassment reporting procedure at ACity?",
+    "answer": "Report in writing to the Dean of Student and Community Affairs (abena.engmann@acity.edu.gh) — your identity should be protected. You may also report directly to the President. The accused is notified and given 72 hours to respond. The Disciplinary Committee investigates. Retaliation against complainants is explicitly prohibited. Penalty if proven: Immediate suspension (1st offence), investigation and possible dismissal (repeat).",
+    "keywords": "sexual, harassment, reporting, procedure, acity, exams, report, dean, student, community, affairs",
+    "source": "Student Handbook 2025 — Section 6.3.4 Sexual Harassment and Misconduct; Section 8.2"
+  },
+  {
+    "id": 132,
+    "topic": "general",
+    "question": "What is the full disciplinary process at ACity?",
+    "answer": "1. Complaint submitted in writing, signed by the complainant. 2. Student formally notified of allegation and evidence. 3. Student given time to respond in writing (72 hours for conduct cases). 4. Dean of Students convenes the Disciplinary Committee. 5. Both sides' evidence examined; allegation either proven or not proven. 6. Report submitted to President who reviews and approves corrective action. 7. Decision communicated to offender, complainant, and community (anonymously). 8. Offender required to meet with Dean of Student Affairs. Appeals must be filed within 15 working days using a Student Appeal Request Form.",
+    "keywords": "full, disciplinary, process, acity, exams, complaint, student, dean, students",
+    "source": "Student Handbook 2025 — Sections 8.1, 8.2, 8.4"
+  },
+  {
+    "id": 133,
+    "topic": "fees",
+    "question": "Is the ACity meal plan mandatory for hostel residents?",
+    "answer": "No. The meal plan is optional. Students choose their plan based on preference and budget.",
+    "keywords": "acity, meal, plan, mandatory, hostel, residents, the, students",
+    "source": "Fee Policy 2025–2026 — UG Ghanaian Students"
+  },
+  {
+    "id": 134,
+    "topic": "fees",
+    "question": "What meal plans are available at ACity and how much do they cost?",
+    "answer": "Undergraduate meal plans per semester (2025–2026): 3 Meals Per Day — GHS 12,150 / USD 990; 2 Meals Per Day — GHS 8,100 / USD 660; 1 Meal Per Day — GHS 4,050 / USD 330. MSc student meal plans per semester: 3 Meals Per Day — GHS 15,600 / USD 990; 2 Meals Per Day — GHS 10,200 / USD 660; 1 Meal Per Day — GHS 5,400 / USD 330. Each plan includes a Snack Account. Payment plan is not available for meal fees — must be paid in full.",
+    "keywords": "meal, plans, available, acity, much, cost, fees, undergraduate, meals, per, day, ghs",
+    "source": "Fee Policy 2025–2026 — UG Ghanaian Students; Fee Policy 2025–2026 — UG International Students; Fee Policy 2025–2026 — Masters Programmes"
+  },
+  {
+    "id": 135,
+    "topic": "fees",
+    "question": "Can I opt out of the ACity meal plan?",
+    "answer": "Yes. The meal plan is optional. However, you cannot cook in your hostel room — only reheating of food is permitted. If you opt out of the meal plan, you can purchase food from campus dining on a pay-as-you-go basis or get food outside campus in Haatso/Agbogba.",
+    "keywords": "opt, acity, meal, plan, hostel, yes, the, however, haatso, agbogba",
+    "source": "Fee Policy 2025–2026 — UG Ghanaian Students; Student Handbook 2025 — Section 6.1"
+  },
+  {
+    "id": 136,
+    "topic": "enrollment",
+    "question": "What are the registration windows at ACity for 2025-2026?",
+    "answer": "Level 100 Cohort 1 new entrants: Registration opens August 25, 2025; continuing students (L200/300/400): September 1, 2025. Semester 2 registration: January 15–23, 2026. Level 100 Cohort 2: January 12–23, 2026 (Semester 1); May 18–26, 2026 (Semester 2). A student who fails to register for a course forfeits the opportunity to take it that semester. Students may change elective courses within two weeks of the official registration date at no penalty.",
+    "keywords": "registration, windows, acity, exams, level, cohort, august, september",
+    "source": "Academic Catalogue 2025–2026 — Section 2.2.1"
+  },
+  {
+    "id": 137,
+    "topic": "enrollment",
+    "question": "Can I change my elective courses after registering at ACity?",
+    "answer": "Yes. Students may change elective course selections within two weeks following the official registration date. This change attracts no additional fee or penalty. Changes to core required courses require formal approval. Contact registry@acity.edu.gh.",
+    "keywords": "change, elective, courses, registering, acity, fees, yes, students, this, changes, contact",
+    "source": "Student Handbook 2025 — Section 2.1.2 Registration"
+  },
+  {
+    "id": 138,
+    "topic": "enrollment",
+    "question": "Is class attendance mandatory at ACity?",
+    "answer": "Yes. A minimum of 75% attendance of contact hours is required in each course to qualify to sit the end-of-semester examination. A student who fails to write the end-of-semester exam due to insufficient attendance is deemed to have failed that course.",
+    "keywords": "class, attendance, mandatory, acity, exams, yes",
+    "source": "Student Handbook 2025 — Section 2.3.3 Qualification for Taking End-of-Semester Examinations"
+  },
+  {
+    "id": 139,
+    "topic": "exams",
+    "question": "What is the grading scale at ACity?",
+    "answer": "ACity uses two grading systems. CWA (Cumulative Weighted Average) for Engineering, Computer Science, and Artificial Intelligence: A (80–100%) Excellent, B (70–79.9%) Very Good, C (60–69.9%) Good, D (50–59.9%) Pass, F (Below 50%) Fail. GPA for Business, Communication Arts, and Information Technology: A (80–100%) = 4.0, B+ (75–79) = 3.5, B (70–74) = 3.0, C+ (65–69) = 2.5, C (60–64) = 2.0, D+ (55–59) = 1.5, D (50–54) = 1.0, Below 50 = Fail (0).",
+    "keywords": "grading, scale, acity, exams, cwa, cumulative, weighted, average",
+    "source": "Student Handbook 2025 — Section 2.3.2 Grading Systems"
+  },
+  {
+    "id": 140,
+    "topic": "exams",
+    "question": "What are the graduation class honours at ACity?",
+    "answer": "For Engineering, CS, and AI (CWA): 80–100% First Class; 70–79.99% Second Class Upper; 60–69.99% Second Class Lower; 50–59.99% Pass. For Business, Communication Arts, and IT (CGPA): 3.6–4.0 First Class; 3.0–3.5 Second Class Upper; 2.5–2.9 Second Class Lower; 2.0–2.4 Third Class; 1.0–1.9 Pass.",
+    "keywords": "graduation, class, honours, acity, exams, for, engineering, cwa, first",
+    "source": "Student Handbook 2025 — Section 2.3.2 Grading Systems"
+  },
+  {
+    "id": 141,
+    "topic": "exams",
+    "question": "What is the minimum GPA/CWA to remain in good academic standing at ACity?",
+    "answer": "Students must maintain a Cumulative Grade Point Average (CGPA) of at least 1.5 or a Cumulative Weighted Average (CWA) of at least 50% to remain in good standing and progress.",
+    "keywords": "minimum, gpa, cwa, remain, good, academic, standing, acity, exams, students, cumulative, grade",
+    "source": "Student Handbook 2025 — Section 2.3.4 Qualification for Progressing"
+  },
+  {
+    "id": 142,
+    "topic": "exams",
+    "question": "What are the year-to-year academic progression requirements at ACity?",
+    "answer": "Level 100 to 200: Pass all courses, attain minimum CGPA 1.5 or CWA 50%, not more than 6 failed credits in the academic year, no failed course can be a prerequisite to Level 200. Level 200 to 300 and 300 to 400: Minimum CGPA 1.5 or CWA 50%, accumulate at least 24 credits for the current year, not more than 9 failed credits in one academic year or more than 12 credits across different academic years.",
+    "keywords": "year, academic, progression, requirements, acity, exams, level, pass, cgpa, cwa",
+    "source": "Student Handbook 2025 — Section 2.3.4 Qualification for Progressing"
+  },
+  {
+    "id": 143,
+    "topic": "exams",
+    "question": "What happens if I fail too many courses at ACity — when is dismissal triggered?",
+    "answer": "Failing 10–12 credits: allowed to repeat failed courses. Level 100 student failing 12 or more credits in one academic year: dismissed for poor academic performance; may reapply to a different programme next academic year. Withdrawal is also triggered when a first-year student trails more than 4 courses after Semester 1 or at end of Semester 2, or obtains CGPA below 1.0 / CWA below 45% at end of Semester 2, or a repeated student fails to achieve CGPA 1.0 / CWA 45%, or a student must repeat a third time.",
+    "keywords": "happens, fail, too, many, courses, acity, dismissal, triggered, exams, failing, level, withdrawal",
+    "source": "Student Handbook 2025 — Section 2.3.5 Repeat, Dismissal, Withdrawal"
+  },
+  {
+    "id": 144,
+    "topic": "exams",
+    "question": "How do re-sits work at ACity?",
+    "answer": "Re-sit periods: December 10–19, 2025 (after Semester 1); April 27, 2026 (after Semester 2); August 12–22, 2026 (Semester 3/August). Students must speak to their Head of Department at least two clear months before the desired re-sit period to obtain approval and have the paper added to the exam moderation process — without this approval, you cannot re-sit. For refresher courses, the HoD arranges a faculty member at a fee.",
+    "keywords": "sits, work, acity, fees, december, semester, april, august",
+    "source": "Academic Catalogue 2025–2026 — Section 2.2.3 Re-Sit Periods; Student Handbook 2025"
+  },
+  {
+    "id": 145,
+    "topic": "enrollment",
+    "question": "How do I apply for a prerequisite waiver at ACity?",
+    "answer": "Submit a formal email request to your Head of Department (HoD) using your official university email, explaining the extenuating circumstances. The HoD, Dean, and VP-Academic Affairs review the request and may approve or decline with justification. The HoD notifies the Registry of the outcome. Requests without clear justification may not be considered.",
+    "keywords": "apply, prerequisite, waiver, acity, registration, submit, head, department, hod, the",
+    "source": "Student Handbook 2025 — Section 2.3.6 Pre-Requisite Requirements and Waiver Process"
+  },
+  {
+    "id": 146,
+    "topic": "enrollment",
+    "question": "What are the graduation requirements at ACity?",
+    "answer": "To qualify for a degree: pass all compulsory core courses; meet inter-faculty universal course requirements; accumulate a minimum of 120 credits; attain a minimum CGPA of 1.5 or CWA of 50%; maintain acceptable moral conduct at the University.",
+    "keywords": "graduation, requirements, acity, exams, cgpa, cwa, university",
+    "source": "Student Handbook 2025 — Section 2.3.7 Requirements for Graduation"
+  },
+  {
+    "id": 147,
+    "topic": "general",
+    "question": "When is ACity's 2026 graduation ceremony?",
+    "answer": "The graduation ceremony for the 2025–2026 academic year is scheduled for June 13, 2026. A Coffee Chat event precedes it (date TBD, confirmed via student email).",
+    "keywords": "acity, graduation, ceremony, fees, the, june, coffee, chat, tbd",
+    "source": "Academic Catalogue 2025–2026 — Section 2.2.5 Graduation-related Activities"
+  },
+  {
+    "id": 148,
+    "topic": "general",
+    "question": "How do I request an official transcript at ACity?",
+    "answer": "Log in to ACity 2.0 (https://acityplus.acity.edu.gh), go to the Academics tab, click \"Request Document,\" select transcript, and click Save. Pay the non-refundable processing fee before processing begins. Standard processing time: 2–3 working days after payment confirmation. Delivery options: in-person collection, direct to institution, courier, or electronic. Transcripts will not be issued to students with outstanding fees or unresolved disciplinary matters.",
+    "keywords": "request, official, transcript, acity, fees, log, academics, document",
+    "source": "Student Handbook 2025 — Section 2.1.4 Transcript Request Guidelines"
+  },
+  {
+    "id": 149,
+    "topic": "general",
+    "question": "Can my parents access my academic records at ACity?",
+    "answer": "No — not without your explicit written consent. Grades and exam results are shared with parents only if the student has provided written consent documented with the Registrar's Office. The university will not provide information about students to unauthorised persons. In emergency situations affecting student safety, the university may disclose without prior consent.",
+    "keywords": "parents, access, academic, records, acity, exams, grades, registrar, office, the",
+    "source": "Student Handbook 2025 — Section 2.1.2 Policy on Sharing of Student Grades with Third Parties"
+  },
+  {
+    "id": 150,
+    "topic": "general",
+    "question": "How long does transcript processing take at ACity?",
+    "answer": "Standard processing takes 2–3 working days after payment confirmation and formal submission of the transcript request form through ACity 2.0.",
+    "keywords": "transcript, processing, acity, fees, standard",
+    "source": "Student Handbook 2025 — Section 2.1.4 Transcript Request Guidelines"
+  },
+  {
+    "id": 151,
+    "topic": "general",
+    "question": "What are the ACity library opening hours?",
+    "answer": "Monday to Friday: 9:00 AM to 9:00 PM. Saturday: 9:00 AM to 4:00 PM. Closed on public holidays and may close for stocktaking or maintenance at the librarian's discretion.",
+    "keywords": "acity, library, opening, hours, general, monday, friday, saturday, closed",
+    "source": "Student Handbook 2025 — Section 2.3.8 Library Policy"
+  },
+  {
+    "id": 152,
+    "topic": "general",
+    "question": "How many books can I borrow from the ACity library?",
+    "answer": "Students: up to 2 books/items at a time. Senior members: up to 3. Administrative staff: up to 2. Research fellows and visiting scholars: up to 3. Standard loan period: 2 weeks; renewable if no other patron has requested the item and it has not been recalled. Items that cannot be borrowed: reference books, newspapers, periodicals, dictionaries, encyclopedias, course manuals, and CDs.",
+    "keywords": "many, books, borrow, acity, library, fees, students, senior, administrative, research, standard",
+    "source": "Student Handbook 2025 — Section 2.3.8 Library Policy — Reader Services"
+  },
+  {
+    "id": 153,
+    "topic": "general",
+    "question": "What are the library penalties for overdue books at ACity?",
+    "answer": "A patron with overdue books pays a fine or has their certificate withheld. Lost books: pay the full replacement cost or provide a new copy of equal or greater value. Failure to settle library obligations results in: returning students not being allowed to register; graduating students not receiving certificates or transcripts; a borrowing block placed on the library account.",
+    "keywords": "library, penalties, overdue, books, acity, fees, lost, failure",
+    "source": "Student Handbook 2025 — Section 2.3.8 Library Policy — Library Penalties"
+  },
+  {
+    "id": 154,
+    "topic": "general",
+    "question": "What is prohibited in the ACity library?",
+    "answer": "Prohibited activities include: cell phone use (must be silenced), talking/discussions/laughing, defacing or destroying property, boisterous behaviour, fighting, inappropriate display of affection, inappropriate language, weapons, smoking, feet on furniture, pets, food and drinks, loitering, taking items out without completing the loan procedure, entering with bags or gowns/raincoats/umbrellas (deposit at security desk).",
+    "keywords": "prohibited, acity, library, fees",
+    "source": "Student Handbook 2025 — Section 2.3.8 Library Policy — Prohibited Activities"
+  },
+  {
+    "id": 155,
+    "topic": "general",
+    "question": "What are the Recreational Centre hours and rules at ACity?",
+    "answer": "Hours: Monday to Saturday 9:00 AM to 10:00 PM. Closed Sundays. Rules: Facilities must be used responsibly; food and beverages allowed only downstairs; no littering; Public Display of Affection (PDA) strictly prohibited; drugs and alcohol prohibited; removal of property or furniture prohibited; boardroom limited to ACSC and club executive meetings; damage payment by the culprit.",
+    "keywords": "recreational, centre, hours, rules, acity, fees, monday, saturday, closed, sundays",
+    "source": "Student Handbook 2025 — Section 6.2 Student Recreational Centre"
+  },
+  {
+    "id": 156,
+    "topic": "general",
+    "question": "How do I report an incident or complaint at ACity?",
+    "answer": "Submit a signed written complaint to the Dean of Student and Community Affairs (abena.engmann@acity.edu.gh) with a copy to the Quality Assurance Unit. Alternatively, complaints can go directly to the President. For sexual harassment: follow the formal reporting process. The accused is notified and given 72 hours to respond. The Disciplinary Committee reviews the case. Appeal within 15 working days using a Student Appeal Request Form.",
+    "keywords": "report, incident, complaint, acity, general, submit, dean, student, community, affairs",
+    "source": "Student Handbook 2025 — Section 8.2 Complaint Mechanism"
+  },
+  {
+    "id": 157,
+    "topic": "general",
+    "question": "How do I request a disability accommodation at ACity?",
+    "answer": "Contact the Dean of Student and Community Affairs: Dr. Abena Engmann at abena.engmann@acity.edu.gh. For exam-related accommodations, also contact registry@acity.edu.gh. ACity's field trip policy explicitly states that students with disabilities must not be hindered from participating and that activities should be arranged to reasonably accommodate them.",
+    "keywords": "request, disability, accommodation, acity, exams, contact, dean, student, community, affairs",
+    "source": "Student Handbook 2025 — Section 5.1 Field Trip Policy; Section 8.4 Appeal Process"
+  },
+  {
+    "id": 158,
+    "topic": "general",
+    "question": "Can I work part-time or in a work-study job while studying at ACity?",
+    "answer": "ACity does not operate a formal paid work-study programme. However, students can pursue on-campus volunteer roles. Any department may host an ACity student volunteer. Students must apply through the Career Services Department with a CV; HR approves placements. A student can only hold one (1) volunteer role at a time. Roles are unpaid. Students in volunteer roles are not allowed to stay on campus during school vacations. For off-campus work, Ghanaian students are subject to Ghana's Labour Act; international students must ensure their visa and Resident Permit allow employment. Contact careerservices@acity.edu.gh.",
+    "keywords": "work, part, time, study, job, while, studying, acity, enrollment, however, any, students",
+    "source": "Student Handbook 2025 — Section 3.11 Volunteer Role Overview"
+  },
+  {
+    "id": 159,
+    "topic": "general",
+    "question": "What is ACity's formal grievance and complaint mechanism for students?",
+    "answer": "Submit a signed written complaint to the Dean of Student and Community Affairs (abena.engmann@acity.edu.gh) with a copy to the Quality Assurance Unit. Complaints can also go directly to the President. For fraudulent acts: referred directly to the President. The accused is notified and given 72 hours to respond in writing. The Dean convenes the Disciplinary Committee. Decision communicated to all parties and published anonymously. Appeals: within 15 working days using a Student Appeal Request Form. Enrolled students can also submit formal queries via the QMS in ACity 2.0.",
+    "keywords": "acity, formal, grievance, complaint, mechanism, students, enrollment, submit, dean, student, community, affairs",
+    "source": "Student Handbook 2025 — Section 8.2 Complaint Mechanism"
+  },
+  {
+    "id": 160,
+    "topic": "general",
+    "question": "How is ACity governed?",
+    "answer": "ACity is a private for-profit tertiary institution chartered by GTEC. Governance: Governing Council chaired by Professor Prem Shamdasani, including President Prof. Fred McBagonluri, Founder Mr. Dev Varyani, and external professionals. The President convenes an Executive Team running strategic and day-to-day operations. The Academic Board is the foremost operating body, advising the Governing Council on academic matters. Academic Board sub-committees include Academic Programmes, Admissions, Disciplinary Committees, Examination, Finance, Library, Quality Assurance, and Research.",
+    "keywords": "acity, governed, exams, gtec, governance, governing, council",
+    "source": "Student Handbook 2025 — Section 1.3 Academic City Governance Structure"
+  },
+  {
+    "id": 161,
+    "topic": "general",
+    "question": "What is the official name and URL of ACity's student portal?",
+    "answer": "The student portal is called ACity 2.0 (also referred to as ACity+), accessible at https://acityplus.acity.edu.gh. It is used for course registration, grade access, transcript requests, fee payment, exam timetables, and document requests.",
+    "keywords": "official, name, url, acity, student, portal, fees, the",
+    "source": "Student Handbook 2025 — Sections 2.1.2, 2.1.4"
+  },
+  {
+    "id": 162,
+    "topic": "registration",
+    "question": "What is matriculation at ACity and who must attend?",
+    "answer": "Matriculation is a compulsory formal ceremony that records new students in the Academic City Matriculation Book, a legal requirement from Ghanaian educational authorities. All new first-year students must attend. It is an offence to sign the Matriculation Book on behalf of a colleague. 2025–2026 dates: October 10, 2025 (Postgraduate and L100 Cohort 1); February 20, 2026 (L100 Cohort 2).",
+    "keywords": "matriculation, acity, must, attend, registration, academic, city, book",
+    "source": "Student Handbook 2025 — Section 2.1.3 Matriculation; Academic Catalogue 2025–2026"
+  },
+  {
+    "id": 163,
+    "topic": "general",
+    "question": "What are ACity's core values and mission?",
+    "answer": "Vision: To be a world-class centre for learning, innovation, and entrepreneurship that nurtures future leaders. Mission: To educate future-ready leaders who can innovatively solve complex problems within an ethical, entrepreneurial, and collaborative environment. Core Values: Excellence, Innovation, Integrity, Leadership, Responsibility. Learning Pillars: Experiential Learning, Contextual Learning, Unified Learning, Extensional Learning.",
+    "keywords": "acity, core, values, mission, general, vision, excellence",
+    "source": "Student Handbook 2025 — Section 1.2 Vision and Mission"
+  },
+  {
+    "id": 164,
+    "topic": "general",
+    "question": "Can I change my registered name at ACity?",
+    "answer": "Name changes are very restricted. No name change is approved during the duration of study without satisfying all legal and statutory procedures. The only exception: married female students who have adopted their husband's name and have gazetted it with the Attorney General may change their name per GTEC regulations. Contact registry@acity.edu.gh.",
+    "keywords": "change, registered, name, acity, general, the, attorney, gtec",
+    "source": "Student Handbook 2025 — Section 2.1.2 Registry and Student Academic Records"
+  },
+  {
+    "id": 165,
+    "topic": "general",
+    "question": "What is ACity's policy on sharing student information with third parties?",
+    "answer": "All student records are confidential. Information will not be provided to unauthorised persons. Parents should get academic progress information directly from their students. Written student consent is required before sharing grades with parents. Legal requirements (court orders) force disclosure after verification. Emergency situations affecting student safety may allow disclosure without prior consent. ACity complies with the Ghana Data Protection Act.",
+    "keywords": "acity, policy, sharing, student, information, third, parties, general, all, parents, written, legal",
+    "source": "Student Handbook 2025 — Section 2.1.2 Registry and Confidentiality; Policy on Sharing of Student Grades"
+  },
+  {
+    "id": 166,
+    "topic": "enrollment",
+    "question": "Can I transfer to or from another programme at ACity?",
+    "answer": "The handbook states students are \"not ordinarily permitted\" to switch programmes and fees paid will not be adjusted. However, formal requests are possible. Contact registry@acity.edu.gh, review the target programme's entry requirements, and obtain approval from relevant Department Coordinators for both current and target programmes.",
+    "keywords": "transfer, another, programme, acity, fees, the, however, contact, department, coordinators",
+    "source": "Student Handbook 2025 — Section 2.1, clause e"
+  },
+  {
+    "id": 167,
+    "topic": "general",
+    "question": "Is registration by proxy allowed at ACity?",
+    "answer": "Registration by proxy is not allowed unless there is written permission from the Registrar.",
+    "keywords": "registration, proxy, allowed, acity, general, registrar",
+    "source": "Student Handbook 2025 — Section 2.1.2 Registration"
+  },
+  {
+    "id": 168,
+    "topic": "enrollment",
+    "question": "How long is each semester at ACity?",
+    "answer": "Each semester has 12 teaching weeks. The full semester block spans approximately 16 weeks including teaching, mid-semester assessments, mid-term break, revision period, and final examinations. Academic year 2025–2026: Semester 1 (September 2 – December 20, 2025); Semester 2 (January 12 – May 5, 2026); Semester 3 (May 12 – August 22, 2026).",
+    "keywords": "each, semester, acity, exams, the, academic, september",
+    "source": "Academic Catalogue 2025–2026 — Section 2.1; Student Handbook 2025 — Definitions"
+  },
+  {
+    "id": 169,
+    "topic": "enrollment",
+    "question": "What is a credit hour at ACity?",
+    "answer": "A credit hour is equivalent to two or three hours of laboratory or practical work per week, or one 60-minute lecture period every week of instruction during a semester.",
+    "keywords": "credit, hour, acity, enrollment",
+    "source": "Student Handbook 2025 — Section 2 Definitions"
+  },
+  {
+    "id": 170,
+    "topic": "enrollment",
+    "question": "What is the difference between GPA, CGPA, and FGPA at ACity?",
+    "answer": "GPA (Grade Point Average): Total credit points multiplied by grade points for all courses in one semester, divided by total credit points for that semester. CGPA (Cumulative GPA): Same calculation applied across all semesters cumulatively. FGPA (Final GPA): The CGPA for all courses taken upon completion of the entire academic programme — the definitive degree classification figure.",
+    "keywords": "difference, between, gpa, cgpa, fgpa, acity, exams, grade, point, average, total",
+    "source": "Student Handbook 2025 — Section 2 Definitions"
+  },
+  {
+    "id": 171,
+    "topic": "general",
+    "question": "What is the Graduate School Calendar for MSc students at ACity in 2025-2026?",
+    "answer": "MSc programmes follow a modular structure with 4 modules per semester. Semester 1: Module 1 teaching Sep 1–20 / assessment Sep 22–27; Module 2 teaching Sep 29–Oct 18 / assessment Oct 20–25; Module 3 teaching Oct 27–Nov 15 / assessment Nov 17–22; Module 4 teaching Nov 24–Dec 13 / assessment Dec 15–20. Christmas Break Dec 22 – Jan 9. Semester 2: Module 1 teaching Jan 12–31 / assessment Feb 2–7; Module 2 teaching Feb 9–28 / assessment Mar 2–7; Module 3 teaching Mar 9–28 / assessment Mar 30–Apr 4; Module 4 teaching Apr 6–25 / assessment Apr 27–May 2. Student Break May 4 – Aug 29, 2026.",
+    "keywords": "graduate, school, calendar, msc, students, acity, general, semester, module, sep",
+    "source": "Academic Catalogue 2025–2026 — Section 2.2.6 Graduate School Calendar"
+  },
+  {
+    "id": 172,
+    "topic": "general",
+    "question": "What student clubs are active at ACity?",
+    "answer": "Confirmed clubs from the Student Handbook: Business Club, Robotics Club, ACity Christian Fellowship, Rotaract Club, STEMEP Club, Arts & Media Club, Dance Club, Otaku Club, Writing and Debate Club, Leo Club, Gaming Club, Music Club, TEDx, NSBE. Additionally confirmed on the ACity website: Google Developer Student Club, Innovators for Global Health, Drama Club. To start a new club: follow guidelines from Student Affairs, appoint a senior member as patron, submit constitution and officer list to the Registrar, and comply with university financial regulations.",
+    "keywords": "student, clubs, active, acity, general, confirmed, handbook, business, club",
+    "source": "Student Handbook 2025 — Section 5.2 Clubs and Activities"
+  },
+  {
+    "id": 173,
+    "topic": "general",
+    "question": "How does the ACity Student Council (ACSC) work?",
+    "answer": "The ACSC is the official student government body, elected annually. It has three independent working bodies: General Assembly (GA), Executive Council (EC), and Judicial Council (JC), plus an Electoral Commission (EC) for elections. Functions: represents students, creates publications, convenes student meetings. Eligibility to run: registered for minimum 3 continuous semesters, minimum 2 semesters remaining before graduation, minimum CGPA 3.0, no carry-over courses, no history of serious misconduct. All registered students may vote; no proxy voting.",
+    "keywords": "acity, student, council, acsc, work, exams, the, general, assembly, executive",
+    "source": "Student Handbook 2025 — Section 5.3 Student Representative Council"
+  },
+  {
+    "id": 174,
+    "topic": "general",
+    "question": "Can I organise a public event on the ACity campus?",
+    "answer": "Yes, with prior approval. A student representative must submit a written request to the Students and Community Affairs Department at least two weeks before the event. Required information: date and time, venue, names/descriptions of speakers/artistes, expected number of participants, and any university-required details. The Dean and Executive determine which spaces are available.",
+    "keywords": "organise, public, event, acity, campus, general, yes, students, community, affairs, department",
+    "source": "Student Handbook 2025 — Section 4 Policy for Staging a Public Event on Campus"
+  },
+  {
+    "id": 175,
+    "topic": "general",
+    "question": "What are the rules on posting signs and flyers on the ACity campus?",
+    "answer": "All notices must receive approval from the appropriate university authority before posting. Maximum size: A4. Include organiser name, contact, and removal date. Notices are removed at end of each semester. Prohibited: chalking buildings, using stickers or glue that can damage surfaces, posting on windows/doors/mirrors, posting over other signs, posting outside the school. Content must be clear, professional, respectful, and in English or a widely understood language.",
+    "keywords": "rules, posting, signs, flyers, acity, campus, general, all, maximum, include, notices, prohibited",
+    "source": "Student Handbook 2025 — Section 4 Sign Posting Policy"
+  },
+  {
+    "id": 176,
+    "topic": "enrollment",
+    "question": "What are the rules for ACity field trips?",
+    "answer": "Field trips begin and end on campus. The Trip Director (faculty/staff member) enforces all university policies. No alcohol or prohibited substances in any vehicle at any time. Students with disabilities must be accommodated — alternate activities must be offered if needed. All participants are individually responsible for their own conduct. Trip Directors must submit a written report to their HoD after each trip. Each department must conduct at least one field trip per academic session.",
+    "keywords": "rules, acity, field, trips, enrollment, the, trip, director, students",
+    "source": "Student Handbook 2025 — Section 5.1 Field Trip Policy"
+  },
+  {
+    "id": 177,
+    "topic": "general",
+    "question": "What are the public holidays and commemorative days observed at ACity?",
+    "answer": "Public holidays observed: New Year's Day (Jan 1), Constitution Day (Jan 7), Independence Day (Mar 6), Good Friday, Easter Monday, May Day (May 1), Eid-ul-Fitr, Eid-ul-Adha, Republic Day (Jul 1), Kwame Nkrumah Memorial Day (Sep 21), Farmers' Day (first Friday in December), Christmas Day (Dec 25), Boxing Day (Dec 26). Commemorative days (marked but not public holidays): African Union Day (May 25), Founders' Day (Aug 4).",
+    "keywords": "public, holidays, commemorative, days, observed, acity, general, new, year, day, jan",
+    "source": "Academic Catalogue 2025–2026 — Sections 2.2.7, 2.2.8"
+  },
+  {
+    "id": 178,
+    "topic": "general",
+    "question": "Is ACity's degree internationally recognised?",
+    "answer": "ACity is accredited by the Ghana Tertiary Education Commission (GTEC) — Certificate No. GTEC/Ch/00006. As a fully chartered university since 2024, ACity issues its own degrees independently. The degree is a legitimate Ghanaian university degree. ACity has global partnerships with Virginia Tech, Worcester Polytechnic Institute (WPI), University of Dayton, and others, supporting international academic recognition. For UK/US graduate school applications, students should use credential evaluation services such as WES (World Education Services) or UK ENIC (formerly NARIC).",
+    "keywords": "acity, degree, internationally, recognised, general, ghana, tertiary, education, commission",
+    "source": "ACity Website; Student Handbook 2025 — Section 1.3"
+  },
+  {
+    "id": 179,
+    "topic": "general",
+    "question": "When was ACity founded and what are its key milestones?",
+    "answer": "2008: ACity incorporated and received first accreditation for distance learning. 2009: First students admitted. 2018: Relocated to current purpose-built campus in Agbogba, Haatso, Accra. 2024: Achieved full chartered university status from GTEC. ACity is a private for-profit institution founded by Mr. Dev Varyani, led by President & Provost Prof. Fred McBagonluri.",
+    "keywords": "acity, founded, key, milestones, general, first, relocated, agbogba, haatso",
+    "source": "Student Handbook 2025 — Section 1.3 Governance Structure"
+  },
+  {
+    "id": 180,
+    "topic": "fees",
+    "question": "Can parents pay ACity fees on behalf of a student?",
+    "answer": "Yes. ACity's payment system does not restrict who makes the payment. Parents, guardians, sponsors, or employers may pay using any published method: EcoBank Ghana (GHS: 1441002060875 / USD: 3441002060876, SWIFT: ECOCGHAC); Access Bank Ghana (GHS: 0180223309771 / USD: 0181013309771, SWIFT: ABNGGHAC); MTN MoMo (0242538304); Online at https://acity.edu.gh/fees/; Cash at the on-campus fee counter. Nigerian payments: Union Bank of Nigeria, Account Name: Vista International Limited - Academic City College Ghana, Naira: 0148476247, USD: 0148587062. For direct institutional billing, contact finance@acity.edu.gh.",
+    "keywords": "parents, pay, acity, fees, behalf, student, yes, ecobank, ghana",
+    "source": "Fee Policy 2025–2026 — All three PDFs"
+  },
+  {
+    "id": 181,
+    "topic": "general",
+    "question": "Can parents visit the ACity campus?",
+    "answer": "Yes. Campus visits can be arranged at https://acity.edu.gh/visit/. Visitors to the hostel must be met in the lobby by the resident student, sign in with the Hostel Coordinator leaving a form of ID, and leave by 9 PM. Overnight stays require prior written SCA permission, limited to 1 night per 2-week period.",
+    "keywords": "parents, visit, acity, campus, hostel, yes, visitors, coordinator",
+    "source": "ACity Website; Student Handbook 2025 — Section 6.1 Hostel Rules"
+  },
+  {
+    "id": 182,
+    "topic": "general",
+    "question": "Is there a parent portal to monitor a student's academic performance at ACity?",
+    "answer": "No dedicated parent portal exists. ACity 2.0 (https://acityplus.acity.edu.gh) is accessible to students only via a protected password. Grades can only be shared with parents upon the student's explicit written consent submitted to the Registrar's Office.",
+    "keywords": "parent, portal, monitor, student, academic, performance, acity, general, grades, registrar, office",
+    "source": "Student Handbook 2025 — Section 2.1.2 Registry and Confidentiality"
+  },
+  {
+    "id": 183,
+    "topic": "general",
+    "question": "How are parents or emergency contacts notified in a student emergency at ACity?",
+    "answer": "ACity maintains parent/guardian contact information for all students. Students must keep their bio data, phone numbers, and guardian contacts updated in ACity 2.0. In emergencies (medical, COVID), the Hostel Coordinator and Student Affairs office are the primary notification channels. The Health Center (0552827412) serves as the 24/7 first point of contact and coordinates emergency notifications.",
+    "keywords": "parents, emergency, contacts, notified, student, acity, hostel, students, covid",
+    "source": "Student Handbook 2025 — Sections 2.1.2, 2.1.4, 9.2"
+  },
+  {
+    "id": 184,
+    "topic": "general",
+    "question": "What should I do if I witness a fight or assault on campus?",
+    "answer": "Do not physically intervene if it endangers your safety. Call campus security immediately at +233 59 403 0308. If someone is injured, call the Health Center (0552827412) or Ghana Ambulance (193). Report in writing to the Dean of Student Affairs: abena.engmann@acity.edu.gh. The handbook classifies physical violence as triggering immediate suspension and possible dismissal, with police involvement when necessary.",
+    "keywords": "should, witness, fight, assault, campus, exams, acity, call, health, center, ghana, ambulance",
+    "source": "Student Handbook 2025 — Sections 2.4.1.3; Penalty Table"
+  },
+  {
+    "id": 185,
+    "topic": "general",
+    "question": "What is the duty to disclose if I am arrested in Ghana while at ACity?",
+    "answer": "Students must report criminal/disciplinary events to ACity's Dean of Students within 72 hours of the event. Events requiring reporting include: conviction for a crime, criminal charges filed against you, a plea of guilty, or disciplinary charges from another institution. Failure to comply may result in sanctions from the university. Contact abena.engmann@acity.edu.gh and seek legal counsel.",
+    "keywords": "duty, disclose, arrested, ghana, while, acity, exams, students, dean, events",
+    "source": "Student Handbook 2025 — Section 2.1.1 Admission Offences and Penalties, clause e"
+  },
+  {
+    "id": 186,
+    "topic": "hostel",
+    "question": "What should I do in case of fire in the ACity hostel?",
+    "answer": "1. Activate the fire alarm if available. 2. Evacuate immediately via the nearest exit — do not use lifts. 3. Call Ghana Fire Service: 192. 4. Call campus security: +233 59 403 0308. 5. Do not re-enter until cleared by fire service. 6. Proceed to the emergency assembly point designated during hostel orientation. Note: the use of candles, lighters, and matches in hostel rooms is prohibited as a fire prevention measure.",
+    "keywords": "should, case, fire, acity, hostel, activate, evacuate, call, ghana",
+    "source": "Student Handbook 2025 — Section 2.4.1.5 Prohibited Conduct; Section 6.1 Hostel Rules clause B.5"
+  },
+  {
+    "id": 187,
+    "topic": "general",
+    "question": "What is the procedure for a security threat or suspicious person on the ACity campus?",
+    "answer": "Report any suspicious activity or suspicious persons to the Hostel Coordinator (if in the hostel area), who will alert security. For quick action needed elsewhere: alert campus security immediately at +233 59 403 0308. Ghana Police: 191.",
+    "keywords": "procedure, security, threat, suspicious, person, acity, campus, hostel, report, coordinator, for, ghana",
+    "source": "Student Handbook 2025 — Section 6.1 Hostel Rules, clause D.2"
+  },
+  {
+    "id": 188,
+    "topic": "general",
+    "question": "What steps should I take if I lose my Student ID card at ACity?",
+    "answer": "Report immediately to the IT Department — lost ID cards found on campus should be returned to IT, not to lost and found. Contact the Registry (registry@acity.edu.gh) to report the loss and request a replacement. Contact the Hostel Coordinator at +233 59 403 0308 for emergency room access since the ID is your room key. You will be unable to access campus facilities without your ID until a replacement is issued.",
+    "keywords": "steps, should, lose, student, card, acity, hostel, report, department, contact, registry",
+    "source": "Student Handbook 2025 — Section 2.1.2 Identity Cards, clauses c and d"
+  },
+  {
+    "id": 189,
+    "topic": "general",
+    "question": "I was sexually harassed by a lecturer at ACity — what are my options?",
+    "answer": "Contact the Dean of Student and Community Affairs immediately: abena.engmann@acity.edu.gh — your identity should be protected throughout the process. You may also report directly to the President. The complaint must be in writing and signed to initiate an official inquiry. The accused will be notified and given 72 hours to respond. The Disciplinary Committee investigates. Retaliation against complainants is explicitly prohibited. Penalty if proven: immediate suspension (1st offence), possible dismissal (repeat).",
+    "keywords": "sexually, harassed, lecturer, acity, options, exams, contact, dean, student, community, affairs",
+    "source": "Student Handbook 2025 — Section 6.3.4 Sexual Harassment; Section 8.2"
+  },
+  {
+    "id": 190,
+    "topic": "general",
+    "question": "What do I do if I suspect a classmate may harm themselves or others at ACity?",
+    "answer": "Take it seriously and act immediately. Call the Health Center: 0552827412 (24/7). Contact the Student Engagement Counselor: dromo.nettey@acity.edu.gh. Contact Dean of Student Affairs: abena.engmann@acity.edu.gh. If there is imminent danger: call Ghana Police (191) or Ghana Ambulance (193). The handbook classifies threatening health, safety, or welfare as a serious offence requiring immediate suspension. Your report will be treated confidentially.",
+    "keywords": "suspect, classmate, may, harm, themselves, others, acity, general, take, call, health, center",
+    "source": "Student Handbook 2025 — Section 2.4.1.3; Health Center contact info"
+  },
+  {
+    "id": 191,
+    "topic": "exams",
+    "question": "I failed the same course twice at ACity — can I take it a third time?",
+    "answer": "Students who fail 10–12 credits are allowed to repeat failed courses. Withdrawal is triggered when a student must repeat a third time in the programme (programme-level, not single course). Practical steps: contact your Head of Department at least two months before the re-sit period to request approval; without HoD approval, you cannot re-sit. If a refresher course is needed, the HoD arranges one at a fee. Contact registry@acity.edu.gh and your academic advisor to assess your specific standing.",
+    "keywords": "failed, same, course, twice, acity, third, time, fees, students, withdrawal, practical, head",
+    "source": "Student Handbook 2025 — Sections 2.2.3 Re-Sit Periods; 2.3.5 Repeat, Dismissal, Withdrawal"
+  },
+  {
+    "id": 192,
+    "topic": "exams",
+    "question": "How do I get a grade corrected if it was recorded incorrectly at ACity?",
+    "answer": "First contact the course lecturer directly with evidence. If unresolved, escalate to the Head of Department. Submit a written formal request to the Registry: registry@acity.edu.gh. Act promptly — grades are published 2–3 weeks after exams and the correction window closes before the next semester registration.",
+    "keywords": "grade, corrected, recorded, incorrectly, acity, exams, first, head, department, submit, registry",
+    "source": "Student Handbook 2025 — Section 2.1.2 Registry; Academic Calendar 2025–2026"
+  },
+  {
+    "id": 193,
+    "topic": "exams",
+    "question": "How do I defend myself against a plagiarism accusation at ACity?",
+    "answer": "You will be formally notified of the allegation and evidence. You are given time to respond in writing — this is your formal defence. If contesting, provide counter-evidence (drafts, notes, research history, citations). Simply denying without evidence carries little weight. The Disciplinary Committee reviews all evidence from both sides and applies a \"sufficient doubt\" standard. Penalty if proven (1st offence): cancellation of work, triple repayment of fees, and warning letter.",
+    "keywords": "defend, myself, against, plagiarism, accusation, acity, fees, you, simply, the, disciplinary",
+    "source": "Student Handbook 2025 — Section 6.3.2; Section 8.1"
+  },
+  {
+    "id": 194,
+    "topic": "exams",
+    "question": "I'm too sick to sit a final exam at ACity — what should I do?",
+    "answer": "Visit the Health Center (0552827412) before or as close to exam time as possible to get a medical assessment and documentation. Contact the Registry (registry@acity.edu.gh) as soon as possible to report your absence with medical evidence. A student who fails to write the end-of-semester examination is deemed to have failed that course. With documented medical evidence, you may seek to re-sit — speak to your HoD at least two clear months before the re-sit period.",
+    "keywords": "too, sick, sit, final, exam, acity, should, exams, visit, health, center, contact",
+    "source": "Student Handbook 2025 — Sections 2.3.3; 2.2.3 Re-Sit Periods"
+  },
+  {
+    "id": 195,
+    "topic": "general",
+    "question": "Can I graduate from ACity with an incomplete (I) grade?",
+    "answer": "No. An incomplete grade means the course requirements have not been fully met. Graduation requires passing all compulsory core courses and accumulating a minimum of 120 credits. An incomplete on a core course means that course has not been passed. Resolve all incomplete grades and ensure they are updated in ACity 2.0 before applying for graduation clearance. Contact registry@acity.edu.gh to confirm the status of any incomplete grades.",
+    "keywords": "graduate, acity, incomplete, grade, general, graduation, resolve, contact",
+    "source": "Student Handbook 2025 — Sections 2.3.7; 2.3.2"
+  },
+  {
+    "id": 196,
+    "topic": "general",
+    "question": "How do I appeal a grade or disciplinary decision at ACity?",
+    "answer": "Submit a Student Appeal Request Form to the Secretary of the Disciplinary Committee within 15 working days after the sanction or result is issued. Provide grounds for appeal with supporting evidence. Only one reschedule is allowed if you cannot attend the hearing due to an emergency. The Disciplinary Committee reviews and renders a decision.",
+    "keywords": "appeal, grade, disciplinary, decision, acity, general, submit, student, request, form",
+    "source": "Student Handbook 2025 — Section 8.4 The Appeal Process"
+  },
+  {
+    "id": 197,
+    "topic": "exams",
+    "question": "What happens if I get caught with a phone in an ACity exam room?",
+    "answer": "Phones are considered \"devices capable of saving data.\" Penalty: 1st offence — Cancellation of examination and triple payment of exam fees to rewrite. 2nd offence — Dismissal from the university.",
+    "keywords": "happens, caught, phone, acity, exam, room, fees, phones, penalty, cancellation, dismissal",
+    "source": "Student Handbook 2025 — Section 8.3 Penalty Table"
+  },
+  {
+    "id": 198,
+    "topic": "exams",
+    "question": "What should I do if I discover exam questions were leaked at ACity?",
+    "answer": "Report it immediately and do not use the leaked content. Benefitting from a leaked paper: 1st offence — Cancellation and triple exam fees; 2nd offence — Dismissal. Report to your HoD, Dean of Faculty, Dean of Student Affairs (abena.engmann@acity.edu.gh), or Registry (registry@acity.edu.gh).",
+    "keywords": "should, discover, exam, questions, leaked, acity, fees, report, benefitting, cancellation, dismissal",
+    "source": "Student Handbook 2025 — Section 8.3 Penalty Table"
+  },
+  {
+    "id": 199,
+    "topic": "registration",
+    "question": "I missed the ACity registration deadline — what should I do?",
+    "answer": "Late registration within the penalty period attracts a fee. After the penalty period, you are excluded from the semester and lose student status. Contact the Registry immediately: registry@acity.edu.gh. You may also write to the Registrar requesting a deferral to maintain your student status. Act the same day you realise you have missed the deadline.",
+    "keywords": "missed, acity, registration, deadline, should, fees, late, after, contact, registry, you",
+    "source": "Student Handbook 2025 — Section 2.1.2 Registration"
+  },
+  {
+    "id": 200,
+    "topic": "hostel",
+    "question": "My roommate makes me feel unsafe in the ACity hostel — what can I do?",
+    "answer": "If the situation poses a threat, escalate directly to the Hostel Coordinator (available 24/7, hostel@acity.edu.gh) without delay. The Hostel Coordinator will resolve the case and escalate to Student and Community Affairs in extreme cases. For physical threats: contact campus security immediately (+233 59 403 0308) and file a written complaint with abena.engmann@acity.edu.gh.",
+    "keywords": "roommate, makes, feel, unsafe, acity, hostel, fees, coordinator, the",
+    "source": "Student Handbook 2025 — Section 6.1 Hostel Rules, clauses A.3–A.5"
+  },
+  {
+    "id": 201,
+    "topic": "hostel",
+    "question": "There is a maintenance problem in my ACity hostel room — who do I contact?",
+    "answer": "Report to your Hostel Coordinator first (on-premises 24/7): hostel@acity.edu.gh. For building upkeep and furniture repairs: Mr. Majid Mulani (majid.mulani@acity.edu.gh). For campus safety and facilities: Mr. Frank Gavor (frank.gavor@acity.edu.gh). Report damage immediately to the Hostel Coordinator so you are not held responsible for pre-existing issues.",
+    "keywords": "maintenance, problem, acity, hostel, room, contact, report, coordinator, for, majid",
+    "source": "Student Handbook 2025 — Contact Directory; Section 6.1"
+  },
+  {
+    "id": 202,
+    "topic": "hostel",
+    "question": "There is a power or water outage in my ACity hostel — who do I contact?",
+    "answer": "Contact your Hostel Coordinator first (24/7): hostel@acity.edu.gh. Escalate to Mr. Majid Mulani (majid.mulani@acity.edu.gh) who handles hostel infrastructure including electricity, water supply, and plumbing. General campus emergency: +233 59 403 0308.",
+    "keywords": "power, water, outage, acity, hostel, contact, coordinator, escalate, majid",
+    "source": "Student Handbook 2025 — Contact Directory — Hostel Facilities"
+  },
+  {
+    "id": 203,
+    "topic": "hostel",
+    "question": "My ACity hostel smart lock is not working and I am locked out — what do I do?",
+    "answer": "Contact the Hostel Coordinator directly (24/7, on-premises) for emergency room access. Call campus security at +233 59 403 0308. For card replacement: contact IT Department (godfred.brown@acity.edu.gh) the next business day. Contact the Registry (registry@acity.edu.gh) to report the card issue and arrange a replacement.",
+    "keywords": "acity, hostel, smart, lock, working, locked, contact, coordinator, call, for",
+    "source": "Student Handbook 2025 — Section 2.1.2 Identity Cards; Contact Directory"
+  },
+  {
+    "id": 204,
+    "topic": "hostel",
+    "question": "Someone stole from my room in the ACity hostel — what do I do?",
+    "answer": "Report to the Hostel Coordinator immediately. File a formal complaint with campus security (+233 59 403 0308). Submit a written complaint to Dean of Student Affairs: abena.engmann@acity.edu.gh. If the item is valuable or evidence points to a specific person, also file a report with Ghana Police (191). Prevention note: the handbook states that ACity is not responsible for loss of private property — always lock your valuables.",
+    "keywords": "someone, stole, room, acity, hostel, report, coordinator, file, submit",
+    "source": "Student Handbook 2025 — Section 2.4.1.9 Theft; Section 6.1 Hostel Rules"
+  },
+  {
+    "id": 205,
+    "topic": "hostel",
+    "question": "Can I request a room change in the ACity hostel?",
+    "answer": "Rooms once allocated cannot be changed within a semester. For exceptional circumstances due to a medical condition, submit a doctor's report to the clinic to enable facilitation of special arrangements. Contact the Admissions Office to discuss exceptional circumstances. For the following semester, you may indicate a preference, but allocation remains at ACity staff's sole discretion.",
+    "keywords": "request, room, change, acity, hostel, rooms, for, contact, admissions, office",
+    "source": "Student Handbook 2025 — Section 6.1 Hostel Rules, clauses E.9 and E.10"
+  },
+  {
+    "id": 206,
+    "topic": "hostel",
+    "question": "I found a lost item in the ACity hostel — where do I return it?",
+    "answer": "Hand it in at the Hostel Coordinators' desk. Other campus lost property points: academic facilities/labs/offices — the Library; administrative offices — the Reception; general campus — the Student and Community Affairs Office. Do not keep found items; the handbook notes that falsely claiming to have lost an item to retain it constitutes illegal possession.",
+    "keywords": "found, lost, item, acity, hostel, return, hand, coordinators, other, library",
+    "source": "Student Handbook 2025 — Section 2.4.1.10 Possession of Lost or Misplaced Items"
+  },
+  {
+    "id": 207,
+    "topic": "hostel",
+    "question": "How often are hostel room inspections done at ACity and what do they check?",
+    "answer": "Formal maintenance checks occur twice per semester. Spot checks may happen at any time without prior notice. Inspections verify: no prohibited appliances in bedrooms (stoves, kettles, heaters); no alcohol, drugs, or tobacco; rooms are clean with no food waste; no prohibited items (weapons, fireworks); no unauthorised furniture rearrangement; no candles or lighters; clothing dried only on designated lines. Students found with prohibited items face the conduct process up to removal from the hostel.",
+    "keywords": "often, hostel, room, inspections, done, acity, check, formal, spot, students",
+    "source": "Student Handbook 2025 — Section 6.1 Hostel Rules"
+  },
+  {
+    "id": 208,
+    "topic": "hostel",
+    "question": "What is the penalty for having a visitor in the ACity hostel after 9 PM?",
+    "answer": "Non-residents violating the 9 PM rule (1st offence): Temporary Hostel Ban. Non-residents violating 9 PM (repeat offence): Permanent Hostel Ban. For the resident who houses a non-resident after 9 PM (1st offence): Warning from the Dean of Students. Repeat: Suspension from the hostel.",
+    "keywords": "penalty, having, visitor, acity, hostel, non, temporary, ban",
+    "source": "Student Handbook 2025 — Hostel Offence Penalty Table"
+  },
+  {
+    "id": 209,
+    "topic": "general",
+    "question": "How do I start a new student club at ACity?",
+    "answer": "Follow the guidelines for starting Clubs and Societies from Student Affairs or the website. The club must have a senior member of the university as patron. Submit a certified copy of your approved constitution and list of principal officers and committee members to the Registrar through the Dean of Students. Account for financial operations per university financial regulations. Forward names of executive members to the Dean of Students and ACSC President upon request.",
+    "keywords": "start, new, student, club, acity, general, follow, clubs, societies, affairs",
+    "source": "Student Handbook 2025 — Section 5.2 Clubs and Activities"
+  },
+  {
+    "id": 210,
+    "topic": "general",
+    "question": "How does the ACSC election process work at ACity?",
+    "answer": "All registered students have the right to vote; no proxy voting. Simple majority wins contested elections. Unopposed candidates need 50%+1 of total votes to win — if they fail, fresh nominations open for 3 days. Run-offs held for tied candidates. The Electoral Commission (EC) conducts all elections independently. Candidates must have been registered for minimum 3 continuous semesters and have minimum CGPA 3.0.",
+    "keywords": "acsc, election, process, work, acity, exams, all, simple, unopposed, run, the",
+    "source": "Student Handbook 2025 — Section 5.3 Student Representative Council"
+  },
+  {
+    "id": 211,
+    "topic": "enrollment",
+    "question": "How many credits do students take per semester at ACity?",
+    "answer": "Level 100 (Year 1): Semester 1 — 17–23 credits (Engineering typically higher); Semester 2 — 13–21 credits. Level 200–300: approximately 16–23 credits per semester. Level 400 (Final Year): approximately 14–18 credits per semester, including Project Work. Engineering programmes consistently carry 20+ credits per semester. Business and Communication Arts programmes range from 13–20 credits. Minimum credit load for progression from Level 200 to 300 and 300 to 400 is 24 credits per academic year.",
+    "keywords": "many, credits, students, semester, acity, enrollment, level, year, engineering",
+    "source": "Academic Catalogue 2025–2026 — Programme Course Diets; Student Handbook 2025"
+  },
+  {
+    "id": 212,
+    "topic": "general",
+    "question": "Does ACity have any policy on tongue rings and piercings?",
+    "answer": "The handbook explicitly prohibits tongue rings for both men and women — \"absolutely no tongue rings are allowed.\" For other jewellery: men may wear a watch, a necklace, and no more than 2 rings. Women may wear two rings plus marriage rings, up to two sets of earrings, and two necklaces. Waist beads must not be visible above clothing.",
+    "keywords": "acity, policy, tongue, rings, piercings, general, the, for, women, waist",
+    "source": "Student Handbook 2025 — Sections 7.1, 7.2, 7.3 Grooming Standards"
+  },
+  {
+    "id": 213,
+    "topic": "exams",
+    "question": "What items are completely prohibited in ACity examination rooms?",
+    "answer": "Prohibited in exams: foreign materials of any kind (books, prepared notes, printed materials); devices capable of saving data (phones, smartwatches, earphones, unauthorised calculators, tablets, laptops); communication with other candidates. Students must bring only their Admit Card (Student ID), approved stationery, and any materials explicitly listed on exam instructions. Possession of foreign material: Cancellation of exam and triple payment of exam fees to rewrite (1st offence), Dismissal (2nd offence).",
+    "keywords": "items, completely, prohibited, acity, examination, rooms, fees, students, admit, card, student",
+    "source": "Student Handbook 2025 — Section 8.3 Penalty Table"
+  },
+  {
+    "id": 214,
+    "topic": "general",
+    "question": "What is the full ACity smoking ban?",
+    "answer": "Smoking and use of any tobacco products or e-cigarettes is prohibited on all university properties. All university buildings including hostels and car parks are smoke-free for all substances — cigarettes, shisha, and e-cigarettes. Drug paraphernalia including hookahs, grinders, and vaporizers is also prohibited. Penalty: Immediate Suspension and mandatory counselling (1st offence); Dismissal (repeat).",
+    "keywords": "full, acity, smoking, ban, exams, all, drug, penalty, immediate",
+    "source": "Student Handbook 2025 — Section 2.4.1.5 clause n; Section 2.4.1.7 Drug Policy"
+  },
+  {
+    "id": 215,
+    "topic": "general",
+    "question": "What are the exact requirements for organising a demonstration at ACity?",
+    "answer": "Submit written notice to the President at least 48 hours before the demonstration. Notice must state: (1) purpose, (2) organiser name(s). No demonstrations between 6 PM and 6 AM. Must follow a President-approved route not obstructing traffic. Nothing done or said may incite violence or cause breach of peace. Organiser is personally responsible for any violence or breaches. The President may impose additional conditions or prohibit it entirely if breach of peace is likely.",
+    "keywords": "exact, requirements, organising, demonstration, acity, general, submit, president, notice, must",
+    "source": "Student Handbook 2025 — Section 5.3 Authorization of Demonstrations"
+  },
+  {
+    "id": 216,
+    "topic": "exams",
+    "question": "What happens if I make noise during an ACity examination?",
+    "answer": "Making unnecessary noise that disturbs other candidates (1st offence): Expulsion from the examination room, possible cancellation of the paper. Repeat: Suspension for 1 academic year. Disregarding invigilator instructions: Expulsion from the hall for 15 minutes (1st offence); Suspension 1 year (repeat).",
+    "keywords": "happens, make, noise, during, acity, examination, exams, making, expulsion, repeat, suspension, disregarding",
+    "source": "Student Handbook 2025 — Section 8.3 Penalty Table"
+  },
+  {
+    "id": 217,
+    "topic": "general",
+    "question": "What is available on the ACity+ (ACity 2.0) student portal?",
+    "answer": "ACity 2.0 (https://acityplus.acity.edu.gh) provides: course registration each semester; grade access and academic records (password-protected, students only); transcript and document requests (Academics tab → Request Document — transcripts, introductory letters, attestation letters); fee payment (credit/debit card); exam timetables; progress tracking for document requests; student bio-data management. The university sends all important communications via ACity 2.0 and student email.",
+    "keywords": "available, acity, student, portal, fees, academics, request, document, the",
+    "source": "Student Handbook 2025 — Sections 2.1.2, 2.1.4, 2.4.1.4"
+  },
+  {
+    "id": 218,
+    "topic": "general",
+    "question": "What is ACity's student email policy?",
+    "answer": "All students are assigned an official @acity.edu.gh email upon registration. This is the official channel for all faculty and administrative communications. Students must access their email when they register and keep it active throughout their enrolment. Students must not use group email IDs for personal marketing or SPAM. Students must keep their bio data, alternate email, phone, and guardian contacts updated in the system.",
+    "keywords": "acity, student, email, policy, enrollment, all, this, students, ids",
+    "source": "Student Handbook 2025 — Sections 2.1.2, 2.4.1.4"
+  },
+  {
+    "id": 219,
+    "topic": "hostel",
+    "question": "Does Hostel B at ACity have private (en-suite) bathrooms?",
+    "answer": "Yes. All Hostel B rooms are en-suite with private bathrooms. Hostel B rooms feature double occupancy, air conditioning, and an en-suite bathroom. Hostel A rooms share bathroom facilities and are available with either fan or air conditioning.",
+    "keywords": "hostel, acity, private, suite, bathrooms, yes, all",
+    "source": "Fee Policy 2025–2026 — UG Ghanaian Students; Fee Policy 2025–2026 — UG International Students"
+  },
+  {
+    "id": 220,
+    "topic": "hostel",
+    "question": "What furniture and items are provided in furnished ACity hostel rooms?",
+    "answer": "ACity hostel rooms include: bed, mattress, curtains, study table, and storage facility. WiFi is campus-wide including hostels. Smart Lock (ID card access) is built into the room. Items not provided: bedding/sheets (confirm with Admissions), towels, personal care items. Permitted personal appliances: lamps, mini-fridge, TV, microwave, iron, fan.",
+    "keywords": "furniture, items, provided, furnished, acity, hostel, rooms, wifi, smart, lock",
+    "source": "Student Handbook 2025 — Contact Directory — Hostel Facilities"
+  },
+  {
+    "id": 221,
+    "topic": "hostel",
+    "question": "Can I stay in the ACity hostel over Christmas or semester break?",
+    "answer": "Generally no — students must vacate during vacations. Exceptions: students taking courses during the break or with extended project/exam deadlines. Students may also stay in some cases with an additional fee determined by the Director of Finance. International students needing to arrive early or leave late must submit a written request to the SCA Department; considered case by case.",
+    "keywords": "stay, acity, hostel, christmas, semester, break, fees, generally, exceptions, students, director, finance",
+    "source": "Student Handbook 2025 — Section 6.1 Hostel Rules, clauses C.5, E.3–E.5"
+  },
+  {
+    "id": 222,
+    "topic": "hostel",
+    "question": "Who is the Hostel Coordinator at ACity and how do I contact them?",
+    "answer": "The Hostel Coordinator is on-premises 24/7 and is the first point of contact for all hostel issues. General contact: hostel@acity.edu.gh. For urgent matters (lockouts, emergencies): +233 59 403 0308 (campus security who coordinates with the on-duty coordinator). Escalated issues: abena.engmann@acity.edu.gh (Dean of Student Affairs).",
+    "keywords": "hostel, coordinator, acity, contact, them, the, general, for",
+    "source": "Student Handbook 2025 — Section 6.1; Contact Directory"
+  },
+  {
+    "id": 223,
+    "topic": "hostel",
+    "question": "Is there a single occupancy option in ACity hostels?",
+    "answer": "Yes. Single occupancy rooms are available in both Hostel A and Hostel B upon request. Contact the Admissions Office: admissions@acity.edu.gh. Availability is not guaranteed — request early. Pricing for single occupancy is not published in fee documents; contact Admissions for the current rate.",
+    "keywords": "single, occupancy, option, acity, hostels, fees, yes, hostel, contact",
+    "source": "Fee Policy 2025–2026 — UG Ghanaian Students — Housing Fees note"
+  },
+  {
+    "id": 224,
+    "topic": "hostel",
+    "question": "Is health insurance mandatory to live in the ACity hostel?",
+    "answer": "Yes. All hostel residents are required to have valid health insurance before admittance into the hostel. Confirm your coverage status with the Health Center (clinic@acity.edu.gh) or Admissions Office before moving in.",
+    "keywords": "health, insurance, mandatory, live, acity, hostel, yes, all, confirm, center",
+    "source": "Student Handbook 2025 — Section 6.1 Hostel Rules, clause E.3"
+  },
+  {
+    "id": 225,
+    "topic": "hostel",
+    "question": "Can I sublet my ACity hostel room to another student?",
+    "answer": "No. Students are not allowed to rent out their rooms or sublet spaces to other people. Violation is a hostel conduct offence.",
+    "keywords": "sublet, acity, hostel, room, another, student, students, violation",
+    "source": "Student Handbook 2025 — Section 6.1 Hostel Rules, clause E.8"
+  },
+  {
+    "id": 226,
+    "topic": "fees",
+    "question": "What are the exact payment plan instalment due dates for 2025-2026?",
+    "answer": "Undergraduate Semester 1: Cohort 1 — 29 Aug, 27 Sep, 31 Oct 2025; Cohort 2 — 9 Jan, 6 Feb, 5 Mar 2026. Undergraduate Semester 2: Cohort 1 — 9 Jan, 6 Feb, 5 Mar 2026; Cohort 2 — 8 May, 5 Jun, 3 Jul 2026. Masters Semester 1: Cohort 1 — 29 Aug, 27 Sep, 31 Oct 2025; Cohort 2 — 9 Jan, 6 Feb, 5 Mar 2026. Masters Semester 2: Cohort 1 — 9 Jan, 6 Feb, 5 Mar 2026; Cohort 2 — 8 May, 5 Jun, 3 Jul 2026. Important: payment plans are not available for housing or meal plan fees.",
+    "keywords": "exact, payment, plan, instalment, due, dates, fees, acity, undergraduate, semester, cohort, aug",
+    "source": "Fee Policy 2025–2026 — UG Ghanaian Students; UG International Students; Masters"
+  },
+  {
+    "id": 227,
+    "topic": "fees",
+    "question": "Is there an early bird discount at ACity?",
+    "answer": "Yes — for Masters students only (2025–2026): students paying full tuition, housing, and meal fees upfront by August 30, 2025 receive a 5% discount. The undergraduate fee schedule lists discounted rates as the standard offered price without a specific early bird period.",
+    "keywords": "early, bird, discount, acity, fees, yes, masters, august, the",
+    "source": "Fee Policy 2025–2026 — Masters Programmes — Notes clause 6"
+  },
+  {
+    "id": 228,
+    "topic": "fees",
+    "question": "What is the EcoBank payment account for paying ACity fees?",
+    "answer": "Account Name: Academic City College (GH) Limited. GHS Account: 1441002060875. USD Account: 3441002060876. SWIFT Code: ECOCGHAC. Bank Address: Ministerial Area, 2 Morocco Lane, Off Independence Avenue, Accra.",
+    "keywords": "ecobank, payment, account, paying, acity, fees, name, academic, city, college",
+    "source": "Fee Policy 2025–2026 — Masters; Fee Policy 2025–2026 — UG Ghanaian Students"
+  },
+  {
+    "id": 229,
+    "topic": "general",
+    "question": "What does the ACity Health Center treat and when is it open?",
+    "answer": "The Health Center provides: health counselling, evaluation and treatment of common medical concerns, first aid services, emergency response. Staffed by a Physician Assistant and nursing team. Open 24/7. Contact: 0552827412 | clinic@acity.edu.gh | nurse@acity.edu.gh. When care is beyond scope: students are referred to a nearby private clinic for emergencies, or a mix of private/public facilities for standard referrals.",
+    "keywords": "acity, health, center, treat, open, general, the, staffed, physician",
+    "source": "Student Handbook 2025 — Section 7.1; Contact Directory"
+  },
+  {
+    "id": 230,
+    "topic": "general",
+    "question": "What vaccinations are needed to study in Ghana or at ACity?",
+    "answer": "For students arriving from outside Ghana: Yellow Fever vaccination is mandatory for entry into Ghana from certain countries. Recommended vaccinations: Typhoid, Hepatitis A & B, antimalarial prophylaxis. Malaria is endemic in Ghana — students from non-endemic countries should use prophylaxis, insect repellent, and mosquito nets. Contact the ACity Health Center (clinic@acity.edu.gh) for campus-specific health guidance before arrival.",
+    "keywords": "vaccinations, needed, study, ghana, acity, general, for, yellow, fever",
+    "source": "Student Handbook 2025 — Appendix A; ACity Website"
+  },
+  {
+    "id": 231,
+    "topic": "general",
+    "question": "What is ACity's COVID-19 campus access procedure?",
+    "answer": "Entry to campus requires showing a vaccination certificate or negative PCR test taken within 72 hours. International students/travellers must present a negative PCR test on arrival regardless of vaccination status. Temperature screening is conducted at entry — fever above 37.5°C = access refused. All visitors must sign in and out. If you develop symptoms (fever, continuous cough, loss of taste/smell, tiredness): stay home and contact the Nurse at nurse@acity.edu.gh. If you test positive: self-isolate for at least 14 days, retest after Day 14, present negative result before returning. Note: verify current enforcement with the Health Center as protocols may have evolved.",
+    "keywords": "acity, covid, campus, access, procedure, general, entry, pcr, international, temperature",
+    "source": "Student Handbook 2025 — Appendix A COVID-19 Campus Policy"
+  },
+  {
+    "id": 232,
+    "topic": "general",
+    "question": "What companies recruit from ACity?",
+    "answer": "Companies that have hired ACity graduates and students include: MTN, Telecel, Apple, KPMG, EY, Goldman Sachs, CFAO, TotalEnergies, Ecobank, Huawei, Stanbic, Springfield Group, GRIDCO, Databank, MainOne, Pulse Africa, and 50+ others. The annual Career Fair has hosted over 62 companies since inception. Contact careerservices@acity.edu.gh for the current list and internship postings.",
+    "keywords": "companies, recruit, acity, fees, mtn, telecel, apple",
+    "source": "ACity Website — Career Services"
+  },
+  {
+    "id": 233,
+    "topic": "general",
+    "question": "Does ACity have a radio station?",
+    "answer": "Yes. ACity Radio is housed in the Media Lab within the Faculty of Business Administration and Communication Arts (Department of Communication Arts). It conducts live broadcasts with internal and external stakeholders and is used as a practical training facility for Journalism and Communication Arts students.",
+    "keywords": "acity, radio, station, general, yes, media, lab",
+    "source": "Academic Catalogue 2025–2026 — Section 3.1.2.2 Department of Communication Arts"
+  },
+  {
+    "id": 234,
+    "topic": "general",
+    "question": "Does ACity have a student newspaper or newsletter?",
+    "answer": "Yes. ACity publishes The Exponent — the official ACity student newsletter, accessible at https://acity.edu.gh/the-exponent-acity-newsletter/. Student media by registered groups is guaranteed freedom of the press, subject to responsible journalism principles (avoiding libel, indecency, and undocumented allegations).",
+    "keywords": "acity, student, newspaper, newsletter, general, yes, the, exponent",
+    "source": "Student Handbook 2025 — Section 5.3 Student Media; ACity Website"
+  },
+  {
+    "id": 235,
+    "topic": "exams",
+    "question": "What is the maximum number of credits a student can fail before dismissal at ACity?",
+    "answer": "Level 100: More than 12 credits failed in one academic year = Dismissal (may reapply to a different programme). Level 100: More than 4 courses failed at end of Semester 1 or Semester 2 = Withdrawal. Any level: CGPA below 1.0 / CWA below 45% = Withdrawal. Level 200+: More than 9 credits failed in one academic year, or more than 12 credits across years = academic probation/withdrawal risk.",
+    "keywords": "maximum, number, credits, student, fail, dismissal, acity, exams, level, more",
+    "source": "Student Handbook 2025 — Sections 2.3.4, 2.3.5"
+  },
+  {
+    "id": 236,
+    "topic": "exams",
+    "question": "What is the triple exam fees penalty at ACity?",
+    "answer": "For several examination offences, the penalty includes \"triple payment of exam fees to rewrite\" the paper, meaning the student pays three times the cost of the examination to be allowed to resit. Offences triggering triple fees include: benefitting from a leaked exam paper, possession of foreign material/devices, copying from notes or a colleague, plagiarism on a long essay or project work, disclosing answer booklet contents to another candidate, assisting another candidate, and communicating with other candidates.",
+    "keywords": "triple, exam, fees, penalty, acity, for, offences",
+    "source": "Student Handbook 2025 — Section 8.3 Penalty Table"
+  },
+  {
+    "id": 237,
+    "topic": "exams",
+    "question": "What is the penalty for impersonating another student in an ACity exam?",
+    "answer": "Impersonating another candidate or allowing yourself to be impersonated in an exam: Immediate Dismissal plus report to the police (1st offence). There is no second offence — dismissal is immediate on first occurrence.",
+    "keywords": "penalty, impersonating, another, student, acity, exam, exams, immediate, dismissal, there",
+    "source": "Student Handbook 2025 — Section 8.3 Penalty Table"
+  },
+  {
+    "id": 238,
+    "topic": "exams",
+    "question": "What defines programme abandonment at ACity and what are the consequences?",
+    "answer": "A student who absents themselves from all courses for a semester examination without proper permission is deemed to have abandoned the programme. This triggers automatic withdrawal and loss of student status. Students who need time off must formally defer by writing to the Registrar before the semester begins — not simply stop attending.",
+    "keywords": "defines, programme, abandonment, acity, consequences, exams, this, students, registrar",
+    "source": "Student Handbook 2025 — Section 2.3.5"
+  },
+  {
+    "id": 239,
+    "topic": "registration",
+    "question": "What is the penalty for providing false information to gain admission to ACity?",
+    "answer": "Using falsified academic records to gain admission: the registration is cancelled retroactively upon discovery; any certificate, diploma, or degree awarded is automatically cancelled; further legal action may follow. It is also an offence to aid someone in producing falsified material. If major discrepancies are found after an admission letter has been issued, the university may cancel the enrolment letter.",
+    "keywords": "penalty, providing, false, information, gain, admission, acity, registration, using",
+    "source": "Student Handbook 2025 — Section 2.1.1 Admission Offences and Penalties"
+  },
+  {
+    "id": 240,
+    "topic": "general",
+    "question": "What are the computing resource conduct rules at ACity?",
+    "answer": "Students must comply with Ghana copyright, security, and electronic media laws. Students are accountable for all network traffic traced to their computer's IP address. Computing resources may not be used for commercial use, without authorisation, or for any illegal activity. Students must not send SPAM through group email IDs. Students must not send or view obscene or threatening messages. Violations range from suspension of computing privileges to suspension from the university.",
+    "keywords": "computing, resource, conduct, rules, acity, general, students, ghana",
+    "source": "Student Handbook 2025 — Section 2.4.1.4 Responsible Computing Policy"
+  },
+  {
+    "id": 241,
+    "topic": "general",
+    "question": "How do I transfer out of ACity to another university?",
+    "answer": "Complete all clearance procedures from the Office of Student and Community Affairs or Registry before departure. This produces a signed clearance certificate — without it, transcripts, recommendations, and referrals are withheld. Return your Student ID card to the Registrar. Leave your vacation contact details with the Dean of Students' office. Contact registry@acity.edu.gh for the complete transfer-out process and to request your academic transcript.",
+    "keywords": "transfer, acity, another, university, general, complete, office, student, community, affairs",
+    "source": "Student Handbook 2025 — Section 2.1.4 Permanent Departure Procedures"
+  },
+  {
+    "id": 242,
+    "topic": "general",
+    "question": "Where are the key offices and facilities located on the ACity campus?",
+    "answer": "ACity campus is at Property #279-302, Agbogba, Haatso, Accra. Confirmed on-campus facilities: Admin Center (Registry, Finance, Admissions, IT, Career Services, Faculty Coordinator offices); Library; Waffle Mania cafeteria and Yello Bar; Hostel A and Hostel B; Recreational Centre (gym, indoor games, TV/gaming); Health Center/Clinic; Student and Community Affairs offices; Prayer room; Math Resource Centre (within Computational Sciences Faculty); Makelab/Innovation space; Media Lab (with ACity Radio); Language Centre. For precise room locations, refer to the ACity Passport from orientation or contact Student Affairs (abena.engmann@acity.edu.gh).",
+    "keywords": "key, offices, facilities, located, acity, campus, hostel, property, agbogba, haatso, accra",
+    "source": "Student Handbook 2025 — Contact Directory; Academic Catalogue 2025–2026"
+  },
+  {
+    "id": 243,
+    "topic": "general",
+    "question": "Career Services drop-in hours and contact at ACity?",
+    "answer": "Email: careerservices@acity.edu.gh. Drop-in hours: Monday–Friday 10:30 AM–12:30 PM in the Admin Center. Scope: career guidance, internship introductions, employer connections, National Service placement, graduate school preparation, volunteer role applications, internship verification letters.",
+    "keywords": "career, services, drop, hours, contact, acity, enrollment, email, monday, friday, admin",
+    "source": "Student Handbook 2025 — Contact Directory; ACity Website"
+  },
+  {
+    "id": 244,
+    "topic": "general",
+    "question": "Where is the Math Resource Centre at ACity?",
+    "answer": "The Math Resource Centre (MRC) is housed within the Faculty of Computational Science and Informatics at ACity. It provides one-on-one tutoring, exam preparation workshops, and peer collaboration for mathematics and related courses across all programmes. Contact julius.amegadzie@acity.edu.gh (Dept. Coordinator, Computational Sciences) for the exact room location.",
+    "keywords": "math, resource, centre, acity, exams, the, mrc",
+    "source": "Academic Catalogue 2025–2026 — Section 3.3.2 Math Resource Centre"
+  },
+  {
+    "id": 245,
+    "topic": "hostel",
+    "question": "Where can I do laundry on the ACity campus?",
+    "answer": "ACity provides a Student Laundry Service — available on campus only. Contact your Hostel Coordinator for the facility location and hours. Clothing must be dried only on the designated drying lines provided, not in rooms or other areas.",
+    "keywords": "laundry, acity, campus, hostel, student, service, contact",
+    "source": "Student Handbook 2025 — Section 6.1 Hostel Rules; ACity Website"
+  },
+  {
+    "id": 246,
+    "topic": "general",
+    "question": "Where can students hang out and relax on the ACity campus?",
+    "answer": "Primary social spaces: Student Recreational Centre (open Mon–Sat 9 AM–10 PM) with indoor games (chess, pool, darts, table tennis), gaming consoles (FIFA, Mortal Kombat, Call of Duty), TV, gym, yoga and aerobics; Waffle Mania cafeteria; Yello Bar snack area. The ACSC Boardroom is available for club and ACSC executive meetings by prior arrangement.",
+    "keywords": "students, hang, relax, acity, campus, general, primary, student, recreational, centre, mon",
+    "source": "Student Handbook 2025 — Section 6.2 Recreational Centre; ACity Website"
+  },
+  {
+    "id": 247,
+    "topic": "enrollment",
+    "question": "How do I change my programme at ACity?",
+    "answer": "Review the target programme's entry requirements at https://acity.edu.gh/undergraduate-programmes/. Submit a formal request to the Registry: registry@acity.edu.gh. Obtain approval from Department Coordinators for both current and target programmes. Note: the handbook states students are \"not ordinarily permitted\" to switch and fees paid will not be transferred between programmes.",
+    "keywords": "change, programme, acity, fees, review, submit, registry, obtain, department",
+    "source": "Student Handbook 2025 — Section 2.1 clause e; Academic Catalogue"
+  },
+  {
+    "id": 248,
+    "topic": "enrollment",
+    "question": "How do I calculate my GPA or CWA at ACity?",
+    "answer": "GPA (Business/IT/Communication Arts): GPA = Sum(Grade Point × Credit Hours per course) ÷ Total Credit Hours for the semester. CGPA: same formula applied across all semesters. CWA (Engineering/CS/AI): CWA = Sum(Raw Score% × Credit Hours per course) ÷ Total Credit Hours. Example GPA: Grade A (4.0) × 3 credits + Grade B (3.0) × 3 credits = 21 ÷ 6 = 3.5 GPA. Check your current standing on ACity 2.0 or contact registry@acity.edu.gh.",
+    "keywords": "calculate, gpa, cwa, acity, exams, business, communication, arts",
+    "source": "Student Handbook 2025 — Sections 2 Definitions; 2.3.2"
+  },
+  {
+    "id": 249,
+    "topic": "exams",
+    "question": "What are the graduation class honours at ACity?",
+    "answer": "Engineering, CS, and AI (CWA): 80–100% = First Class; 70–79.99% = Second Class Upper; 60–69.99% = Second Class Lower; 50–59.99% = Pass. Business, Communication Arts, and IT (CGPA): 3.6–4.0 = First Class; 3.0–3.5 = Second Class Upper; 2.5–2.9 = Second Class Lower; 2.0–2.4 = Third Class; 1.0–1.9 = Pass.",
+    "keywords": "graduation, class, honours, acity, exams, engineering, cwa, first, second",
+    "source": "Student Handbook 2025 — Section 2.3.2"
+  },
+  {
+    "id": 250,
+    "topic": "exams",
+    "question": "What are mid-semester exams at ACity and how are they weighted?",
+    "answer": "Mid-semester assessments are held approximately halfway through each semester. 2025–2026 dates: Semester 1 (L100 CH1/L200+) — week of October 20, 2025; Semester 2 (L100 CH1/L200+) — week of March 2, 2026. For MSc programmes, continuous assessments (including mid-semester exams, assignments, and class tests combined) account for 35% of the total grade, end-semester exam accounts for 60%, and attendance and participation account for 5%. Undergraduate course weightings vary by programme — check your course syllabus.",
+    "keywords": "mid, semester, exams, acity, weighted, october, march",
+    "source": "Academic Catalogue 2025–2026 — Section 2.2.1; MSc Cybersecurity Programme Handbook — Section 7.0"
+  },
+  {
+    "id": 251,
+    "topic": "general",
+    "question": "What recurring annual events does ACity hold?",
+    "answer": "Confirmed recurring events: Tertulia (annual cultural celebration, held in March); Career Fair (annual employer networking, 60+ companies); Tech Expo (annual technology showcase); Innovation Week (entrepreneurship activities); Sports Day (inter-programme sports competition); Graduation Ceremony (annual, June 13, 2026 for 2025–2026 cycle); Matriculation (twice yearly — October for Cohort 1, February for Cohort 2). Follow @acitygh on Instagram/Facebook for current event announcements.",
+    "keywords": "recurring, annual, events, acity, hold, general, confirmed, tertulia, march, career, fair",
+    "source": "Academic Catalogue 2025–2026; ACity Website"
+  },
+  {
+    "id": 252,
+    "topic": "general",
+    "question": "How do I book a counselling session at ACity?",
+    "answer": "Book directly at https://calendar.app.google/TA9awBoVHy3zj6G9A or email the Student Engagement Counselor: dromo.nettey@acity.edu.gh. The service is available to all enrolled students.",
+    "keywords": "book, counselling, session, acity, enrollment, student, engagement, counselor, the",
+    "source": "ACity Website; Student Handbook 2025 — Student Services"
+  },
+  {
+    "id": 253,
+    "topic": "hostel",
+    "question": "What is the sign-in procedure for non-hostel-resident students entering the ACity hostel?",
+    "answer": "Show Student ID to campus security at the gate. Show Student ID to the Hostel Coordinator upon entering. The visiting student must be met in the lobby by the resident. The visitor signs in with the Hostel Coordinator, leaving a form of ID. Must leave by 9 PM. For overnight stays: resident must obtain prior written SCA permission; maximum 1 night per 2-week period; visitor leaves a form of ID. Non-residents are not allowed to shower in the hostel.",
+    "keywords": "sign, procedure, non, hostel, resident, students, entering, acity, show, student",
+    "source": "Student Handbook 2025 — Section 6.1 Hostel Rules, clauses A.7, C.1–C.3"
+  },
+  {
+    "id": 254,
+    "topic": "hostel",
+    "question": "Can I stay in the ACity hostel during summer break?",
+    "answer": "Generally no. Students must vacate during vacations. Exceptions: students taking courses during the break period, or with extended project/exam deadlines. If staying during a break, an additional fee determined by the Director of Finance applies. Level 100 Cohort 2 students continue through Semester 3 (May 12 – August 22, 2026), so they have different hostel timelines.",
+    "keywords": "stay, acity, hostel, during, summer, break, fees, generally, students, exceptions, director, finance",
+    "source": "Student Handbook 2025 — Section 6.1 Hostel Rules; Academic Calendar 2025–2026"
+  },
+  {
+    "id": 255,
+    "topic": "registration",
+    "question": "What is the step-by-step freshman registration process at ACity?",
+    "answer": "Step 1 — Before arrival: Confirm admission, pay required fees, arrange health insurance (mandatory for hostel residents), gather required documents. Step 2 — Registration period: Level 100 Cohort 1 new entrants register from August 25, 2025; Cohort 2 from January 12, 2026. Register online via ACity 2.0 (https://acityplus.acity.edu.gh); receive student email and portal credentials. Step 3 — Orientation: Cohort 1 orientation September 1, 2025; Cohort 2 January 12, 2026 — compulsory attendance. Step 4 — Matriculation: Cohort 1 October 10, 2025; Cohort 2 February 20, 2026 — compulsory. Step 5 — First day of classes: Cohort 1 September 2, 2025; Cohort 2 January 13, 2026.",
+    "keywords": "step, freshman, registration, process, acity, before, confirm",
+    "source": "Student Handbook 2025 — Sections 2.1.2, 2.1.3, 2.2; Academic Catalogue 2025–2026"
+  },
+  {
+    "id": 256,
+    "topic": "registration",
+    "question": "What documents should I bring to ACity registration and orientation day?",
+    "answer": "Original academic qualifications and transcripts (WASSCE/A-Level/IB certificates); equivalency documentation for international qualifications; national ID or valid passport; multiple passport photographs; ACity Offer/Admission Letter; proof of fee payment or payment plan confirmation; valid health insurance document (mandatory for hostel residents); vaccination records (Yellow Fever certificate etc. for international students); Ghana bank account details or mobile money number for fee transactions. Contact admissions@acity.edu.gh before arrival to confirm the complete current checklist.",
+    "keywords": "documents, should, bring, acity, registration, orientation, day, original, wassce, level, offer",
+    "source": "Student Handbook 2025 — Section 2.1 Admissions; Section 6.1 Hostel Rules; ACity Website"
+  },
+  {
+    "id": 257,
+    "topic": "registration",
+    "question": "What should I pack when coming to ACity as a new student?",
+    "answer": "Academic: Laptop (required), notebooks, stationery, USB drives. Hostel: Bedding and sheets (confirm if provided), towels, personal care items, padlock, study lamp (permitted), mini-fridge (permitted), umbrella for rainy season. Ghana-specific: Mosquito net and insect repellent (malaria is endemic); antimalarial medication (consult a doctor); voltage adapter if needed — Ghana uses 230V/50Hz, Type G (UK 3-pin) plugs; MTN MoMo setup recommended (ACity accepts MTN MoMo). Financial: Ghana Cedis (GHS), USD for international students, access to Access Bank or EcoBank account (ACity's banking partners). Health: Health insurance card, Yellow Fever certificate if applicable, prescription medications with documentation.",
+    "keywords": "should, pack, coming, acity, new, student, fees, academic, laptop, usb, hostel, bedding",
+    "source": "Student Handbook 2025 — Section 6.1 Hostel Rules; Fee Policy banking details"
+  },
+  {
+    "id": 258,
+    "topic": "general",
+    "question": "Who are the Heads of Department at ACity and how do I contact them?",
+    "answer": "HOD Business Administration — Dr. Philip Nukpe: philip.nukpe@acity.edu.gh. HOD Communication Arts — Dr. Ransford Antwi: ransford.antwi@acity.edu.gh. HOD Electrical, Electronics and Computer Engineering — Dr. Paul Obeng: paul.obeng@acity.edu.gh. HOD Information Technology — Dr. Navel Sharma: navel.sharma@acity.edu.gh. Dept. Coordinator Mechanical, Industrial and Systems Engineering — Julian Bennett: julian.bennett@acity.edu.gh. Dept. Coordinator Computational Sciences and Informatics — Julius Amegadzie: julius.amegadzie@acity.edu.gh. Dean of Engineering — Dr. Lucy Agyepong: lucy.agyepong@acity.edu.gh. Dean of Computational Sciences and Informatics — Prof. Olumide Longe: olumide.longe@acity.edu.gh.",
+    "keywords": "heads, department, acity, contact, them, general, hod, business, administration, philip, nukpe",
+    "source": "Academic Catalogue 2025–2026 — Section 4.0 Contact Information"
+  },
+  {
+    "id": 259,
+    "topic": "general",
+    "question": "Who handles IT and ACity+ technical support?",
+    "answer": "Godfred Brown, IT Department. Email: godfred.brown@acity.edu.gh. Secondary IT contact: arunava.sarkar@acity.edu.gh. Location: IT Office in the Admin Center. Hours: Monday–Friday 9 AM–5 PM.",
+    "keywords": "handles, acity, technical, support, general, godfred, brown, department, email, secondary",
+    "source": "Academic Catalogue 2025–2026 Section 4.0; Student Handbook 2025 — Contact Directory"
+  },
+  {
+    "id": 260,
+    "topic": "registration",
+    "question": "Who handles Resident Permit requests for international students at ACity?",
+    "answer": "The Registry handles Resident Permit requests for enrolled international students. Contact: registry@acity.edu.gh. Begin this process immediately upon arrival — do not wait until your entry permit expires.",
+    "keywords": "handles, resident, permit, requests, international, students, acity, registration, the, registry, contact",
+    "source": "Student Handbook 2025 — Contact Directory (Student Records section)"
+  },
+  {
+    "id": 261,
+    "topic": "enrollment",
+    "question": "How many total credits does each ACity programme require to graduate?",
+    "answer": "BBA Accounting — 135; BBA Banking and Finance — 135; BBA Entrepreneurship — 144; BBA Human Resource Management — 134; BBA Marketing — 138; BA Advertising and Public Relations — 131; BA Journalism and Mass Communication — 131; BSc Computer Engineering — 147; BSc Electrical and Electronics Engineering — 141; BSc Robotics Engineering — 153; BSc Mechanical Engineering — 150; BSc Industrial and Systems Engineering — 145; BSc Biomedical Engineering — 158; BSc Computer Science — 152; BSc Artificial Intelligence — 146 (Level 300/400 diet) or 160 (Level 100/200 diet); BSc Information Technology — 143 (Level 300/400 diet) or 145 (Level 100/200 diet); MSc Cyber Security — 36; MSc Data Science and Analytics — 36. All undergraduates must also achieve a minimum of 120 credits to graduate.",
+    "keywords": "many, total, credits, each, acity, programme, require, graduate, enrollment, bba, accounting, banking",
+    "source": "Academic Catalogue 2025–2026 — Programme Course Diet tables"
+  },
+  {
+    "id": 262,
+    "topic": "enrollment",
+    "question": "Is there an industry internship in every ACity programme?",
+    "answer": "Yes. All undergraduate programmes include a mandatory Industry Internship course, typically at Level 300 (3rd year), Semester 2. It carries 2 credits and is a Core course. Students must spend at least 8 weeks working in an approved organisation (compensated or not) chosen with Career Services and Faculty assistance. Grading: 60% Internship Report + 40% Supervisor Evaluation. Contact careerservices@acity.edu.gh for approved placement guidance.",
+    "keywords": "industry, internship, every, acity, programme, exams, yes, all, level",
+    "source": "Student Handbook 2025 — Sections 3.5–3.10; Academic Catalogue 2025–2026"
+  },
+  {
+    "id": 263,
+    "topic": "enrollment",
+    "question": "Is French Language mandatory for all ACity students?",
+    "answer": "Yes. French Language (UC1102) is a mandatory course in Semester 1 of Level 100 for all undergraduate programmes across Business, Engineering, and Computational Sciences and Informatics. It carries 3 credits.",
+    "keywords": "french, language, mandatory, acity, students, enrollment, yes, semester, level",
+    "source": "Academic Catalogue 2025–2026 — All Programme Course Diets, Level 100 Semester 1"
+  },
+  {
+    "id": 264,
+    "topic": "enrollment",
+    "question": "What is FIE and why is it in every ACity programme?",
+    "answer": "FIE (Fundamentals of Innovation and Entrepreneurship) is a mandatory strand running across the first two years of every undergraduate programme. It includes: FIE Seminar I (L100 Sem 1, 0 credits); FIE Seminar II (L100 Sem 2, 0 credits); FIE I (L200 Sem 1, 2 credits); FIE II (L200 Sem 2, 2 credits). The 0-credit seminars are pass/fail requirements — compulsory but do not affect GPA. FIE is ACity's commitment to embedding entrepreneurial thinking in all graduates regardless of programme.",
+    "keywords": "fie, why, every, acity, programme, exams, fundamentals, innovation, entrepreneurship",
+    "source": "Academic Catalogue 2025–2026 — All Programme Course Diets"
+  },
+  {
+    "id": 265,
+    "topic": "enrollment",
+    "question": "What is the MSc Cyber Security programme structure?",
+    "answer": "Year 1 Semester 1 (4 courses, 12 credits): Information Security Assurance and Management, Network and Enterprise Systems Security Management, Criminological Theories, Cyberspace Ethics and Law. Year 1 Semester 2 (3 courses, 9 credits): Cryptography and Digital Forensics, Blockchain and Cryptocurrencies, Cyber Psychology and Behaviour. Year 2 Semester 1 (4 entries, 12 credits): Graduate Qualifying Seminar (compulsory), Cyber Warfare and Terrorism (Elective I), Cyber Security Breaches Case Studies (Elective I), MSc Thesis Phase I (compulsory). Year 2 Semester 2: MSc Thesis Phase II (compulsory, 3 credits). Total: 36 credits.",
+    "keywords": "msc, cyber, security, programme, structure, enrollment, acity, year, semester, information, assurance",
+    "source": "MSc Cybersecurity Programme Handbook — Section 8.0 Programme Diet"
+  },
+  {
+    "id": 266,
+    "topic": "general",
+    "question": "What is the MSc Cyber Security weekly schedule?",
+    "answer": "Thursday 5:30 PM – 8:30 PM (3 hours virtual); Friday 5:30 PM – 8:30 PM (3 hours virtual); Saturday 9:00 AM – 5:00 PM (6 hours on-campus). Total: 12 contact hours per week, 48 contact hours per module. Designed for working professionals and full-time students.",
+    "keywords": "msc, cyber, security, weekly, schedule, general, acity, thursday, friday, saturday, total, designed",
+    "source": "MSc Cybersecurity Programme Handbook — Section 6.0 Structure"
+  },
+  {
+    "id": 267,
+    "topic": "enrollment",
+    "question": "What is the MSc Cyber Security assessment breakdown?",
+    "answer": "Continuous Assessments (assignments, class tests, project work, mid-semester exam): 35%. Attendance and Participation: 5%. End Semester Exam: 60%.",
+    "keywords": "msc, cyber, security, assessment, breakdown, exams, acity, continuous, assessments, attendance, participation, end",
+    "source": "MSc Cybersecurity Programme Handbook — Section 7.0 Assessment of Learning"
+  },
+  {
+    "id": 268,
+    "topic": "exams",
+    "question": "What is the minimum GPA to graduate from ACity's MSc programmes?",
+    "answer": "Students must attain a minimum Cumulative GPA of 2.0 to graduate from the MSc programmes. They must also pass all required courses, complete all prescribed credit hours, settle all financial obligations, and maintain acceptable moral conduct.",
+    "keywords": "minimum, gpa, graduate, acity, msc, programmes, exams, students, cumulative, they",
+    "source": "MSc Cybersecurity Programme Handbook — Section 5.0 Graduation Requirements"
+  },
+  {
+    "id": 269,
+    "topic": "enrollment",
+    "question": "How does the MSc thesis work at ACity?",
+    "answer": "The thesis spans Year 2. MSc Thesis Phase I (Semester 1): students select a research topic, conduct a literature review, formulate a hypothesis, design data collection, and work closely with an assigned supervisor (appointed upon admission). MSc Thesis Phase II (Semester 2): completion of data collection, analysis, writing, submission, and formal thesis defence. Prerequisite: completion of at least 24 credits of the MSc degree.",
+    "keywords": "msc, thesis, work, acity, enrollment, the, year, phase",
+    "source": "MSc Cybersecurity Programme Handbook — Sections 10.3.1, 10.4.1"
+  },
+  {
+    "id": 270,
+    "topic": "enrollment",
+    "question": "What is the MSc Data Science and Analytics programme structure?",
+    "answer": "Year 1 Semester 1 (4 courses, 12 credits): Foundations of Data Science and Big Data Analytics, Big Data Management, Introduction to Data Science, Mathematical Foundations for Data Science. Year 1 Semester 2 (3 courses, 9 credits): Deep Learning and Neural Networks, Statistical Methods for Data Science, Special Topics in Data Science. Year 2 Semester 1 (4 entries, 12 credits): Graduate Qualifying Seminar, Data Warehousing and Information Retrieval (Elective I), Financial Decision Making for Value Creation (Elective I), MSc Thesis Phase I. Year 2 Semester 2: MSc Thesis Phase II (3 credits). Total: 36 credits.",
+    "keywords": "msc, data, science, analytics, programme, structure, enrollment, acity, year, semester, foundations",
+    "source": "Academic Catalogue 2025–2026 — Section 3.3.4"
+  },
+  {
+    "id": 271,
+    "topic": "fees",
+    "question": "What are the MSc programme fees for 2025-2026?",
+    "answer": "Upfront per semester: MSc Data Science and Analytics — GHS 45,000 / USD 2,750; MSc Cyber Security — GHS 45,000 / USD 2,750. Payment plan per semester: GHS 18,000 × 3 = GHS 54,000 / USD 1,050 + 1,050 + 1,070 = USD 3,170. Additional fees per semester: SRC Dues — GHS 630 / USD 35; Health Service Fee — GHS 450 / USD 30; Application fee (new students only) — GHS 150 / USD 30. MSc meal plans per semester: 3 meals — GHS 15,600 / USD 990; 2 meals — GHS 10,200 / USD 660; 1 meal — GHS 5,400 / USD 330. Early bird discount of 5% available for full upfront payment by August 30, 2025.",
+    "keywords": "msc, programme, fees, acity, upfront, data, science, analytics",
+    "source": "Fee Policy 2025–2026 — Masters Programmes"
+  },
+  {
+    "id": 272,
+    "topic": "enrollment",
+    "question": "What are the specialisation tracks for BSc Computer Engineering at ACity?",
+    "answer": "Five tracks at Level 400 (4 electives each): Biomedical Engineering (Biomedical Instrumentation, Biomedical Signal Analysis, Real-Time Digital Signal Processing, Wireless Sensor Networks); Telecommunication (Advanced Digital Signal Processing, High Speed Networks, Remote Sensing, Telecommunication Systems Modelling and Simulation); Intelligent Systems Controls and Automation (Advanced Control Systems, Digital Image Processing, Machine Learning, Modelling and Analysis of Mechatronic Systems); Intelligent Systems Robotics and Mechatronics (Advanced Control Systems, Industrial Automation and Robotics, Machine Learning, Modelling and Analysis of Mechatronic Systems); Renewable Energy Systems (Smart Grid, Solid State Electronic Devices, Energy Management for a Sustainable Future, Green Electronics).",
+    "keywords": "specialisation, tracks, bsc, computer, engineering, acity, enrollment, five, level, biomedical",
+    "source": "Academic Catalogue 2025–2026 — BSc Computer Engineering Specialisations"
+  },
+  {
+    "id": 273,
+    "topic": "enrollment",
+    "question": "What are the specialisation tracks for BSc Electrical and Electronics Engineering at ACity?",
+    "answer": "Six tracks at Level 400: Power Systems Engineering (Advanced Power Generation/Transmission/Distribution, Power System Operation and Control, Electric Power Systems Analysis and Design, Power System Protection and Switchgear); RF and Microwave Circuits Design (Microwave Engineering, RF Circuits Design, Optoelectronic Devices, VLSI Design); Intelligent Systems Robotics and Mechatronics; Intelligent Systems Controls and Automation; Biomedical Engineering (Biomedical Instrumentation, Biomedical Signal Analysis, Real-Time Digital Signal Processing, Wireless Sensor Networks); Renewable Energy Systems (Smart Grid, Solid State Electronic Devices, Energy Management for a Sustainable Future, Green Electronics).",
+    "keywords": "specialisation, tracks, bsc, electrical, electronics, engineering, acity, enrollment, six, level, power, systems",
+    "source": "Academic Catalogue 2025–2026 — BSc EEE Specialisations"
+  },
+  {
+    "id": 274,
+    "topic": "enrollment",
+    "question": "What are the specialisation tracks for BSc Mechanical Engineering at ACity?",
+    "answer": "Seven tracks: Aerospace Engineering (Advanced Control Systems, Computational Fluid Mechanics, Composite Materials and Structures, Mechanical Vibrations); Biomedical Engineering (Biofluid Mechanics, Biomechanics, Biomaterials, Rehabilitation Engineering); Design and Manufacturing (Design of Jigs/Fixtures/Tools, Unconventional Machining, Composite Materials, Computer Integrated Manufacturing); Energy Systems (Heat and Mass Transfer, Refrigeration and Air Conditioning, Renewable Energy, Thermal Turbo Machines); Mechanical Design; Robotics; Thermo-Fluids Systems.",
+    "keywords": "specialisation, tracks, bsc, mechanical, engineering, acity, enrollment, seven, aerospace, advanced, control",
+    "source": "Academic Catalogue 2025–2026 — BSc Mechanical Engineering Specialisations"
+  },
+  {
+    "id": 275,
+    "topic": "enrollment",
+    "question": "What are the specialisation tracks for BSc Computer Science at ACity?",
+    "answer": "Four tracks at Level 400: Data Processing and Networks (Cryptography and Network Security, Neural Networks, Data Mining and Warehousing, TCP/IP Design and Implementation); Modern Computing and Programming (E-Business, Programming in ASP.NET, Advanced Java Programming, Cloud Computing); Advanced and Emerging Technologies (Embedded Systems, Introduction to Robotics, IoT, Machine Learning); Computational Sciences and Data Analytics (Business Intelligence, Cloud Application, IoT, Machine Learning).",
+    "keywords": "specialisation, tracks, bsc, computer, science, acity, enrollment, four, level, data, processing, networks",
+    "source": "Academic Catalogue 2025–2026 — BSc Computer Science Specialisations"
+  },
+  {
+    "id": 276,
+    "topic": "enrollment",
+    "question": "What are the specialisation tracks for BSc Information Technology at ACity?",
+    "answer": "Four tracks at Level 400: Data Science and Analytics (Business Intelligence, Big Data and Analytics, Data Mining and Warehousing, Machine Learning); Cybersecurity, IoT and Forensics (Computer Forensics and Cybersecurity, Security Intelligence, IoT, Wireless Networks); Cloud Application, IoT and Intelligence (Cloud Application, Security Intelligence, IoT, Wireless Networks); Cloud Computing and Intelligence (Cloud Application, Business Intelligence, Machine Learning, Wireless Networks).",
+    "keywords": "specialisation, tracks, bsc, information, technology, acity, enrollment, four, level, data, science, analytics",
+    "source": "Academic Catalogue 2025–2026 — BSc IT Specialisations"
+  },
+  {
+    "id": 277,
+    "topic": "fees",
+    "question": "What are all the payment methods for paying ACity fees?",
+    "answer": "1. EcoBank Ghana: GHS Account 1441002060875 / USD Account 3441002060876 / SWIFT ECOCGHAC / Address: Ministerial Area, 2 Morocco Lane, Off Independence Avenue, Accra. 2. Access Bank Ghana: GHS Account 0180223309771 / USD Account 0181013309771 / SWIFT ABNGGHAC / Branch: Starlets' 91 Road, Opp. Accra Sports Stadium, Osu. 3. Mobile Money: MTN MoMo — Account Name: Academic City University College, Number: 0242538304. 4. Online: Credit/Debit Card at https://acity.edu.gh/fees/ or via ACity 2.0. 5. Cash: On-campus fee counter. 6. Nigeria: Union Bank of Nigeria — Account Name: Vista International Limited - Academic City College Ghana, Naira: 0148476247, USD: 0148587062.",
+    "keywords": "payment, methods, paying, acity, fees, ecobank, ghana, ghs, account, usd",
+    "source": "Fee Policy 2025–2026 — All three PDFs"
+  },
+  {
+    "id": 278,
+    "topic": "fees",
+    "question": "What is the payment plan vs upfront cost difference for Engineering students?",
+    "answer": "For Ghanaian BSc Engineering students (2025–2026): Upfront discounted — GHS 44,550/semester. Payment plan total — GHS 57,900/semester (3 × GHS 19,300). Financing premium: GHS 13,350/semester more than the discounted upfront rate. For international BSc Engineering students: Upfront discounted — USD 3,600/semester. Payment plan total — USD 4,600/semester. Financing premium: USD 1,000/semester.",
+    "keywords": "payment, plan, upfront, cost, difference, engineering, students, fees, acity, for, ghanaian, bsc",
+    "source": "Fee Policy 2025–2026 — UG Ghanaian Students; UG International Students"
+  },
+  {
+    "id": 279,
+    "topic": "fees",
+    "question": "What is the late payment fee and grace period at ACity?",
+    "answer": "Ghanaian undergrad: GHS 1,250 late fee if not paid within 3 days of due date. International undergrad: USD 100. Masters GHS: GHS 1,500. Masters USD: USD 100. New students receive a 3-day grace period after registration before fees are considered late. Students who miss the upfront due date are automatically transitioned to the payment plan (which includes the financing fee).",
+    "keywords": "late, payment, fee, grace, period, acity, fees, ghanaian, ghs, international, usd, masters",
+    "source": "Fee Policy 2025–2026 — All three PDFs — Notes sections"
+  },
+  {
+    "id": 280,
+    "topic": "general",
+    "question": "Who is the Chair of ACity's Governing Council?",
+    "answer": "Professor Prem Shamdasani chairs the ACity Governing Council.",
+    "keywords": "chair, acity, governing, council, general, professor, prem, shamdasani",
+    "source": "Student Handbook 2025 — Section 1.3 Governance Structure"
+  },
+  {
+    "id": 281,
+    "topic": "general",
+    "question": "Who is ACity's President and Provost?",
+    "answer": "Professor Fred McBagonluri is the President and Provost of Academic City University. He leads the Executive Team and reports to the Governing Council.",
+    "keywords": "acity, president, provost, general, professor, fred, mcbagonluri",
+    "source": "Academic Catalogue 2025–2026 — Welcome Message; Student Handbook 2025 — Section 1.3"
+  },
+  {
+    "id": 282,
+    "topic": "enrollment",
+    "question": "What do Mandatory, Core, Specialist, and Elective course categories mean at ACity?",
+    "answer": "Mandatory (Man): University-wide required courses every student must take regardless of programme (e.g., French Language, FIE Seminars, Communication Skills, African Studies). Core (C): Required courses specific to your programme, faculty, or department — must be passed to graduate. Specialist (Spl): Courses specific to your programme specialisation or concentration, typically advanced in your major field. Elective (E or Elect): Courses chosen from a defined list that allow personalisation of your degree path. Failing a Core or Mandatory course requires retaking and passing it.",
+    "keywords": "mandatory, core, specialist, elective, course, categories, mean, acity, exams, man, university, french",
+    "source": "Student Handbook 2025 — Section 2 Definitions; Academic Catalogue 2025–2026"
+  },
+  {
+    "id": 283,
+    "topic": "enrollment",
+    "question": "What do L, T, P, and C mean in ACity course credit tables?",
+    "answer": "L (Lecture Hours): number of theory/lecture hours per week. T (Tutorial Hours): number of tutorial or discussion hours per week. P (Practical/Lab Hours): number of laboratory or practical hours per week. C (Credits): total credit value of the course. A credit hour equals one 60-minute lecture per week or 2–3 hours of laboratory/practical work per week.",
+    "keywords": "mean, acity, course, credit, tables, enrollment, lecture, hours, tutorial, practical",
+    "source": "Student Handbook 2025 — Section 2 Definitions; Academic Catalogue"
+  },
+  {
+    "id": 284,
+    "topic": "enrollment",
+    "question": "What is an audit course at ACity?",
+    "answer": "A course that a student voluntarily enrolls in for no credit. It appears on the transcript as audited but is not counted towards GPA. Audit courses allow students to learn content from courses outside their programme without the pressure of grading or GPA impact.",
+    "keywords": "audit, course, acity, exams, gpa",
+    "source": "Student Handbook 2025 — Section 2 Definitions"
+  },
+  {
+    "id": 285,
+    "topic": "enrollment",
+    "question": "What is deferment at ACity?",
+    "answer": "Deferment means delaying a student's academic obligations to a later semester or year. To defer: write to the Registrar stating all details and dates; return your Student ID card; maintain updated personal contact information with the Dean of Students' office. During deferment the university is under no obligation to provide services. The 4-year completion clock continues — students who cannot complete within 4 years must apply for readmission.",
+    "keywords": "deferment, acity, enrollment, registrar, student, dean, students",
+    "source": "Student Handbook 2025 — Sections 2 Definitions; 2.1.2 Validity Period; 2.1.4"
+  },
+  {
+    "id": 286,
+    "topic": "exams",
+    "question": "What is the minimum CWA to progress through ACity's Engineering or CS/AI programmes?",
+    "answer": "Minimum CWA to remain in good standing and progress: 50%. Year-to-year specifics: Level 100 to 200 — minimum CWA 50%, no more than 6 failed credits. Level 200 to 300 and 300 to 400 — minimum CWA 50%, accumulate at least 24 credits per year, no more than 9 failed credits in one academic year or 12 credits across years. Degree classification: CWA 80%+ earns First Class; 70%+ earns Second Class Upper; 60%+ earns Second Class Lower; 50%+ earns Pass.",
+    "keywords": "minimum, cwa, progress, through, acity, engineering, programmes, exams, year, level",
+    "source": "Student Handbook 2025 — Sections 2.3.2, 2.3.4, 2.3.7"
+  },
+  {
+    "id": 287,
+    "topic": "exams",
+    "question": "What happens if a student abandons their programme without formally withdrawing from ACity?",
+    "answer": "A student who absents themselves from all courses for a semester examination without proper permission is deemed to have abandoned the programme, triggering automatic withdrawal and loss of student status. Students needing time off must formally defer by writing to the Registrar before the semester begins.",
+    "keywords": "happens, student, abandons, programme, without, formally, withdrawing, acity, exams, students, registrar",
+    "source": "Student Handbook 2025 — Section 2.3.5"
+  },
+  {
+    "id": 288,
+    "topic": "enrollment",
+    "question": "What is the maximum number of years to complete an ACity degree?",
+    "answer": "Students are expected to complete the programme within 4 years. Students who cannot complete within 4 years but wish to continue must apply for readmission with the requisite fee. For MSc programmes, the equivalent expectation is 2 years.",
+    "keywords": "maximum, number, years, complete, acity, degree, fees, students, for, msc",
+    "source": "Student Handbook 2025 — Section 2.1.2 Validity Period of Registration"
+  },
+  {
+    "id": 289,
+    "topic": "general",
+    "question": "What is the library clearance requirement at ACity?",
+    "answer": "Library clearance is required for both semester registration and graduation. Returning students with unresolved library obligations (unpaid fines, overdue books) will not be allowed to register. Graduating students with outstanding library obligations may not receive their certificates or transcripts. Clear all library obligations at least 2 weeks before graduation application deadlines.",
+    "keywords": "library, clearance, requirement, acity, exams, returning, graduating, clear",
+    "source": "Student Handbook 2025 — Section 2.3.8 Library Policy"
+  },
+  {
+    "id": 290,
+    "topic": "exams",
+    "question": "What is the penalty for causing exam question leakage at ACity?",
+    "answer": "Causing leakage of examination questions: Dismissal with no re-application allowed (1st offence). This is one of only two examination offences resulting in immediate permanent dismissal on the first occurrence.",
+    "keywords": "penalty, causing, exam, question, leakage, acity, exams, dismissal, this",
+    "source": "Student Handbook 2025 — Section 8.3 Penalty Table"
+  },
+  {
+    "id": 291,
+    "topic": "exams",
+    "question": "What is the penalty for physically assaulting an exam invigilator at ACity?",
+    "answer": "1st offence: Removal from the examination and cancellation of the exam paper. Repeat/2nd offence: Dismissal plus report to police. Verbal assault on an invigilator: Cancellation and 1-year suspension (1st offence); Dismissal (repeat).",
+    "keywords": "penalty, physically, assaulting, exam, invigilator, acity, exams, removal, repeat, dismissal, verbal, cancellation",
+    "source": "Student Handbook 2025 — Section 8.3 Penalty Table"
+  },
+  {
+    "id": 292,
+    "topic": "general",
+    "question": "What is ACity's policy on network traffic accountability?",
+    "answer": "Students are responsible for all uses of their computer and are held accountable for all network traffic originating at their computer or traced back to their computer's IP address. Students must secure their devices against viruses, worms, and hacker attacks. If your device is used for illegal online activity — even by someone else — you may be held responsible.",
+    "keywords": "acity, policy, network, traffic, accountability, general, students",
+    "source": "Student Handbook 2025 — Section 2.4.1.4 Responsible Computing Policy"
+  },
+  {
+    "id": 293,
+    "topic": "general",
+    "question": "What is the dress code for class presentations at ACity?",
+    "answer": "During class presentations and all school presentations, students must be appropriately dressed according to the standard academic and administrative area dress code. Beach/nightclub attire and revealing or untidy clothing are not acceptable during presentations.",
+    "keywords": "dress, code, class, presentations, acity, general, during, beach",
+    "source": "Student Handbook 2025 — Section 7.3, clause i"
+  },
+  {
+    "id": 294,
+    "topic": "general",
+    "question": "What clothing is prohibited in ACity academic and administrative areas?",
+    "answer": "Prohibited: sweatpants, exercise pants, Bermuda shorts, leggings, spandex, bike clothing, and any form-fitting pants. Baggy pants revealing underwear are prohibited. Shirts with profanity, nude/semi-nude images, or political slogans are prohibited. Crop tops revealing the waist, cleavage-exposing tops, and tops exposing the nipple are prohibited for women. Miniskirts, sun dresses, beach dresses, spaghetti-strap dresses, and lingerie-type clothing are prohibited. Slippers/slides/flip-flops are not allowed.",
+    "keywords": "clothing, prohibited, acity, academic, administrative, areas, general, bermuda, baggy, shirts, crop",
+    "source": "Student Handbook 2025 — Sections 7.1, 7.2, 7.3"
+  },
+  {
+    "id": 295,
+    "topic": "general",
+    "question": "What is the Finance Department contact for fee-related issues at ACity?",
+    "answer": "Email: finance@acity.edu.gh. Contact for refunds and payment issues: Mr. Amit Kakhani at finance@acity.edu.gh. Office hours: Monday–Friday 9 AM – 5 PM. Scope: all fee payments (application, registration, tuition, exam, transcript, hostel, meal fees), refunds, payment queries.",
+    "keywords": "finance, department, contact, fee, related, issues, acity, fees, email, amit, kakhani, office",
+    "source": "Student Handbook 2025 — Contact Directory — Finance Department"
+  },
+  {
+    "id": 296,
+    "topic": "general",
+    "question": "What is the Registry contact and what does it handle at ACity?",
+    "answer": "Email: registry@acity.edu.gh. Contact persons: Daniel Kwofie, Irene Aforve. Scope: academic registration, course selection, examination matters, results, re-sits, student records, document verification, verification of student status for embassies, Resident Permit requests, transcript requests, lecture timetable publishing. Hours: Monday–Friday 9 AM – 5 PM.",
+    "keywords": "registry, contact, handle, acity, exams, email, daniel, kwofie, irene",
+    "source": "Academic Catalogue 2025–2026 — Section 4.0; Student Handbook — Contact Directory"
+  },
+  {
+    "id": 297,
+    "topic": "general",
+    "question": "What is the Library contact at ACity?",
+    "answer": "Email: library@acity.edu.gh. Website: https://acity.edu.gh/library/. Hours: Monday–Friday 9 AM – 9 PM; Saturday 9 AM – 4 PM; Closed on public holidays.",
+    "keywords": "library, contact, acity, general, email, website, hours, monday, friday",
+    "source": "Student Handbook 2025 — Contact Directory; Section 2.3.8"
+  },
+  {
+    "id": 298,
+    "topic": "general",
+    "question": "What are the Facilities contacts for maintenance at ACity?",
+    "answer": "Safety and Security / general campus cleanliness: Mr. Frank Gavor — frank.gavor@acity.edu.gh. Building upkeep and furniture repairs: Mr. Majid Mulani — majid.mulani@acity.edu.gh. Hostel infrastructure (electricity, water, plumbing, beds, mattress, hostel upkeep) — 24 hours: hostel@acity.edu.gh.",
+    "keywords": "facilities, contacts, maintenance, acity, hostel, safety, security, frank, gavor, building",
+    "source": "Student Handbook 2025 — Contact Directory — Physical Campus and Hostel Facilities"
+  },
+  {
+    "id": 299,
+    "topic": "general",
+    "question": "What are the Student and Community Affairs contacts at ACity?",
+    "answer": "Dean: Dr. Abena Engmann — abena.engmann@acity.edu.gh. SCA General: sca@acity.edu.gh. Scope: student advising and counselling, disciplinary matters (Convener of Disciplinary Committee), extracurricular events, club registration, sports events, hostel issues, dining services, Recreational Centre, student programmes abroad. Hours: office hours and after hours for emergencies.",
+    "keywords": "student, community, affairs, contacts, acity, hostel, dean, abena, engmann, sca, general",
+    "source": "Student Handbook 2025 — Contact Directory"
+  }
+]

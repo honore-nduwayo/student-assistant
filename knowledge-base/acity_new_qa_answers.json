@@ -1,0 +1,152 @@
+[
+  {
+    "topic": "exams",
+    "question": "What is the grading scale at ACity for Business, Communication Arts and IT students?",
+    "answer": "ACity uses a GPA grading scheme for Business, Communication Arts and IT students:\n• 80-100% → A (4.0) — Excellent\n• 75-79% → B+ (3.5) — Very Good\n• 70-74% → B (3.0) — Good\n• 65-69% → C+ (2.5) — Average\n• 60-64% → C (2.0) — Fair\n• 55-59% → D+ (1.5) — Barely Satisfactory\n• 50-54% → D (1.0) — Weak Pass\n• Below 50% → Fail (0)\n• IC = Incomplete, X = Disqualified, Z = Exam Malpractice",
+    "keywords": "grading scale, GPA, grades, marks, score, percentage"
+  },
+  {
+    "topic": "exams",
+    "question": "What is the grading scale for Engineering and Computer Science students at ACity?",
+    "answer": "Engineering and Computer Science/AI students use the CWA grading scheme:\n• 80-100% → A (Excellent)\n• 70-79.9% → B (Very Good)\n• 60-69.9% → C (Good)\n• 50-59.9% → D (Pass)\n• Below 50% → F (Fail)\n• I or I* = Incomplete\n\nCWA Degree Classification:\n• 80-100% → First Class\n• 70-79.99% → Second Class (Upper)\n• 60-69.99% → Second Class (Lower)\n• 50-59.99% → Pass\n• Below 50% → Fail",
+    "keywords": "grading scale, CWA, engineering grades, computer science grades, marks"
+  },
+  {
+    "topic": "exams",
+    "question": "What CGPA do I need for First Class at ACity?",
+    "answer": "ACity GPA degree classification:\n• 3.6-4.0 CGPA → First Class\n• 3.0-3.5 CGPA → Second Class (Upper Division)\n• 2.5-2.9 CGPA → Second Class (Lower Division)\n• 2.0-2.4 CGPA → Third Class Division\n• 1.0-1.9 CGPA → Pass\n\nFor Engineering/CS (CWA system): First Class requires 80%+ cumulative average.",
+    "keywords": "first class, CGPA, degree classification, honours, upper division"
+  },
+  {
+    "topic": "exams",
+    "question": "What is the attendance requirement to sit for exams at ACity?",
+    "answer": "To qualify to sit for end-of-semester examinations at ACity, you must:\n1. Achieve at least 75% attendance of contact hours for each course\n2. Complete all assignments\n3. Complete the mid-semester examination\n\nA student who fails to meet the 75% attendance threshold will be barred from writing the end-of-semester exam and will be deemed to have failed that course. They must either repeat or drop the course.",
+    "keywords": "attendance, 75%, exam eligibility, barred from exams, contact hours"
+  },
+  {
+    "topic": "exams",
+    "question": "What CGPA do I need to progress from one level to the next at ACity?",
+    "answer": "Progression requirements at ACity:\n\nLevel 100 to 200:\n• Pass all courses taken\n• Minimum CGPA of 1.5 or CWA of 50%\n• Must not have failed more than 6 credits in the academic year\n• No failed course can be a pre-requisite to Level 200\n\nLevel 200 to 300 and 300 to 400:\n• Minimum CGPA of 1.5 or CWA of 50%\n• Accumulate at least 24 credits for the current year\n• Must not have failed more than 9 credits in the academic year, or more than 12 credits across different academic years",
+    "keywords": "progression, CGPA, level 100, level 200, advance, promotion"
+  },
+  {
+    "topic": "exams",
+    "question": "What happens if I fail too many courses at ACity? Can I be dismissed?",
+    "answer": "ACity dismissal and repeat policy:\n• If you fail 10-12 credits, you are allowed to repeat the failed courses.\n• A Level 100 student who fails a total of 12 credits registered for an academic year (in one or both semesters) will be DISMISSED for poor academic performance.\n• A dismissed student may re-apply for admission into a DIFFERENT programme the following academic year.\n• Further withdrawal may occur for other academic or disciplinary reasons as stated in the Student Handbook.\n\nContact registry@acity.edu.gh if you are concerned about your academic standing.",
+    "keywords": "dismissed, withdrawal, fail, academic probation, repeat, 12 credits"
+  },
+  {
+    "topic": "graduation",
+    "question": "What are the requirements to graduate from ACity?",
+    "answer": "To graduate from Academic City University, you must:\n1. Pass all core courses for your programme\n2. Meet inter-faculty (universal) course requirements\n3. Accumulate a minimum of 120 credits\n4. Attain a minimum CGPA of 1.5 or CWA of 50%\n5. Maintain acceptable moral conduct at the university\n6. Clear all financial obligations to the university\n\nContact registry@acity.edu.gh for graduation applications and clearance.",
+    "keywords": "graduation requirements, 120 credits, CGPA, graduate, degree completion"
+  },
+  {
+    "topic": "fees",
+    "question": "What are the other fees besides tuition at ACity per semester?",
+    "answer": "Additional fees per semester (2025-2026, Ghanaian students):\n• Application Fee (new students only): GHS 150\n• SRC Dues: GHS 630\n• Health Service Fee: GHS 400\n• Late Fee: GHS 1,250 (if payment not received within 3 days after due date)\n\nNote: Housing and meal plan fees are optional and separate from the above.",
+    "keywords": "SRC dues, health fee, application fee, other fees, extra charges"
+  },
+  {
+    "topic": "fees",
+    "question": "What is the late fee at ACity if I miss the payment deadline?",
+    "answer": "Late Fee Policy (2025-2026):\n• A late fee of GHS 1,250 is charged if payment is not received within 3 days after the due date.\n• For international students (USD): USD 100 / GHS 1,500 late fee applies.\n• New students are allowed a 3-day grace period after registration.\n• Students who choose upfront payment but miss the deadline are automatically moved to a payment plan.\n• Payment plans are NOT available for housing and meal plan fees — these must be paid in full.\n\nContact finance@acity.edu.gh to avoid holds on your registration.",
+    "keywords": "late fee, payment deadline, overdue, grace period, penalty"
+  },
+  {
+    "topic": "fees",
+    "question": "What are the undergraduate tuition fees at ACity for Ghanaian students in 2025-2026?",
+    "answer": "Undergraduate Tuition Fees Per Semester — 2025-2026 (Ghanaian Students, Upfront Payment):\n\nEngineering Programmes (all BSc Engineering):\n• Actual fee: GHS 59,400 | Discounted fee: GHS 44,550\n\nInformatics:\n• BSc Artificial Intelligence: Actual GHS 49,000 | Discounted GHS 33,420\n• BSc Computer Science: Actual GHS 41,580 | Discounted GHS 31,190\n• BSc Information Technology: Actual GHS 41,580 | Discounted GHS 31,190\n\nBusiness Administration:\n• BBA Entrepreneurship: Actual GHS 35,640 | Discounted GHS 26,730\n• BBA Accounting: Actual GHS 29,700 | Discounted GHS 22,280\n• BBA Banking & Finance: Actual GHS 29,700 | Discounted GHS 22,280\n• BBA Human Resource Management: Actual GHS 29,700 | Discounted GHS 22,280\n• BBA Marketing: Actual GHS 29,700 | Discounted GHS 22,280\n\nCommunication Arts:\n• BA Advertising and Public Relations: Actual GHS 29,700 | Discounted GHS 22,280\n• BA Journalism and Mass Communication: Actual GHS 29,700 | Discounted GHS 22,280\n\nNote: 5% Early Bird Discount available for upfront payment by August 30, 2025.",
+    "keywords": "tuition fees, undergraduate fees, GHS, 2025 2026, programme fees"
+  },
+  {
+    "topic": "fees",
+    "question": "What is the payment plan for undergraduate tuition at ACity?",
+    "answer": "Payment Plan — Undergraduate Tuition (Semester 1, 2025-2026, GHS):\n\nEngineering programmes:\n• 3 installments of GHS 19,300 each = GHS 57,900 total/semester\n\nDue dates (Cohort 1): Aug 29 / Sep 27 / Oct 31, 2025\nDue dates (Cohort 2): Jan 9 / Feb 6 / Mar 5, 2026\n\nNote:\n• Payment plans are NOT available for housing and meal plan fees\n• Missing an installment triggers a late fee of GHS 1,250\n• Contact finance@acity.edu.gh or visit https://acity.edu.gh/finance-billing/ for your specific programme's installment amounts",
+    "keywords": "payment plan, installment, 3 payments, tuition payment, semester fees"
+  },
+  {
+    "topic": "fees",
+    "question": "How can I pay my fees at ACity?",
+    "answer": "Payment Options for ACity Fees:\n\n1. Bank Transfer/Deposit (Ghana):\n   • EcoBank Ghana: Account Name: Academic City College (GH) Limited | GHC: 1441002060875 | USD: 3441002060876 | Swift: ECOCGHAC\n   • Access Bank: Account Name: Academic City College (GH) Limited | GHC: 0180223309771 | USD: 0181013309771 | Swift: ABNGGHAC\n\n2. Mobile Money (Ghana):\n   • MTN MoMo: Academic City University College | Number: 0242538304\n\n3. Online (Credit/Debit Card):\n   • https://acity.edu.gh/fees/\n\n4. Cash:\n   • At the on-campus fee counter\n\n5. Nigeria (Bank Transfer):\n   • Union Bank of Nigeria | Account: Vista International Limited - Academic City College Ghana | Naira: 0148476247 | USD: 0148587062",
+    "keywords": "pay fees, EcoBank, MoMo, online payment, bank transfer, payment method"
+  },
+  {
+    "topic": "hostel",
+    "question": "What are the hostel fees for Ghanaian students at ACity 2025-2026?",
+    "answer": "Housing Fees Per Semester (2025-2026, Ghanaian Students):\n• Hostel A — Double Occupancy + Fan: GHS 12,150\n• Hostel A — Double Occupancy + A/C: GHS 16,880\n• Hostel B — Double Occupancy + A/C (ensuite): GHS 18,410\n\nSingle Occupancy rooms are available on request for both Hostel A and B — contact Admissions.\n\nNotes:\n• Housing fees must be paid in full per semester (no payment plan for housing)\n• All GHS fees must be paid in Ghana Cedis only\n• No refund if you leave the hostel before the contract period ends\n• Rooms once allocated CANNOT be changed during the semester",
+    "keywords": "hostel fees, housing fees, GHS, accommodation cost, hostel A, hostel B"
+  },
+  {
+    "topic": "hostel",
+    "question": "What are the rules in the ACity hostel?",
+    "answer": "Key ACity Hostel Rules:\n\n1. Respect: Noise must be kept low. No harassment. Disrespect toward staff or fellow students leads to disciplinary action.\n2. Alcohol, drugs, and smoking are PROHIBITED in the hostel.\n3. Cooking is prohibited beyond reheating food using the rice cooker provided in the kitchen.\n4. Appliances NOT allowed in bedrooms: mini stoves, toasters, heaters. Allowed: laptops, small radios, lamps, fans, mini-fridges, microwaves, TVs, irons.\n5. Non-resident visitors must leave by 9pm. Violation leads to a hostel ban.\n6. Students hosting non-residents after 9am will receive a warning from the Dean of Students.\n7. Rooms cannot be changed once allocated.\n8. During school breaks, all residents must vacate the hostel.\n9. No subletting of rooms to other people.\n10. Valid health insurance is required before moving into the hostel.\n11. CCTV cameras are in place — tampering leads to suspension.",
+    "keywords": "hostel rules, hostel regulations, alcohol in hostel, cooking in hostel, visitor rules"
+  },
+  {
+    "topic": "hostel",
+    "question": "Can visitors stay overnight in the ACity hostel?",
+    "answer": "Non-resident visitors are NOT allowed to stay overnight in ACity hostels. According to the Student Handbook:\n• Non-residents must leave by 9pm. Violating the 9pm rule results in a Temporary Hostel Ban for the first offense and a Permanent Hostel Ban for repeat offenses.\n• Housing non-residents after 9am results in a warning from the Dean of Students; a repeat offense leads to Suspension from the hostel.\n• All visitors (student or not) must show their student ID to campus security at the gate and to the hostel coordinator upon entering.",
+    "keywords": "overnight visitors, guest hostel, visitor policy, 9pm rule, hostel ban"
+  },
+  {
+    "topic": "hostel",
+    "question": "Is alcohol allowed in the ACity hostel?",
+    "answer": "No. Alcohol is strictly prohibited at ACity — both on campus and in the hostel.\n\nOfficial policy: The possession, use, consumption, manufacture, sale or distribution of alcoholic beverages is prohibited on campus except when explicitly permitted by the university. All university buildings including the hostel and car parks are alcohol-free.\n\nPenalty: First offense — Immediate suspension and mandatory counselling. Second offense — Dismissal.\n\nThe same prohibition applies to drugs and smoking. All university buildings are designated smoke-free for all substances.",
+    "keywords": "alcohol, drinking, hostel alcohol, campus alcohol ban, beer, smoking"
+  },
+  {
+    "topic": "general",
+    "question": "What is the drug policy at ACity?",
+    "answer": "ACity has a strict zero-tolerance drug policy:\n• Illegal possession, use, consumption, manufacture, sale or distribution of drugs and drug paraphernalia is PROHIBITED.\n• All university buildings — including the hostel and car parks — are designated smoke-free for all substances including cigarettes and shisha.\n• Violations may result in sanctions AND being reported to law enforcement authorities.\n• 'Drugs' includes stimulants, intoxicants (other than alcohol), nervous system depressants, hallucinogens, and any chemical used to induce an altered state.\n• Drug paraphernalia includes hookahs, grinders, vaporizers, and similar items.\n\nPenalty: Immediate suspension and mandatory counselling for first offense. Dismissal for repeat offenders.",
+    "keywords": "drugs, marijuana, shisha, cigarettes, smoking, drug policy, substance"
+  },
+  {
+    "topic": "exams",
+    "question": "What is plagiarism, collusion and cheating at ACity and what are the consequences?",
+    "answer": "ACity defines academic integrity violations as:\n\n• PLAGIARISM: Using someone else's work without proper citation or attribution — submitting it as your own.\n• COLLUSION: Two or more students submitting individual work that is so similar it could only have occurred by working together on the solution. All parties are equally guilty.\n• CHEATING: One person doing the work and others using that work in their answer. The copier is primarily guilty.\n\nConsequences per the penalty table:\n• First offense: Cancellation of the assignment or exam.\n• Severe or repeated offenses: Suspension.\n\nImportant: Do not leave your work unprotected (physically or digitally) — if others copy it, you may face collusion allegations even if you were not aware.",
+    "keywords": "plagiarism, cheating, collusion, academic integrity, copy, turnitin"
+  },
+  {
+    "topic": "general",
+    "question": "What is the dress code at ACity?",
+    "answer": "ACity Grooming Standards (Academic and Administrative Areas):\n\nFor Men:\n• Shirts: Dress shirts, T-shirts or Lacoste tops allowed (no profane language/images). Business casual required for seminars/presentations.\n• Trousers: Long enough not to reveal skin when seated. Shorts must not be shorter than 2 inches above knee. No tattered jeans or visible underwear.\n• Shoes: Leather shoes, boots, tennis shoes, canvas allowed. Slippers/Slides are NOT allowed.\n\nFor Women: Smart casual and professional attire expected.\n\nGeneral Rules:\n• Sexually provocative or untidy clothing is highly disapproved.\n• Sleepwear/lingerie-type clothing is prohibited in academic/administrative areas.\n• Dress code violations: Student will be asked to leave class. Refusal to comply leads to disciplinary action.",
+    "keywords": "dress code, uniform, what to wear, clothing, grooming standards, appearance"
+  },
+  {
+    "topic": "general",
+    "question": "What clubs and societies are available at ACity?",
+    "answer": "ACity strongly supports extra-curricular activities and student development through clubs and societies. Students have freedom of association, but only clubs approved and recognized by the university at the start of each academic year may use university facilities.\n\nTo establish a club at ACity, a club must:\n• Account for its financial operations per university regulations\n• Submit a certified copy of its constitution and list of officers to the Dean of Students\n• Have a senior university member as its patron\n\nACity has a diverse range of clubs including academic, cultural, sports, entrepreneurship, and technology clubs. For the full current list and guidelines on starting a new club, contact Student Affairs: abena.engmann@acity.edu.gh or visit https://acity.edu.gh/student-life/",
+    "keywords": "clubs, societies, extra-curricular, student activities, associations"
+  },
+  {
+    "topic": "general",
+    "question": "Is there an internship requirement at ACity?",
+    "answer": "Yes. ACity requires all students to complete a mandatory industrial attachment/internship as part of their programme.\n\nKey details:\n• Duration: Typically 2 months\n• Grading: Internship Report = 60% of final grade, Supervisor Evaluation = 40%\n• Students write a report using guidelines from the Career Services department\n• Supervisors are sent an electronic evaluation form\n• Allowances: Companies are free to pay or not pay — ACity has no policy requiring companies to pay interns\n• Location and company selection matters for career development\n\nContact Career Services for placement guidance and report guidelines.",
+    "keywords": "internship, industrial attachment, practical training, work experience, placement"
+  },
+  {
+    "topic": "general",
+    "question": "What are the vision and mission of Academic City University?",
+    "answer": "Vision: To be a world-class center for learning, innovation and entrepreneurship that nurtures future leaders.\n\nMission: To educate future-ready leaders who can innovatively solve complex problems within an ethical, entrepreneurial and collaborative environment.\n\nCore Values:\n• Excellence — Always striving to be the best\n• Innovation — Commitment to new approaches that positively impact society\n• Integrity — Being a tower of ethical direction and leadership\n\nACity's educational philosophy is built around: Contextual Learning (solving real local problems), Experiential Learning (hands-on, workspace-ready), Unified Learning (project-based cross-course approach), and Extensional Learning (real-life toolkit).",
+    "keywords": "vision, mission, values, ACity purpose, core values, philosophy"
+  },
+  {
+    "topic": "registration",
+    "question": "What happens if I register late at ACity?",
+    "answer": "Late registration at ACity:\n• The Academic Board fixes official registration dates, published each semester.\n• A student who fails to register for a course forfeits the opportunity to take it that semester.\n• Registration done after the official date (within a penalty period) will attract a late registration fee determined and published by the university.\n• Failure to register by the end of the penalty period results in the student not being enrolled for that semester.\n\nAlways register on time to avoid losing course slots and incurring fees. Contact registry@acity.edu.gh for registration assistance.",
+    "keywords": "late registration, registration deadline, penalty, missed registration"
+  },
+  {
+    "topic": "general",
+    "question": "What is the student recreational centre at ACity and what are the rules?",
+    "answer": "ACity Student Recreational Centre hours: Monday–Saturday, 9am–10pm. Closed on Sundays.\n\nRules:\n• Facilities must be used responsibly\n• All students have equal rights to the facilities\n• Food and beverages allowed ONLY downstairs\n• Littering is prohibited — dispose of rubbish properly\n• Public Display of Affection (PDA) is strictly prohibited\n• Drugs and alcohol are strictly prohibited\n• Removal of property or furniture by any student is prohibited\n• The boardroom is limited to ACSC and club executive meetings\n• Students will pay for any damage caused to property",
+    "keywords": "recreational centre, gym, facilities, student centre, recreation room"
+  },
+  {
+    "topic": "general",
+    "question": "What are the Academic City Academic Calendar dates for 2025-2026?",
+    "answer": "ACity Academic Calendar 2025-2026:\n\nSemester 1:\n• Registration: Aug 25, 2025 (Level 100 Cohort 1) / Sep 1, 2025\n• Orientation: Sep 1, 2025\n• Teaching Starts: Sep 2, 2025\n• Mid-Semester Assessment: Oct 20, 2025\n• Mid-Term Break: Oct 27, 2025\n• Revision Period: Dec 8, 2025\n• End of Semester Exams: Dec 10, 2025\n• Grade Publication Deadline: Jan 9, 2026\n• Semester End Break: Dec 22, 2025\n\nSemester 2:\n• Registration: Jan 15, 2026\n• Teaching Starts: Jan 13, 2026\n• Mid-Semester Assessment: Mar 2, 2026\n• Mid-Term Break: Mar 9, 2026\n• Revision Period: Apr 20, 2026\n• End of Semester Exams: Apr 21, 2026\n• Grade Publication Deadline: May 22, 2026",
+    "keywords": "academic calendar, semester dates, exam dates, registration dates, 2025 2026"
+  }
+]
