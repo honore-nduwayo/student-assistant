@@ -1,0 +1,692 @@
+[
+  {
+    "_meta": {
+      "file": "acity_qa_sources_reference.json",
+      "purpose": "Master reference file used by Gemini to (1) answer student questions from embedded Q&A pairs, (2) verify answers against live ACity pages via source_urls, and (3) extract fresh data when the knowledge base is missing or outdated.",
+      "instruction_for_gemini": "When answering a student question: (1) Search the 'question' fields below for a match using the 'keywords' field as a relevance guide. (2) If an answer is found, verify it is still accurate by fetching the URL(s) listed in 'source_urls' for that entry. (3) If no matching entry is found, use the 'url_directory' section at the bottom to identify the most relevant URL for the topic and fetch it directly to extract a fresh answer. Never invent ACity-specific data — always ground answers in content fetched from these URLs.",
+      "last_updated": "2025",
+      "institution": "Academic City University College (ACity), Accra, Ghana"
+    }
+  },
+
+  {
+    "id": "gen-001",
+    "topic": "general",
+    "question": "What is Academic City University College (ACity)?",
+    "answer": "Academic City University College (ACity) is a private university located in Accra, Ghana. It focuses on science, technology, engineering, mathematics, business, and communication arts. ACity is known for its industry-aligned curricula, modern campus, and partnerships with global institutions.",
+    "keywords": ["academic city", "acity", "university", "ghana", "accra", "about", "what is"],
+    "source_urls": [
+      "https://acity.edu.gh/",
+      "https://acity.edu.gh/about/",
+      "https://acity.edu.gh/the-acity-advantage/"
+    ]
+  },
+
+  {
+    "id": "gen-002",
+    "topic": "general",
+    "question": "What is the history of Academic City University College?",
+    "answer": "Academic City University College was established to provide world-class higher education in Ghana. It has grown to become one of Ghana's leading private universities with a focus on innovation, entrepreneurship, and technology.",
+    "keywords": ["history", "founded", "established", "background", "when", "origin"],
+    "source_urls": [
+      "https://acity.edu.gh/about/",
+      "https://acity.edu.gh/about/#our-history"
+    ]
+  },
+
+  {
+    "id": "gen-003",
+    "topic": "general",
+    "question": "What is ACity's vision and mission?",
+    "answer": "ACity's vision and mission center on developing ethical, innovative, and globally competitive graduates. The university is committed to transforming Africa through quality education, research, and community engagement.",
+    "keywords": ["vision", "mission", "values", "goals", "purpose", "philosophy"],
+    "source_urls": [
+      "https://acity.edu.gh/about/",
+      "https://acity.edu.gh/about/#vision_and_mission"
+    ]
+  },
+
+  {
+    "id": "gen-004",
+    "topic": "general",
+    "question": "Is ACity accredited?",
+    "answer": "Yes, Academic City University College is accredited by the National Accreditation Board (NAB) of Ghana. Details on accreditation status and recognized programmes are available on the ACity website.",
+    "keywords": ["accredited", "accreditation", "NAB", "recognized", "approved", "legit"],
+    "source_urls": [
+      "https://acity.edu.gh/about/",
+      "https://acity.edu.gh/about/#accreditation"
+    ]
+  },
+
+  {
+    "id": "gen-005",
+    "topic": "general",
+    "question": "Who are ACity's global partners?",
+    "answer": "ACity has partnerships with several international universities, companies, and organizations worldwide. These partnerships support student exchange, research collaboration, and curriculum development.",
+    "keywords": ["partners", "partnerships", "international", "global", "collaboration", "MOU", "exchange"],
+    "source_urls": [
+      "https://acity.edu.gh/about/",
+      "https://acity.edu.gh/about/#global_partners"
+    ]
+  },
+
+  {
+    "id": "gen-006",
+    "topic": "general",
+    "question": "Who leads Academic City University College?",
+    "answer": "ACity is led by its executive team including the Vice-Chancellor and other senior leadership. The Governing Council provides oversight and governance for the institution.",
+    "keywords": ["leadership", "vice chancellor", "president", "rector", "management", "executive", "governing council", "who leads", "administration"],
+    "source_urls": [
+      "https://acity.edu.gh/about/#university-leadership",
+      "https://acity.edu.gh/about/executive-team/",
+      "https://acity.edu.gh/about/governing-council/"
+    ]
+  },
+
+  {
+    "id": "gen-007",
+    "topic": "general",
+    "question": "How can I contact Academic City University College?",
+    "answer": "You can contact ACity through the official contact page on their website. The university has offices for registry, admissions, finance, and student affairs. The general contact email is info@acity.edu.gh and the registry can be reached at registry@acity.edu.gh.",
+    "keywords": ["contact", "phone", "email", "address", "location", "reach", "call", "whatsapp"],
+    "source_urls": [
+      "https://acity.edu.gh/contact-connect/",
+      "https://acity.edu.gh/registry/"
+    ]
+  },
+
+  {
+    "id": "gen-008",
+    "topic": "general",
+    "question": "Where is Academic City University College located?",
+    "answer": "Academic City University College is located in Accra, Ghana. A virtual tour and directions to the campus are available on the ACity website.",
+    "keywords": ["location", "address", "where", "campus", "directions", "map", "how to get there"],
+    "source_urls": [
+      "https://acity.edu.gh/visit/",
+      "https://acity.edu.gh/virtual-tour/",
+      "https://acity.edu.gh/contact-connect/"
+    ]
+  },
+
+  {
+    "id": "gen-009",
+    "topic": "general",
+    "question": "Does ACity have a virtual tour?",
+    "answer": "Yes, ACity offers a virtual tour of the campus on their official website so prospective students can explore the facilities online before visiting.",
+    "keywords": ["virtual tour", "campus tour", "explore campus", "online tour", "3D tour"],
+    "source_urls": [
+      "https://acity.edu.gh/virtual-tour/"
+    ]
+  },
+
+  {
+    "id": "gen-010",
+    "topic": "general",
+    "question": "Does ACity have a student app?",
+    "answer": "Yes, ACity has an official student app called ACity+ (ACityPlus). Students can use it to access academic resources, schedules, announcements, and other student services. Login is available at the ACity+ portal.",
+    "keywords": ["student app", "acity app", "acityplus", "acity+", "mobile app", "app download", "portal app"],
+    "source_urls": [
+      "https://acity.edu.gh/student-app/",
+      "https://acityplus.acity.edu.gh/",
+      "https://acityplus.acity.edu.gh/login"
+    ]
+  },
+
+  {
+    "id": "gen-011",
+    "topic": "general",
+    "question": "What is ACity doing for the community?",
+    "answer": "ACity engages with the community through various initiatives including tech expos, digital learning donations to local schools, and partnerships with government and industry. The university also has a foundation — ACity Foundation — focused on social impact.",
+    "keywords": ["community", "csr", "foundation", "social", "donation", "outreach", "impact", "engagement"],
+    "source_urls": [
+      "https://acity.edu.gh/category/acity-community-engagement/",
+      "https://acity.edu.gh/academic-city-supports-digital-learning-with-donation-to-ga-east-schools/",
+      "https://acity.edu.gh/academic-citys-tech-expo-showcases-innovative-technologies-to-tackle-galamsey/",
+      "https://acityfoundation.org/"
+    ]
+  },
+
+  {
+    "id": "gen-012",
+    "topic": "general",
+    "question": "What is the ACity Foundation?",
+    "answer": "The ACity Foundation is the philanthropic and community impact arm of Academic City University College. It focuses on education, innovation, and development initiatives that benefit Ghanaian society.",
+    "keywords": ["foundation", "acity foundation", "philanthropy", "charity", "social impact", "nonprofit"],
+    "source_urls": [
+      "https://acityfoundation.org/"
+    ]
+  },
+
+  {
+    "id": "gen-013",
+    "topic": "general",
+    "question": "Does ACity have a library?",
+    "answer": "Yes, ACity has a library that provides students and staff with access to academic resources, journals, books, and online databases to support learning and research.",
+    "keywords": ["library", "books", "journals", "resources", "study", "research", "reading room", "database"],
+    "source_urls": [
+      "https://acity.edu.gh/library/"
+    ]
+  },
+
+  {
+    "id": "gen-014",
+    "topic": "general",
+    "question": "Are there job openings at ACity?",
+    "answer": "ACity posts career opportunities for academic and administrative positions on their official careers page. Prospective employees can find current vacancies and application instructions there.",
+    "keywords": ["jobs", "career", "vacancy", "employment", "work at acity", "hiring", "recruitment", "staff"],
+    "source_urls": [
+      "https://acity.edu.gh/careers-at-acity/"
+    ]
+  },
+
+  {
+    "id": "gen-015",
+    "topic": "general",
+    "question": "Does ACity have a newsletter or blog?",
+    "answer": "Yes, ACity publishes The Exponent — its official newsletter — and maintains an active blog with news, events, and university updates.",
+    "keywords": ["newsletter", "blog", "news", "updates", "exponent", "magazine", "press", "media"],
+    "source_urls": [
+      "https://acity.edu.gh/blog/",
+      "https://acity.edu.gh/the-exponent-acity-newsletter/",
+      "https://acity.edu.gh/media-relations/"
+    ]
+  },
+
+  {
+    "id": "gen-016",
+    "topic": "general",
+    "question": "What is ACity's privacy policy?",
+    "answer": "ACity's privacy policy outlines how the university collects, uses, and protects personal data from students, staff, and website visitors. The full policy is available on the ACity website.",
+    "keywords": ["privacy", "data protection", "GDPR", "personal data", "policy", "cookies"],
+    "source_urls": [
+      "https://acity.edu.gh/privacy-policy/"
+    ]
+  },
+
+  {
+    "id": "gen-017",
+    "topic": "general",
+    "question": "What are ACity's social media accounts?",
+    "answer": "ACity is active on multiple social media platforms. You can follow them on Twitter/X (@acitygh), Facebook (acitygh), Instagram (acitygh), LinkedIn, and YouTube for news, events, and updates.",
+    "keywords": ["social media", "twitter", "facebook", "instagram", "linkedin", "youtube", "follow", "x.com"],
+    "source_urls": [
+      "https://twitter.com/acitygh/",
+      "https://x.com/acitygh/",
+      "https://www.facebook.com/acitygh/",
+      "https://www.instagram.com/acitygh/",
+      "https://www.linkedin.com/school/acitygh/",
+      "https://www.youtube.com/channel/UCjPYPiE6JC0pHMbfrqVJ-qQ"
+    ]
+  },
+
+  {
+    "id": "enr-001",
+    "topic": "enrollment",
+    "question": "What undergraduate programmes does ACity offer?",
+    "answer": "ACity offers undergraduate programmes across four faculties: Faculty of Engineering (Computer Engineering, Electrical & Electronics, Mechanical, Biomedical, Robotics Engineering), Faculty of Informatics (Computer Science, Artificial Intelligence, Information Technology), Faculty of Business (BBA Accounting, Marketing, Finance, Entrepreneurship), and Faculty of Communication Arts (Journalism, Advertising & PR).",
+    "keywords": ["undergraduate", "programmes", "courses", "bachelor", "BSc", "BBA", "BA", "degree", "faculty", "engineering", "business", "informatics", "communication"],
+    "source_urls": [
+      "https://acity.edu.gh/undergraduate-programmes/",
+      "https://acity.edu.gh/undergraduate-programmes/#faculty-of-engineering",
+      "https://acity.edu.gh/undergraduate-programmes/#informatics",
+      "https://acity.edu.gh/undergraduate-programmes/#business",
+      "https://acity.edu.gh/undergraduate-programmes/#communication-arts"
+    ]
+  },
+
+  {
+    "id": "enr-002",
+    "topic": "enrollment",
+    "question": "What engineering programmes does ACity offer?",
+    "answer": "ACity's Faculty of Engineering offers BSc programmes in Computer Engineering, Electrical and Electronics Engineering, Mechanical Engineering, Biomedical Engineering, and Robotics Engineering.",
+    "keywords": ["engineering", "computer engineering", "electrical", "mechanical", "biomedical", "robotics", "BSc engineering"],
+    "source_urls": [
+      "https://acity.edu.gh/undergraduate-programmes/",
+      "https://acity.edu.gh/undergraduate-programmes/#faculty-of-engineering"
+    ]
+  },
+
+  {
+    "id": "enr-003",
+    "topic": "enrollment",
+    "question": "What computer science and IT programmes does ACity offer?",
+    "answer": "Under the Faculty of Informatics, ACity offers BSc Computer Science, BSc Artificial Intelligence, and BSc Information Technology.",
+    "keywords": ["computer science", "IT", "information technology", "AI", "artificial intelligence", "informatics", "BSc CS", "software"],
+    "source_urls": [
+      "https://acity.edu.gh/undergraduate-programmes/",
+      "https://acity.edu.gh/undergraduate-programmes/#informatics"
+    ]
+  },
+
+  {
+    "id": "enr-004",
+    "topic": "enrollment",
+    "question": "What business programmes does ACity offer?",
+    "answer": "ACity's Faculty of Business offers BBA programmes in Accounting, Marketing, Banking and Finance, and Entrepreneurship.",
+    "keywords": ["business", "BBA", "accounting", "marketing", "finance", "banking", "entrepreneurship", "management"],
+    "source_urls": [
+      "https://acity.edu.gh/undergraduate-programmes/",
+      "https://acity.edu.gh/undergraduate-programmes/#business"
+    ]
+  },
+
+  {
+    "id": "enr-005",
+    "topic": "enrollment",
+    "question": "What communication arts programmes does ACity offer?",
+    "answer": "ACity's Faculty of Communication Arts offers BA Journalism and Mass Communication, and BA Advertising and Public Relations.",
+    "keywords": ["communication", "journalism", "mass comm", "advertising", "PR", "public relations", "media", "BA"],
+    "source_urls": [
+      "https://acity.edu.gh/undergraduate-programmes/",
+      "https://acity.edu.gh/undergraduate-programmes/#communication-arts"
+    ]
+  },
+
+  {
+    "id": "enr-006",
+    "topic": "enrollment",
+    "question": "Does ACity offer graduate programmes?",
+    "answer": "Yes, ACity offers graduate programmes including MSc Cybersecurity and MSc Data Science and Analytics. More details are on the graduate programmes page.",
+    "keywords": ["graduate", "postgraduate", "masters", "MSc", "MBA", "PhD", "graduate school"],
+    "source_urls": [
+      "https://acity.edu.gh/graduate-programmes/",
+      "https://acity.edu.gh/graduate-programmes/#graduate-programmes"
+    ]
+  },
+
+  {
+    "id": "enr-007",
+    "topic": "enrollment",
+    "question": "Does ACity offer professional certificate programmes?",
+    "answer": "Yes, ACity offers short professional certificate programmes for working professionals and industry practitioners. Details are on the professional certificate programmes page.",
+    "keywords": ["certificate", "professional", "short course", "diploma", "CPD", "continuing education"],
+    "source_urls": [
+      "https://acity.edu.gh/professional-certificate-programmes/"
+    ]
+  },
+
+  {
+    "id": "enr-008",
+    "topic": "enrollment",
+    "question": "How do I enroll for courses or change my course at ACity?",
+    "answer": "Course enrollment and changes are handled through the Registry and the ACity+ student portal. Contact the registry or your Head of Department (HoD) for guidance on adding, dropping, or changing courses.",
+    "keywords": ["enroll", "enrollment", "add course", "drop course", "change course", "change major", "timetable", "schedule", "portal", "HoD"],
+    "source_urls": [
+      "https://acity.edu.gh/registry/",
+      "https://acityplus.acity.edu.gh/login",
+      "https://acity.edu.gh/academic-resources/"
+    ]
+  },
+
+  {
+    "id": "reg-001",
+    "topic": "registration",
+    "question": "What are the entry requirements to apply to ACity?",
+    "answer": "ACity requires applicants to have completed senior secondary school (WASSCE/SSSCE) with passes in relevant subjects. Specific requirements vary by programme. International qualifications such as A-Levels, IB, and SAT are also accepted.",
+    "keywords": ["entry requirements", "admission requirements", "WASSCE", "SSSCE", "A levels", "IB", "qualification", "eligibility", "apply"],
+    "source_urls": [
+      "https://acity.edu.gh/entry-requirements/",
+      "https://admissions.acity.edu.gh/undergraduate"
+    ]
+  },
+
+  {
+    "id": "reg-002",
+    "topic": "registration",
+    "question": "How do I apply to Academic City University College?",
+    "answer": "You can start your application online through the ACity admissions portal at admissions.acity.edu.gh. The application process involves filling out the online form, submitting required documents, and paying the application fee.",
+    "keywords": ["apply", "application", "how to apply", "admission", "apply online", "admissions portal", "form"],
+    "source_urls": [
+      "https://acity.edu.gh/start-your-application/",
+      "https://admissions.acity.edu.gh/",
+      "https://admissions.acity.edu.gh/undergraduate",
+      "https://acity.edu.gh/entry-requirements/"
+    ]
+  },
+
+  {
+    "id": "reg-003",
+    "topic": "registration",
+    "question": "What does the Registry at ACity handle?",
+    "answer": "The ACity Registry handles student registration, academic records, transcripts, graduation clearance, deferral of admission, verification letters, and other official academic matters. Students can contact the registry at registry@acity.edu.gh.",
+    "keywords": ["registry", "registrar", "registration", "transcript", "clearance", "graduation", "deferral", "verification", "letter", "records"],
+    "source_urls": [
+      "https://acity.edu.gh/registry/"
+    ]
+  },
+
+  {
+    "id": "reg-004",
+    "topic": "registration",
+    "question": "How do I register as a new student at ACity?",
+    "answer": "New student registration at ACity is done through the ACity+ student portal. Students receive registration details after accepting their admission offer. The Registry oversees the process.",
+    "keywords": ["new student", "register", "registration", "cohort", "intake", "onboarding", "matriculation", "student ID", "portal login"],
+    "source_urls": [
+      "https://acity.edu.gh/registry/",
+      "https://acityplus.acity.edu.gh/login",
+      "https://admissions.acity.edu.gh/undergraduate"
+    ]
+  },
+
+  {
+    "id": "fees-001",
+    "topic": "fees",
+    "question": "How much are the fees at ACity?",
+    "answer": "ACity tuition fees vary by programme and year of study. Fees are payable in Ghana Cedis (GHS) or US Dollars (USD). The fees and scholarships page on the official website provides the current fee schedule. Contact the Finance office for the most up-to-date figures.",
+    "keywords": ["fees", "tuition", "cost", "how much", "price", "GHS", "USD", "pay", "payment", "amount"],
+    "source_urls": [
+      "https://acity.edu.gh/fees-scholarships/",
+      "https://acity.edu.gh/finance-billing/"
+    ]
+  },
+
+  {
+    "id": "fees-002",
+    "topic": "fees",
+    "question": "Does ACity offer scholarships?",
+    "answer": "Yes, ACity offers scholarships and financial aid to eligible students. Scholarship types may include merit-based, need-based, and partner scholarships. Details on available scholarships and how to apply are on the fees and scholarships page.",
+    "keywords": ["scholarship", "bursary", "financial aid", "grant", "discount", "free", "sponsored", "merit", "need-based"],
+    "source_urls": [
+      "https://acity.edu.gh/fees-scholarships/"
+    ]
+  },
+
+  {
+    "id": "fees-003",
+    "topic": "fees",
+    "question": "How do I pay my fees at ACity?",
+    "answer": "ACity fees can be paid through the Finance and Billing office. Payment options include bank transfer, mobile money, and other approved channels. Contact the finance office or visit the finance-billing page for payment procedures.",
+    "keywords": ["pay fees", "payment", "how to pay", "bank transfer", "mobile money", "momo", "receipt", "billing", "finance office"],
+    "source_urls": [
+      "https://acity.edu.gh/finance-billing/"
+    ]
+  },
+
+  {
+    "id": "exams-001",
+    "topic": "exams",
+    "question": "Where can I find ACity's academic resources, exam schedules, and timetables?",
+    "answer": "Academic resources including exam timetables, past questions, and academic calendars are available on the academic resources page and via the ACity+ student portal.",
+    "keywords": ["exam", "timetable", "schedule", "academic calendar", "past questions", "resources", "semester", "dates"],
+    "source_urls": [
+      "https://acity.edu.gh/academic-resources/",
+      "https://acityplus.acity.edu.gh/login"
+    ]
+  },
+
+  {
+    "id": "exams-002",
+    "topic": "exams",
+    "question": "How do I check my exam results or grades at ACity?",
+    "answer": "Students can check their exam results and grades through the ACity+ student portal. Transcripts and official grade reports are issued by the Registry.",
+    "keywords": ["results", "grades", "GPA", "CGPA", "transcript", "check results", "academic standing", "grade report"],
+    "source_urls": [
+      "https://acityplus.acity.edu.gh/login",
+      "https://acity.edu.gh/registry/"
+    ]
+  },
+
+  {
+    "id": "hostel-001",
+    "topic": "hostel",
+    "question": "Does ACity have on-campus accommodation or hostels?",
+    "answer": "ACity provides student accommodation and housing information through the student life section of their website. Students can find details about on-campus and affiliated housing options.",
+    "keywords": ["hostel", "accommodation", "housing", "room", "dormitory", "dorm", "on campus", "residential", "stay", "bed"],
+    "source_urls": [
+      "https://acity.edu.gh/student-life/",
+      "https://acity.edu.gh/student-life/#aclife"
+    ]
+  },
+
+  {
+    "id": "hostel-002",
+    "topic": "hostel",
+    "question": "Does ACity have a dining hall or meal plans?",
+    "answer": "Yes, ACity offers dining facilities and meal plan options for students. Details on available meal plans, pricing, and dining hours are on the dining and meal plans page.",
+    "keywords": ["dining", "food", "canteen", "cafeteria", "meal plan", "lunch", "breakfast", "dinner", "eat"],
+    "source_urls": [
+      "https://acity.edu.gh/student-life/dining-meal-plans/"
+    ]
+  },
+
+  {
+    "id": "hostel-003",
+    "topic": "hostel",
+    "question": "What health and wellness services does ACity offer students?",
+    "answer": "ACity provides health and wellness services for students including a clinic or health center on campus. Details are on the student life health and wellness page.",
+    "keywords": ["health", "wellness", "clinic", "doctor", "sick", "nurse", "mental health", "counseling", "hospital"],
+    "source_urls": [
+      "https://acity.edu.gh/student-life/",
+      "https://acity.edu.gh/student-life/#health_&_wellness"
+    ]
+  },
+
+  {
+    "id": "hostel-004",
+    "topic": "hostel",
+    "question": "What sports and recreation facilities does ACity have?",
+    "answer": "ACity has sports and recreation facilities for students including sports courts and recreational areas. Details are available on the student life sports and recreation section.",
+    "keywords": ["sports", "recreation", "gym", "football", "basketball", "tennis", "exercise", "fitness", "field", "athletics"],
+    "source_urls": [
+      "https://acity.edu.gh/student-life/",
+      "https://acity.edu.gh/student-life/#sports_and_recreation"
+    ]
+  },
+
+  {
+    "id": "hostel-005",
+    "topic": "hostel",
+    "question": "What student clubs and societies are available at ACity?",
+    "answer": "ACity has a vibrant student life with numerous clubs and societies covering technology, business, arts, culture, and social activities. Details are on the student life clubs page.",
+    "keywords": ["clubs", "societies", "student activities", "extracurricular", "associations", "groups", "SRC", "NUGS"],
+    "source_urls": [
+      "https://acity.edu.gh/student-life/",
+      "https://acity.edu.gh/student-life/#clubs_at_acity"
+    ]
+  },
+
+  {
+    "id": "hostel-006",
+    "topic": "hostel",
+    "question": "What is the ACity Student Council?",
+    "answer": "The Academic City Student Council (ACSC) is the student representative body at ACity. It advocates for student welfare, organizes events, and serves as a bridge between students and university administration.",
+    "keywords": ["student council", "SRC", "ACSC", "student government", "student union", "representative"],
+    "source_urls": [
+      "https://acity.edu.gh/student-life/",
+      "https://acity.edu.gh/student-life/#academic_city_student_council"
+    ]
+  },
+
+  {
+    "id": "general-018",
+    "topic": "general",
+    "question": "What career services does ACity offer?",
+    "answer": "ACity offers career services to help students with internship placements, job readiness, CV writing, interview preparation, and connections to industry. Details are on the career services page.",
+    "keywords": ["career", "internship", "job", "placement", "CV", "resume", "employment", "industry", "career services"],
+    "source_urls": [
+      "https://acity.edu.gh/student-life/career-services/"
+    ]
+  },
+
+  {
+    "id": "general-019",
+    "topic": "general",
+    "question": "What innovations and tech initiatives has ACity been involved in?",
+    "answer": "ACity regularly organizes tech expos and innovation events. Students and staff work on research projects tackling real-world problems including environmental issues like galamsey. Visit the blog and innovation category pages for recent updates.",
+    "keywords": ["innovation", "tech expo", "research", "project", "galamsey", "startups", "technology", "hackathon"],
+    "source_urls": [
+      "https://acity.edu.gh/category/acity-innovates/",
+      "https://acity.edu.gh/academic-citys-tech-expo-showcases-innovative-technologies-to-tackle-galamsey/",
+      "https://acity.edu.gh/blog/"
+    ]
+  },
+
+  {
+    "id": "general-020",
+    "topic": "general",
+    "question": "Has ACity received any awards or recognition for its leadership?",
+    "answer": "Yes, ACity's leadership has been recognized internationally. For example, Professor McBagonluri was named among Africa's top education leaders. Details are on the university news page.",
+    "keywords": ["award", "recognition", "ranked", "ranking", "mcbagonluri", "top", "best university", "achievement"],
+    "source_urls": [
+      "https://acity.edu.gh/prof-mcbagonluri-named-among-africas-top-education-leaders/",
+      "https://acity.edu.gh/blog/"
+    ]
+  },
+
+  {
+    "id": "general-021",
+    "topic": "general",
+    "question": "Has ACity engaged with any foreign ambassadors or governments?",
+    "answer": "Yes, ACity has engaged with ambassadors from countries including Japan, South Korea, and Mozambique, strengthening global ties and international partnerships.",
+    "keywords": ["ambassador", "diplomacy", "international relations", "Japan", "Korea", "Mozambique", "government", "collaboration", "global ties"],
+    "source_urls": [
+      "https://acity.edu.gh/strengthening-global-ties-academic-city-engages-ambassadors-of-japan-korea-and-mozambique/"
+    ]
+  },
+
+  {
+    "id": "general-022",
+    "topic": "general",
+    "question": "Where can I find the ACity staff directory?",
+    "answer": "The ACity staff directory listing faculty and administrative staff is available on the official website.",
+    "keywords": ["staff", "directory", "faculty", "lecturer", "professor", "teacher", "find staff", "staff list"],
+    "source_urls": [
+      "https://acity.edu.gh/academic-city-staff-directory/"
+    ]
+  },
+
+  {
+    "id": "general-023",
+    "topic": "general",
+    "question": "Is there a student corner or student resources page at ACity?",
+    "answer": "Yes, ACity has a student corner page with resources, links, and information specifically for currently enrolled students.",
+    "keywords": ["student corner", "student resources", "student page", "student portal", "student area"],
+    "source_urls": [
+      "https://acity.edu.gh/student-corner/",
+      "https://acity.edu.gh/student-app/"
+    ]
+  },
+
+  {
+    "id": "general-024",
+    "topic": "general",
+    "question": "Is there a staff corner at ACity?",
+    "answer": "Yes, ACity has a staff corner page with resources and information for ACity staff members.",
+    "keywords": ["staff corner", "staff resources", "staff portal", "faculty resources"],
+    "source_urls": [
+      "https://acity.edu.gh/staff-corner/"
+    ]
+  },
+
+  {
+    "id": "general-025",
+    "topic": "general",
+    "question": "What community categories and news topics does ACity cover?",
+    "answer": "ACity's blog and news section covers categories including ACity Collaborates, ACity Innovates, ACity Community Engagement, and ACity Shine — highlighting student achievements, partnerships, and events.",
+    "keywords": ["news", "blog", "collaborates", "innovates", "community", "shine", "acity news", "events", "announcement"],
+    "source_urls": [
+      "https://acity.edu.gh/blog/",
+      "https://acity.edu.gh/category/acity-collaborates/",
+      "https://acity.edu.gh/category/acity-community-engagement/",
+      "https://acity.edu.gh/category/acity-innovates/",
+      "https://acity.edu.gh/category/acity-shine/"
+    ]
+  },
+
+  {
+    "_url_directory": {
+      "description": "This section is a direct map of all ACity-related URLs by topic. Gemini MUST use these URLs to fetch live content whenever a student question cannot be answered from the Q&A pairs above. Prioritize the most specific URL for the topic.",
+      "general": [
+        "https://acity.edu.gh/",
+        "https://acity.edu.gh/about/",
+        "https://acity.edu.gh/about/#our-history",
+        "https://acity.edu.gh/about/#vision_and_mission",
+        "https://acity.edu.gh/about/#accreditation",
+        "https://acity.edu.gh/about/#global_partners",
+        "https://acity.edu.gh/about/#university-leadership",
+        "https://acity.edu.gh/about/executive-team/",
+        "https://acity.edu.gh/about/governing-council/",
+        "https://acity.edu.gh/academic-city-staff-directory/",
+        "https://acity.edu.gh/the-acity-advantage/",
+        "https://acity.edu.gh/contact-connect/",
+        "https://acity.edu.gh/visit/",
+        "https://acity.edu.gh/virtual-tour/",
+        "https://acity.edu.gh/library/",
+        "https://acity.edu.gh/careers-at-acity/",
+        "https://acity.edu.gh/media-relations/",
+        "https://acity.edu.gh/privacy-policy/",
+        "https://acity.edu.gh/blog/",
+        "https://acity.edu.gh/the-exponent-acity-newsletter/",
+        "https://acity.edu.gh/author/blogeditor/",
+        "https://acity.edu.gh/category/acity-collaborates/",
+        "https://acity.edu.gh/category/acity-community-engagement/",
+        "https://acity.edu.gh/category/acity-innovates/",
+        "https://acity.edu.gh/category/acity-shine/",
+        "https://acity.edu.gh/staff-corner/",
+        "https://acity.edu.gh/student-corner/",
+        "https://acity.edu.gh/student-app/",
+        "https://acity.edu.gh/academic-city-supports-digital-learning-with-donation-to-ga-east-schools/",
+        "https://acity.edu.gh/academic-citys-tech-expo-showcases-innovative-technologies-to-tackle-galamsey/",
+        "https://acity.edu.gh/prof-mcbagonluri-named-among-africas-top-education-leaders/",
+        "https://acity.edu.gh/strengthening-global-ties-academic-city-engages-ambassadors-of-japan-korea-and-mozambique/",
+        "https://acityfoundation.org/"
+      ],
+      "enrollment": [
+        "https://acity.edu.gh/undergraduate-programmes/",
+        "https://acity.edu.gh/undergraduate-programmes/#faculty-of-engineering",
+        "https://acity.edu.gh/undergraduate-programmes/#informatics",
+        "https://acity.edu.gh/undergraduate-programmes/#business",
+        "https://acity.edu.gh/undergraduate-programmes/#communication-arts",
+        "https://acity.edu.gh/graduate-programmes/",
+        "https://acity.edu.gh/graduate-programmes/#graduate-programmes",
+        "https://acity.edu.gh/professional-certificate-programmes/",
+        "https://acity.edu.gh/academic-resources/",
+        "https://acityplus.acity.edu.gh/login"
+      ],
+      "registration": [
+        "https://acity.edu.gh/entry-requirements/",
+        "https://acity.edu.gh/start-your-application/",
+        "https://acity.edu.gh/registry/",
+        "https://admissions.acity.edu.gh/",
+        "https://admissions.acity.edu.gh/undergraduate",
+        "https://acityplus.acity.edu.gh/",
+        "https://acityplus.acity.edu.gh/login"
+      ],
+      "fees": [
+        "https://acity.edu.gh/fees-scholarships/",
+        "https://acity.edu.gh/finance-billing/"
+      ],
+      "exams": [
+        "https://acity.edu.gh/academic-resources/",
+        "https://acityplus.acity.edu.gh/login",
+        "https://acity.edu.gh/registry/"
+      ],
+      "hostel": [
+        "https://acity.edu.gh/student-life/",
+        "https://acity.edu.gh/student-life/#aclife",
+        "https://acity.edu.gh/student-life/#health_&_wellness",
+        "https://acity.edu.gh/student-life/#sports_and_recreation",
+        "https://acity.edu.gh/student-life/#clubs_at_acity",
+        "https://acity.edu.gh/student-life/#academic_city_student_council",
+        "https://acity.edu.gh/student-life/#student_commitment",
+        "https://acity.edu.gh/student-life/dining-meal-plans/",
+        "https://acity.edu.gh/student-life/career-services/"
+      ],
+      "social_media": [
+        "https://twitter.com/acitygh/",
+        "https://x.com/acitygh/",
+        "https://www.facebook.com/acitygh/",
+        "https://www.instagram.com/acitygh/",
+        "https://www.linkedin.com/school/acitygh/",
+        "https://www.youtube.com/channel/UCjPYPiE6JC0pHMbfrqVJ-qQ"
+      ],
+      "platforms": [
+        "https://acityplus.acity.edu.gh/",
+        "https://acityplus.acity.edu.gh/login",
+        "https://admissions.acity.edu.gh/",
+        "https://admissions.acity.edu.gh/undergraduate",
+        "https://acityfoundation.org/"
+      ]
+    }
+  }
+]
