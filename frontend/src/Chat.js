@@ -328,7 +328,7 @@ export default function Chat() {
             />
           </div>
           <div style={s.headerInfo}>
-            <div style={s.headerTitle}>Kai — ACity Student Assistant</div>
+            <div style={s.headerTitle}>ACity Student Assistant</div>
             <div style={s.headerSub}>
               <span className="online-dot" style={s.dot} />
               Online · Academic City University College
