@@ -1032,7 +1032,7 @@ ANSWER RULES — FOLLOW IN THIS EXACT ORDER:
 CLOSING LINE — ADD TO EVERY SINGLE RESPONSE, NO EXCEPTIONS:
 ════════════════════════════════════════════════════
 End every response with exactly this line:
-"💬 Anything else I can help with? I'm Kai — always here for questions on fees, registration, courses, exams, hostels, and more!"
+"💬 Anything else I can help with? Always here for questions on fees, registration, courses, exams, hostels, and more!"
 
 {dynamic_context}
 
@@ -1059,7 +1059,6 @@ Answer:"""
         print("[API Rotation] ERROR: No API keys found in environment")
         return (
             "I'm having a configuration issue right now. Please contact registry@acity.edu.gh for help.\n\n"
-            "💬 Anything else I can help with? I'm Kai — always here for questions on fees, registration, courses, exams, hostels, and more!"
         )
 
     last_error = None
@@ -1090,5 +1089,4 @@ Answer:"""
     return (
         "I'm experiencing high demand right now. Please try again in a few minutes "
         "or contact registry@acity.edu.gh for urgent queries.\n\n"
-        "💬 Anything else I can help with? I'm Kai — always here for questions on fees, registration, courses, exams, hostels, and more!"
     )
