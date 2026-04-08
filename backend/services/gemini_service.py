@@ -1051,7 +1051,7 @@ Answer:"""
 
     # 7. Try each API key in rotation — ALL errors continue to next key
     keys = get_api_keys()
-    model = os.getenv("GEMINI_MODEL", "gemini-3.1-flash-lite")
+    model = os.getenv("GEMINI_MODEL", "gemini-2.5-flash")
 
     print(f"[API Rotation] {len(keys)} key(s) available — model: {model}")
 
