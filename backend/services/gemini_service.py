@@ -1,17 +1,3 @@
-"""
-gemini_service.py  —  ACity Student Assistant AI layer
-=======================================================
-FIX: Changed default model from the invalid 'gemini-3.1-flash-lite-preview'
-     to the real 'gemini-2.0-flash-lite'.  The old name caused every API key
-     to return 400 FAILED_PRECONDITION ("User location not supported") which
-     is Google's generic error for an unrecognised model string.
-
-VALID FREE-TIER MODELS (as of 2025-2026):
-  gemini-2.0-flash-lite       ← default, fastest, cheapest
-  gemini-2.0-flash            ← smarter, still free-tier
-  gemini-1.5-flash            ← fallback option
-  gemini-1.5-flash-8b         ← smallest / cheapest
-"""
 
 import os
 import time
@@ -48,7 +34,7 @@ def test_all_keys():
     Logs results to stdout so they appear in Render logs.
     """
     keys = get_api_keys()
-    model = os.getenv("GEMINI_MODEL", "gemini-2.0-flash-lite")
+    model = os.getenv("GEMINI_MODEL", "gemini-3.1-flash-lite-preview")
     results = []
     print(f"\n[Key Tester] Testing {len(keys)} key(s) against model: {model}")
     for i, key in enumerate(keys, 1):
@@ -356,7 +342,7 @@ Kai:"""
 
     keys = get_api_keys()
     # ── THE FIX: use the real model name ──────────────────────
-    model = os.getenv("GEMINI_MODEL", "gemini-2.0-flash-lite")
+    model = os.getenv("GEMINI_MODEL", "gemini-3.1-flash-lite-preview")
 
     print(f"[API Rotation] {len(keys)} key(s) — model: {model}")
 
