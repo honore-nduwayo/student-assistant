@@ -334,10 +334,7 @@ Kai:"""
             client = genai.Client(api_key=key)
             response = client.models.generate_content(
                 model=model,
-                contents=prompt,
-                config=types.GenerateContentConfig(
-                    thinking_config=types.ThinkingConfig(thinking_level="none")
-                )
+                contents=prompt
             )
             print(f"[API Rotation] Key {i} succeeded ✅")
             return response.text
