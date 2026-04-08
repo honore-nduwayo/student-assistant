@@ -320,7 +320,7 @@ Student: {question}
 Kai:"""
 
     keys = get_api_keys()
-    model = os.getenv("GEMINI_MODEL", "gemini-2.0-flash-lite")
+    model = os.getenv("GEMINI_MODEL", "gemini-3.1-flash-lite-preview")
 
     print(f"[API Rotation] {len(keys)} key(s) — model: {model}")
 
@@ -340,10 +340,30 @@ Kai:"""
             return response.text
         except Exception as e:
             last_error = e
-            print(f"[API Rotation] Key {i} failed: {str(e)[:200]}")
+            error_str = str(e)
+            
+            # Better error diagnostics
+            if "limit: 0" in error_str:
+                print(f"[API Rotation] Key {i} CRITICAL: Zero quota — key has no allocation")
+            elif "429" in error_str or "RESOURCE_EXHAUSTED" in error_str:
+                print(f"[API Rotation] Key {i} failed: Rate limited or quota exceeded")
+            elif "401" in error_str or "UNAUTHENTICATED" in error_str:
+                print(f"[API Rotation] Key {i} failed: Invalid/expired key")
+            elif "403" in error_str or "PERMISSION_DENIED" in error_str:
+                print(f"[API Rotation] Key {i} failed: API not enabled in project")
+            else:
+                print(f"[API Rotation] Key {i} failed: {error_str[:200]}")
             continue
 
     print(f"[API Rotation] All {len(keys)} key(s) exhausted. Last error: {last_error}")
+    
+    # Better error message based on error type
+    if last_error and "limit: 0" in str(last_error):
+        return (
+            "⚠️ My API keys have run out of quota. This is a billing/configuration issue. "
+            "Please contact the system administrator or registry@acity.edu.gh for urgent queries."
+        )
+    
     return (
         "I'm experiencing high demand right now. Please try again in a few minutes "
         "or contact registry@acity.edu.gh for urgent queries."
