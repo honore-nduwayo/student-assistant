@@ -28,37 +28,11 @@ def get_api_keys():
 # ─────────────────────────────────────────────────────────────
 # ACADEMIC CALENDAR — DYNAMIC (Firestore) WITH HARDCODED FALLBACK
 #
-# HOW IT WORKS:
-#   1. On first call, try to load the calendar from the Firestore
-#      document: settings/academic_calendar
-#   2. Cache the result for CALENDAR_CACHE_TTL seconds (6 hours)
-#      so we don't hit Firestore on every request.
-#   3. If Firestore is unavailable or the document doesn't exist,
-#      fall back to FALLBACK_CALENDAR automatically.
-#
 # HOW ADMINS UPDATE IT (no code change needed):
 #   In Firebase Console → Firestore → settings → academic_calendar
-#   set these fields:
-#
-#     semester_1_start  : "2026-09-01"
-#     semester_1_end    : "2026-12-20"
-#     semester_2_start  : "2027-01-12"
-#     semester_2_end    : "2027-05-10"
-#     exam_1_start      : "2026-12-08"
-#     exam_1_end        : "2026-12-20"
-#     exam_2_start      : "2027-04-27"
-#     exam_2_end        : "2027-05-10"
-#     break_start       : "2026-12-21"
-#     break_end         : "2027-01-11"
-#     academic_year     : "2026–2027"
-#     semester_2_label_end : "May 10, 2027"
-#     exam_2_label      : "April 27 – May 10, 2027"
-#
-#   The bot picks up the new dates within 6 hours automatically,
-#   or immediately if you restart the server.
-#
-# FALLBACK_CALENDAR is only used when Firestore is unreachable.
-# Update it once per year as a safety net.
+#   set fields: semester_1_start, semester_1_end, semester_2_start,
+#   semester_2_end, exam_1_start, exam_1_end, exam_2_start, exam_2_end,
+#   break_start, break_end, academic_year, semester_2_label_end, exam_2_label
 # ─────────────────────────────────────────────────────────────
 
 FALLBACK_CALENDAR = {
@@ -77,23 +51,16 @@ FALLBACK_CALENDAR = {
     "exam_2_label":          "April 27 – May 10, 2026",
 }
 
-CALENDAR_CACHE_TTL = 21600  # 6 hours — same as KB cache
+CALENDAR_CACHE_TTL = 21600  # 6 hours
 _calendar_cache: dict | None = None
 _calendar_cache_ts: float = 0.0
 
 
 def get_academic_calendar() -> dict:
-    """
-    Returns the academic calendar dict.
-    Tries Firestore first (cached for 6 hours), falls back to
-    FALLBACK_CALENDAR if unavailable.
-    """
     global _calendar_cache, _calendar_cache_ts
-
     now = time.time()
     if _calendar_cache and (now - _calendar_cache_ts) < CALENDAR_CACHE_TTL:
         return _calendar_cache
-
     try:
         from services.database import db
         doc = db.collection("settings").document("academic_calendar").get()
@@ -102,22 +69,17 @@ def get_academic_calendar() -> dict:
             required = [
                 "semester_1_start", "semester_1_end",
                 "semester_2_start", "semester_2_end",
-                "exam_1_start",     "exam_1_end",
-                "exam_2_start",     "exam_2_end",
-                "break_start",      "break_end",
+                "exam_1_start", "exam_1_end",
+                "exam_2_start", "exam_2_end",
+                "break_start", "break_end",
             ]
             if all(k in data for k in required):
                 _calendar_cache = data
                 _calendar_cache_ts = now
                 print("[Calendar] Loaded from Firestore ✅")
                 return _calendar_cache
-            else:
-                print("[Calendar] Firestore doc incomplete — using fallback")
-        else:
-            print("[Calendar] Firestore doc not found — using fallback")
     except Exception as e:
         print(f"[Calendar] Firestore error ({e}) — using fallback")
-
     _calendar_cache = FALLBACK_CALENDAR
     _calendar_cache_ts = now
     return _calendar_cache
@@ -147,683 +109,63 @@ def _detect_current_period(now: datetime, cal: dict) -> str:
 # ─────────────────────────────────────────────────────────────
 
 KEYWORD_URL_MAP = [
-
-    # ── ABOUT / GENERAL ──────────────────────────────────────
-    {
-        "label": "about_general",
-        "keywords": [
-            "about", "what is acity", "academic city", "overview",
-            "who is", "tell me about", "acity university",
-            "advantage", "why acity", "unique", "special"
-        ],
-        "urls": [
-            "https://acity.edu.gh/",
-            "https://acity.edu.gh/about/",
-            "https://acity.edu.gh/the-acity-advantage/",
-        ]
-    },
-
-    # ── HISTORY ──────────────────────────────────────────────
-    {
-        "label": "history",
-        "keywords": [
-            "history", "founded", "established", "origin",
-            "when was", "how old", "started", "creation", "our history"
-        ],
-        "urls": [
-            "https://acity.edu.gh/about/",
-            "https://acity.edu.gh/about/#our-history",
-        ]
-    },
-
-    # ── VISION & MISSION ─────────────────────────────────────
-    {
-        "label": "vision_mission",
-        "keywords": [
-            "vision", "mission", "values", "goals", "purpose",
-            "philosophy", "objective", "mandate", "commitment"
-        ],
-        "urls": [
-            "https://acity.edu.gh/about/",
-            "https://acity.edu.gh/about/#vision_and_mission",
-        ]
-    },
-
-    # ── ACCREDITATION ────────────────────────────────────────
-    {
-        "label": "accreditation",
-        "keywords": [
-            "accredited", "accreditation", "nab", "recognized",
-            "approved", "legitimate", "legit", "certified",
-            "national accreditation", "valid degree", "is acity accredited"
-        ],
-        "urls": [
-            "https://acity.edu.gh/about/",
-            "https://acity.edu.gh/about/#accreditation",
-        ]
-    },
-
-    # ── GLOBAL PARTNERS ──────────────────────────────────────
-    {
-        "label": "global_partners",
-        "keywords": [
-            "partners", "partnerships", "international", "global",
-            "collaboration", "mou", "exchange", "affiliate",
-            "foreign university", "sister school"
-        ],
-        "urls": [
-            "https://acity.edu.gh/about/",
-            "https://acity.edu.gh/about/#global_partners",
-        ]
-    },
-
-    # ── LEADERSHIP / GOVERNANCE ──────────────────────────────
-    {
-        "label": "leadership",
-        "keywords": [
-            "leadership", "vice chancellor", "vc", "president",
-            "rector", "management", "executive", "governing council",
-            "who leads", "administration", "head", "chancellor",
-            "mcbagonluri", "provost", "dean", "director", "executive team"
-        ],
-        "urls": [
-            "https://acity.edu.gh/about/#university-leadership",
-            "https://acity.edu.gh/about/executive-team/",
-            "https://acity.edu.gh/about/governing-council/",
-            "https://acity.edu.gh/prof-mcbagonluri-named-among-africas-top-education-leaders/",
-        ]
-    },
-
-    # ── CONTACT ──────────────────────────────────────────────
-    {
-        "label": "contact",
-        "keywords": [
-            "contact", "phone", "email", "reach", "call",
-            "whatsapp", "helpdesk", "support", "inquire",
-            "enquire", "get in touch", "office hours", "telephone"
-        ],
-        "urls": [
-            "https://acity.edu.gh/contact-connect/",
-            "https://acity.edu.gh/registry/",
-        ]
-    },
-
-    # ── LOCATION / VISIT / CAMPUS ────────────────────────────
-    {
-        "label": "location_visit",
-        "keywords": [
-            "location", "where is", "address", "campus", "directions",
-            "map", "how to get", "visit", "find acity", "landmark",
-            "near", "east legon", "accra", "haatso"
-        ],
-        "urls": [
-            "https://acity.edu.gh/visit/",
-            "https://acity.edu.gh/virtual-tour/",
-            "https://acity.edu.gh/contact-connect/",
-        ]
-    },
-
-    # ── VIRTUAL TOUR ─────────────────────────────────────────
-    {
-        "label": "virtual_tour",
-        "keywords": [
-            "virtual tour", "campus tour", "explore campus",
-            "online tour", "3d tour", "see campus", "view campus"
-        ],
-        "urls": [
-            "https://acity.edu.gh/virtual-tour/",
-        ]
-    },
-
-    # ── STUDENT APP / ACITYPLUS ──────────────────────────────
-    {
-        "label": "student_app",
-        "keywords": [
-            "student app", "acity app", "acityplus", "acity+",
-            "mobile app", "app download", "portal app", "student portal",
-            "online portal", "acityplus login", "acity plus", "login portal"
-        ],
-        "urls": [
-            "https://acity.edu.gh/student-app/",
-            "https://acityplus.acity.edu.gh/",
-            "https://acityplus.acity.edu.gh/login",
-        ]
-    },
-
-    # ── LIBRARY ──────────────────────────────────────────────
-    {
-        "label": "library",
-        "keywords": [
-            "library", "books", "journals", "research material",
-            "database", "e-library", "reading room", "borrow", "lending"
-        ],
-        "urls": [
-            "https://acity.edu.gh/library/",
-            "https://acity.edu.gh/academic-resources/",
-        ]
-    },
-
-    # ── CAREERS AT ACITY (JOBS) ──────────────────────────────
-    {
-        "label": "careers_jobs",
-        "keywords": [
-            "job", "jobs", "career", "vacancy", "vacancies",
-            "employment", "work at acity", "hiring", "recruitment",
-            "staff position", "lecturer position", "apply for job"
-        ],
-        "urls": [
-            "https://acity.edu.gh/careers-at-acity/",
-        ]
-    },
-
-    # ── MEDIA / NEWSLETTER / BLOG ────────────────────────────
-    {
-        "label": "media_news",
-        "keywords": [
-            "newsletter", "blog", "news", "updates", "exponent",
-            "magazine", "press", "media", "announcement",
-            "latest news", "articles", "publications"
-        ],
-        "urls": [
-            "https://acity.edu.gh/blog/",
-            "https://acity.edu.gh/the-exponent-acity-newsletter/",
-            "https://acity.edu.gh/media-relations/",
-            "https://acity.edu.gh/author/blogeditor/",
-        ]
-    },
-
-    # ── PRIVACY POLICY ───────────────────────────────────────
-    {
-        "label": "privacy",
-        "keywords": [
-            "privacy", "data protection", "personal data",
-            "policy", "cookies", "gdpr", "information security"
-        ],
-        "urls": [
-            "https://acity.edu.gh/privacy-policy/",
-        ]
-    },
-
-    # ── STAFF DIRECTORY ──────────────────────────────────────
-    {
-        "label": "staff_directory",
-        "keywords": [
-            "staff directory", "staff list", "find staff",
-            "faculty list", "lecturer name", "professor name",
-            "who teaches", "find lecturer", "find professor"
-        ],
-        "urls": [
-            "https://acity.edu.gh/academic-city-staff-directory/",
-        ]
-    },
-
-    # ── STUDENT CORNER / STAFF CORNER ────────────────────────
-    {
-        "label": "student_staff_corner",
-        "keywords": [
-            "student corner", "staff corner", "student resources",
-            "staff resources", "student area", "staff area",
-            "student hub", "resources for students"
-        ],
-        "urls": [
-            "https://acity.edu.gh/student-corner/",
-            "https://acity.edu.gh/staff-corner/",
-        ]
-    },
-
-    # ── COMMUNITY ENGAGEMENT / CSR ───────────────────────────
-    {
-        "label": "community_engagement",
-        "keywords": [
-            "community", "csr", "social responsibility", "donation",
-            "outreach", "impact", "engagement", "schools",
-            "galamsey", "digital learning", "tech expo"
-        ],
-        "urls": [
-            "https://acity.edu.gh/category/acity-community-engagement/",
-            "https://acity.edu.gh/academic-city-supports-digital-learning-with-donation-to-ga-east-schools/",
-            "https://acity.edu.gh/academic-citys-tech-expo-showcases-innovative-technologies-to-tackle-galamsey/",
-        ]
-    },
-
-    # ── ACITY FOUNDATION ─────────────────────────────────────
-    {
-        "label": "acity_foundation",
-        "keywords": [
-            "foundation", "acity foundation", "philanthropy",
-            "charity", "social impact", "nonprofit", "acityfoundation"
-        ],
-        "urls": [
-            "https://acityfoundation.org/",
-        ]
-    },
-
-    # ── INNOVATION / RESEARCH ────────────────────────────────
-    {
-        "label": "innovation_research",
-        "keywords": [
-            "innovation", "innovates", "research", "tech expo",
-            "project", "startup", "hackathon", "invention",
-            "technology initiative", "stem", "acity innovates"
-        ],
-        "urls": [
-            "https://acity.edu.gh/category/acity-innovates/",
-            "https://acity.edu.gh/academic-citys-tech-expo-showcases-innovative-technologies-to-tackle-galamsey/",
-            "https://acity.edu.gh/blog/",
-        ]
-    },
-
-    # ── COLLABORATION NEWS ───────────────────────────────────
-    {
-        "label": "collaboration_news",
-        "keywords": [
-            "collaborates", "collaboration", "partner news",
-            "ambassador", "japan", "korea", "mozambique",
-            "diplomacy", "international relations", "global ties",
-            "mou signed", "agreement"
-        ],
-        "urls": [
-            "https://acity.edu.gh/category/acity-collaborates/",
-            "https://acity.edu.gh/strengthening-global-ties-academic-city-engages-ambassadors-of-japan-korea-and-mozambique/",
-        ]
-    },
-
-    # ── ACITY SHINE (ACHIEVEMENTS) ───────────────────────────
-    {
-        "label": "acity_shine",
-        "keywords": [
-            "shine", "achievement", "award", "recognition",
-            "student achievement", "proud", "honour", "honor",
-            "ranked", "best", "top student", "mcbagonluri award"
-        ],
-        "urls": [
-            "https://acity.edu.gh/category/acity-shine/",
-            "https://acity.edu.gh/prof-mcbagonluri-named-among-africas-top-education-leaders/",
-        ]
-    },
-
-    # ── UNDERGRADUATE PROGRAMMES (OVERVIEW) ──────────────────
-    {
-        "label": "undergraduate_all",
-        "keywords": [
-            "undergraduate", "bachelor", "bsc", "bba", "ba",
-            "degree programme", "4 year", "four year",
-            "what programmes", "what courses", "all programmes",
-            "list of programmes", "available courses", "offered"
-        ],
-        "urls": [
-            "https://acity.edu.gh/undergraduate-programmes/",
-            "https://acity.edu.gh/undergraduate-programmes/#faculty-of-engineering",
-            "https://acity.edu.gh/undergraduate-programmes/#informatics",
-            "https://acity.edu.gh/undergraduate-programmes/#business",
-            "https://acity.edu.gh/undergraduate-programmes/#communication-arts",
-        ]
-    },
-
-    # ── ENGINEERING ──────────────────────────────────────────
-    {
-        "label": "engineering",
-        "keywords": [
-            "engineering", "computer engineering", "electrical engineering",
-            "electronics", "mechanical engineering", "biomedical engineering",
-            "robotics engineering", "bsc engineering", "faculty of engineering",
-            "mechanical", "biomedical", "robotics"
-        ],
-        "urls": [
-            "https://acity.edu.gh/undergraduate-programmes/",
-            "https://acity.edu.gh/undergraduate-programmes/#faculty-of-engineering",
-        ]
-    },
-
-    # ── INFORMATICS / CS / AI / IT ───────────────────────────
-    {
-        "label": "informatics",
-        "keywords": [
-            "computer science", "cs", "information technology", "it",
-            "artificial intelligence", "ai", "informatics",
-            "bsc cs", "bsc it", "bsc ai", "software",
-            "machine learning", "programming degree", "data science"
-        ],
-        "urls": [
-            "https://acity.edu.gh/undergraduate-programmes/",
-            "https://acity.edu.gh/undergraduate-programmes/#informatics",
-        ]
-    },
-
-    # ── BUSINESS ─────────────────────────────────────────────
-    {
-        "label": "business",
-        "keywords": [
-            "business", "bba", "accounting", "marketing",
-            "finance", "banking", "entrepreneurship",
-            "management", "commerce", "faculty of business"
-        ],
-        "urls": [
-            "https://acity.edu.gh/undergraduate-programmes/",
-            "https://acity.edu.gh/undergraduate-programmes/#business",
-        ]
-    },
-
-    # ── COMMUNICATION ARTS ───────────────────────────────────
-    {
-        "label": "communication_arts",
-        "keywords": [
-            "communication", "journalism", "mass communication",
-            "mass comm", "advertising", "public relations", "pr",
-            "media studies", "ba communication", "communication arts"
-        ],
-        "urls": [
-            "https://acity.edu.gh/undergraduate-programmes/",
-            "https://acity.edu.gh/undergraduate-programmes/#communication-arts",
-        ]
-    },
-
-    # ── GRADUATE / POSTGRADUATE ──────────────────────────────
-    {
-        "label": "graduate",
-        "keywords": [
-            "graduate", "postgraduate", "masters", "msc", "mba",
-            "phd", "graduate school", "msc cybersecurity",
-            "msc data science", "data analytics", "graduate programme"
-        ],
-        "urls": [
-            "https://acity.edu.gh/graduate-programmes/",
-            "https://acity.edu.gh/graduate-programmes/#graduate-programmes",
-        ]
-    },
-
-    # ── PROFESSIONAL CERTIFICATES ────────────────────────────
-    {
-        "label": "professional_certificate",
-        "keywords": [
-            "certificate", "professional certificate", "short course",
-            "diploma", "cpd", "continuing education",
-            "professional development", "part time", "evening programme"
-        ],
-        "urls": [
-            "https://acity.edu.gh/professional-certificate-programmes/",
-        ]
-    },
-
-    # ── COURSE ENROLLMENT / TIMETABLE ────────────────────────
-    {
-        "label": "enrollment_courses",
-        "keywords": [
-            "enroll", "enrollment", "add course", "drop course",
-            "change course", "change major", "timetable", "class schedule",
-            "course registration", "hod", "head of department",
-            "credit hours", "units", "elective", "core course"
-        ],
-        "urls": [
-            "https://acity.edu.gh/academic-resources/",
-            "https://acity.edu.gh/registry/",
-            "https://acityplus.acity.edu.gh/",
-            "https://acityplus.acity.edu.gh/login",
-        ]
-    },
-
-    # ── ADMISSIONS / APPLICATION ─────────────────────────────
-    {
-        "label": "admissions_apply",
-        "keywords": [
-            "apply", "application", "how to apply", "admission",
-            "apply online", "admissions portal", "application form",
-            "entry requirements", "wassce", "sssce", "a levels",
-            "ib diploma", "sat", "qualification", "eligibility",
-            "freshman", "new student", "prospective student",
-            "intake", "cohort", "september intake", "january intake",
-            "start application"
-        ],
-        "urls": [
-            "https://acity.edu.gh/start-your-application/",
-            "https://acity.edu.gh/entry-requirements/",
-            "https://admissions.acity.edu.gh/",
-            "https://admissions.acity.edu.gh/undergraduate",
-        ]
-    },
-
-    # ── REGISTRY ─────────────────────────────────────────────
-    {
-        "label": "registry",
-        "keywords": [
-            "registry", "registrar", "student id", "matric number",
-            "transcript", "clearance", "graduation clearance",
-            "deferral", "verification letter", "official letter",
-            "academic records", "registration office"
-        ],
-        "urls": [
-            "https://acity.edu.gh/registry/",
-        ]
-    },
-
-    # ── FEES / TUITION ───────────────────────────────────────
-    {
-        "label": "fees_tuition",
-        "keywords": [
-            "fee", "fees", "tuition", "cost", "how much",
-            "price", "ghs", "usd", "cedis", "pay", "payment",
-            "amount", "charges", "billing", "invoice", "receipt"
-        ],
-        "urls": [
-            "https://acity.edu.gh/fees-scholarships/",
-            "https://acity.edu.gh/finance-billing/",
-        ]
-    },
-
-    # ── SCHOLARSHIPS / FINANCIAL AID ─────────────────────────
-    {
-        "label": "scholarships",
-        "keywords": [
-            "scholarship", "bursary", "financial aid", "grant",
-            "discount", "free tuition", "sponsored", "merit award",
-            "need based", "fellowship", "sponsorship"
-        ],
-        "urls": [
-            "https://acity.edu.gh/fees-scholarships/",
-        ]
-    },
-
-    # ── FINANCE / PAYMENT METHODS ────────────────────────────
-    {
-        "label": "finance_payment",
-        "keywords": [
-            "pay fees", "how to pay", "payment method", "bank transfer",
-            "mobile money", "momo", "mtn momo", "vodafone cash",
-            "finance office", "installment", "payment deadline"
-        ],
-        "urls": [
-            "https://acity.edu.gh/finance-billing/",
-        ]
-    },
-
-    # ── EXAMS / RESULTS / GRADES ─────────────────────────────
-    {
-        "label": "exams_results",
-        "keywords": [
-            "exam", "exams", "examination", "test", "quiz",
-            "assessment", "result", "results", "grade", "grades",
-            "gpa", "cgpa", "score", "transcript", "resit",
-            "repeat exam", "supplementary", "academic standing",
-            "pass", "fail", "grade report", "check result"
-        ],
-        "urls": [
-            "https://acity.edu.gh/academic-resources/",
-            "https://acityplus.acity.edu.gh/login",
-            "https://acity.edu.gh/registry/",
-        ]
-    },
-
-    # ── ACADEMIC CALENDAR / SEMESTER ─────────────────────────
-    {
-        "label": "academic_calendar",
-        "keywords": [
-            "academic calendar", "semester", "semester dates",
-            "when does semester", "school calendar", "term dates",
-            "vacation", "break", "holiday", "reading week",
-            "exam period", "exam timetable", "exam schedule"
-        ],
-        "urls": [
-            "https://acity.edu.gh/academic-resources/",
-            "https://acityplus.acity.edu.gh/login",
-        ]
-    },
-
-    # ── GRADUATION ───────────────────────────────────────────
-    {
-        "label": "graduation",
-        "keywords": [
-            "graduation", "convocation", "ceremony",
-            "certificate collection", "graduation gown",
-            "when is graduation", "graduation requirements",
-            "complete my degree", "finished degree", "graduate soon"
-        ],
-        "urls": [
-            "https://acity.edu.gh/registry/",
-            "https://acity.edu.gh/academic-resources/",
-        ]
-    },
-
-    # ── HOSTEL / ACCOMMODATION ───────────────────────────────
-    {
-        "label": "hostel_accommodation",
-        "keywords": [
-            "hostel", "accommodation", "housing", "room",
-            "dormitory", "dorm", "on campus", "residential",
-            "stay on campus", "bed space", "live on campus",
-            "aclife", "student housing"
-        ],
-        "urls": [
-            "https://acity.edu.gh/student-life/",
-            "https://acity.edu.gh/student-life/#aclife",
-        ]
-    },
-
-    # ── DINING / MEAL PLANS ──────────────────────────────────
-    {
-        "label": "dining",
-        "keywords": [
-            "dining", "food", "canteen", "cafeteria", "meal plan",
-            "lunch", "breakfast", "dinner", "eat on campus",
-            "restaurant", "meal ticket"
-        ],
-        "urls": [
-            "https://acity.edu.gh/student-life/dining-meal-plans/",
-        ]
-    },
-
-    # ── HEALTH & WELLNESS ────────────────────────────────────
-    {
-        "label": "health_wellness",
-        "keywords": [
-            "health", "wellness", "clinic", "doctor", "sick",
-            "nurse", "mental health", "counseling", "counselling",
-            "hospital", "medical", "health center", "health centre"
-        ],
-        "urls": [
-            "https://acity.edu.gh/student-life/",
-            "https://acity.edu.gh/student-life/#health_&_wellness",
-        ]
-    },
-
-    # ── SPORTS & RECREATION ──────────────────────────────────
-    {
-        "label": "sports_recreation",
-        "keywords": [
-            "sports", "recreation", "gym", "football", "basketball",
-            "tennis", "exercise", "fitness", "athletics",
-            "games", "swimming", "sport facilities", "volleyball"
-        ],
-        "urls": [
-            "https://acity.edu.gh/student-life/",
-            "https://acity.edu.gh/student-life/#sports_and_recreation",
-        ]
-    },
-
-    # ── CLUBS & SOCIETIES ────────────────────────────────────
-    {
-        "label": "clubs_societies",
-        "keywords": [
-            "club", "clubs", "societies", "student activities",
-            "extracurricular", "associations", "groups",
-            "student organization", "join a club", "society"
-        ],
-        "urls": [
-            "https://acity.edu.gh/student-life/",
-            "https://acity.edu.gh/student-life/#clubs_at_acity",
-        ]
-    },
-
-    # ── STUDENT COUNCIL / SRC ────────────────────────────────
-    {
-        "label": "student_council",
-        "keywords": [
-            "student council", "src", "acsc", "student government",
-            "student union", "student representative", "student body",
-            "student affairs", "student commitment"
-        ],
-        "urls": [
-            "https://acity.edu.gh/student-life/",
-            "https://acity.edu.gh/student-life/#academic_city_student_council",
-            "https://acity.edu.gh/student-life/#student_commitment",
-        ]
-    },
-
-    # ── CAREER SERVICES ──────────────────────────────────────
-    {
-        "label": "career_services",
-        "keywords": [
-            "career services", "internship", "job placement",
-            "cv writing", "resume", "interview prep",
-            "industry placement", "work experience", "career fair",
-            "career center", "career centre"
-        ],
-        "urls": [
-            "https://acity.edu.gh/student-life/career-services/",
-        ]
-    },
-
-    # ── SOCIAL MEDIA (reference only — NOT fetched live) ─────
-    {
-        "label": "social_media",
-        "keywords": [
-            "social media", "twitter", "facebook", "instagram",
-            "linkedin", "youtube", "follow acity", "x.com", "@acitygh"
-        ],
-        "urls": [
-            "https://twitter.com/acitygh/",
-            "https://x.com/acitygh/",
-            "https://www.facebook.com/acitygh/",
-            "https://www.instagram.com/acitygh/",
-            "https://www.linkedin.com/school/acitygh/",
-            "https://www.youtube.com/channel/UCjPYPiE6JC0pHMbfrqVJ-qQ",
-        ]
-    },
+    {"label": "about_general", "keywords": ["about", "what is acity", "academic city", "overview", "who is", "tell me about", "acity university", "advantage", "why acity", "unique", "special"], "urls": ["https://acity.edu.gh/", "https://acity.edu.gh/about/", "https://acity.edu.gh/the-acity-advantage/"]},
+    {"label": "history", "keywords": ["history", "founded", "established", "origin", "when was", "how old", "started", "creation", "our history"], "urls": ["https://acity.edu.gh/about/", "https://acity.edu.gh/about/#our-history"]},
+    {"label": "vision_mission", "keywords": ["vision", "mission", "values", "goals", "purpose", "philosophy", "objective", "mandate", "commitment"], "urls": ["https://acity.edu.gh/about/", "https://acity.edu.gh/about/#vision_and_mission"]},
+    {"label": "accreditation", "keywords": ["accredited", "accreditation", "nab", "recognized", "approved", "legitimate", "legit", "certified", "national accreditation", "valid degree", "is acity accredited"], "urls": ["https://acity.edu.gh/about/", "https://acity.edu.gh/about/#accreditation"]},
+    {"label": "global_partners", "keywords": ["partners", "partnerships", "international", "global", "collaboration", "mou", "exchange", "affiliate", "foreign university", "sister school"], "urls": ["https://acity.edu.gh/about/", "https://acity.edu.gh/about/#global_partners"]},
+    {"label": "leadership", "keywords": ["leadership", "vice chancellor", "vc", "president", "rector", "management", "executive", "governing council", "who leads", "administration", "head", "chancellor", "mcbagonluri", "provost", "dean", "director", "executive team"], "urls": ["https://acity.edu.gh/about/#university-leadership", "https://acity.edu.gh/about/executive-team/", "https://acity.edu.gh/about/governing-council/"]},
+    {"label": "contact", "keywords": ["contact", "phone", "email", "reach", "call", "whatsapp", "helpdesk", "support", "inquire", "enquire", "get in touch", "office hours", "telephone"], "urls": ["https://acity.edu.gh/contact-connect/", "https://acity.edu.gh/registry/"]},
+    {"label": "location_visit", "keywords": ["location", "where is", "address", "campus", "directions", "map", "how to get", "visit", "find acity", "landmark", "near", "east legon", "accra", "haatso"], "urls": ["https://acity.edu.gh/visit/", "https://acity.edu.gh/contact-connect/"]},
+    {"label": "student_app", "keywords": ["student app", "acity app", "acityplus", "acity+", "mobile app", "app download", "portal app", "student portal", "online portal", "acityplus login", "acity plus", "login portal"], "urls": ["https://acity.edu.gh/student-app/", "https://acityplus.acity.edu.gh/"]},
+    {"label": "library", "keywords": ["library", "books", "journals", "research material", "database", "e-library", "reading room", "borrow", "lending"], "urls": ["https://acity.edu.gh/library/", "https://acity.edu.gh/academic-resources/"]},
+    {"label": "careers_jobs", "keywords": ["job", "jobs", "career", "vacancy", "vacancies", "employment", "work at acity", "hiring", "recruitment", "staff position", "lecturer position", "apply for job"], "urls": ["https://acity.edu.gh/careers-at-acity/"]},
+    {"label": "staff_directory", "keywords": ["staff directory", "staff list", "find staff", "faculty list", "lecturer name", "professor name", "who teaches", "find lecturer", "find professor"], "urls": ["https://acity.edu.gh/academic-city-staff-directory/"]},
+    {"label": "undergraduate_all", "keywords": ["undergraduate", "bachelor", "bsc", "bba", "ba", "degree programme", "4 year", "four year", "what programmes", "what courses", "all programmes", "list of programmes", "available courses", "offered"], "urls": ["https://acity.edu.gh/undergraduate-programmes/", "https://acity.edu.gh/undergraduate-programmes/#faculty-of-engineering"]},
+    {"label": "engineering", "keywords": ["engineering", "computer engineering", "electrical engineering", "electronics", "mechanical engineering", "biomedical engineering", "robotics engineering", "bsc engineering", "faculty of engineering", "mechanical", "biomedical", "robotics"], "urls": ["https://acity.edu.gh/undergraduate-programmes/", "https://acity.edu.gh/undergraduate-programmes/#faculty-of-engineering"]},
+    {"label": "informatics", "keywords": ["computer science", "cs", "information technology", "it", "artificial intelligence", "ai", "informatics", "bsc cs", "bsc it", "bsc ai", "software", "machine learning", "programming degree", "data science"], "urls": ["https://acity.edu.gh/undergraduate-programmes/", "https://acity.edu.gh/undergraduate-programmes/#informatics"]},
+    {"label": "business", "keywords": ["business", "bba", "accounting", "marketing", "finance", "banking", "entrepreneurship", "management", "commerce", "faculty of business"], "urls": ["https://acity.edu.gh/undergraduate-programmes/", "https://acity.edu.gh/undergraduate-programmes/#business"]},
+    {"label": "communication_arts", "keywords": ["communication", "journalism", "mass communication", "mass comm", "advertising", "public relations", "pr", "media studies", "ba communication", "communication arts"], "urls": ["https://acity.edu.gh/undergraduate-programmes/", "https://acity.edu.gh/undergraduate-programmes/#communication-arts"]},
+    {"label": "graduate", "keywords": ["graduate", "postgraduate", "masters", "msc", "mba", "phd", "graduate school", "msc cybersecurity", "msc data science", "data analytics", "graduate programme"], "urls": ["https://acity.edu.gh/graduate-programmes/"]},
+    {"label": "professional_certificate", "keywords": ["certificate", "professional certificate", "short course", "diploma", "cpd", "continuing education", "professional development", "part time", "evening programme"], "urls": ["https://acity.edu.gh/professional-certificate-programmes/"]},
+    {"label": "enrollment_courses", "keywords": ["enroll", "enrollment", "add course", "drop course", "change course", "change major", "timetable", "class schedule", "course registration", "hod", "head of department", "credit hours", "units", "elective", "core course"], "urls": ["https://acity.edu.gh/academic-resources/", "https://acity.edu.gh/registry/"]},
+    {"label": "admissions_apply", "keywords": ["apply", "application", "how to apply", "admission", "apply online", "admissions portal", "application form", "entry requirements", "wassce", "sssce", "a levels", "ib diploma", "sat", "qualification", "eligibility", "freshman", "new student", "prospective student", "intake", "cohort", "september intake", "january intake", "start application"], "urls": ["https://acity.edu.gh/start-your-application/", "https://acity.edu.gh/entry-requirements/", "https://admissions.acity.edu.gh/undergraduate"]},
+    {"label": "registry", "keywords": ["registry", "registrar", "student id", "matric number", "transcript", "clearance", "graduation clearance", "deferral", "verification letter", "official letter", "academic records", "registration office"], "urls": ["https://acity.edu.gh/registry/"]},
+    {"label": "fees_tuition", "keywords": ["fee", "fees", "tuition", "cost", "how much", "price", "ghs", "usd", "cedis", "pay", "payment", "amount", "charges", "billing", "invoice", "receipt"], "urls": ["https://acity.edu.gh/fees-scholarships/", "https://acity.edu.gh/finance-billing/"]},
+    {"label": "scholarships", "keywords": ["scholarship", "bursary", "financial aid", "grant", "discount", "free tuition", "sponsored", "merit award", "need based", "fellowship", "sponsorship"], "urls": ["https://acity.edu.gh/fees-scholarships/"]},
+    {"label": "finance_payment", "keywords": ["pay fees", "how to pay", "payment method", "bank transfer", "mobile money", "momo", "mtn momo", "vodafone cash", "finance office", "installment", "payment deadline"], "urls": ["https://acity.edu.gh/finance-billing/"]},
+    {"label": "exams_results", "keywords": ["exam", "exams", "examination", "test", "quiz", "assessment", "result", "results", "grade", "grades", "gpa", "cgpa", "score", "transcript", "resit", "repeat exam", "supplementary", "academic standing", "pass", "fail", "grade report", "check result"], "urls": ["https://acity.edu.gh/academic-resources/", "https://acityplus.acity.edu.gh/login", "https://acity.edu.gh/registry/"]},
+    {"label": "academic_calendar", "keywords": ["academic calendar", "semester", "semester dates", "when does semester", "school calendar", "term dates", "vacation", "break", "holiday", "reading week", "exam period", "exam timetable", "exam schedule"], "urls": ["https://acity.edu.gh/academic-resources/"]},
+    {"label": "graduation", "keywords": ["graduation", "convocation", "ceremony", "certificate collection", "graduation gown", "when is graduation", "graduation requirements", "complete my degree", "finished degree", "graduate soon"], "urls": ["https://acity.edu.gh/registry/", "https://acity.edu.gh/academic-resources/"]},
+    {"label": "hostel_accommodation", "keywords": ["hostel", "accommodation", "housing", "room", "dormitory", "dorm", "on campus", "residential", "stay on campus", "bed space", "live on campus", "aclife", "student housing"], "urls": ["https://acity.edu.gh/student-life/", "https://acity.edu.gh/student-life/#aclife"]},
+    {"label": "dining", "keywords": ["dining", "food", "canteen", "cafeteria", "meal plan", "lunch", "breakfast", "dinner", "eat on campus", "restaurant", "meal ticket"], "urls": ["https://acity.edu.gh/student-life/dining-meal-plans/"]},
+    {"label": "health_wellness", "keywords": ["health", "wellness", "clinic", "doctor", "sick", "nurse", "mental health", "counseling", "counselling", "hospital", "medical", "health center", "health centre"], "urls": ["https://acity.edu.gh/student-life/", "https://acity.edu.gh/student-life/#health_&_wellness"]},
+    {"label": "sports_recreation", "keywords": ["sports", "recreation", "gym", "football", "basketball", "tennis", "exercise", "fitness", "athletics", "games", "swimming", "sport facilities", "volleyball"], "urls": ["https://acity.edu.gh/student-life/", "https://acity.edu.gh/student-life/#sports_and_recreation"]},
+    {"label": "clubs_societies", "keywords": ["club", "clubs", "societies", "student activities", "extracurricular", "associations", "groups", "student organization", "join a club", "society"], "urls": ["https://acity.edu.gh/student-life/", "https://acity.edu.gh/student-life/#clubs_at_acity"]},
+    {"label": "student_council", "keywords": ["student council", "src", "acsc", "student government", "student union", "student representative", "student body", "student affairs", "student commitment"], "urls": ["https://acity.edu.gh/student-life/", "https://acity.edu.gh/student-life/#academic_city_student_council"]},
+    {"label": "career_services", "keywords": ["career services", "internship", "job placement", "cv writing", "resume", "interview prep", "industry placement", "work experience", "career fair", "career center", "career centre"], "urls": ["https://acity.edu.gh/student-life/career-services/"]},
 ]
 
 
-# ── Domains that block scraping — skip live fetching for these ─
+# ── Domains that block scraping ───────────────────────────────
 SKIP_LIVE_FETCH = {
     "twitter.com", "x.com", "facebook.com",
     "instagram.com", "linkedin.com", "youtube.com",
 }
 
-MAX_LIVE_URLS = 2
+MAX_LIVE_URLS = 1  # reduced from 2 to cut token usage
 
 
 def detect_live_urls(question: str) -> list:
     q = question.lower()
     scored = []
-
     for entry in KEYWORD_URL_MAP:
         score = sum(1 for kw in entry["keywords"] if kw in q)
         if score > 0:
             scored.append((score, entry["label"], entry["urls"]))
-
     if not scored:
         return ["https://acity.edu.gh/"]
-
     scored.sort(key=lambda x: x[0], reverse=True)
-
     seen = set()
     result = []
     for score, label, urls in scored:
@@ -835,39 +177,17 @@ def detect_live_urls(question: str) -> list:
                 if len(result) >= MAX_LIVE_URLS:
                     print(f"[URL Router] label='{label}' score={score} → {result}")
                     return result
-
     print(f"[URL Router] fallback → {result}")
     return result or ["https://acity.edu.gh/"]
 
 
-# ── Simple topic detection ─────────────────────────────────────
+# ── Topic detection ───────────────────────────────────────────
 TOPIC_KEYWORDS = {
-    "fees": [
-        "fee", "fees", "cost", "pay", "payment", "tuition",
-        "amount", "price", "ghs", "cedis", "scholarship",
-        "financial", "bursary", "receipt", "billing"
-    ],
-    "registration": [
-        "register", "registration", "admit", "admission", "apply",
-        "application", "form", "portal", "login", "password",
-        "student id", "matric", "entry requirement", "wassce"
-    ],
-    "exams": [
-        "exam", "exams", "test", "quiz", "assessment", "result",
-        "grade", "score", "gpa", "cgpa", "transcript", "resit",
-        "repeat", "academic calendar", "semester", "timetable"
-    ],
-    "hostel": [
-        "hostel", "accommodation", "room", "bed", "dorm",
-        "dormitory", "residential", "housing", "live", "stay",
-        "campus life", "dining", "meal"
-    ],
-    "enrollment": [
-        "enroll", "enrollment", "course", "courses", "credit",
-        "unit", "timetable", "schedule", "hod", "department",
-        "programme", "major", "elective", "add", "drop",
-        "computer science", "bsc", "bba", "ba", "engineering"
-    ],
+    "fees": ["fee", "fees", "cost", "pay", "payment", "tuition", "amount", "price", "ghs", "cedis", "scholarship", "financial", "bursary", "receipt", "billing"],
+    "registration": ["register", "registration", "admit", "admission", "apply", "application", "form", "portal", "login", "password", "student id", "matric", "entry requirement", "wassce"],
+    "exams": ["exam", "exams", "test", "quiz", "assessment", "result", "grade", "score", "gpa", "cgpa", "transcript", "resit", "repeat", "academic calendar", "semester", "timetable"],
+    "hostel": ["hostel", "accommodation", "room", "bed", "dorm", "dormitory", "residential", "housing", "live", "stay", "campus life", "dining", "meal"],
+    "enrollment": ["enroll", "enrollment", "course", "courses", "credit", "unit", "timetable", "schedule", "hod", "department", "programme", "major", "elective", "add", "drop", "computer science", "bsc", "bba", "ba", "engineering"],
 }
 
 def detect_topic(question: str) -> str:
@@ -878,7 +198,7 @@ def detect_topic(question: str) -> str:
     return "general"
 
 
-# ── Page scraper with 30-min in-memory cache ──────────────────
+# ── Page scraper — 30-min cache, 1500 char limit ──────────────
 _page_cache: dict = {}
 CACHE_TTL = 1800  # 30 minutes
 
@@ -886,13 +206,11 @@ def fetch_page_content(url: str) -> str:
     domain = urlparse(url).netloc.replace("www.", "")
     if domain in SKIP_LIVE_FETCH:
         return ""
-
     now = time.time()
     if url in _page_cache:
         content, cached_at = _page_cache[url]
         if now - cached_at < CACHE_TTL:
             return content
-
     try:
         headers = {"User-Agent": "Mozilla/5.0 (ACity Student Bot)"}
         r = requests.get(url, timeout=6, headers=headers)
@@ -902,7 +220,7 @@ def fetch_page_content(url: str) -> str:
         for tag in soup(["script", "style", "nav", "footer", "header", "form", "iframe"]):
             tag.decompose()
         text = soup.get_text(separator=" ", strip=True)
-        content = " ".join(text.split())[:3000]
+        content = " ".join(text.split())[:1500]  # reduced from 3000
         _page_cache[url] = (content, now)
         return content
     except Exception:
@@ -915,11 +233,11 @@ def fetch_live_content(question: str) -> str:
     for url in urls:
         content = fetch_page_content(url)
         if content:
-            parts.append(f"[Source: {url}]\n{content}")
+            parts.append(f"[{url}]\n{content}")
     return "\n\n".join(parts) if parts else ""
 
 
-# ── Dynamic Real-Time Context ─────────────────────────────────
+# ── Real-time context ─────────────────────────────────────────
 def get_dynamic_context() -> str:
     now      = datetime.now(ZoneInfo("Africa/Accra"))
     day_name = now.strftime("%A")
@@ -927,142 +245,89 @@ def get_dynamic_context() -> str:
     date_str = now.strftime("%B %d, %Y")
     hour     = now.hour
     weekday  = now.weekday()
-
     is_office_hrs = (weekday < 5) and (8 <= hour < 17)
-    office_status = (
-        "OPEN (Mon–Fri, 8 AM – 5 PM GMT)" if is_office_hrs else "CLOSED right now"
-    )
-
+    office_status = "OPEN (Mon–Fri, 8 AM–5 PM GMT)" if is_office_hrs else "CLOSED right now"
     cal = get_academic_calendar()
     current_period = _detect_current_period(now, cal)
-
-    academic_year      = cal.get("academic_year",        FALLBACK_CALENDAR["academic_year"])
-    sem2_label_end     = cal.get("semester_2_label_end", FALLBACK_CALENDAR["semester_2_label_end"])
-    exam2_label        = cal.get("exam_2_label",         FALLBACK_CALENDAR["exam_2_label"])
-
-    return f"""
-REAL-TIME CONTEXT (auto-injected — never ask the student for this info):
-- Today's date      : {date_str} ({day_name})
-- Current time (GMT): {time_str}
-- Academic period   : {current_period}
-- Semester 2 ends   : {sem2_label_end}
-- Exam period 2     : {exam2_label}
-- University offices: {office_status}
-- Academic year     : {academic_year}
-"""
+    academic_year     = cal.get("academic_year",        FALLBACK_CALENDAR["academic_year"])
+    sem2_label_end    = cal.get("semester_2_label_end", FALLBACK_CALENDAR["semester_2_label_end"])
+    exam2_label       = cal.get("exam_2_label",         FALLBACK_CALENDAR["exam_2_label"])
+    return (
+        f"[CONTEXT] Date: {date_str} ({day_name}) | Time: {time_str} GMT | "
+        f"Period: {current_period} | Sem 2 ends: {sem2_label_end} | "
+        f"Exam 2: {exam2_label} | Offices: {office_status} | Year: {academic_year}"
+    )
 
 
 # ── Main AI Response Function ─────────────────────────────────
 def get_ai_response(question: str, knowledge_base: list, history: list) -> str:
 
-    # 1. Detect topic
     topic = detect_topic(question)
 
-    # 2. Fetch live page content
+    # Live page content (1 URL, 1500 chars max)
     live_content = fetch_live_content(question)
 
-    # 3. Real-time date/semester context
+    # Real-time context (single line)
     dynamic_context = get_dynamic_context()
 
-    # 4. Full KB text
-    kb_text = ""
-    for entry in knowledge_base:
-        if entry.get("active", True):
-            kb_text += f"Q: {entry.get('question', '')}\nA: {entry.get('answer', '')}\n\n"
+    # KB: filter by topic first, fall back to general, cap at 25 entries
+    relevant = [e for e in knowledge_base if e.get("active", True) and e.get("topic") == topic]
+    if len(relevant) < 10:
+        relevant += [e for e in knowledge_base if e.get("active", True) and e.get("topic") != topic]
+    relevant = relevant[:25]
+    kb_text = "".join(
+        f"Q: {e.get('question','')}\nA: {e.get('answer','')}\n"
+        for e in relevant
+    )
 
-    # 5. Last 10 messages of conversation history
+    # History: last 5 exchanges only
     history_text = ""
-    for msg in history[-10:]:
+    for msg in history[-5:]:
         role = "Student" if msg.get("role") == "user" else "Kai"
         history_text += f"{role}: {msg.get('text', '')}\n"
 
-    # 6. Build the prompt
-    prompt = f"""You are Kai — the friendly, official AI student assistant for Academic City University College (ACity) in Accra, Ghana.
+    prompt = f"""You are Kai, the official AI student assistant for Academic City University College (ACity), Accra, Ghana.
+Be warm, concise, and accurate. Only answer ACity-related questions.
 
-YOUR IDENTITY:
-- Your name is Kai
-- You are warm, encouraging, and clear
-- You only answer questions about ACity
+FORMATTING:
+- Use numbered steps (Step 1:, Step 2:) for any process or procedure.
+- Use bullet points (•) for lists of facts.
+- Bold (**term**) key terms only.
+- Write plain URLs after a colon — never markdown links: RIGHT: visit: https://acity.edu.gh  WRONG: [visit](https://acity.edu.gh)
+- Keep answers focused — no long paragraphs.
 
-════════════════════════════════════════════════════
-CRITICAL FORMATTING RULES — NEVER BREAK THESE:
-════════════════════════════════════════════════════
+ANSWER PRIORITY:
+1. KNOWLEDGE BASE below — use it first.
+2. LIVE CONTENT below — use if KB has nothing.
+3. REAL-TIME CONTEXT — use for dates, semester, office hours.
+4. If still unknown, say so and direct to registry@acity.edu.gh.
 
-RULE 1 — NO MARKDOWN LINKS. EVER.
-  WRONG : Visit [the Registry](https://acity.edu.gh/registry/) for help.
-  WRONG : See <https://acity.edu.gh/registry/>
-  RIGHT : Visit the Registry page at: https://acity.edu.gh/registry/
-  If you need to mention a URL, write it plainly after a colon. No brackets. No parentheses around URLs.
-
-RULE 2 — USE NUMBERED STEPS FOR ANY PROCESS OR PROCEDURE.
-  Whenever a question asks "how do I", "how to", "what are the steps", "what is the process",
-  or involves registration, payment, enrollment, applying, checking results, or any multi-step action —
-  you MUST respond with a clearly numbered step-by-step list like this:
-    Step 1: Go to the ACity portal at acityplus.acity.edu.gh
-    Step 2: Log in with your student ID and password
-    Step 3: ...
-  Even if the source only gives a summary — break it into logical steps yourself.
-
-RULE 3 — USE BULLET POINTS (•) FOR LISTS OF FACTS OR OPTIONS.
-  Use • for items that are not sequential steps.
-
-RULE 4 — BE CONCISE.
-  Each bullet or step should be 1–2 sentences. Never write walls of text.
-
-RULE 5 — BOLD KEY TERMS using **bold**, but only for important terms or section headers.
-
-════════════════════════════════════════════════════
-ANSWER RULES — FOLLOW IN THIS EXACT ORDER:
-════════════════════════════════════════════════════
-
-1. KNOWLEDGE BASE FIRST: Search the ACITY KNOWLEDGE BASE below carefully.
-   If found, give the actual information directly. Convert any process into numbered steps.
-   Do NOT say "check the website" or "visit the portal" without also giving the URL plainly.
-
-2. LIVE WEBSITE CONTENT: If not in the KB, use the LIVE WEBSITE CONTENT below.
-   Extract and present the answer clearly, using steps if it is a process.
-
-3. REAL-TIME CONTEXT: For questions about today's date, current semester, office hours,
-   or exam schedules — use the REAL-TIME CONTEXT block. That data is always accurate.
-
-4. GENERAL KNOWLEDGE (last resort only): If genuinely not found anywhere above,
-   use general knowledge but clearly say so, and direct the student to registry@acity.edu.gh.
-
-════════════════════════════════════════════════════
-CLOSING LINE — ADD TO EVERY SINGLE RESPONSE, NO EXCEPTIONS:
-════════════════════════════════════════════════════
-End every response with exactly this line:
+END every response with exactly:
 "💬 Anything else I can help with? Always here for questions on fees, registration, courses, exams, hostels, and more!"
 
 {dynamic_context}
 
-CONVERSATION HISTORY:
+HISTORY:
 {history_text}
 
-ACITY KNOWLEDGE BASE (topic detected: {topic}):
+KNOWLEDGE BASE (topic: {topic}):
 {kb_text}
 
-LIVE WEBSITE CONTENT (freshly fetched for this question):
+LIVE CONTENT:
 {live_content}
 
-Student question: {question}
+Student: {question}
+Kai:"""
 
-Answer:"""
-
-    # 7. Try each API key in rotation — ALL errors continue to next key
     keys = get_api_keys()
-    model = os.getenv("GEMINI_MODEL", "gemini-3.1-flash-lite-preview")
+    model = os.getenv("GEMINI_MODEL", "gemini-2.0-flash-lite")
 
-    print(f"[API Rotation] {len(keys)} key(s) available — model: {model}")
+    print(f"[API Rotation] {len(keys)} key(s) — model: {model}")
 
     if not keys:
-        print("[API Rotation] ERROR: No API keys found in environment")
-        return (
-            "I'm having a configuration issue right now. Please contact registry@acity.edu.gh for help.\n\n"
-        )
+        return "I'm having a configuration issue. Please contact registry@acity.edu.gh for help."
 
     last_error = None
-
     for i, key in enumerate(keys, 1):
         try:
             print(f"[API Rotation] Trying key {i}/{len(keys)}...")
@@ -1071,22 +336,18 @@ Answer:"""
                 model=model,
                 contents=prompt,
                 config=types.GenerateContentConfig(
-                    thinking_config=types.ThinkingConfig(
-                        thinking_level="minimal"
-                    )
+                    thinking_config=types.ThinkingConfig(thinking_level="none")
                 )
             )
             print(f"[API Rotation] Key {i} succeeded ✅")
             return response.text
-
         except Exception as e:
             last_error = e
-            err_str = str(e)
-            print(f"[API Rotation] Key {i} failed: {err_str[:200]}")
+            print(f"[API Rotation] Key {i} failed: {str(e)[:200]}")
             continue
 
     print(f"[API Rotation] All {len(keys)} key(s) exhausted. Last error: {last_error}")
     return (
         "I'm experiencing high demand right now. Please try again in a few minutes "
-        "or contact registry@acity.edu.gh for urgent queries.\n\n"
+        "or contact registry@acity.edu.gh for urgent queries."
     )
