@@ -34,7 +34,7 @@ def test_all_keys():
     Logs results to stdout so they appear in Render logs.
     """
     keys = get_api_keys()
-    model = os.getenv("GEMINI_MODEL", "gemini-3.1-flash-lite")
+    model = os.getenv("GEMINI_MODEL", "gemini-3-flash")
     results = []
     print(f"\n[Key Tester] Testing {len(keys)} key(s) against model: {model}")
     for i, key in enumerate(keys, 1):
@@ -342,7 +342,7 @@ Kai:"""
 
     keys = get_api_keys()
     # ── THE FIX: use the real model name ──────────────────────
-    model = os.getenv("GEMINI_MODEL", "gemini-3.1-flash-lite")
+    model = os.getenv("GEMINI_MODEL", "gemini-3-flash")
 
     print(f"[API Rotation] {len(keys)} key(s) — model: {model}")
 
