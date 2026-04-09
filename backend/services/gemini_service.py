@@ -392,7 +392,7 @@ Answer:"""
 
     # 8. API key rotation with cooldown — only try available keys
     keys = get_api_keys()
-    model = os.getenv("GEMINI_MODEL", "gemini-2.0-flash-lite")
+    model = "gemini-3.1-flash-lite-preview"
     available = _available_keys(keys)
 
     print(f"[API Rotation] {len(available)}/{len(keys)} key(s) available — model: {model}")
