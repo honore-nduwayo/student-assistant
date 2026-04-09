@@ -172,9 +172,13 @@ KEYWORD_URL_MAP = [
     {"label": "health_wellness", "keywords": ["health", "wellness", "clinic", "doctor", "sick", "nurse", "mental health", "counseling", "hospital", "medical", "health center"], "urls": ["https://acity.edu.gh/student-life/", "https://acity.edu.gh/student-life/#health_&_wellness"]},
     {"label": "sports_recreation", "keywords": ["sports", "recreation", "gym", "football", "basketball", "tennis", "exercise", "fitness", "athletics", "games", "swimming", "volleyball"], "urls": ["https://acity.edu.gh/student-life/", "https://acity.edu.gh/student-life/#sports_and_recreation"]},
     {"label": "clubs_societies", "keywords": ["club", "clubs", "societies", "student activities", "extracurricular", "associations", "groups", "student organization", "join a club"], "urls": ["https://acity.edu.gh/student-life/", "https://acity.edu.gh/student-life/#clubs_at_acity"]},
-    {"label": "student_council", "keywords": ["student council", "src", "acsc", "student government", "student union", "student representative", "student body", "student affairs"], "urls": ["https://acity.edu.gh/student-life/", "https://acity.edu.gh/student-life/#academic_city_student_council"]},
+    {"label": "student_council", "keywords": ["student council", "src", "acsc", "student government", "student union", "student representative", "student body", "student affairs", "commitment", "student oath", "student pledge"], "urls": ["https://acity.edu.gh/student-life/", "https://acity.edu.gh/student-life/#academic_city_student_council", "https://acity.edu.gh/student-life/#student_commitment"]},
     {"label": "career_services", "keywords": ["career services", "internship", "job placement", "cv writing", "resume", "interview prep", "industry placement", "work experience", "career fair"], "urls": ["https://acity.edu.gh/student-life/career-services/"]},
     {"label": "enrollment_courses", "keywords": ["enroll", "enrollment", "add course", "drop course", "change course", "change major", "timetable", "class schedule", "course registration", "hod", "credit hours", "elective", "core course"], "urls": ["https://acity.edu.gh/academic-resources/", "https://acity.edu.gh/registry/", "https://acityplus.acity.edu.gh/"]},
+    {"label": "news_blog", "keywords": ["news", "blog", "updates", "articles", "press", "media", "latest", "newsletter", "exponent", "innovation", "expo", "galamsey", "donation"], "urls": ["https://acity.edu.gh/blog/", "https://acity.edu.gh/media-relations/", "https://acity.edu.gh/the-exponent-acity-newsletter/"]},
+    {"label": "internal_portals", "keywords": ["staff corner", "student corner", "directory", "staff list", "privacy", "policy", "staff directory"], "urls": ["https://acity.edu.gh/staff-corner/", "https://acity.edu.gh/student-corner/", "https://acity.edu.gh/academic-city-staff-directory/", "https://acity.edu.gh/privacy-policy/"]},
+    {"label": "tours_foundation", "keywords": ["virtual tour", "360 view", "foundation", "charity", "community engagement", "donation", "csr", "tour campus"], "urls": ["https://acity.edu.gh/virtual-tour/", "https://acityfoundation.org/"]},
+    {"label": "social_media", "keywords": ["social media", "facebook", "twitter", "instagram", "linkedin", "youtube", "follow acity", "acity online"], "urls": ["https://acity.edu.gh/contact-connect/"]},
 ]
 
 SKIP_LIVE_FETCH = {
@@ -429,8 +433,9 @@ Answer:"""
             print(f"[API Rotation] Key {idx+1} failed: {err[:200]}")
 
             if "FAILED_PRECONDITION" in err or "PERMISSION_DENIED" in err or "location" in err.lower():
-                # Likely a regional/permission issue — rest for 1 hour, not permanent
-                _cooldown(idx, 3600)
+                # Regional block or project denial — does not self-recover quickly.
+                # 24h cooldown so broken keys stop wasting time on every request.
+                _cooldown(idx, 86400)
             elif "429" in err or "RESOURCE_EXHAUSTED" in err:
                 # Rate limit — rest for 65 seconds then recover
                 _cooldown(idx, 65)
