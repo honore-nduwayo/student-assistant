@@ -164,7 +164,7 @@ export default function Chat() {
     {
       role: "bot",
       text:
-        "👋 Hi there! I'm **Kai**, your ACity student assistant!\n\nI can help you with:\n*  Fees & scholarships\n*  Registration & admissions\n*  Courses & enrollment\n*  Exams & results\n*  Hostel & campus life\n*  Graduation procedures\n\nWhat would you like to know today?",
+        "👋 Hi there! I'm **Kai**, your ACity student assistant!\n\nI can help you with:\n* 💰 Fees & scholarships\n* 📝 Registration & admissions\n* 📚 Courses & enrollment\n* 📅 Exams & results\n* 🏠 Hostel & campus life\n* 🎓 Graduation procedures\n\nWhat would you like to know today?",
     },
   ]);
 
@@ -328,7 +328,7 @@ export default function Chat() {
             />
           </div>
           <div style={s.headerInfo}>
-            <div style={s.headerTitle}>ACity Student Assistant</div>
+            <div style={s.headerTitle}>Kai — ACity Student Assistant</div>
             <div style={s.headerSub}>
               <span className="online-dot" style={s.dot} />
               Online · Academic City University College
