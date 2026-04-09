@@ -120,7 +120,7 @@ MAX_SUBLINKS_PER_PAGE = 5
 MAX_TOTAL_URLS        = 60   # was 120 — half the quota burn
 
 # ── Model to use for knowledge extraction ────────────────────
-GEMINI_MODEL = os.getenv("GEMINI_MODEL", "gemini-2.0-flash-lite")
+GEMINI_MODEL = "gemini-3.1-flash-lite-preview"
 
 
 # ── Firebase setup ────────────────────────────────────────────
@@ -147,11 +147,11 @@ def check_refresh_allowed(db) -> bool:
             last = doc.to_dict().get("last_run")
             if last:
                 elapsed = (datetime.now(timezone.utc) - last).total_seconds()
-                if elapsed < 86400:
-                    remaining_h = int((86400 - elapsed) / 3600)
-                    remaining_m = int(((86400 - elapsed) % 3600) / 60)
-                    print(f"⛔  Refresh blocked — last ran {int(elapsed / 3600)}h ago.")
-                    print(f"   Next allowed in ~{remaining_h}h {remaining_m}m to protect API quota.")
+                if elapsed < 2592000:  # 30 days
+                    remaining_days = int((2592000 - elapsed) / 86400)
+                    remaining_h = int(((2592000 - elapsed) % 86400) / 3600)
+                    print(f"⛔  Refresh blocked — last ran {int(elapsed / 86400)}d ago.")
+                    print(f"   Next allowed in ~{remaining_days}d {remaining_h}h (monthly limit to protect API quota).")
                     return False
     except Exception as e:
         print(f"[Guard] Could not check refresh status: {e} — allowing refresh")
