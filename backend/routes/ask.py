@@ -32,7 +32,7 @@ def ask():
     except Exception as e:
         print(f"Error in /ask endpoint: {e}")
         return jsonify({
-            "answer": "Sorry, I'm having trouble right now. Please try again or contact the Registry at registry@acity.edu.gh.\n\n💬 Anything else I can help with? I'm Kai — always here for questions on fees, registration, courses, exams, hostels, and more!",
+            "answer": "Sorry, I'm having trouble right now. Please try again or contact the Registry at registry@acity.edu.gh.",
             "topic": "error"
         }), 500
 

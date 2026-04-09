@@ -148,7 +148,6 @@ def stats():
     except Exception as e:
         return jsonify({"error": str(e)}), 500
 
-
 # ── File Upload & AI Extraction ───────────────────────────────
 @admin_bp.route("/admin/upload", methods=["POST"])
 def upload_file():
@@ -194,8 +193,6 @@ def upload_file():
     except Exception as e:
         return jsonify({"error": str(e)}), 500
 
-
-# ── Password Management ───────────────────────────────────────
 @admin_bp.route("/admin/password", methods=["GET"])
 def get_password():
     import os
@@ -207,7 +204,6 @@ def get_password():
     except Exception:
         import os as _os
         return jsonify({"password": _os.getenv("SECRET_KEY")}), 200
-
 
 @admin_bp.route("/admin/password", methods=["POST"])
 def update_password():
@@ -230,70 +226,5 @@ def update_password():
     try:
         db.collection("settings").document("admin").set({"password": new_password})
         return jsonify({"success": True}), 200
-    except Exception as e:
-        return jsonify({"error": str(e)}), 500
-
-
-# ── Remote Knowledge Base Refresh ────────────────────────────
-@admin_bp.route("/admin/refresh-knowledge", methods=["POST"])
-def trigger_refresh():
-    """
-    Remotely trigger the knowledge base web-scrape refresh.
-    Protected by admin key. Runs refresh_knowledge.py in a background
-    thread so the HTTP response returns immediately.
-
-    The refresh typically takes 5–10 minutes to complete.
-    New entries will appear in Firestore once it finishes.
-    Protected entries (source=admin / initial_upload, or permanent=True)
-    are never touched by this process.
-    """
-    if not check_admin_key():
-        return jsonify({"error": "Unauthorized"}), 401
-
-    try:
-        import sys
-        import os
-        import subprocess
-        import threading
-
-        script_path = os.path.join(
-            os.path.dirname(__file__), "..", "refresh_knowledge.py"
-        )
-        script_path = os.path.abspath(script_path)
-
-        if not os.path.exists(script_path):
-            return jsonify({"error": f"refresh_knowledge.py not found at {script_path}"}), 500
-
-        def run_refresh():
-            try:
-                print("[Refresh] Starting knowledge base refresh in background...")
-                result = subprocess.run(
-                    [sys.executable, script_path],
-                    input=b"y\n",          # auto-confirm the "Proceed? [y/n]" prompt
-                    capture_output=True,
-                    timeout=600            # 10-minute hard limit
-                )
-                print("[Refresh] Refresh complete.")
-                print("[Refresh] STDOUT:", result.stdout.decode("utf-8", errors="ignore")[-2000:])
-                if result.stderr:
-                    print("[Refresh] STDERR:", result.stderr.decode("utf-8", errors="ignore")[-500:])
-            except subprocess.TimeoutExpired:
-                print("[Refresh] ERROR: Refresh timed out after 10 minutes.")
-            except Exception as e:
-                print(f"[Refresh] ERROR: {e}")
-
-        thread = threading.Thread(target=run_refresh, daemon=True)
-        thread.start()
-
-        return jsonify({
-            "status": "started",
-            "message": (
-                "Knowledge base refresh has started in the background. "
-                "It typically takes 5–10 minutes to complete. "
-                "New Q&A entries will appear in Firestore automatically when done. "
-                "Protected entries (admin / initial_upload / permanent) will not be affected."
-            )
-        }), 200
-
     except Exception as e:
         return jsonify({"error": str(e)}), 500
