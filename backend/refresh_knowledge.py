@@ -9,6 +9,11 @@ ENTRY PROTECTION:
   source = "auto_refresh", permanent=True  → never touched
   source = "auto_refresh", permanent=False → replaced each run
 
+QUOTA PROTECTION:
+  - Reduced to 60 max URLs and 5 Q&A per page (was 120 / 8)
+  - 24-hour guard: script will refuse to run again within 24h of last run
+  - These limits prevent accidental over-spend on free API quotas
+
 HOW TO RUN:
     cd backend
     python refresh_knowledge.py
@@ -18,6 +23,7 @@ import os
 import json
 import time
 import requests
+from datetime import datetime, timezone
 from urllib.parse import urljoin, urlparse
 from bs4 import BeautifulSoup
 from google import genai
@@ -108,13 +114,13 @@ SKIP_PATTERNS = [
     ".pdf", ".docx", ".xlsx", ".zip",
 ]
 
-QA_PER_PAGE = 8
+# ── QUOTA-SAFE LIMITS (reduced from 8/120) ────────────────────
+QA_PER_PAGE           = 5    # was 8  — fewer Gemini calls per page
 MAX_SUBLINKS_PER_PAGE = 5
-MAX_TOTAL_URLS = 120
+MAX_TOTAL_URLS        = 60   # was 120 — half the quota burn
 
 # ── Model to use for knowledge extraction ────────────────────
-# gemini-3.1-flash-lite-preview: fastest, cheapest, great for bulk extraction
-GEMINI_MODEL = os.getenv("GEMINI_MODEL", "gemini-3.1-flash-lite-preview")
+GEMINI_MODEL = os.getenv("GEMINI_MODEL", "gemini-2.0-flash-lite")
 
 
 # ── Firebase setup ────────────────────────────────────────────
@@ -127,6 +133,41 @@ def init_firebase():
     if not firebase_admin._apps:
         firebase_admin.initialize_app(cred)
     return firestore.client()
+
+
+# ── 24-hour guard ─────────────────────────────────────────────
+def check_refresh_allowed(db) -> bool:
+    """
+    Block refresh if one ran in the last 24 hours.
+    Protects against accidental double-runs that would burn API quota.
+    """
+    try:
+        doc = db.collection("settings").document("refresh_status").get()
+        if doc.exists:
+            last = doc.to_dict().get("last_run")
+            if last:
+                elapsed = (datetime.now(timezone.utc) - last).total_seconds()
+                if elapsed < 86400:
+                    remaining_h = int((86400 - elapsed) / 3600)
+                    remaining_m = int(((86400 - elapsed) % 3600) / 60)
+                    print(f"⛔  Refresh blocked — last ran {int(elapsed / 3600)}h ago.")
+                    print(f"   Next allowed in ~{remaining_h}h {remaining_m}m to protect API quota.")
+                    return False
+    except Exception as e:
+        print(f"[Guard] Could not check refresh status: {e} — allowing refresh")
+    return True
+
+
+def mark_refresh_done(db):
+    """Record the completion timestamp so the 24h guard works next time."""
+    try:
+        db.collection("settings").document("refresh_status").set({
+            "last_run": datetime.now(timezone.utc),
+            "status": "completed"
+        })
+        print("[Guard] Refresh timestamp saved to Firestore.")
+    except Exception as e:
+        print(f"[Guard] Could not save refresh timestamp: {e}")
 
 
 # ── URL helpers ───────────────────────────────────────────────
@@ -209,10 +250,8 @@ PAGE CONTENT:
     try:
         response = client.models.generate_content(
             model=GEMINI_MODEL,
-            contents=prompt,
-            config=types.GenerateContentConfig(
-                thinking_config=types.ThinkingConfig(thinking_level="minimal")
-            )
+            contents=prompt
+            # No thinking_config — fastest extraction
         )
         raw = response.text.strip()
         if raw.startswith("```"):
@@ -345,6 +384,11 @@ def main():
     print()
 
     db = init_firebase()
+
+    # 24-hour guard — hard stop if a refresh ran recently
+    if not check_refresh_allowed(db):
+        return
+
     client = genai.Client(api_key=api_key)
 
     print("🔍 Building URL queue...")
@@ -382,6 +426,9 @@ def main():
         total_saved += saved
         print(f"   ✅ Saved {saved} new entries (topic: {topic})")
         time.sleep(2)
+
+    # Save completion timestamp for the 24h guard
+    mark_refresh_done(db)
 
     print()
     print("=" * 60)
