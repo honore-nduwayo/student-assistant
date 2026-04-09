@@ -1,6 +1,7 @@
 import os
 import re
 import time
+import hashlib
 import requests
 from datetime import datetime
 from zoneinfo import ZoneInfo
@@ -24,6 +25,43 @@ def get_api_keys():
     if single and single not in keys:
         keys.append(single)
     return keys
+
+
+# ── Key cooldown state (lives for the process lifetime) ───────
+# No permanent dead keys — every key recovers after its cooldown.
+# 429 / RESOURCE_EXHAUSTED  → 65-second rest
+# PERMISSION / LOCATION     → 1-hour rest (might be regional, not permanent)
+_key_cooldowns: dict = {}   # {index: cooldown_until_timestamp}
+
+def _available_keys(keys):
+    now = time.time()
+    return [
+        (i, k) for i, k in enumerate(keys)
+        if _key_cooldowns.get(i, 0) <= now
+    ]
+
+def _cooldown(i, seconds=65):
+    _key_cooldowns[i] = time.time() + seconds
+    print(f"[Key Cooldown] Key {i+1} resting for {seconds}s")
+
+
+# ── Response cache (5-min TTL) ────────────────────────────────
+# Identical questions served from memory — zero API calls.
+_response_cache: dict = {}
+RESPONSE_CACHE_TTL = 300  # seconds
+
+def _cache_key(q: str) -> str:
+    return hashlib.md5(q.lower().strip().encode()).hexdigest()
+
+def _get_cached(q: str):
+    entry = _response_cache.get(_cache_key(q))
+    if entry and (time.time() - entry["ts"]) < RESPONSE_CACHE_TTL:
+        print("[Cache] HIT — serving cached response")
+        return entry["v"]
+    return None
+
+def _set_cached(q: str, response: str):
+    _response_cache[_cache_key(q)] = {"v": response, "ts": time.time()}
 
 
 # ─────────────────────────────────────────────────────────────
@@ -99,7 +137,7 @@ def _detect_current_period(now: datetime, cal: dict) -> str:
 
 
 # ─────────────────────────────────────────────────────────────
-# KEYWORD → URL MAP (unchanged)
+# KEYWORD → URL MAP
 # ─────────────────────────────────────────────────────────────
 
 KEYWORD_URL_MAP = [
@@ -210,7 +248,6 @@ def fetch_page_content(url: str) -> str:
         for tag in soup(["script", "style", "nav", "footer", "header", "form", "iframe"]):
             tag.decompose()
         text = soup.get_text(separator=" ", strip=True)
-        # ⬇ Reduced from 3000 to 1500 chars to save tokens
         content = " ".join(text.split())[:1500]
         _page_cache[url] = (content, now)
         return content
@@ -228,15 +265,10 @@ def fetch_live_content(question: str) -> str:
     return "\n\n".join(parts) if parts else ""
 
 
-# ── SMART KB FILTER — THE KEY FIX ────────────────────────────
-# Instead of dumping all 20K entries, we score each entry against
-# the question and return only the top 12 most relevant ones.
-# This cuts KB tokens from ~800K to ~500 per request.
-
+# ── Smart KB filter ───────────────────────────────────────────
 def get_relevant_kb_entries(question: str, knowledge_base: list, topic: str, max_entries: int = 12) -> str:
     q = question.lower()
 
-    # Tokenise question into meaningful words (skip short/common words)
     stopwords = {"the", "a", "an", "is", "are", "was", "were", "do", "does",
                  "did", "i", "my", "me", "what", "when", "where", "how",
                  "can", "will", "please", "tell", "about", "for", "of", "to"}
@@ -246,35 +278,26 @@ def get_relevant_kb_entries(question: str, knowledge_base: list, topic: str, max
     for entry in knowledge_base:
         if not entry.get("active", True):
             continue
-
-        # Combine searchable fields
         entry_text = (
             entry.get("question", "") + " " +
             entry.get("keywords", "") + " " +
-            entry.get("answer", "")[:200]   # only first 200 chars of answer for scoring
+            entry.get("answer", "")[:200]
         ).lower()
-
         score = sum(1 for word in q_words if word in entry_text)
-
-        # Boost entries that match the detected topic
         if entry.get("topic") == topic:
             score += 1
-
         if score > 0:
             scored.append((score, entry))
 
-    # Sort by relevance descending
     scored.sort(key=lambda x: x[0], reverse=True)
     top = [e for _, e in scored[:max_entries]]
 
-    # Fallback: if nothing matched at all, take top entries by topic
     if not top:
         top = [
             e for e in knowledge_base
             if e.get("topic") == topic and e.get("active", True)
         ][:max_entries]
 
-    # Build compact KB text — only Q and A, no extra fields
     result = ""
     for entry in top:
         result += f"Q: {entry.get('question', '').strip()}\nA: {entry.get('answer', '').strip()}\n\n"
@@ -301,7 +324,6 @@ def get_dynamic_context() -> str:
     sem2_end       = cal.get("semester_2_label_end", FALLBACK_CALENDAR["semester_2_label_end"])
     exam2_label    = cal.get("exam_2_label", FALLBACK_CALENDAR["exam_2_label"])
 
-    # Compact single-block format — saves ~200 tokens vs original
     return (
         f"DATE:{date_str} ({day_name}) | TIME:{time_str} GMT | "
         f"PERIOD:{current_period} | SEM2 ENDS:{sem2_end} | "
@@ -312,25 +334,30 @@ def get_dynamic_context() -> str:
 # ── Main AI Response Function ─────────────────────────────────
 def get_ai_response(question: str, knowledge_base: list, history: list) -> str:
 
-    # 1. Detect topic
+    # 1. Check response cache — identical questions cost zero API calls
+    cached = _get_cached(question)
+    if cached:
+        return cached
+
+    # 2. Detect topic
     topic = detect_topic(question)
 
-    # 2. Smart KB filter — top 12 relevant entries only
+    # 3. Smart KB filter — top 12 relevant entries only
     kb_text = get_relevant_kb_entries(question, knowledge_base, topic, max_entries=12)
 
-    # 3. Fetch live page content (capped at 1500 chars per page)
+    # 4. Fetch live page content
     live_content = fetch_live_content(question)
 
-    # 4. Real-time context (compact single line)
+    # 5. Real-time context
     dynamic_context = get_dynamic_context()
 
-    # 5. Last 6 messages of history (was 10 — saves tokens, still enough context)
+    # 6. Last 6 messages of history
     history_text = ""
     for msg in history[-6:]:
         role = "Student" if msg.get("role") == "user" else "Kai"
         history_text += f"{role}: {msg.get('text', '')}\n"
 
-    # 6. Compressed but complete prompt
+    # 7. Prompt
     prompt = f"""You are Kai, the official AI student assistant for Academic City University College (ACity), Accra, Ghana. Be warm, clear, and concise.
 
 CONTEXT: {dynamic_context}
@@ -363,45 +390,54 @@ End every response with:
 
 Answer:"""
 
-    # 7. API key rotation
+    # 8. API key rotation with cooldown — only try available keys
     keys = get_api_keys()
-    model = os.getenv("GEMINI_MODEL", "gemini-3.1-flash-lite-preview")
+    model = os.getenv("GEMINI_MODEL", "gemini-2.0-flash-lite")
+    available = _available_keys(keys)
 
-    print(f"[API Rotation] {len(keys)} key(s) — model: {model}")
+    print(f"[API Rotation] {len(available)}/{len(keys)} key(s) available — model: {model}")
 
-    if not keys:
+    if not available:
+        # All keys are on cooldown — tell the student how long to wait
+        next_ready = min(_key_cooldowns.values(), default=time.time())
+        wait_secs = max(1, int(next_ready - time.time()))
+        print(f"[API Rotation] All keys on cooldown. Next ready in ~{wait_secs}s")
         return (
-            "I'm having a configuration issue. Please contact registry@acity.edu.gh.\n\n"
+            f"I'm at capacity right now. Please try again in about {wait_secs} seconds, "
+            "or contact registry@acity.edu.gh for urgent queries.\n\n"
             "💬 Anything else I can help with? I'm Kai — always here for questions on fees, registration, courses, exams, hostels, and more!"
         )
 
     last_error = None
-    for i, key in enumerate(keys, 1):
+    for idx, key in available:
         try:
-            print(f"[API Rotation] Trying key {i}/{len(keys)}...")
+            print(f"[API Rotation] Trying key {idx+1}/{len(keys)}...")
             client = genai.Client(api_key=key)
             response = client.models.generate_content(
                 model=model,
-                contents=prompt,
-                config=types.GenerateContentConfig(
-                    thinking_config=types.ThinkingConfig(thinking_level="minimal")
-                )
+                contents=prompt
+                # No thinking_config — fastest possible response
             )
-            print(f"[API Rotation] Key {i} succeeded ✅")
-            return response.text
+            print(f"[API Rotation] Key {idx+1} succeeded ✅")
+            result = response.text
+            _set_cached(question, result)
+            return result
 
         except Exception as e:
+            err = str(e)
             last_error = e
-            err_str = str(e)
-            print(f"[API Rotation] Key {i} failed: {err_str[:200]}")
-            # Skip location-blocked keys immediately, brief pause for rate limits
-            if "FAILED_PRECONDITION" in err_str or "location" in err_str.lower():
-                print(f"[API Rotation] Key {i} is location-blocked — skipping permanently")
-            elif "429" in err_str or "RESOURCE_EXHAUSTED" in err_str:
-                time.sleep(0.5)
+            print(f"[API Rotation] Key {idx+1} failed: {err[:200]}")
+
+            if "FAILED_PRECONDITION" in err or "PERMISSION_DENIED" in err or "location" in err.lower():
+                # Likely a regional/permission issue — rest for 1 hour, not permanent
+                _cooldown(idx, 3600)
+            elif "429" in err or "RESOURCE_EXHAUSTED" in err:
+                # Rate limit — rest for 65 seconds then recover
+                _cooldown(idx, 65)
+            # Any other error: skip this key for this request only (no cooldown)
             continue
 
-    print(f"[API Rotation] All {len(keys)} key(s) exhausted. Last error: {last_error}")
+    print(f"[API Rotation] All available key(s) exhausted. Last error: {last_error}")
     return (
         "I'm experiencing high demand right now. Please try again in a few minutes "
         "or contact registry@acity.edu.gh for urgent queries.\n\n"
