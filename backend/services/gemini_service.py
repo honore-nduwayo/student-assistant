@@ -1,4 +1,3 @@
-
 import os
 import time
 import requests
@@ -26,40 +25,14 @@ def get_api_keys():
     return keys
 
 
-# ── Key Diagnostic (call once at startup or from admin endpoint) ──
-def test_all_keys():
-    """
-    Tests every configured API key with a minimal prompt.
-    Returns a list of dicts:  [{key_index, prefix, status, error}]
-    Logs results to stdout so they appear in Render logs.
-    """
-    keys = get_api_keys()
-    model = os.getenv("GEMINI_MODEL", "gemini-3-flash")
-    results = []
-    print(f"\n[Key Tester] Testing {len(keys)} key(s) against model: {model}")
-    for i, key in enumerate(keys, 1):
-        prefix = key[:8] + "..."
-        try:
-            client = genai.Client(api_key=key)
-            resp = client.models.generate_content(
-                model=model,
-                contents="Reply with the single word: OK"
-            )
-            text = resp.text.strip()[:20]
-            status = "OK" if "ok" in text.lower() else f"unexpected: {text}"
-            print(f"  Key {i}/{len(keys)} [{prefix}]: ✅ {status}")
-            results.append({"key_index": i, "prefix": prefix, "status": "ok", "response": text})
-        except Exception as e:
-            err = str(e)[:200]
-            print(f"  Key {i}/{len(keys)} [{prefix}]: ❌ {err}")
-            results.append({"key_index": i, "prefix": prefix, "status": "error", "error": err})
-    good = sum(1 for r in results if r["status"] == "ok")
-    print(f"[Key Tester] Result: {good}/{len(keys)} keys working\n")
-    return results
-
-
 # ─────────────────────────────────────────────────────────────
 # ACADEMIC CALENDAR — DYNAMIC (Firestore) WITH HARDCODED FALLBACK
+#
+# HOW ADMINS UPDATE IT (no code change needed):
+#   In Firebase Console → Firestore → settings → academic_calendar
+#   set fields: semester_1_start, semester_1_end, semester_2_start,
+#   semester_2_end, exam_1_start, exam_1_end, exam_2_start, exam_2_end,
+#   break_start, break_end, academic_year, semester_2_label_end, exam_2_label
 # ─────────────────────────────────────────────────────────────
 
 FALLBACK_CALENDAR = {
@@ -180,7 +153,7 @@ SKIP_LIVE_FETCH = {
     "instagram.com", "linkedin.com", "youtube.com",
 }
 
-MAX_LIVE_URLS = 1
+MAX_LIVE_URLS = 1  # reduced from 2 to cut token usage
 
 
 def detect_live_urls(question: str) -> list:
@@ -227,7 +200,7 @@ def detect_topic(question: str) -> str:
 
 # ── Page scraper — 30-min cache, 1500 char limit ──────────────
 _page_cache: dict = {}
-CACHE_TTL = 1800
+CACHE_TTL = 1800  # 30 minutes
 
 def fetch_page_content(url: str) -> str:
     domain = urlparse(url).netloc.replace("www.", "")
@@ -247,7 +220,7 @@ def fetch_page_content(url: str) -> str:
         for tag in soup(["script", "style", "nav", "footer", "header", "form", "iframe"]):
             tag.decompose()
         text = soup.get_text(separator=" ", strip=True)
-        content = " ".join(text.split())[:1500]
+        content = " ".join(text.split())[:1500]  # reduced from 3000
         _page_cache[url] = (content, now)
         return content
     except Exception:
@@ -290,9 +263,14 @@ def get_dynamic_context() -> str:
 def get_ai_response(question: str, knowledge_base: list, history: list) -> str:
 
     topic = detect_topic(question)
+
+    # Live page content (1 URL, 1500 chars max)
     live_content = fetch_live_content(question)
+
+    # Real-time context (single line)
     dynamic_context = get_dynamic_context()
 
+    # KB: filter by topic first, fall back to general, cap at 25 entries
     relevant = [e for e in knowledge_base if e.get("active", True) and e.get("topic") == topic]
     if len(relevant) < 10:
         relevant += [e for e in knowledge_base if e.get("active", True) and e.get("topic") != topic]
@@ -302,6 +280,7 @@ def get_ai_response(question: str, knowledge_base: list, history: list) -> str:
         for e in relevant
     )
 
+    # History: last 5 exchanges only
     history_text = ""
     for msg in history[-5:]:
         role = "Student" if msg.get("role") == "user" else "Kai"
@@ -341,8 +320,7 @@ Student: {question}
 Kai:"""
 
     keys = get_api_keys()
-    # ── THE FIX: use the real model name ──────────────────────
-    model = os.getenv("GEMINI_MODEL", "gemini-3-flash")
+    model = os.getenv("GEMINI_MODEL", "gemini-3.1-flash-lite-preview")
 
     print(f"[API Rotation] {len(keys)} key(s) — model: {model}")
 
@@ -356,36 +334,19 @@ Kai:"""
             client = genai.Client(api_key=key)
             response = client.models.generate_content(
                 model=model,
-                contents=prompt
+                contents=prompt,
+                config=types.GenerateContentConfig(
+                    thinking_config=types.ThinkingConfig(thinking_level="minimal")
+                )
             )
             print(f"[API Rotation] Key {i} succeeded ✅")
             return response.text
         except Exception as e:
             last_error = e
-            error_str = str(e)
-
-            if "limit: 0" in error_str:
-                print(f"[API Rotation] Key {i} CRITICAL: Zero quota — key has no allocation")
-            elif "429" in error_str or "RESOURCE_EXHAUSTED" in error_str:
-                print(f"[API Rotation] Key {i} failed: Rate limited or quota exceeded")
-            elif "401" in error_str or "UNAUTHENTICATED" in error_str:
-                print(f"[API Rotation] Key {i} failed: Invalid/expired key")
-            elif "403" in error_str or "PERMISSION_DENIED" in error_str:
-                print(f"[API Rotation] Key {i} failed: API not enabled in project")
-            elif "FAILED_PRECONDITION" in error_str:
-                print(f"[API Rotation] Key {i} failed: FAILED_PRECONDITION — check model name or billing setup")
-            else:
-                print(f"[API Rotation] Key {i} failed: {error_str[:200]}")
+            print(f"[API Rotation] Key {i} failed: {str(e)[:200]}")
             continue
 
     print(f"[API Rotation] All {len(keys)} key(s) exhausted. Last error: {last_error}")
-
-    if last_error and "limit: 0" in str(last_error):
-        return (
-            "⚠️ My API keys have run out of quota. Please contact the system administrator "
-            "or registry@acity.edu.gh for urgent queries."
-        )
-
     return (
         "I'm experiencing high demand right now. Please try again in a few minutes "
         "or contact registry@acity.edu.gh for urgent queries."
