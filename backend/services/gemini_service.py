@@ -406,6 +406,8 @@ ANSWER PRIORITY:
 2. Use LIVE CONTENT if KB has nothing — extract the answer clearly
 3. Use CONTEXT block for date/semester/office hour questions
 4. Last resort: general knowledge + direct to registry@acity.edu.gh
+5. Prioritise answering by  collecting all data from all the databases possible and online research.
+6. Save Token when possible. Sometimes, you need to be precise and answer in one line; sometimes, you need to answer a lot, so be dynamic.
 
 HISTORY:
 {history_text}
