@@ -45,6 +45,20 @@ def _cooldown(i, seconds=65):
     print(f"[Key Cooldown] Key {i+1} resting for {seconds}s")
 
 
+# ── FIX 3: Singleton Gemini clients (one per key index) ───────
+# Previously a new genai.Client was created on every single request,
+# which rebuilds the HTTP connection pool and SSL context each time.
+# Now we reuse the same client object for the lifetime of the worker.
+# Safe because API keys come from env vars and never change at runtime.
+_gemini_clients: dict = {}  # {key_index: genai.Client}
+
+def _get_client(idx: int, key: str) -> genai.Client:
+    if idx not in _gemini_clients:
+        _gemini_clients[idx] = genai.Client(api_key=key)
+        print(f"[Client Pool] Created new client for key {idx+1}")
+    return _gemini_clients[idx]
+
+
 # ── Response cache (5-min TTL) ────────────────────────────────
 # Identical questions served from memory — zero API calls.
 _response_cache: dict = {}
@@ -248,7 +262,11 @@ def fetch_page_content(url: str) -> str:
         r = requests.get(url, timeout=6, headers=headers)
         if r.status_code != 200:
             return ""
-        soup = BeautifulSoup(r.text, "html.parser")
+        # FIX 5: Cap raw HTML at 80KB before passing to BeautifulSoup.
+        # A typical ACity page is 150–400KB; parsing all of it to extract
+        # 1500 chars wastes 8–10× more RAM than necessary. 80KB gives enough
+        # margin to capture content that sits after headers/navigation.
+        soup = BeautifulSoup(r.text[:80000], "html.parser")
         for tag in soup(["script", "style", "nav", "footer", "header", "form", "iframe"]):
             tag.decompose()
         text = soup.get_text(separator=" ", strip=True)
@@ -349,8 +367,18 @@ def get_ai_response(question: str, knowledge_base: list, history: list) -> str:
     # 3. Smart KB filter — top 12 relevant entries only
     kb_text = get_relevant_kb_entries(question, knowledge_base, topic, max_entries=12)
 
-    # 4. Fetch live page content
-    live_content = fetch_live_content(question)
+    # 4. FIX 2: Conditional live fetch.
+    # Count how many KB entries were matched by checking "Q: " occurrences in
+    # the returned text. If the KB already has 3+ relevant entries for this
+    # question, live content adds little value and burns BeautifulSoup memory
+    # on every cold-start. We only fetch live when the KB is thin on answers.
+    kb_match_count = kb_text.count("Q: ")
+    if kb_match_count >= 3:
+        live_content = ""
+        print(f"[Live Fetch] Skipped — KB returned {kb_match_count} entries, sufficient.")
+    else:
+        live_content = fetch_live_content(question)
+        print(f"[Live Fetch] Triggered — KB only had {kb_match_count} entries.")
 
     # 5. Real-time context
     dynamic_context = get_dynamic_context()
@@ -394,7 +422,9 @@ End every response with:
 
 Answer:"""
 
-    # 8. API key rotation with cooldown — only try available keys
+    # 8. API key rotation with cooldown — only try available keys.
+    # FIX 3: Use _get_client() to reuse existing genai.Client instances
+    # instead of creating a new one (with its HTTP pool) on every request.
     keys = get_api_keys()
     model = "gemini-3.1-flash-lite-preview"
     available = _available_keys(keys)
@@ -416,7 +446,8 @@ Answer:"""
     for idx, key in available:
         try:
             print(f"[API Rotation] Trying key {idx+1}/{len(keys)}...")
-            client = genai.Client(api_key=key)
+            # FIX 3: Reuse singleton client — no new HTTP pool per request
+            client = _get_client(idx, key)
             response = client.models.generate_content(
                 model=model,
                 contents=prompt
