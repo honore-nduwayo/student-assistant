@@ -399,7 +399,7 @@ FORMATTING RULES (never break these):
 - Use numbered steps for any process (how to apply, how to pay, etc.)
 - Use bullet points (•) for lists of facts
 - Bold key terms with **bold**
-- Keep answers concise — 1–2 sentences per point
+- Keep answers concise — 1–2 sentences per point BUT GIVE A FULL ANSWER AS POSSIBLE. DO ACCESS THE LINKS WHEN NECESSARY FOR MORE FACTUAL AND BROAD RESPONSE.
 
 ANSWER PRIORITY:
 1. Use KNOWLEDGE BASE entries below if relevant — give the info directly
