@@ -446,7 +446,7 @@ export default function Chat() {
                 sendMessage();
               }
             }}
-            placeholder="Ask Kai anything about ACity..."
+            placeholder="Ask KAI anything about ACity..."
             rows={2}
           />
           <button
