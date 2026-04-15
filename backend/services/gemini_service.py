@@ -428,7 +428,7 @@ Answer:"""
     # FIX 3: Use _get_client() to reuse existing genai.Client instances
     # instead of creating a new one (with its HTTP pool) on every request.
     keys = get_api_keys()
-    model = "gemini-3.1-flash-lite-preview"
+    model = "gemini-2.5-flash-lite"
     available = _available_keys(keys)
 
     print(f"[API Rotation] {len(available)}/{len(keys)} key(s) available — model: {model}")
